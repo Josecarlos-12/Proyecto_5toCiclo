@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     public CharacterController cc;
     public float Velocidad = 12;
+    public float Agachado = 6;
 
     public float Gravedad = -9.81f;
     public Vector3 velocity;
@@ -32,6 +33,11 @@ public class Movement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
+
+        if(Input.GetKey(KeyCode.LeftShift))
+        cc.Move(move * Agachado * Time.deltaTime);
+
+        else
         cc.Move(move * Velocidad * Time.deltaTime);
 
 
