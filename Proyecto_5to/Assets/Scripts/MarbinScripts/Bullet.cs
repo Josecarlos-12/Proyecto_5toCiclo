@@ -8,8 +8,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //GameObject bulletClone = Instantiate(bulletHolePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.LookRotation(new Vector3(transform.rotation.x, 0,0)));
-        Destroy(gameObject);
-        //Destroy(bulletClone, 2f);
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Floor"))
+        {
+            //GameObject bulletClone = Instantiate(bulletHolePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.LookRotation(new Vector3(transform.rotation.x, 0,0)));
+            Destroy(gameObject);
+            //Destroy(bulletClone, 2f);
+        }
+
     }
+
 }
