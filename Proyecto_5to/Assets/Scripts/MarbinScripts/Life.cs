@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Life : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class Life : MonoBehaviour
         // Si la vida en menor a 0 que el protagonista se destruya
         if (life <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            SceneManager.LoadScene("TestingScene");
         }
     }
 
@@ -33,6 +35,10 @@ public class Life : MonoBehaviour
             life--;
             damage.material.color = newColor;
             StartCoroutine(White());
+        }
+        if(other.gameObject.name == "Death")
+        {
+            life = 0;
         }
     }
 

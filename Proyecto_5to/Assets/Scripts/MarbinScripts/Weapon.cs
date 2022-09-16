@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public GameObject initialBullet;
     public GameObject bulletPrefab;
-    public float speedBullet = 200;
+    public float speedBullet = 500;
 
     public float timeShoot = 0.2f;
     public float initialShoot;
@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
             rb.AddForce(transform.forward * speedBullet);
 
             // Destrui la bala
-            Destroy(bulletTemporal, 4);
+            Destroy(bulletTemporal, 2);
         }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.6826, g: 2264.084, b: 3287.5352, a: 1}
+  m_IndirectSpecularColor: {r: 2159.747, g: 2263.6367, b: 3286.625, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -514,14 +514,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540373859}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.73654747, z: -2.26}
+  m_LocalRotation: {x: 0.06551536, y: -0, z: -0, w: 0.9978516}
+  m_LocalPosition: {x: 0, y: 1.4, z: -3.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1916263533}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.513, y: 0, z: 0}
 --- !u!1 &579430868
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 1135612274}
   m_Layer: 0
   m_Name: Piso
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1374,7 +1374,7 @@ MonoBehaviour:
   life: 3
   color: {r: 1, g: 1, b: 1, a: 1}
   newColor: {r: 1, g: 0, b: 0, a: 1}
-  damage: {fileID: 0}
+  damage: {fileID: 1916263531}
 --- !u!114 &1916263535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ceedfc94be023428d94560fd57784f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 10
+  jumpHeight: 5.5
   grounded: 0
   maxJumpCount: 2
   jumpsRemaining: 0
