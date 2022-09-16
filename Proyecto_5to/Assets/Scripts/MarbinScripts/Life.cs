@@ -5,8 +5,10 @@ using UnityEngine;
 public class Life : MonoBehaviour
 {
     [Header("Amount life")]
-    [SerializeField] private int life = 100;
-
+    [SerializeField] private int life = 3;
+    public Color color= Color.white;
+    public Color newColor= Color.red;
+    public Renderer damage;
 
     public void Update()
     {
@@ -29,7 +31,15 @@ public class Life : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             life--;
+            damage.material.color = newColor;
+            StartCoroutine(White());
         }
     }
 
+
+    public IEnumerator White()
+    {
+        yield return new WaitForSeconds(2);
+        damage.material.color = color;
+    }
 }

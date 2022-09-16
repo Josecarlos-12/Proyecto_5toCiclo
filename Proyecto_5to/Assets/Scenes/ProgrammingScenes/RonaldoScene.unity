@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -944,10 +944,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cc: {fileID: 1995608321}
   Velocidad: 12
+  Agachado: 6
   Gravedad: -9.81
   velocity: {x: 0, y: 0, z: 0}
   groundCheck: {fileID: 1296316014}
   groundDistance: 0.4
   floorMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
