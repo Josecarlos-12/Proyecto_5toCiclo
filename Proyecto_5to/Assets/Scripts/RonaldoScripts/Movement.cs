@@ -4,45 +4,43 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public CharacterController cc;
-    public float Velocidad = 12;
-    public float Agachado = 6;
+    private new Rigidbody rigidbody;
 
-    public float Gravedad = -9.81f;
-    public Vector3 velocity;
+    public float caminar;
+    public float agachado;
+    float Speed;
 
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask floorMask;
-    bool isGrounded;
+    void Start()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+    }
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, floorMask);
 
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
+        Move();
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(3 * -2 * Gravedad);
-        }
-
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        if(Input.GetKey(KeyCode.LeftShift))
-        cc.Move(move * Agachado * Time.deltaTime);
+    }
+    void Move()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+            Speed = agachado;
 
         else
-        cc.Move(move * Velocidad * Time.deltaTime);
+            Speed = caminar;
 
+        float hor = Input.GetAxisRaw("Horizontal");
+        float ver = Input.GetAxisRaw("Vertical");
 
-        velocity.y += Gravedad * Time.deltaTime;
-        cc.Move(velocity * Time.deltaTime);
+        Vector3 velocity = Vector3.zero;
 
+        if (hor != 0 || ver != 0)
+        {
+            Vector3 direction = (transform.forward * ver + transform.right * hor).normalized;
+
+            velocity = direction * Speed;
+        }
+
+        velocity.y = rigidbody.velocity.y;
+        rigidbody.velocity = velocity;
     }
 }
