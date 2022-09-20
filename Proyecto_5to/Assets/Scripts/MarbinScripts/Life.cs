@@ -32,6 +32,7 @@ public class Life : MonoBehaviour
         //Si toca al enemigo que le baje vida
         if (other.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Toco");
             life--;
             damage.material.color = newColor;
             StartCoroutine(White());
