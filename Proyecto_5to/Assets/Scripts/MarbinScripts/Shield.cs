@@ -42,5 +42,11 @@ public class Shield : MonoBehaviour
         yield return new WaitForSeconds(Regeneration);
         shieldLife.duration = false;
         shieldLife.lifeShield = shieldLife.currentLife;
+        shieldLife.hexa1.SetActive(true);
+        shieldLife.hexa2.SetActive(true);
+        shieldLife.hexa3.SetActive(true);
+        shieldLife.hexa4.SetActive(true);
+        shieldLife.hexa5.SetActive(true);
+        shieldLife.hexa6.SetActive(true);
     }
 }

@@ -5,9 +5,11 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class ShieldLife : MonoBehaviour
 {
-    public int currentLife = 10;
-    public int lifeShield = 10;
+    public int currentLife = 70;
+    public int lifeShield = 70;
     public bool duration=false;
+
+    public GameObject hexa1, hexa2, hexa3, hexa4, hexa5, hexa6, hexa7;
 
     private void Start()
     {
@@ -26,7 +28,31 @@ public class ShieldLife : MonoBehaviour
 
     public void LessLife()
     {
-        if(lifeShield <= 0)
+        if (lifeShield < 70)
+        {
+            hexa1.SetActive(false);
+        }
+        if (lifeShield < 60)
+        {
+            hexa2.SetActive(false);
+        }
+        if (lifeShield < 50)
+        {
+            hexa3.SetActive(false);
+        }
+        if (lifeShield < 40)
+        {
+            hexa4.SetActive(false);
+        }
+        if (lifeShield < 30)
+        {
+            hexa5.SetActive(false);
+        }
+        if (lifeShield < 20)
+        {
+            hexa6.SetActive(false);
+        }
+        if (lifeShield <= 0)
         {
             duration = true;
         }
@@ -36,7 +62,7 @@ public class ShieldLife : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        
         if (other.gameObject.CompareTag("Enemy"))
         {
             lifeShield -= 1;

@@ -7,9 +7,11 @@ public class Life : MonoBehaviour
 {
     [Header("Amount life")]
     [SerializeField] private int life = 3;
+    [SerializeField] private int maxLife = 3;
     public Color color= Color.white;
     public Color newColor= Color.red;
     public Renderer damage;
+    public Intangible intangible;
 
     public void Update()
     {
@@ -33,13 +35,23 @@ public class Life : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Toco");
-            life--;
-            damage.material.color = newColor;
+            
+            if (!intangible.respawn)
+            {
+                life--;
+                damage.material.color = newColor;
+            }
+            
             StartCoroutine(White());
         }
         if(other.gameObject.name == "Death")
         {
             life = 0;
+        }
+        if (other.gameObject.CompareTag("MaxLife"))
+        {
+            life = maxLife;
+            Destroy(other.gameObject);
         }
     }
 
@@ -47,6 +59,9 @@ public class Life : MonoBehaviour
     public IEnumerator White()
     {
         yield return new WaitForSeconds(2);
-        damage.material.color = color;
+        if (!intangible.respawn)
+        {
+            damage.material.color = color;
+        }        
     }
 }
