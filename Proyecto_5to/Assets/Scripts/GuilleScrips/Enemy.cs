@@ -11,8 +11,9 @@ public class Enemy : MonoBehaviour
     bool Alert;
     public GameObject Bullet;
     public Transform shotSpawn;
-    public float bulletVelocity;
-    private float timer = 5f;
+    public float bulletVelocity; 
+    public float timeShoot = 0.2f;
+    public float initialShoot;
     [Header("Amount life")]
     [SerializeField] private int Life = 100;
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class Enemy : MonoBehaviour
     {
         Alert = Physics.CheckSphere(transform.position, AlertRange, capaDelJugador);
 
-        if (Alert==true)
+        if (Alert == true)
         {
             Vector3 posJugador = new Vector3(player.position.x, transform.position.y, player.position.z);
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
@@ -45,15 +46,17 @@ public class Enemy : MonoBehaviour
 
     void Shoot()
     {
-        timer -= Time.deltaTime;
-        if (timer<=5)
+        if (Time.time > initialShoot)
         {
             Vector3 playerDirection = player.position - transform.position;
-            GameObject newBullet;
-            newBullet = Instantiate(Bullet, shotSpawn.position, shotSpawn.rotation);
-            newBullet.GetComponent<Rigidbody>().AddForce(playerDirection * bulletVelocity, ForceMode.Force);
+            initialShoot = Time.time + timeShoot;
+            GameObject bulletTemporal = Instantiate(Bullet, shotSpawn.transform.position, shotSpawn.transform.rotation) as GameObject;
+            Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
+            bulletTemporal.GetComponent<Rigidbody>().AddForce(playerDirection * bulletVelocity, ForceMode.Force);
+
         }
     }
+
 
     public void OnTriggerEnter(Collider other)
     {
