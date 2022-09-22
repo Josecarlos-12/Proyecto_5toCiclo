@@ -16,6 +16,7 @@ public class Life : MonoBehaviour
     public int recover = 3;
     public GameObject prota;
 
+    public Transform positionInitial;
     public void Update()
     {
         LifeDestroy();
@@ -31,7 +32,7 @@ public class Life : MonoBehaviour
             intangible.Respawn();
             life = maxLife;
             recover -= 1;
-            Debug.Log("Respaw: " + recover);
+            //Debug.Log("Respaw: " + recover);
         }
         if(recover <= 0)
         {            
@@ -45,11 +46,9 @@ public class Life : MonoBehaviour
         //Si toca al enemigo que le baje vida
         if (other.gameObject.CompareTag("Enemy"))
         {
-            
-            
             if (!intangible.respawn)
             {
-                Debug.Log("Vida: " + life);
+                //Debug.Log("Vida: " + life);
                 life--;
                 damage.material.color = newColor;
             }
@@ -58,7 +57,9 @@ public class Life : MonoBehaviour
         }
         if(other.gameObject.name == "Death")
         {
-            life = 0;
+            prota.transform.position = positionInitial.position;
+            intangible.RespawnTwo();
+            recover -= 1;
         }
         if (other.gameObject.CompareTag("MaxLife"))
         {

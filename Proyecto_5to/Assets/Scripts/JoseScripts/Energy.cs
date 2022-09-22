@@ -12,6 +12,7 @@ public class Energy : MonoBehaviour
     public bool laser;
     public bool dash;
     public Weapon weapon;
+    public bool use;
 
     // Start is called before the first frame update
     void Start()
@@ -23,26 +24,28 @@ public class Energy : MonoBehaviour
     void Update()
     {
        LessEnergy();
-        if (energy < 100 && !shoot)
-        {
-            StartCoroutine(Recover());
-        }
     }
 
     public IEnumerator Recover()
     {
         yield return new WaitForSeconds(5);
-        if(energy <= 99)
-        {
-            energy += 1;
-        }        
+          
+    }
+
+    public void ReductionEnergy()
+    {
+        energy -= 2;
     }
 
     public void LessEnergy()
     {
-        if (shoot)
+        if (energy <= 0)
         {
-            energy -= 2;
+            use = true;
+        }
+        else
+        {
+            use = false;
         }
     }
 }
