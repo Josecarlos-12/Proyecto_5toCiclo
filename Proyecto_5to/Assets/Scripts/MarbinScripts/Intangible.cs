@@ -25,7 +25,13 @@ public class Intangible : MonoBehaviour
         StartCoroutine(Return());
         respawn = true;
     }
-
+    public void RespawnTwo()
+    {
+        life.enabled = false;
+        prota.material.color = Color.green;
+        StartCoroutine(Return());
+        respawn = true;
+    }
 
 
     public IEnumerator Return()

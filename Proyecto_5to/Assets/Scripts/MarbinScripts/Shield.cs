@@ -9,6 +9,7 @@ public class Shield : MonoBehaviour
     public Animator anim;
     public ShieldLife shieldLife;
     public int Regeneration=4;
+    public bool useShield;
 
     void Update()
     {
@@ -22,10 +23,12 @@ public class Shield : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !shieldLife.duration)
         {
             shield.SetActive(true);
+            useShield = true;
         }
         else if (Input.GetKeyUp(KeyCode.E) || shieldLife.duration)
         {
             anim.SetBool("On", true);
+            useShield = false;
         }
     }
 

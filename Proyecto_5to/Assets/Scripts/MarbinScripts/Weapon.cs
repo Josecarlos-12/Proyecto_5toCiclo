@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     public float timeShoot = 0.2f;
     public float initialShoot;
     public Energy energy;
-
+    public Shield shield;
 
     private void Update()
     {
@@ -20,9 +20,9 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time > initialShoot)
+        if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield==false)
         {
-            energy.shoot = true;
+            energy.ReductionEnergy();
             initialShoot = Time.time + timeShoot;
 
             //Instacie bulletPrefab en la posicion de initialBullet
@@ -37,9 +37,6 @@ public class Weapon : MonoBehaviour
             // Destrui la bala
             Destroy(bulletTemporal, 2);
         }
-        else
-        {
-            energy.shoot = false;
-        }
-    }
+    } 
 }
+
