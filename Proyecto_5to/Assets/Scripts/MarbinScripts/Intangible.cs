@@ -16,16 +16,14 @@ public class Intangible : MonoBehaviour
         positionProta.GetComponent<Transform>();
     }
 
-    void Update()
+
+    public void Respawn()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            positionProta.position = new Vector3(positionProta.position.x, 9);
-            life.enabled = false;
-            prota.material.color = Color.green;
-            StartCoroutine(Return());
-            respawn = true;
-        }
+        positionProta.position = new Vector3(positionProta.position.x, 9, positionProta.position.z);
+        life.enabled = false;
+        prota.material.color = Color.green;
+        StartCoroutine(Return());
+        respawn = true;
     }
 
 
