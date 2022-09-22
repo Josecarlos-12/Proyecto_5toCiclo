@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.4775, g: 2264.5547, b: 3287.5195, a: 1}
+  m_IndirectSpecularColor: {r: 2159.546, g: 2263.3047, b: 3286.3828, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1335,6 +1335,7 @@ GameObject:
   - component: {fileID: 794107942}
   - component: {fileID: 794107944}
   - component: {fileID: 794107943}
+  - component: {fileID: 794107945}
   m_Layer: 3
   m_Name: Life
   m_TagString: Untagged
@@ -1391,6 +1392,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &794107945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794107941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63cb430bae6882343842b066efb1d0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energy: 100
+  lessEnergy: 0
+  shoot: 0
+  laser: 0
+  dash: 0
+  weapon: {fileID: 1793469768}
 --- !u!1 &935681376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,6 +2286,7 @@ MonoBehaviour:
   speedBullet: 200
   timeShoot: 0.2
   initialShoot: 0
+  energy: {fileID: 794107945}
 --- !u!1 &1823688464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,6 +2757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rb: {fileID: 0}
+  movementVector: {x: 0, y: 0, z: 0}
 --- !u!54 &1916263536
 Rigidbody:
   m_ObjectHideFlags: 0
