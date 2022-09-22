@@ -22,7 +22,6 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotacion, 0, 0);
 
         playerBody.Rotate(Vector3.up * mouseX);
-        print(xRotacion);
 
     }
 }
