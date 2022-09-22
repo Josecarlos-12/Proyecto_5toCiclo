@@ -25,8 +25,8 @@ public class MoveRGB : MonoBehaviour
 
         if (horizontal != 0 || vertical != 0)
         {
-            Vector3 direction = (transform.forward * vertical + transform.right * horizontal).normalized;
-            velocity = direction * speed;
+            movementVector = (transform.forward * vertical + transform.right * horizontal).normalized;
+            velocity = movementVector * speed;
             //float vel = speed;
             //Vector3 dir = transform.forward.normalized * vel * inputMove.x + transform.right.normalized * vel * inputMove.z;
             //rb.MovePosition(transform.position + dir * speed * Time.deltaTime);

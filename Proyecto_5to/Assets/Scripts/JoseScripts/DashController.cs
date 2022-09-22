@@ -2,64 +2,40 @@ using UnityEngine;
 
 public class DashController : MonoBehaviour
 {
-    public bool isDashing;
+    public float dashSpeed;
+    Rigidbody rb;
+    bool isDashing;
 
-    private int dashAttempts;
-    private float dashStarTime;
+    public GameObject dashEffect;
 
-    MoveRGB playerController;
-    CharacterController characterController;
-    
     // Start is called before the first frame update
     void Start()
     {
-        playerController.GetComponent<MoveRGB>();
-        characterController.GetComponent<CharacterController>();
+        rb=GetComponent<Rigidbody>();
     }
 
-    private void Update()
+     void Update()
     {
-        HandleDash();
+       if(Input.GetKeyDown(KeyCode.LeftShift))
+       isDashing=true;
     }
-    void HandleDash()
+
+    private void FixedUpdate()
     {
-        bool isTryingToDash=Input.GetKeyDown(KeyCode.LeftShift);
-
-        if(isTryingToDash&&!isDashing)
-        {
-            if(dashAttempts<=50)
-            {
-                OnStartDash();
-            }
-        }
-
         if(isDashing)
-        {
-            if(Time.time-dashStarTime<=0.4f)
-            {
-                if(playerController.movementVector.Equals(Vector3.zero))
-                {
-                    characterController.Move(transform.forward*30f*Time.deltaTime);
-                }
-                else
-                {
-                    characterController.Move(playerController.movementVector.normalized*30f*Time.deltaTime);
-                }
-            } else
-            {
-                OnEndDash();
-            }
-        }
+        Dashing();
     }
 
-    void OnStartDash()
+    private void Dashing()
     {
+        rb.AddForce(transform.forward*dashSpeed,ForceMode.Impulse);
+        isDashing=false;
 
+        GameObject effect= Instantiate(dashEffect, Camera.main.transform.position, dashEffect.transform.rotation);
+        effect.transform.parent=Camera.main.transform;
+        effect.transform.LookAt(transform);
     }
 
-    void OnEndDash()
-    {
-
-    }
+    
 
 }
