@@ -7,6 +7,8 @@ public class MoveRGB : MonoBehaviour
 {
     public float speed;
     public Rigidbody rb;
+
+    public Vector3 movementVector = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,7 @@ public class MoveRGB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal= Input.GetAxis("Horizontal");
+        float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 velocity = Vector3.zero;
