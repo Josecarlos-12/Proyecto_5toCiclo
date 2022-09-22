@@ -176,6 +176,7 @@ MonoBehaviour:
   speedBullet: 500
   timeShoot: 0.2
   initialShoot: 0
+  energy: {fileID: 0}
 --- !u!65 &128540187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1263,6 +1264,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cb430bae6882343842b066efb1d0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy: 100
+  lessEnergy: 0
+  shoot: 0
+  laser: 0
+  dash: 0
+  weapon: {fileID: 0}
 --- !u!114 &2057728016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,7 +1428,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057728014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2332e2788d01804fb544b35c5010257, type: 3}
   m_Name: 
@@ -1441,6 +1448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DashEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5968683736330681681, guid: 00549afdb97dd044b93075dd27979162,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5968683736330681686, guid: 00549afdb97dd044b93075dd27979162,
         type: 3}
