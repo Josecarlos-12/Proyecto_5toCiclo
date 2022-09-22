@@ -13,6 +13,9 @@ public class Life : MonoBehaviour
     public Renderer damage;
     public Intangible intangible;
 
+    public int recover = 3;
+    public GameObject prota;
+
     public void Update()
     {
         LifeDestroy();
@@ -24,7 +27,15 @@ public class Life : MonoBehaviour
         if (life <= 0)
         {
             //Destroy(gameObject);
-            SceneManager.LoadScene("TestingScene");
+            //SceneManager.LoadScene("TestingScene");
+            intangible.Respawn();
+            life = maxLife;
+            recover -= 1;
+            Debug.Log("Respaw: " + recover);
+        }
+        if(recover <= 0)
+        {            
+            Destroy(prota);
         }
     }
 
@@ -34,10 +45,11 @@ public class Life : MonoBehaviour
         //Si toca al enemigo que le baje vida
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Toco");
+            
             
             if (!intangible.respawn)
             {
+                Debug.Log("Vida: " + life);
                 life--;
                 damage.material.color = newColor;
             }
@@ -51,6 +63,11 @@ public class Life : MonoBehaviour
         if (other.gameObject.CompareTag("MaxLife"))
         {
             life = maxLife;
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("Recover"))
+        {
+            recover += 1;
             Destroy(other.gameObject);
         }
     }
