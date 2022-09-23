@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Life : MonoBehaviour
 {
     [Header("Amount life")]
-    [SerializeField] private int life = 3;
-    [SerializeField] private int maxLife = 3;
+    [SerializeField] private float life = 3;
+    [SerializeField] private float maxLife = 3;
     public Color color= Color.white;
     public Color newColor= Color.red;
     public Renderer damage;
@@ -17,9 +18,14 @@ public class Life : MonoBehaviour
     public GameObject prota;
 
     public Transform positionInitial;
+
+    public Image image;
+
     public void Update()
     {
         LifeDestroy();
+
+        image.fillAmount = life / maxLife;
     }
 
     public void LifeDestroy()

@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Energy : MonoBehaviour
 {
     [Header("Energy Amount")]
     [Range(0,100)]
-    [SerializeField] private int energy = 100;
+    [SerializeField] private float energy = 100;
+    [SerializeField] private float energyMax = 100;
     public int lessEnergy;
     public bool shoot;
     public bool laser;
@@ -18,6 +20,9 @@ public class Energy : MonoBehaviour
     public bool recoverEnergy;
     public int count;
     public float timer;
+
+    public Image image;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +32,7 @@ public class Energy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        image.fillAmount = energy / energyMax;
        LessEnergy();
         AddEnergy();
     }
