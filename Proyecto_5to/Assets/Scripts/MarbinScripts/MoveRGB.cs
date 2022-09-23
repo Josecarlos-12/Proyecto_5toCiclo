@@ -7,14 +7,24 @@ public class MoveRGB : MonoBehaviour
 {
     public float speed;
     public Rigidbody rb;
+    
+    [Header("Crouching")]
     public float initialSpeed;
     public float crawlSpeed;
+    //public float crouchSpeed;
+    public float crouchYScale;
+    private float startYScale;
+
+    //[Header("Keybinds")]
+    //public KeyCode crouchKey=KeyCode.LeftControl;
 
     public Vector3 movementVector = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        startYScale=transform.localScale.y;
+        
         initialSpeed = speed;
         crawlSpeed = speed*0.5f;
     }
@@ -37,14 +47,29 @@ public class MoveRGB : MonoBehaviour
             //rb.velocity = transform.forward.normalized * vel * inputMove.z + transform.right.normalized * vel * inputMove.x;
         }
         
+        //Te agachas
         if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            speed=crawlSpeed;
+            transform.localScale=new Vector3(transform.localScale.x,crouchYScale,transform.localScale.z);
+            rb.AddForce(Vector3.down*5f, ForceMode.Impulse);
+        }
+        
+        //Dejas de agacharte
+        else if(Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            transform.localScale=new Vector3(transform.localScale.x,startYScale,transform.localScale.z);
+            speed= initialSpeed;
+        }
+
+        /*if(Input.GetKeyDown(KeyCode.LeftControl))
         {
             speed=crawlSpeed;
         }
         else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             speed= initialSpeed;
-        }
+        }*/
 
         velocity.y = rb.velocity.y;
         rb.velocity = velocity;
