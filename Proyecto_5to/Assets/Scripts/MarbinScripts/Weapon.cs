@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour
             rb.AddForce(transform.forward * speedBullet);
 
             // Destrui la bala
-            Destroy(bulletTemporal, 2);
+            Destroy(bulletTemporal, 0.5f);
         }
     } 
 }

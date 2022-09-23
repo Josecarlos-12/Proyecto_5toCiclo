@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.538, g: 2263.3047, b: 3286.3867, a: 1}
+  m_IndirectSpecularColor: {r: 2161.8174, g: 2265.754, b: 3288.9531, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1788,7 +1788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234786655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 22.6, z: 13.94}
+  m_LocalPosition: {x: -53.4, y: -6.1, z: 13.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3819,7 +3819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlertRange: 7.14
+  AlertRange: 10.21
   capaDelJugador:
     serializedVersion: 2
     m_Bits: 8
@@ -4645,7 +4645,7 @@ MonoBehaviour:
   initialBullet: {fileID: 1377457498}
   bulletPrefab: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
-  speedBullet: 700
+  speedBullet: 900
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 255167180}
@@ -5724,7 +5724,7 @@ MonoBehaviour:
   initialBullet: {fileID: 1803694977}
   bulletPrefab: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
-  speedBullet: 700
+  speedBullet: 900
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 255167180}
@@ -5792,7 +5792,7 @@ RectTransform:
   m_GameObject: {fileID: 1832420270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5516, y: 0.21736, z: 1}
+  m_LocalScale: {x: 2.8712358, y: 0.21736, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 205382974}
@@ -5800,7 +5800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 113, y: -27}
+  m_AnchoredPosition: {x: 167, y: -35}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1832420272
@@ -6189,6 +6189,8 @@ MonoBehaviour:
   weapon: {fileID: 1377457500}
   pointWeaponA: {fileID: 1377457498}
   pointWeaponB: {fileID: 1803694977}
+  positiveX: 0
+  negativeX: 0
 --- !u!114 &1916200335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6392,7 +6394,7 @@ RectTransform:
   m_GameObject: {fileID: 1945813952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5516, y: 0.21736, z: 1}
+  m_LocalScale: {x: 2.6918697, y: 0.21736, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 205382974}
@@ -6400,8 +6402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -109, y: -27}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -170.2, y: -35}
+  m_SizeDelta: {x: 108.32, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1945813954
 MonoBehaviour:

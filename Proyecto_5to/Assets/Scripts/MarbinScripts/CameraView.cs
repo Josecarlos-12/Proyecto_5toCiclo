@@ -19,6 +19,8 @@ public class CameraView : MonoBehaviour
     public Weapon weapon;
     public GameObject pointWeaponA, pointWeaponB;
 
+    public float positiveX, negativeX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,8 @@ public class CameraView : MonoBehaviour
         cameraBody.transform.position = pointA.position;
         pointer.SetActive(false);
         weapon.enabled = false;
+        positiveX = 40;
+        negativeX = -10;
     }
 
     // Update is called once per frame
@@ -41,6 +45,8 @@ public class CameraView : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2"))
         {
+            positiveX = 90;
+            negativeX = -90;
             pointWeaponA.SetActive(true);
             pointWeaponB.SetActive(false);
             weapon.enabled = true;
@@ -49,6 +55,8 @@ public class CameraView : MonoBehaviour
         }
         else if (Input.GetButtonUp("Fire2"))
         {
+            positiveX = 40;
+            negativeX = -10;
             pointWeaponA.SetActive(false);
             pointWeaponB.SetActive(true);
             weapon.enabled = false;
@@ -66,7 +74,7 @@ public class CameraView : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90);
+        xRotation = Mathf.Clamp(xRotation, negativeX, positiveX);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 

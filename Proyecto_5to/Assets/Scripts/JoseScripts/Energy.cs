@@ -40,12 +40,12 @@ public class Energy : MonoBehaviour
     public void AddEnergy()
     {
         timer += Time.deltaTime;
-        if (timer >= 1)
+        if (timer >= 0.2)
         {
             timer -= 1;
             if (energy < 100)
             {
-                energy++;
+                energy+=3;
             }
         }
         if(energy < 0)
