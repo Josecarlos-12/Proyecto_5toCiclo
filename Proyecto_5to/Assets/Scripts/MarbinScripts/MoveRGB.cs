@@ -7,12 +7,16 @@ public class MoveRGB : MonoBehaviour
 {
     public float speed;
     public Rigidbody rb;
+    public float initialSpeed;
+    public float crawlSpeed;
 
     public Vector3 movementVector = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        initialSpeed = speed;
+        crawlSpeed = speed*0.5f;
     }
 
     // Update is called once per frame
@@ -31,6 +35,15 @@ public class MoveRGB : MonoBehaviour
             //Vector3 dir = transform.forward.normalized * vel * inputMove.x + transform.right.normalized * vel * inputMove.z;
             //rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
             //rb.velocity = transform.forward.normalized * vel * inputMove.z + transform.right.normalized * vel * inputMove.x;
+        }
+        
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            speed=crawlSpeed;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            speed= initialSpeed;
         }
 
         velocity.y = rb.velocity.y;
