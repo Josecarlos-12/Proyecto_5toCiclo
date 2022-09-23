@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.5166, g: 2264.5312, b: 3287.625, a: 1}
+  m_IndirectSpecularColor: {r: 2160.1924, g: 2264.5215, b: 3287.875, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -285,6 +285,7 @@ MonoBehaviour:
   shieldLife: {fileID: 224052290}
   Regeneration: 4
   useShield: 0
+  timer: 0
 --- !u!114 &105108544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,8 +303,12 @@ MonoBehaviour:
   shoot: 0
   laser: 0
   dash: 0
+  jump: 0
   weapon: {fileID: 1657115371}
   use: 0
+  recoverEnergy: 0
+  count: 0
+  timer: 0
 --- !u!114 &105108545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +325,8 @@ MonoBehaviour:
   grounded: 0
   maxJumpCount: 2
   jumpsRemaining: 0
+  energy: {fileID: 0}
+  count: 0
 --- !u!114 &105108546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,8 +339,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6500e0f20376c894fad73c03184183fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  rb: {fileID: 0}
+  speed: 7
+  rb: {fileID: 105108547}
+  initialSpeed: 0
+  crawlSpeed: 0
   movementVector: {x: 0, y: 0, z: 0}
 --- !u!54 &105108547
 Rigidbody:
@@ -803,6 +812,7 @@ MonoBehaviour:
   four: 0
   five: 0
   six: 0
+  hexa: []
 --- !u!4 &224052291
 Transform:
   m_ObjectHideFlags: 0
@@ -1148,8 +1158,12 @@ MonoBehaviour:
   shoot: 0
   laser: 0
   dash: 0
+  jump: 0
   weapon: {fileID: 0}
   use: 0
+  recoverEnergy: 0
+  count: 0
+  timer: 0
 --- !u!136 &540138588
 CapsuleCollider:
   m_ObjectHideFlags: 0
