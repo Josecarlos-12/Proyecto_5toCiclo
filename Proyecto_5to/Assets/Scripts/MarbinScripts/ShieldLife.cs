@@ -26,14 +26,14 @@ public class ShieldLife : MonoBehaviour
             duration = true;
         }
 
-        if (lifeShield > 10)
+        if (lifeShield > 5)
         {
             six = true;
             hexa6.SetActive(true);
         }
         for (int i = 0; i < hexa.Length; i++)
         {
-            if (lifeShield < (i+1) * 10)
+            if (lifeShield < (i+1) * 5)
             {
                 hexa[i].SetActive(false);
             }
@@ -134,7 +134,7 @@ public class ShieldLife : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            lifeShield -= 1;
+            lifeShield -= 3;
             damage = true;
         }
     }

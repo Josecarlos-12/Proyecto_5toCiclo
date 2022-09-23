@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2163.5957, g: 2271.043, b: 3305.711, a: 1}
+  m_IndirectSpecularColor: {r: 2160.5166, g: 2264.5234, b: 3287.5898, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3572,8 +3572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08ddb9b7fec1e149929cade07c0c2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLife: 70
-  lifeShield: 70
+  currentLife: 35
+  lifeShield: 35
   duration: 0
   damage: 0
   hexa1: {fileID: 72335559}
@@ -3722,15 +3722,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlertRange: 10
+  AlertRange: 7.14
   capaDelJugador:
     serializedVersion: 2
     m_Bits: 8
   player: {fileID: 1410183033}
   Bullet: {fileID: 3379580939301357955, guid: 3912d0d2412cd3e4db54ea2ea20d18f3, type: 3}
   shotSpawn: {fileID: 60624391}
-  bulletVelocity: 30
-  timeShoot: 0.2
+  bulletVelocity: 90
+  timeShoot: 0.6
   initialShoot: 0
   Life: 3
 --- !u!136 &1068232766

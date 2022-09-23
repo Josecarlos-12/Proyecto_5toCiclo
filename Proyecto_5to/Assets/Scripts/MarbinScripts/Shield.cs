@@ -41,7 +41,7 @@ public class Shield : MonoBehaviour
         if (timer >= 1)
         {
             timer -= 1;
-            if (shieldLife.lifeShield < 70)
+            if (shieldLife.lifeShield < 35)
             {
                 shieldLife.lifeShield++;
             }
