@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Shield : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class Shield : MonoBehaviour
     public ShieldLife shieldLife;
     public int Regeneration=4;
     public bool useShield;
+    public float timer;
+
 
     void Update()
     {
-
+        AddLife();
         ShieldOn();
         Duration();
     }
@@ -29,6 +32,23 @@ public class Shield : MonoBehaviour
         {
             anim.SetBool("On", true);
             useShield = false;
+        }
+    }
+
+    public void AddLife()
+    {
+        timer += Time.deltaTime;
+        if (timer >= 1)
+        {
+            timer -= 1;
+            if (shieldLife.lifeShield < 70)
+            {
+                shieldLife.lifeShield++;
+            }
+        }
+        if (shieldLife.lifeShield < 0)
+        {
+            shieldLife.lifeShield = 0;
         }
     }
 

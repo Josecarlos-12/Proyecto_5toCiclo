@@ -6,6 +6,7 @@ using UnityEngine;
 public class Energy : MonoBehaviour
 {
     [Header("Energy Amount")]
+    [Range(0,100)]
     [SerializeField] private int energy = 100;
     public int lessEnergy;
     public bool shoot;
@@ -40,6 +41,10 @@ public class Energy : MonoBehaviour
             {
                 energy++;
             }
+        }
+        if(energy < 0)
+        {
+            energy = 0;
         }
     }
 
