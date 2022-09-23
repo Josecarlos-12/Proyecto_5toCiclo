@@ -7,7 +7,10 @@ public class MoveRGB : MonoBehaviour
 {
     public float speed;
     public Rigidbody rb;
-    
+    public Head head;
+    public bool crounch;
+    public Jump jump;
+
     [Header("Crouching")]
     public float initialSpeed;
     public float crawlSpeed;
@@ -50,6 +53,7 @@ public class MoveRGB : MonoBehaviour
         //Te agachas
         if(Input.GetKeyDown(KeyCode.LeftControl))
         {
+            crounch = true;
             speed=crawlSpeed;
             transform.localScale=new Vector3(transform.localScale.x,crouchYScale,transform.localScale.z);
             rb.AddForce(Vector3.down*5f, ForceMode.Impulse);
@@ -58,10 +62,10 @@ public class MoveRGB : MonoBehaviour
         //Dejas de agacharte
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
+            crounch = false;
             transform.localScale=new Vector3(transform.localScale.x,startYScale,transform.localScale.z);
             speed= initialSpeed;
         }
-
         /*if(Input.GetKeyDown(KeyCode.LeftControl))
         {
             speed=crawlSpeed;

@@ -17,6 +17,8 @@ public class Jump : MonoBehaviour
     public Energy energy;
     public int count;
 
+    public bool jump;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,7 @@ public class Jump : MonoBehaviour
            
         else
         {
+            
             count = 0;
             energy.jump = false;
         }
@@ -67,7 +70,8 @@ public class Jump : MonoBehaviour
         //Si colisionamos con el suelo que sea =true
         if(collision.gameObject.tag=="Floor")
         {
-            grounded=true;
+            jump = true;
+            grounded =true;
             //Resetear la cantidad de saltos una vez colisione con el suelo
             jumpsRemaining=maxJumpCount;
         }
@@ -78,7 +82,8 @@ public class Jump : MonoBehaviour
         //Si no colisionamos con el suelo que sea =false
         if(collision.gameObject.tag=="Floor")
         {
-            grounded=false;
+            jump = false;
+            grounded =false;
         }
     }
 }

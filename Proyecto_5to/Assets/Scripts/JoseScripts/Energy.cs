@@ -8,7 +8,7 @@ public class Energy : MonoBehaviour
 {
     [Header("Energy Amount")]
     [Range(0,100)]
-    [SerializeField] private float energy = 100;
+    public float energy = 100;
     [SerializeField] private float energyMax = 100;
     public int lessEnergy;
     public bool shoot;
@@ -56,12 +56,17 @@ public class Energy : MonoBehaviour
 
     public void ReductionEnergyJump()
     {
-        energy -= 30;
+        energy -= 10;
     }
 
     public void ReductionEnergyShoot()
     {
         energy -= 2;
+    }
+
+    public void ReductionEnergyDash()
+    {
+        energy -= 15;
     }
 
     public void LessEnergy()
