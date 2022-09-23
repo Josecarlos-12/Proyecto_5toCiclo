@@ -13,6 +13,7 @@ public class ShieldLife : MonoBehaviour
     public GameObject hexa1, hexa2, hexa3, hexa4, hexa5, hexa6, hexa7;
     public bool one, two, three, four, five, six;
 
+    public GameObject[] hexa;
     private void Start()
     {
         duration = false;
@@ -20,8 +21,29 @@ public class ShieldLife : MonoBehaviour
 
     private void Update()
     {
-        LessLife();
-        MoreLife();
+        if (lifeShield <= 0)
+        {
+            duration = true;
+        }
+
+        if (lifeShield > 10)
+        {
+            six = true;
+            hexa6.SetActive(true);
+        }
+        for (int i = 0; i < hexa.Length; i++)
+        {
+            if (lifeShield < (i+1) * 10)
+            {
+                hexa[i].SetActive(false);
+            }
+            else
+            {
+                hexa[i].SetActive(true);
+            }
+        }
+       // LessLife();
+        //MoreLife();
     }
 
     public void Off()

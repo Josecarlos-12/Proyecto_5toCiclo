@@ -12,7 +12,6 @@ public class Weapon : MonoBehaviour
     public float initialShoot;
     public Energy energy;
     public Shield shield;
-
     private void Update()
     {
         Shoot();
@@ -22,7 +21,9 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield==false)
         {
-            energy.ReductionEnergy();
+            energy.ReductionEnergyShoot();
+            energy.recoverEnergy = true;
+            //energy.ReductionEnergy();
             initialShoot = Time.time + timeShoot;
 
             //Instacie bulletPrefab en la posicion de initialBullet

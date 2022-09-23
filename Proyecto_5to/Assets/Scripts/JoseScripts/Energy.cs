@@ -11,9 +11,12 @@ public class Energy : MonoBehaviour
     public bool shoot;
     public bool laser;
     public bool dash;
+    public bool jump;
     public Weapon weapon;
     public bool use;
-
+    public bool recoverEnergy;
+    public int count;
+    public float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +27,28 @@ public class Energy : MonoBehaviour
     void Update()
     {
        LessEnergy();
+        AddEnergy();
     }
 
-    public IEnumerator Recover()
+    public void AddEnergy()
     {
-        yield return new WaitForSeconds(5);
-          
+        timer += Time.deltaTime;
+        if (timer >= 1)
+        {
+            timer -= 1;
+            if (energy < 100)
+            {
+                energy++;
+            }
+        }
     }
 
-    public void ReductionEnergy()
+    public void ReductionEnergyJump()
+    {
+        energy -= 30;
+    }
+
+    public void ReductionEnergyShoot()
     {
         energy -= 2;
     }
@@ -46,6 +62,15 @@ public class Energy : MonoBehaviour
         else
         {
             use = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Energy"))
+        {
+            energy = 100;
+            Destroy(other.gameObject);
         }
     }
 }

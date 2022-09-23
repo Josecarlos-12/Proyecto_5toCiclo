@@ -14,6 +14,9 @@ public class Jump : MonoBehaviour
     public int jumpsRemaining=0;
 
 
+    public Energy energy;
+    public int count;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +27,38 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Una vez presionado espacio poder saltar
-        if((Input.GetKeyDown(KeyCode.Space))&&(jumpsRemaining>0))
+        if (energy.use)
         {
+            maxJumpCount = 1;
+        }
+        else
+        {
+            maxJumpCount = 2;
+        }
+        //Una vez presionado espacio poder saltar
+        if ((Input.GetKeyDown(KeyCode.Space))&&(jumpsRemaining>0))
+        {
+            
             rb.AddForce(Vector3.up*jumpHeight,ForceMode.Impulse);
             jumpsRemaining-=1; //Reducir 1 salto
+        }
+
+        if (jumpsRemaining <= 0)
+        {
+            count++;
+            if (count == 1)
+            {
+                Debug.Log(jumpsRemaining);
+                energy.jump = true;
+                energy.ReductionEnergyJump();
+                
+            }
+        }
+           
+        else
+        {
+            count = 0;
+            energy.jump = false;
         }
     }
 

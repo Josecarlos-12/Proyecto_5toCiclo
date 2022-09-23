@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DashController : MonoBehaviour
@@ -7,7 +8,7 @@ public class DashController : MonoBehaviour
     bool isDashing;
 
     public GameObject dashEffect;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,19 +17,19 @@ public class DashController : MonoBehaviour
 
      void Update()
     {
-       if(Input.GetKeyDown(KeyCode.LeftShift))
-       isDashing=true;
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing)
+            StartCoroutine(Dash());
     }
 
     private void FixedUpdate()
     {
-        if(isDashing)
-        Dashing();
+       // if(isDashing)
+        //Dashing();
     }
 
     private void Dashing()
     {
-        rb.AddForce(transform.forward*dashSpeed,ForceMode.Impulse);
+        
         isDashing=false;
 
         GameObject effect= Instantiate(dashEffect, Camera.main.transform.position, dashEffect.transform.rotation);
@@ -37,5 +38,21 @@ public class DashController : MonoBehaviour
     }
 
     
+    public IEnumerator Dash()
+    {
+        isDashing = true;
+        float timer = 0;
 
+        while (timer < 1)
+        {
+            float vertical = Input.GetAxisRaw("Vertical");
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            timer += Time.deltaTime;
+            rb.AddForce(transform.forward * dashSpeed * vertical, ForceMode.Impulse);
+            rb.AddForce(transform.right * dashSpeed * horizontal, ForceMode.Impulse);
+            yield return new WaitForEndOfFrame();
+        }
+        yield return null;
+        isDashing = false;
+    }
 }
