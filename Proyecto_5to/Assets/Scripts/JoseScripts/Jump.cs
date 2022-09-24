@@ -19,6 +19,10 @@ public class Jump : MonoBehaviour
 
     public bool jump;
 
+    public InteractionHabilities interaction;
+
+    public int intera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +33,25 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (energy.use)
+        if (interaction.jumpTrue)
         {
-            maxJumpCount = 1;
+            if (energy.energy > 10)
+            {
+                maxJumpCount = 2;
+            }
+            else
+            {
+                maxJumpCount = 1;
+            }
         }
-        else
+
+        if (maxJumpCount == 1)
         {
-            maxJumpCount = 2;
+            intera = 1;
+        }
+        if (maxJumpCount == 2)
+        {
+            intera = 0;
         }
         //Una vez presionado espacio poder saltar
         if ((Input.GetKeyDown(KeyCode.Space))&&(jumpsRemaining>0))
@@ -45,7 +61,7 @@ public class Jump : MonoBehaviour
             jumpsRemaining-=1; //Reducir 1 salto
         }
 
-        if (jumpsRemaining <= 0)
+        if (jumpsRemaining <= intera)
         {
             count++;
             if (count == 1)

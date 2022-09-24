@@ -10,6 +10,8 @@ public class DashController : MonoBehaviour
     public GameObject dashEffect;
 
     public Energy energy;
+    public InteractionHabilities interactions;
+
     
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,7 @@ public class DashController : MonoBehaviour
 
      void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing &&  !energy.use)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing &&  !energy.use && interactions.dash)
         {
             
             if (energy.energy > 15)

@@ -13,6 +13,8 @@ public class Life : MonoBehaviour
     public Color newColor= Color.red;
     public Renderer damage;
     public Intangible intangible;
+    public Color randonColor;
+
 
     public int recover = 3;
     public GameObject prota;
@@ -26,6 +28,7 @@ public class Life : MonoBehaviour
         LifeDestroy();
 
         image.fillAmount = life / maxLife;
+
     }
 
     public void LifeDestroy()
@@ -42,7 +45,10 @@ public class Life : MonoBehaviour
         }
         if(recover <= 0)
         {            
-            Destroy(prota);
+            //Destroy(prota);
+            recover = 3;
+            //color= Random.ColorHSV(0f, 0.25f, 0.4f, 1f);
+            // damage.material.color = Random.ColorHSV(0f,0.25f,0.4f,1f);
         }
     }
 
