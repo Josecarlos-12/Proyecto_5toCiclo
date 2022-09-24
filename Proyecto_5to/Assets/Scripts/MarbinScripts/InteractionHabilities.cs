@@ -9,6 +9,11 @@ public class InteractionHabilities : MonoBehaviour
     public GameObject[] options;
     public bool dash;
     public bool jumpTrue;
+    public bool shootFast;
+    public bool shootSlow;
+    public Shield shield;
+    public Life life;
+    public Energy energy;
 
     public enum habilities
     {
@@ -33,6 +38,7 @@ public class InteractionHabilities : MonoBehaviour
     {
         if(touch && Input.GetKeyDown(KeyCode.E))
         {
+            Cursor.visible = true;
             Time.timeScale = 0;
             switch (hability)
             {
@@ -67,6 +73,7 @@ public class InteractionHabilities : MonoBehaviour
 
     public void DoubleJump()
     {
+        Cursor.visible = false;
         Time.timeScale = 1;
         jumpTrue = true;
         options[0].SetActive(false);
@@ -75,9 +82,47 @@ public class InteractionHabilities : MonoBehaviour
 
     public void Dash()
     {
+        Cursor.visible = false;
         Time.timeScale = 1;
         dash = true;
         options[0].SetActive(false);
+        Destroy(inte);
+    }
+
+    public void ShootFast()
+    {
+        shootFast = true;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+        options[1].SetActive(false);
+        Destroy(inte);
+    }
+
+    public void ShootLow()
+    {
+        shootSlow = true;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+        options[1].SetActive(false);
+        Destroy(inte);
+    }
+
+    public void Shield()
+    {
+        shield.enabled = true;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+        options[2].SetActive(false);
+        Destroy(inte);
+    }
+
+    public void Stats()
+    {
+        life.maxLife = 5;
+        energy.energyMax = 120;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+        options[2].SetActive(false);
         Destroy(inte);
     }
 }

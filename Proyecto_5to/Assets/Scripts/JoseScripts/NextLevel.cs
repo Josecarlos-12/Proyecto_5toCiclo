@@ -5,11 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
+    public Transform prota;
+    public Transform[] mod;
+    public Life life;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.name=="Mod2")
         {
-            SceneManager.LoadScene("LobbyScene");
-        }        
+            prota.position=mod[0].position;
+            life.positionInitial.position = mod[0].position;
+        }
+        if (other.gameObject.name == "Mod3")
+        {
+            prota.position = mod[1].position;
+            life.positionInitial.position = mod[1].position;
+        }
     }
 }

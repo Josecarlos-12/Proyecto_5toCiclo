@@ -23,12 +23,12 @@ public class Shield : MonoBehaviour
 
     public void ShieldOn()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !shieldLife.duration)
+        if (Input.GetKeyDown(KeyCode.C) && !shieldLife.duration)
         {
             shield.SetActive(true);
             useShield = true;
         }
-        else if (Input.GetKeyUp(KeyCode.E) || shieldLife.duration)
+        else if (Input.GetKeyUp(KeyCode.C) || shieldLife.duration)
         {
             anim.SetBool("On", true);
             useShield = false;

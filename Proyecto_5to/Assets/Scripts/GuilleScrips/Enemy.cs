@@ -64,6 +64,10 @@ public class Enemy : MonoBehaviour
         {
             Life--;
         }
+        if (other.gameObject.CompareTag("BulletSlow"))
+        {
+            Life-=2;
+        }
     }
 
     private void OnDrawGizmos()

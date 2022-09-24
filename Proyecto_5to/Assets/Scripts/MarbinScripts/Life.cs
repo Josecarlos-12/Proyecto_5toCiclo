@@ -8,8 +8,8 @@ public class Life : MonoBehaviour
 {
     [Header("Amount life")]
     [SerializeField] private float life = 3;
-    [SerializeField] private float maxLife = 3;
-    public Color color= Color.white;
+    public float maxLife = 3;
+    public Color color;
     public Color newColor= Color.red;
     public Renderer damage;
     public Intangible intangible;
@@ -22,6 +22,13 @@ public class Life : MonoBehaviour
     public Transform positionInitial;
 
     public Image image;
+    public bool recorProta;
+
+    public Transform initialAll;
+    private void Start()
+    {
+        damage.material.color= color;
+    }
 
     public void Update()
     {
@@ -38,17 +45,21 @@ public class Life : MonoBehaviour
         {
             //Destroy(gameObject);
             //SceneManager.LoadScene("TestingScene");
-            intangible.Respawn();
+            
+                intangible.Respawn();
+            
+            
             life = maxLife;
             recover -= 1;
             //Debug.Log("Respaw: " + recover);
         }
         if(recover <= 0)
-        {            
+        {
+            //prota.SetActive(false);
             //Destroy(prota);
             recover = 3;
-            //color= Random.ColorHSV(0f, 0.25f, 0.4f, 1f);
-            // damage.material.color = Random.ColorHSV(0f,0.25f,0.4f,1f);
+            //color = Random.ColorHSV(0f, 0.25f, 0.4f, 1f);
+            //damage.material.color = Random.ColorHSV(0f,0.25f,0.4f,1f);
         }
     }
 

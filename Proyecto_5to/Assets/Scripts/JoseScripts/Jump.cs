@@ -16,6 +16,7 @@ public class Jump : MonoBehaviour
 
     public Energy energy;
     public int count;
+    public int countJump;
 
     public bool jump;
 
@@ -35,6 +36,16 @@ public class Jump : MonoBehaviour
     {
         if (interaction.jumpTrue)
         {
+            if (countJump <= 3)
+            {
+                countJump++;
+            }
+            
+            if (countJump == 1)
+            {
+                jumpsRemaining = 2;              
+                
+            }
             if (energy.energy > 10)
             {
                 maxJumpCount = 2;
@@ -66,7 +77,6 @@ public class Jump : MonoBehaviour
             count++;
             if (count == 1)
             {
-                Debug.Log(jumpsRemaining);
                 energy.jump = true;
                 energy.ReductionEnergyJump();
                 

@@ -14,7 +14,7 @@ public class Decition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        colorBullet.color = Color.white;
+        //colorBullet.color = Color.white;
     }
 
     // Update is called once per frame

@@ -8,7 +8,7 @@ public class Intangible : MonoBehaviour
     public Renderer prota;
     public Life life;
     public bool respawn;
-
+   
     public Transform positionProta;
 
     private void Start()
@@ -19,7 +19,7 @@ public class Intangible : MonoBehaviour
 
     public void Respawn()
     {
-        positionProta.position = new Vector3(positionProta.position.x, 9, positionProta.position.z);
+        positionProta.position = new Vector3(positionProta.position.x, transform.position.y+9, positionProta.position.z);
         life.enabled = false;
         prota.material.color = Color.green;
         StartCoroutine(Return());
@@ -37,7 +37,7 @@ public class Intangible : MonoBehaviour
     public IEnumerator Return()
     {
         yield return new WaitForSeconds(5);
-        prota.material.color = Color.white;
+        prota.material.color = life.color;
         life.enabled = true;
         respawn = false;
     }

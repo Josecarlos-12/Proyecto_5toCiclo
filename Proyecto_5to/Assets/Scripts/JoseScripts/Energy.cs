@@ -7,9 +7,8 @@ using UnityEngine.UI;
 public class Energy : MonoBehaviour
 {
     [Header("Energy Amount")]
-    [Range(0,100)]
     public float energy = 100;
-    [SerializeField] private float energyMax = 100;
+    public float energyMax = 100;
     public int lessEnergy;
     public bool shoot;
     public bool laser;
@@ -43,7 +42,7 @@ public class Energy : MonoBehaviour
         if (timer >= 0.2)
         {
             timer -= 1;
-            if (energy < 100)
+            if (energy < energyMax)
             {
                 energy+=3;
             }
@@ -85,7 +84,7 @@ public class Energy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Energy"))
         {
-            energy = 100;
+            energy = energyMax;
             Destroy(other.gameObject);
         }
     }

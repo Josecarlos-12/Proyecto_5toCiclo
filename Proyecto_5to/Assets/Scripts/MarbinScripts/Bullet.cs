@@ -5,6 +5,20 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameObject bulletHolePrefab;
+    public Rigidbody rb;
+    public float speedBullet;
+    public float destructtion;
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        Destroy(gameObject, destructtion);
+    }
+
+    private void Update()
+    {
+        rb.AddForce(transform.forward * speedBullet);
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {

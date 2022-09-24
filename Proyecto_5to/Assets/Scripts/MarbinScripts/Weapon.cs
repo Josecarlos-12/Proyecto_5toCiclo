@@ -5,8 +5,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public GameObject initialBullet;
-    public GameObject bulletPrefab;
-    public float speedBullet = 500;
+    public GameObject bulletFast;
+    public GameObject bulletSlow;
+    public InteractionHabilities interactions;
 
     public float timeShoot = 0.2f;
     public float initialShoot;
@@ -19,24 +20,47 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield==false)
+        if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield==false && interactions.shootFast)
         {
-            energy.ReductionEnergyShoot();
-            energy.recoverEnergy = true;
-            //energy.ReductionEnergy();
-            initialShoot = Time.time + timeShoot;
+            if (energy.energy > 2)
+            {
+                energy.ReductionEnergyShoot();
+                energy.recoverEnergy = true;
+                //energy.ReductionEnergy();
+                initialShoot = Time.time + timeShoot;
 
-            //Instacie bulletPrefab en la posicion de initialBullet
-            GameObject bulletTemporal = Instantiate(bulletPrefab, initialBullet.transform.position, initialBullet.transform.rotation) as GameObject;
+                //Instacie bulletPrefab en la posicion de initialBullet
 
-            //Obtuve el rigibody para agragar fuerza
-            Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
+                Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
 
-            // Agrege fuerza a la bala
-            rb.AddForce(transform.forward * speedBullet);
 
-            // Destrui la bala
-            Destroy(bulletTemporal, 0.5f);
+                //Obtuve el rigibody para agragar fuerza
+                //Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
+
+                // Agrege fuerza a la bala
+                //rb.AddForce(transform.forward * speedBullet);
+
+                // Destrui la bala
+                //Destroy(bulletTemporal, 0.5f);
+
+            }
+
+        }
+        if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield == false && interactions.shootSlow)
+        {
+            if (energy.energy > 3)
+            {
+                energy.ReductionEnergyShoot();
+                energy.recoverEnergy = true;
+                //energy.ReductionEnergy();
+                initialShoot = Time.time + timeShoot;
+
+                //Instacie bulletPrefab en la posicion de initialBullet
+
+                Instantiate(bulletSlow, initialBullet.transform.position, initialBullet.transform.rotation);
+            }
+            
+            
         }
     } 
 }
