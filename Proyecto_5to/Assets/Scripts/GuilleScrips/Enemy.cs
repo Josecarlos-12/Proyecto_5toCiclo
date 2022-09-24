@@ -62,11 +62,11 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Life--;
+            Life-=5;
         }
         if (other.gameObject.CompareTag("BulletSlow"))
         {
-            Life-=2;
+            Life-=10;
         }
     }
 
