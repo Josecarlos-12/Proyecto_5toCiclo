@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.7178, g: 2264.9707, b: 3288.254, a: 1}
+  m_IndirectSpecularColor: {r: 116.64102, g: 128.41031, b: 173.35486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -443,6 +443,7 @@ MonoBehaviour:
   dashEffect: {fileID: 5968683736330681681, guid: 00549afdb97dd044b93075dd27979162,
     type: 3}
   energy: {fileID: 0}
+  interactions: {fileID: 0}
 --- !u!95 &105108541
 Animator:
   serializedVersion: 4
@@ -540,7 +541,10 @@ MonoBehaviour:
   jumpsRemaining: 0
   energy: {fileID: 0}
   count: 0
+  countJump: 0
   jump: 0
+  interaction: {fileID: 0}
+  intera: 0
 --- !u!114 &105108546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,7 +799,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 130000
+  m_Intensity: 25057.318
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -838,7 +842,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6500
+  m_ColorTemperature: 16664
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -872,7 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 130000
+  m_Intensity: 25057.318
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1397,9 +1401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialBullet: {fileID: 280898241}
-  bulletPrefab: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
-    type: 3}
-  speedBullet: 900
+  bulletFast: {fileID: 0}
+  bulletSlow: {fileID: 0}
+  interactions: {fileID: 0}
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 936775585}
@@ -1461,6 +1465,7 @@ MonoBehaviour:
   dashEffect: {fileID: 5968683736330681681, guid: 00549afdb97dd044b93075dd27979162,
     type: 3}
   energy: {fileID: 936775585}
+  interactions: {fileID: 0}
 --- !u!95 &284770951
 Animator:
   serializedVersion: 4
@@ -1533,7 +1538,10 @@ MonoBehaviour:
   jumpsRemaining: 0
   energy: {fileID: 936775585}
   count: 0
+  countJump: 0
   jump: 0
+  interaction: {fileID: 0}
+  intera: 0
 --- !u!114 &284770955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1945,10 +1953,13 @@ MonoBehaviour:
   newColor: {r: 1, g: 0, b: 0, a: 1}
   damage: {fileID: 105108549}
   intangible: {fileID: 105108542}
+  randonColor: {r: 0, g: 0, b: 0, a: 0}
   recover: 3
   prota: {fileID: 105108539}
   positionInitial: {fileID: 0}
   image: {fileID: 0}
+  recorProta: 0
+  initialAll: {fileID: 0}
 --- !u!114 &540138587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2597,10 +2608,13 @@ MonoBehaviour:
   newColor: {r: 1, g: 0, b: 0, a: 1}
   damage: {fileID: 284770958}
   intangible: {fileID: 284770952}
+  randonColor: {r: 0, g: 0, b: 0, a: 0}
   recover: 3
   prota: {fileID: 284770949}
   positionInitial: {fileID: 0}
   image: {fileID: 0}
+  recorProta: 0
+  initialAll: {fileID: 0}
 --- !u!136 &936775587
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3606,9 +3620,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialBullet: {fileID: 1413658767}
-  bulletPrefab: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
-    type: 3}
-  speedBullet: 500
+  bulletFast: {fileID: 0}
+  bulletSlow: {fileID: 0}
+  interactions: {fileID: 0}
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 540138587}
@@ -3915,9 +3929,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialBullet: {fileID: 1621759962}
-  bulletPrefab: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
-    type: 3}
-  speedBullet: 900
+  bulletFast: {fileID: 0}
+  bulletSlow: {fileID: 0}
+  interactions: {fileID: 0}
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 936775585}
@@ -4124,9 +4138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialBullet: {fileID: 1657115370}
-  bulletPrefab: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
-    type: 3}
-  speedBullet: 500
+  bulletFast: {fileID: 0}
+  bulletSlow: {fileID: 0}
+  interactions: {fileID: 0}
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 540138587}
