@@ -53,10 +53,10 @@ public class Life : MonoBehaviour
             recover -= 1;
             //Debug.Log("Respaw: " + recover);
         }
-        if(recover <= 0)
+        if(recover == 0)
         {
             //prota.SetActive(false);
-            //Destroy(prota);
+            Destroy(prota);
             recover = 3;
             //color = Random.ColorHSV(0f, 0.25f, 0.4f, 1f);
             //damage.material.color = Random.ColorHSV(0f,0.25f,0.4f,1f);

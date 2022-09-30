@@ -5,10 +5,18 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private new Rigidbody rigidbody;
-
     public float caminar;
     public float agachado;
     float Speed;
+
+    public KeyCode adelante;
+    public KeyCode atras;
+    public KeyCode izquierda; 
+    public KeyCode derecha;
+
+
+    public float hor;
+    public float ver;
 
     void Start()
     {
@@ -16,9 +24,8 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-
+        KeyDetect();
         Move();
-
     }
     void Move()
     {
@@ -28,19 +35,32 @@ public class Movement : MonoBehaviour
         else
             Speed = caminar;
 
-        float hor = Input.GetAxisRaw("Horizontal");
-        float ver = Input.GetAxisRaw("Vertical");
-
         Vector3 velocity = Vector3.zero;
 
         if (hor != 0 || ver != 0)
         {
             Vector3 direction = (transform.forward * ver + transform.right * hor).normalized;
-
             velocity = direction * Speed;
+            direction.Normalize();
         }
 
         velocity.y = rigidbody.velocity.y;
         rigidbody.velocity = velocity;
+    }
+    void KeyDetect()
+    {
+        if (Input.GetKey(adelante) && !Input.GetKey(atras))
+            ver = 1;
+        else if (Input.GetKey(atras) && !Input.GetKey(adelante))
+            ver = -1;
+        else
+            ver = 0;
+
+        if (Input.GetKey(derecha) && !Input.GetKey(izquierda))
+            hor = 1;
+        else if (Input.GetKey(izquierda) && !Input.GetKey(derecha))
+            hor = -1;
+        else
+            hor = 0;
     }
 }
