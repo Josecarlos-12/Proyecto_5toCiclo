@@ -39,7 +39,7 @@ public class Energy : MonoBehaviour
     public void AddEnergy()
     {
         timer += Time.deltaTime;
-        if (timer >= 0.2)
+        if (timer >= 1)
         {
             timer -= 1;
             if (energy < energyMax)

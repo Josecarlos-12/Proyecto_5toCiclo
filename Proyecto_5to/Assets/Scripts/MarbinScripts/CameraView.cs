@@ -20,6 +20,7 @@ public class CameraView : MonoBehaviour
     public GameObject pointWeaponA, pointWeaponB;
 
     public float positiveX, negativeX;
+    public bool position;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class CameraView : MonoBehaviour
             weapon.enabled = true;
             pointer.SetActive(true);
             cameraBody.transform.position = pointB.position;
+            position = true;
         }
         else if (Input.GetButtonUp("Fire2"))
         {
@@ -62,6 +64,7 @@ public class CameraView : MonoBehaviour
             weapon.enabled = false;
             pointer.SetActive(false);
             cameraBody.transform.position = pointA.position;
+            position = false;
         }
     }
 
