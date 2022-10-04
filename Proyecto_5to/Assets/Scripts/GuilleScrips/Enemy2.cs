@@ -6,10 +6,9 @@ using UnityEngine.AI;
 public class Enemy2 : MonoBehaviour
 {
     public float AlertRange;
-    public LayerMask capaDelJugador;
+    public LayerMask playerMask;
     public Transform player;
     bool Alert;
-
     public GameObject Bullet;
     public Transform shotSpawn;
     public float bulletVelocity;
@@ -20,14 +19,14 @@ public class Enemy2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Alert = Physics.CheckSphere(transform.position, AlertRange, capaDelJugador);
-        
+        Alert = Physics.CheckSphere(transform.position, AlertRange, playerMask);
+
         if (Alert == true)
         {
             Vector3 posJugador = new Vector3(player.position.x, transform.position.y, player.position.z);
@@ -36,9 +35,6 @@ public class Enemy2 : MonoBehaviour
         }
         LifeDestroy();
     }
-
-    
-    
 
     public void LifeDestroy()
     {
@@ -76,5 +72,4 @@ public class Enemy2 : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, AlertRange);
     }
 
-    
 }
