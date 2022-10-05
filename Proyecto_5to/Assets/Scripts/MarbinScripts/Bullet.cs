@@ -12,17 +12,18 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Destroy(gameObject, destructtion);
+        rb.AddForce(transform.forward * speedBullet);
     }
 
     private void Update()
     {
-        rb.AddForce(transform.forward * speedBullet);
+        
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Floor"))
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Shield"))
         {
             //GameObject bulletClone = Instantiate(bulletHolePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.LookRotation(new Vector3(transform.rotation.x, 0,0)));
             Destroy(gameObject);

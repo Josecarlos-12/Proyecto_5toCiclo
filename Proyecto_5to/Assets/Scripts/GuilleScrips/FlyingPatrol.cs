@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlyingPatrol : MonoBehaviour
@@ -14,6 +15,15 @@ public class FlyingPatrol : MonoBehaviour
     public bool moveToTheNext = true;
     public float waitTime;
 
+    public Transform robot;
+
+    public enum Walk
+    {
+        Walking,
+        Rotation
+    }
+    public Walk walk = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +33,21 @@ public class FlyingPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlatform();
+        switch (walk)
+        {
+            case Walk.Walking:
+                MovePlatform();
+                break;
+                case Walk.Rotation:
+                Rotation();
+                break;
+        }
+        
+    }
+
+    void Rotation()
+    {
+        robot.Rotate(0, platformSpeed*Time.deltaTime, 0);
     }
 
     void MovePlatform()
