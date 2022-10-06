@@ -25,6 +25,8 @@ public class Life : MonoBehaviour
     public bool recorProta;
 
     public Transform initialAll;
+
+    public bool active;
     private void Start()
     {
         damage.material.color= color;
@@ -32,9 +34,12 @@ public class Life : MonoBehaviour
 
     public void Update()
     {
-        LifeDestroy();
+        if (active)
+        {
+            LifeDestroy();
 
-        image.fillAmount = life / maxLife;
+            image.fillAmount = life / maxLife;
+        }        
 
     }
 
@@ -66,34 +71,38 @@ public class Life : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Si toca al enemigo que le baje vida
-        if (other.gameObject.CompareTag("Enemy"))
+        if (active)
         {
-            if (!intangible.respawn)
+            //Si toca al enemigo que le baje vida
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                //Debug.Log("Vida: " + life);
-                life--;
-                damage.material.color = newColor;
+                if (!intangible.respawn)
+                {
+                    //Debug.Log("Vida: " + life);
+                    life--;
+                    damage.material.color = newColor;
+                }
+
+                StartCoroutine(White());
             }
-            
-            StartCoroutine(White());
+            if (other.gameObject.name == "Death")
+            {
+                prota.transform.position = positionInitial.position;
+                intangible.RespawnTwo();
+                recover -= 1;
+            }
+            if (other.gameObject.CompareTag("MaxLife"))
+            {
+                life = maxLife;
+                Destroy(other.gameObject);
+            }
+            if (other.gameObject.CompareTag("Recover"))
+            {
+                recover += 1;
+                Destroy(other.gameObject);
+            }
         }
-        if(other.gameObject.name == "Death")
-        {
-            prota.transform.position = positionInitial.position;
-            intangible.RespawnTwo();
-            recover -= 1;
-        }
-        if (other.gameObject.CompareTag("MaxLife"))
-        {
-            life = maxLife;
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("Recover"))
-        {
-            recover += 1;
-            Destroy(other.gameObject);
-        }
+        
     }
 
 
