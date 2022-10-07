@@ -5,6 +5,17 @@ using UnityEngine.AI;
 
 public class ExpansiveWave : MonoBehaviour
 {
+    [Header("Recuperación")]
+    public float life;
+    public float maxlife;
+    public Transform target;
+    public Transform sure;
+    public bool recuperation;
+    public float time;
+    public float maxTime;
+    public int hits;
+
+
     [Header("Movimiento")]
     public Transform[] points;
     public NavMeshAgent agent;
@@ -26,18 +37,47 @@ public class ExpansiveWave : MonoBehaviour
 
     void Update()
     {
-        if (agent.remainingDistance < 0.5f)
+        if (!recuperation)
         {
-            GotoNextPoint();
+            if (agent.remainingDistance < 0.5f)
+            {
+                GotoNextPoint();
+            }
         }
+        Recuperation();
 
         /*if (Input.GetKeyDown(KeyCode.Y))
         {
             Explotion();
             Debug.Log("Explosion");
         }*/
+
     }
 
+    public void Recuperation()
+    {
+        if (hits>3)
+        {            
+            agent.destination = sure.position;
+            if (agent.remainingDistance < 0.1)
+            {
+                time += Time.deltaTime;
+                if (time >= maxTime)
+                {
+                    time -= maxTime;
+                    if (life < maxlife)
+                    {
+                        life += 1;                        
+                    }
+
+                }
+            }
+            if (life == maxlife)
+            {
+                hits = 0;
+            }
+        }
+    }
 
     public void GotoNextPoint()
     {
@@ -72,5 +112,14 @@ public class ExpansiveWave : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            life--;
+            hits++;
+        }
     }
 }
