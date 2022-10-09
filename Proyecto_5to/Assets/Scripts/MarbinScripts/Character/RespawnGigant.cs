@@ -35,11 +35,12 @@ public class RespawnGigant : MonoBehaviour
         }
         if (other.gameObject.name == "NextThree")
         {
-            prota.position = new Vector3(next[2].position.x, next[2].position.y + 3, next[2].position.z);
+            prota.position = new Vector3(next[2].position.x, next[2].position.y + 3, next[2].position.z);            
         }
         if (other.gameObject.name == "NextFour")
         {
-            prota.position = new Vector3(next[3].position.x, next[3].position.y + 3, next[3].position.z);
+            prota.position = new Vector3(next[5].position.x, next[5].position.y + 3, next[5].position.z);
+            StartCoroutine(Bug());
         }
         if (other.gameObject.name == "NextFive")
         {
@@ -47,9 +48,15 @@ public class RespawnGigant : MonoBehaviour
         }
         if (other.gameObject.name == "NextSix")
         {
-            prota.position = new Vector3(next[5].position.x, next[5].position.y + 3, next[5].position.z);
+            prota.position = new Vector3(next[6].position.x, next[6].position.y + 3, next[6].position.z);
         }
         #endregion
 
+    }
+
+    public IEnumerator Bug()
+    {
+        yield return new WaitForSeconds(3);
+        prota.position = new Vector3(next[3].position.x, next[3].position.y + 3, next[3].position.z);
     }
 }
