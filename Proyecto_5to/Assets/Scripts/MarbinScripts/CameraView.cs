@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraView : MonoBehaviour
 {
     //public MoveRigiFisi move;
-
+    public bool aim;
     public float mouseSensitivity = 80f;
     public Transform playerBody;
     public Transform cameraBody;
@@ -44,28 +44,32 @@ public class CameraView : MonoBehaviour
 
     public void Point()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (aim)
         {
-            positiveX = 90;
-            negativeX = -90;
-            pointWeaponA.SetActive(true);
-            pointWeaponB.SetActive(false);
-            weapon.enabled = true;
-            pointer.SetActive(true);
-            cameraBody.transform.position = pointB.position;
-            position = true;
+            if (Input.GetButtonDown("Fire2"))
+            {
+                positiveX = 90;
+                negativeX = -90;
+                pointWeaponA.SetActive(true);
+                pointWeaponB.SetActive(false);
+                weapon.enabled = true;
+                pointer.SetActive(true);
+                cameraBody.transform.position = pointB.position;
+                position = true;
+            }
+            else if (Input.GetButtonUp("Fire2"))
+            {
+                positiveX = 40;
+                negativeX = -10;
+                pointWeaponA.SetActive(false);
+                pointWeaponB.SetActive(true);
+                weapon.enabled = false;
+                pointer.SetActive(false);
+                cameraBody.transform.position = pointA.position;
+                position = false;
+            }
         }
-        else if (Input.GetButtonUp("Fire2"))
-        {
-            positiveX = 40;
-            negativeX = -10;
-            pointWeaponA.SetActive(false);
-            pointWeaponB.SetActive(true);
-            weapon.enabled = false;
-            pointer.SetActive(false);
-            cameraBody.transform.position = pointA.position;
-            position = false;
-        }
+        
     }
 
     public void MoveCamera()

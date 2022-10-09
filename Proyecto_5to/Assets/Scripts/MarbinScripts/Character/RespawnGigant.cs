@@ -8,6 +8,7 @@ public class RespawnGigant : MonoBehaviour
     public Transform prota;
     public Transform floor;
     public Transform[] next;
+    public Transform[] respawn;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -52,6 +53,36 @@ public class RespawnGigant : MonoBehaviour
         }
         #endregion
 
+        #region Respawn
+        if (other.gameObject.name == "Respawn0")
+        {
+            prota.position = new Vector3(respawn[0].position.x, respawn[0].position.y + 3, respawn[0].position.z);
+        }
+        if (other.gameObject.name == "Respawn1")
+        {
+            prota.position = new Vector3(respawn[1].position.x, respawn[1].position.y + 3, respawn[1].position.z);
+        }
+        if (other.gameObject.name == "Respawn2")
+        {
+            prota.position = new Vector3(respawn[2].position.x, respawn[2].position.y + 3, respawn[2].position.z);
+        }
+        if (other.gameObject.name == "Respawn3")
+        {
+            prota.position = new Vector3(respawn[3].position.x, respawn[3].position.y + 3, respawn[3].position.z);
+        }
+        if (other.gameObject.name == "Respawn4")
+        {
+            prota.position = new Vector3(respawn[4].position.x, respawn[4].position.y + 3, respawn[4].position.z);
+        }
+        if (other.gameObject.name == "Respawn5")
+        {
+            prota.position = new Vector3(respawn[5].position.x, respawn[5].position.y + 3, respawn[5].position.z);
+        }
+        if (other.gameObject.name == "Respawn6")
+        {
+            prota.position = new Vector3(respawn[6].position.x, respawn[6].position.y + 3, respawn[6].position.z);
+        }
+        #endregion
     }
 
     public IEnumerator Bug()

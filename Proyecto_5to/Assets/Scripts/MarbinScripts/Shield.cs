@@ -6,6 +6,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Shield : MonoBehaviour
 {
+    public bool canShild;
     public GameObject shield;
     public Animator anim;
     public ShieldLife shieldLife;
@@ -23,16 +24,19 @@ public class Shield : MonoBehaviour
 
     public void ShieldOn()
     {
-        if (Input.GetKeyDown(KeyCode.C) && !shieldLife.duration)
+        if (canShild)
         {
-            shield.SetActive(true);
-            useShield = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.C) || shieldLife.duration)
-        {
-            anim.SetBool("On", true);
-            useShield = false;
-        }
+            if (Input.GetKeyDown(KeyCode.C) && !shieldLife.duration)
+            {
+                shield.SetActive(true);
+                useShield = true;
+            }
+            else if (Input.GetKeyUp(KeyCode.C) || shieldLife.duration)
+            {
+                anim.SetBool("On", true);
+                useShield = false;
+            }
+        }        
     }
 
     public void AddLife()

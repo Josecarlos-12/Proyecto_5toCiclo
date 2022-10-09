@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DashController : MonoBehaviour
 {
+    public bool canDash;
     public float dashSpeed;
     Rigidbody rb;
     bool isDashing;
@@ -10,10 +11,8 @@ public class DashController : MonoBehaviour
     public GameObject dashEffect;
 
     public Energy energy;
-    public InteractionHabilities interactions;
 
     
-    // Start is called before the first frame update
     void Start()
     {
         rb=GetComponent<Rigidbody>();
@@ -21,17 +20,18 @@ public class DashController : MonoBehaviour
 
      void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing &&  !energy.use && interactions.dash)
+        if (canDash)
         {
-            
-            if (energy.energy > 15)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !energy.use)
             {
-                energy.ReductionEnergyDash();
-                StartCoroutine(Dash());
+
+                if (energy.energy > 15)
+                {
+                    StartCoroutine(Dash());
+                }
+
             }
-            
-        }
-            
+        }                    
     }
 
     private void FixedUpdate()
@@ -58,7 +58,7 @@ public class DashController : MonoBehaviour
 
         while (timer < 1)
         {
-            
+            energy.ReductionEnergyDash();
             float vertical = Input.GetAxisRaw("Vertical");
             float horizontal = Input.GetAxisRaw("Horizontal");
             timer += Time.deltaTime;

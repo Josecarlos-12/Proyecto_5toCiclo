@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
+    public bool jumpTwo;
+    public bool canJump;
+    public bool doubleCanJump;
     Rigidbody rb;
     public float jumpHeight=10;
     public bool grounded;
@@ -18,11 +21,15 @@ public class Jump : MonoBehaviour
     public int count;
     public int countJump;
 
-    public bool jump;
-
-    public InteractionHabilities interaction;
+    public bool jump;    
 
     public int intera;
+
+
+    [Header("Solo un salto")]
+    public int jumpsRemainingTwo = 0;
+    public bool jumpOne;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,17 +41,33 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (interaction.jumpTrue)
+        if(jumpOne)
+        JumpOnly();
+
+        if (jumpTwo)
+            DoubleJump();
+    }
+
+    public void JumpOnly()
+    {
+        if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemainingTwo > 0))
         {
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            jumpsRemainingTwo -= 1;
+        }
+    }
+
+    public void DoubleJump()
+    {        
             if (countJump <= 3)
             {
                 countJump++;
             }
-            
+
             if (countJump == 1)
             {
-                jumpsRemaining = 2;              
-                
+                jumpsRemaining = 2;
+
             }
             if (energy.energy > 10)
             {
@@ -54,41 +77,42 @@ public class Jump : MonoBehaviour
             {
                 maxJumpCount = 1;
             }
-        }
 
-        if (maxJumpCount == 1)
-        {
-            intera = 1;
-        }
-        if (maxJumpCount == 2)
-        {
-            intera = 0;
-        }
-        //Una vez presionado espacio poder saltar
-        if ((Input.GetKeyDown(KeyCode.Space))&&(jumpsRemaining>0))
-        {
-            
-            rb.AddForce(Vector3.up*jumpHeight,ForceMode.Impulse);
-            jumpsRemaining-=1; //Reducir 1 salto
-        }
 
-        if (jumpsRemaining <= intera)
-        {
-            count++;
-            if (count == 1)
+            if (maxJumpCount == 1)
             {
-                energy.jump = true;
-                energy.ReductionEnergyJump();
-                
+                intera = 1;
             }
-        }
-           
-        else
-        {
-            
-            count = 0;
-            energy.jump = false;
-        }
+            if (maxJumpCount == 2)
+            {
+                intera = 0;
+            }
+            //Una vez presionado espacio poder saltar
+            if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
+            {
+
+                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                jumpsRemaining -= 1; //Reducir 1 salto
+            }
+
+            if (jumpsRemaining <= intera)
+            {
+                count++;
+                if (count == 1)
+                {
+                    energy.jump = true;
+                    energy.ReductionEnergyJump();
+
+                }
+            }
+
+            else
+            {
+
+                count = 0;
+                energy.jump = false;
+            }
+                
     }
 
     public void OnCollisionEnter(Collision collision) 
@@ -100,6 +124,7 @@ public class Jump : MonoBehaviour
             grounded =true;
             //Resetear la cantidad de saltos una vez colisione con el suelo
             jumpsRemaining=maxJumpCount;
+            jumpsRemainingTwo = maxJumpCount;
         }
     }
 

@@ -5,11 +5,12 @@ using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class MoveRGB : MonoBehaviour
 {
+    public bool move;
     public float speed;
     public Rigidbody rb;
     public Head head;
     public bool crounch;
-    public Jump jump;
+    public Jump jump;    
 
     [Header("Crouching")]
     public float initialSpeed;
@@ -17,6 +18,7 @@ public class MoveRGB : MonoBehaviour
     //public float crouchSpeed;
     public float crouchYScale;
     private float startYScale;
+    public bool canCrouch;
 
     //[Header("Keybinds")]
     //public KeyCode crouchKey=KeyCode.LeftControl;
@@ -35,47 +37,64 @@ public class MoveRGB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        Move();
+        Crouch();
+    }
 
-        Vector3 velocity = Vector3.zero;
+    public void Move()
+    {
+        if (move)
+        {
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
 
-        if (horizontal != 0 || vertical != 0)
-        {
-            movementVector = (transform.forward * vertical + transform.right * horizontal).normalized;
-            velocity = movementVector * speed;
-            //float vel = speed;
-            //Vector3 dir = transform.forward.normalized * vel * inputMove.x + transform.right.normalized * vel * inputMove.z;
-            //rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
-            //rb.velocity = transform.forward.normalized * vel * inputMove.z + transform.right.normalized * vel * inputMove.x;
-        }
-        
-        //Te agachas
-        if(Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            crounch = true;
-            speed=crawlSpeed;
-            transform.localScale=new Vector3(transform.localScale.x,crouchYScale,transform.localScale.z);
-            rb.AddForce(Vector3.down*5f, ForceMode.Impulse);
-        }
-        
-        //Dejas de agacharte
-        else if(Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            crounch = false;
-            transform.localScale=new Vector3(transform.localScale.x,startYScale,transform.localScale.z);
-            speed= initialSpeed;
-        }
-        /*if(Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            speed=crawlSpeed;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            speed= initialSpeed;
-        }*/
+            Vector3 velocity = Vector3.zero;
 
-        velocity.y = rb.velocity.y;
-        rb.velocity = velocity;
+            if (horizontal != 0 || vertical != 0)
+            {
+                movementVector = (transform.forward * vertical + transform.right * horizontal).normalized;
+                velocity = movementVector * speed;
+                //float vel = speed;
+                //Vector3 dir = transform.forward.normalized * vel * inputMove.x + transform.right.normalized * vel * inputMove.z;
+                //rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
+                //rb.velocity = transform.forward.normalized * vel * inputMove.z + transform.right.normalized * vel * inputMove.x;
+            }
+
+            
+            /*if(Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                speed=crawlSpeed;
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                speed= initialSpeed;
+            }*/
+
+            velocity.y = rb.velocity.y;
+            rb.velocity = velocity;
+        }        
+    }
+
+    public void Crouch()
+    {
+        if (canCrouch)
+        {
+            //Te agachas
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                crounch = true;
+                speed = crawlSpeed;
+                transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+                rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+            }
+
+            //Dejas de agacharte
+            else if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                crounch = false;
+                transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+                speed = initialSpeed;
+            }
+        }       
     }
 }
