@@ -9,6 +9,7 @@ public class RespawnGigant : MonoBehaviour
     public Transform floor;
     public Transform[] next;
     public Transform[] respawn;
+    public GameObject time;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,10 +46,12 @@ public class RespawnGigant : MonoBehaviour
         }
         if (other.gameObject.name == "NextFive")
         {
+            time.SetActive(true);
             prota.position = new Vector3(next[4].position.x, next[4].position.y + 3, next[4].position.z);
         }
         if (other.gameObject.name == "NextSix")
         {
+            time.SetActive(false);
             prota.position = new Vector3(next[6].position.x, next[6].position.y + 3, next[6].position.z);
         }
         #endregion
