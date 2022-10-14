@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class GrabObjects : MonoBehaviour
@@ -33,7 +35,7 @@ public class GrabObjects : MonoBehaviour
         if (active && Input.GetKeyUp(KeyCode.R))
         {
             release = !release;
-            if (release&&energy.energy>4)
+            if (release && energy.energy>4)
             {
                 cube.transform.SetParent(hand);
                 cube.transform.position = hand.position;
@@ -41,28 +43,35 @@ public class GrabObjects : MonoBehaviour
                 box.isTrigger = true;
                 rbd.isKinematic = true;
                 inHand = true;
-                
             }
             else
             {
-                cube.transform.SetParent(null);           
-                box.isTrigger = false;
-                rbd.isKinematic = false;
-                cube.transform.localScale = escale;
+                LeaveObject();
+                inHand = false;
             }           
+        }
+        if (energy.energy < 4)
+        {
+            LeaveObject();
+            inHand = false;
         }
         if (Input.GetMouseButtonDown(0))
         {
-            cube.transform.SetParent(null);
-            rbd.isKinematic = false;
-            box.isTrigger = false;
-            cube.transform.localScale = escale;
+            LeaveObject();
             if (inHand)
             {
                 rbd.AddForce(transform.forward * force, ForceMode.Impulse);
                 inHand = false;
             }
         }
+    }
+
+    public void LeaveObject()
+    {
+        cube.transform.SetParent(null);
+        box.isTrigger = false;
+        rbd.isKinematic = false;
+        cube.transform.localScale = escale;        
     }
 
     public void LessEnergy()
@@ -94,4 +103,5 @@ public class GrabObjects : MonoBehaviour
             active = false;
         }
     }
+
 }

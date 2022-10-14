@@ -9,6 +9,8 @@ public class EnemyTwo : MonoBehaviour
     [SerializeField] FieldOfView fieldOfView;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shoot;
+    [SerializeField] float time;
+    [SerializeField] float maxTime;
 
     private void Start()
     {
@@ -29,8 +31,13 @@ public class EnemyTwo : MonoBehaviour
     {
         if (fieldOfView.IsTarget)
         {
-            Debug.Log("Shot");
-            Instantiate(bullet,shoot.position,shoot.rotation);
+            time += Time.deltaTime;
+            if (time > maxTime)
+            {
+                time = 0;
+                Debug.Log("Shot");
+                Instantiate(bullet, shoot.position, shoot.rotation);
+            }            
         }
     }
 }

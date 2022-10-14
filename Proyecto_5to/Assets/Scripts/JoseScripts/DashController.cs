@@ -24,14 +24,23 @@ public class DashController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !energy.use)
             {
-
+                
                 if (energy.energy > 15)
                 {
                     StartCoroutine(Dash());
+                    if (Input.GetAxis("Vertical") != 0)
+                    {
+                        energy.ReductionEnergyDash();
+                    }
+                    if (Input.GetAxis("Horizontal") != 0)
+                    {
+                        energy.ReductionEnergyDash();
+                    }
                 }
 
             }
-        }                    
+        }
+        
     }
 
     private void FixedUpdate()
@@ -58,7 +67,7 @@ public class DashController : MonoBehaviour
 
         while (timer < 1)
         {
-            energy.ReductionEnergyDash();
+            
             float vertical = Input.GetAxisRaw("Vertical");
             float horizontal = Input.GetAxisRaw("Horizontal");
             timer += Time.deltaTime;
