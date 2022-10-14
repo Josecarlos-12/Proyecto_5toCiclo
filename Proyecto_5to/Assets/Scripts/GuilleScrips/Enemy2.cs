@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy2 : MonoBehaviour
 {
+    public GameObject decition;
     public float AlertRange;
     public LayerMask playerMask;
     public Transform player;
@@ -40,6 +41,8 @@ public class Enemy2 : MonoBehaviour
     {
         if (Life <= 0)
         {
+            decition.transform.position = transform.position;
+            decition.SetActive(true);
             Destroy(gameObject);
         }
     }

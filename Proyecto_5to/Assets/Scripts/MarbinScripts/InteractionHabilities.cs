@@ -19,13 +19,14 @@ public class InteractionHabilities : MonoBehaviour
     {
         DobleSalto_Dash,
         TiposDeBala,
-        Escudo_Stats
+        Bala_Stats
     }
     public habilities hability;
 
     public Jump jump;
 
     public GameObject inte;
+    public GameObject lightEnemy;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,7 @@ public class InteractionHabilities : MonoBehaviour
                     case habilities.TiposDeBala:
                     options[1].SetActive(true);
                     break;
-                case habilities.Escudo_Stats:
+                case habilities.Bala_Stats:
                     options[2].SetActive(true);
                     break;
             }
@@ -107,9 +108,9 @@ public class InteractionHabilities : MonoBehaviour
         Destroy(inte);
     }
 
-    public void Shield()
+    public void OtherBullet()
     {
-        shield.enabled = true;
+        Debug.Log("Bala");
         Cursor.visible = false;
         Time.timeScale = 1;
         options[2].SetActive(false);
@@ -118,8 +119,8 @@ public class InteractionHabilities : MonoBehaviour
 
     public void Stats()
     {
-        life.maxLife = 5;
-        energy.energyMax = 120;
+        life.maxLife = 20;
+        //energy.energyMax = 120;
         Cursor.visible = false;
         Time.timeScale = 1;
         options[2].SetActive(false);
