@@ -86,6 +86,11 @@ public class RespawnGigant : MonoBehaviour
             prota.position = new Vector3(respawn[6].position.x, respawn[6].position.y + 3, respawn[6].position.z);
         }
         #endregion
+
+        if (other.gameObject.CompareTag("EnemyBullet"))
+        {
+            prota.position = new Vector3(next[1].position.x, next[1].position.y + 3, next[1].position.z);
+        }
     }
 
     public IEnumerator Bug()

@@ -6,6 +6,7 @@ using static UnityEngine.EventSystems.StandaloneInputModule;
 public class MoveRGB : MonoBehaviour
 {
     public bool move;
+    public bool objects;
     public float speed;
     public Rigidbody rb;
     public Head head;
