@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public Transform checkpoint;
-    GameObject player;
+    [SerializeField] GameObject player;
+    [SerializeField] List<GameObject> checkPoints;
+    [SerializeField] Vector3 vectorPoints;
+    [SerializeField] float dead;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(player.transform.position.y < -dead)
+        {
+            player.transform.position = vectorPoints;
+        }
     }
 
-    void OnTriggerEnter(Collider plyr)
+    void OnTriggerEnter(Collider other)
     {
-        if (plyr.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Checkpoint")
         {
-            player.transform.position = checkpoint.position;
-            player.transform.rotation = checkpoint.rotation;
+            vectorPoints = player.transform.position;
         }
     }
 }

@@ -9,12 +9,20 @@ public class InteractionTuto : MonoBehaviour
     public MoveRGB move;
     public Jump jump;
     public bool touch;
+    public DashController dash;
+    public Weapon weaponA, weaponB;
+    public CameraView cameraView;
+    public Shield shieldActive;
 
     public enum Interactions
     {
         move,
         jump,
-        crouch
+        crouch,
+        doubleJump,
+        dash,
+        shoot,
+        shield
     }
     public Interactions interactions;
     private void Update()
@@ -47,6 +55,33 @@ public class InteractionTuto : MonoBehaviour
                 if (other.gameObject.CompareTag("Player"))
                 {
                     move.canCrouch = true;
+                }
+                break;
+            case Interactions.doubleJump:
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    jump.jumpTwo=true;
+                    jump.jumpOne = false;
+                }
+                break;
+            case Interactions.dash:
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    dash.canDash = true;
+                }
+                break;
+            case Interactions.shoot:
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    weaponA.canShoot = true;
+                    weaponB.canShoot = true;
+                    cameraView.aim = true;
+                }
+                break;
+            case Interactions.shield:
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    shieldActive.canShild = true;
                 }
                 break;
         }
