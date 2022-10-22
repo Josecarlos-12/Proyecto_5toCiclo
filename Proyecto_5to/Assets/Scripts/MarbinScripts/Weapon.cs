@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
     {
         if (canShoot)
         {
-            if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield == false && interactions.shootFast)
+            if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield == false)
             {
                 if (energy.energy > 2)
                 {
