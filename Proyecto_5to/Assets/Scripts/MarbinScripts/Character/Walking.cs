@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class Walking : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Walking : MonoBehaviour
     public GameObject freelockCamera;
     public bool point;
     public Transform playerBody;
+    public float gravity;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
@@ -28,7 +30,7 @@ public class Walking : MonoBehaviour
     void Update()
     {
         Point();
-       Move();
+        Move();
     }
 
     public void Point()
@@ -45,6 +47,10 @@ public class Walking : MonoBehaviour
             freelockCamera.SetActive(true);
             point = false;
         }
+        if (Input.GetMouseButton(0)&&!point)
+        {
+            Cammera();
+        }
     }
 
     public void Move()
@@ -56,14 +62,14 @@ public class Walking : MonoBehaviour
 
         if (horizontal != 0 || vertical != 0)
         {
+            
+
+            movementVector = (transform.forward * vertical + transform.right * horizontal).normalized;
+            velocity = movementVector * speed; 
             if (!point)
             {
                 Cammera();
             }
-           
-            
-            movementVector = (transform.forward * vertical + transform.right * horizontal).normalized;
-            velocity = movementVector * speed;
             //float vel = speed;
             //Vector3 dir = transform.forward.normalized * vel * inputMove.x + transform.right.normalized * vel * inputMove.z;
             //rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
@@ -84,5 +90,6 @@ public class Walking : MonoBehaviour
         fwd.Normalize();
         transform.rotation=Quaternion.LookRotation(fwd);
     }
+
 
 }

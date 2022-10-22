@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,11 @@ public class Enemy2 : MonoBehaviour
     public float initialShoot;
     [Header("Amount life")]
     [SerializeField] private int Life = 100;
+
+
+    public MiniBosWalk mini;
+    public bool point;
+    public SpawnerRobotines robotines;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,15 +32,9 @@ public class Enemy2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Alert = Physics.CheckSphere(transform.position, AlertRange, playerMask);
-
-        if (Alert == true)
-        {
-            Vector3 posJugador = new Vector3(player.position.x, transform.position.y, player.position.z);
-            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
-            Shoot();
-        }
+        Point();
         LifeDestroy();
+        Atacks();
     }
 
     public void LifeDestroy()
@@ -45,6 +45,22 @@ public class Enemy2 : MonoBehaviour
             decition.SetActive(true);
             Destroy(gameObject);
         }
+    }
+
+    public void Point()
+    {
+        Alert = Physics.CheckSphere(transform.position, AlertRange, playerMask);
+
+        if (point)
+        {
+            if (Alert == true)
+            {
+                Vector3 posJugador = new Vector3(player.position.x, transform.position.y, player.position.z);
+                transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+                Shoot();
+            }
+        }
+        
     }
 
     void Shoot()
@@ -75,4 +91,22 @@ public class Enemy2 : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, AlertRange);
     }
 
+
+    public void Atacks()
+    {
+        if (Life < 40)
+        {
+            mini.charge = false;
+            point = true;
+        }
+        if(Life < 30)
+        {
+            point = false;
+            robotines.enabled = true;
+        }
+        if (Life < 20)
+        {
+            point = true;
+        }
+    }
 }

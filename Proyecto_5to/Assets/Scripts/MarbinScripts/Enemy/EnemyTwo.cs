@@ -18,6 +18,7 @@ public class EnemyTwo : MonoBehaviour
 
     private void Update()
     {
+        
         fieldOfView.SetOrigin(transform.position);
         fieldOfView.SetDirection(transform.forward);
 

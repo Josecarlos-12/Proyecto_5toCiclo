@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,12 +17,12 @@ public class TimeMarbin : MonoBehaviour
 
     public void Timer()
     {
-        time += Time.deltaTime;
+        time -= Time.deltaTime;
         text.text = time.ToString("0");
 
-        if (time >= maxTimer)
+        if (time <= maxTimer)
         {
-            time = 0;
+            time = 180;
             respawn.prota.position = new Vector3(respawn.next[4].position.x, respawn.next[4].position.y + 3, respawn.next[4].position.z);
         }
     }

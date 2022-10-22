@@ -12,7 +12,7 @@ public class DashController : MonoBehaviour
 
     public Energy energy;
 
-    
+
     void Start()
     {
         rb=GetComponent<Rigidbody>();
@@ -22,6 +22,7 @@ public class DashController : MonoBehaviour
     {
         if (canDash)
         {
+            
             if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !energy.use)
             {
                 

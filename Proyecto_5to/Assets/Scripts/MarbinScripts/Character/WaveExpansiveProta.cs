@@ -8,6 +8,9 @@ public class WaveExpansiveProta : MonoBehaviour
     public float radius;
     public float forceExplotion;
 
+    public Rigidbody rb;
+    public float jump;
+
     private void Update()
     {
         Explotion();
@@ -15,8 +18,11 @@ public class WaveExpansiveProta : MonoBehaviour
 
     public void Explotion()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Q))
         {
+
+            rb.AddForce(Vector3.up*jump,ForceMode.Impulse);
+            
             Collider[] objects = Physics.OverlapSphere(transform.position, radius);
 
             foreach (Collider obj in objects)
