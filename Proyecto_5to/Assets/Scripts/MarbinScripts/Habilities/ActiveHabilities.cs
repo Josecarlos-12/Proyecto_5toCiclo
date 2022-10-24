@@ -8,6 +8,7 @@ public class ActiveHabilities : MonoBehaviour
     public DashController dash;
     public Weapon aim;
     public CameraView camAim;
+    public Shield shield;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -20,6 +21,11 @@ public class ActiveHabilities : MonoBehaviour
         {
             aim.canShoot=true;
         }
+        if (other.gameObject.name == "Shield")
+        {
+            shield.canShild = true;
+        }
     }
     
+
 }

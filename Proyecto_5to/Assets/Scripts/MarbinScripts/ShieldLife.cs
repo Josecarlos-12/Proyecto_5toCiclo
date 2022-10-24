@@ -137,7 +137,7 @@ public class ShieldLife : MonoBehaviour
             lifeShield -= 3;
             damage = true;
         }
-        if (other.gameObject.CompareTag("Gigant"))
+        if (other.gameObject.CompareTag("Respawn"))
         {
             lifeShield -= 10;
             damage = true;
