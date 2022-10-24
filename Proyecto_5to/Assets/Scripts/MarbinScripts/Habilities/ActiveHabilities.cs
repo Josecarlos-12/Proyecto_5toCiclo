@@ -6,7 +6,7 @@ public class ActiveHabilities : MonoBehaviour
 {
     public Jump jump;
     public DashController dash;
-    public Weapon aimA, aimB;
+    public Weapon aim;
     public CameraView camAim;
 
     public void OnTriggerEnter(Collider other)
@@ -23,9 +23,7 @@ public class ActiveHabilities : MonoBehaviour
         }
         if (other.gameObject.name == "Aim")
         {
-            aimA.canShoot=true;
-            aimB.canShoot=true;
-            camAim.aim=true;
+            aim.canShoot=true;
         }
     }
     
