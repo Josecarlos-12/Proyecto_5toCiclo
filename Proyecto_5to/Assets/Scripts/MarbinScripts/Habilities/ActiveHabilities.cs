@@ -11,15 +11,10 @@ public class ActiveHabilities : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "DoubleJump")
+        if (other.gameObject.name == "Jump")
         {
-            jump.jumpTwo = true;
-            jump.jumpOne = false;
+            jump.jumpOne = true;
 
-        }
-        if(other.gameObject.name == "Dash")
-        {
-            dash.canDash=true;
         }
         if (other.gameObject.name == "Aim")
         {

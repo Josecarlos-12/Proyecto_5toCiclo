@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Jump : MonoBehaviour
 {
@@ -47,6 +49,9 @@ public class Jump : MonoBehaviour
         if (jumpTwo)
             DoubleJump();
     }
+
+  
+   
 
     public void JumpOnly()
     {
@@ -114,21 +119,21 @@ public class Jump : MonoBehaviour
             }
                 
     }
-
-    public void OnCollisionEnter(Collision collision) 
+    public void OnCollisionEnter(Collision collision)
     {
         //Si colisionamos con el suelo que sea =true
-        if(collision.gameObject.tag=="Floor")
+        if (collision.gameObject.tag == "Floor")
         {
             jump = true;
-            grounded =true;
+            grounded = true;
             //Resetear la cantidad de saltos una vez colisione con el suelo
-            jumpsRemaining=maxJumpCount;
+            jumpsRemaining = maxJumpCount;
             jumpsRemainingTwo = maxJumpCount;
         }
     }
 
-     public void OnCollisionExit(Collision collision) 
+
+    public void OnCollisionExit(Collision collision) 
     {
         //Si no colisionamos con el suelo que sea =false
         if(collision.gameObject.tag=="Floor")
@@ -137,4 +142,6 @@ public class Jump : MonoBehaviour
             grounded =false;
         }
     }
+
+   
 }

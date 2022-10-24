@@ -28,6 +28,7 @@ public class InteractionTuto : MonoBehaviour
     {
         if(touch && Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("TocoE");
             respawn.prota.position = new Vector3(respawn.next[0].position.x, respawn.next[0].position.y + 3, respawn.next[0].position.z);
             move.move = true;
         }
