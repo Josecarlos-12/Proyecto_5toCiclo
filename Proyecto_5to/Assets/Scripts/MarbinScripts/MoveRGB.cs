@@ -5,6 +5,10 @@ using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class MoveRGB : MonoBehaviour
 {
+    [Header("Speeds")]
+    public float moveNormal = 8;
+    public float moveAim = 4;
+
     public bool move;
     public bool objects;
     public float speed;
@@ -46,8 +50,8 @@ public class MoveRGB : MonoBehaviour
     {
         if (move)
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
 
             Vector3 velocity = Vector3.zero;
 

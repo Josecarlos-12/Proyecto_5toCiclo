@@ -6,27 +6,26 @@ public class ActiveHabilities : MonoBehaviour
 {
     public Jump jump;
     public DashController dash;
-    public Weapon aimA, aimB;
+    public Weapon aim;
     public CameraView camAim;
+    public Shield shield;
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "DoubleJump")
+        if (other.gameObject.name == "Jump")
         {
-            jump.jumpTwo = true;
-            jump.jumpOne = false;
+            jump.jumpOne = true;
 
-        }
-        if(other.gameObject.name == "Dash")
-        {
-            dash.canDash=true;
         }
         if (other.gameObject.name == "Aim")
         {
-            aimA.canShoot=true;
-            aimB.canShoot=true;
-            camAim.aim=true;
+            aim.canShoot=true;
+        }
+        if (other.gameObject.name == "Shield")
+        {
+            shield.canShild = true;
         }
     }
     
+
 }
