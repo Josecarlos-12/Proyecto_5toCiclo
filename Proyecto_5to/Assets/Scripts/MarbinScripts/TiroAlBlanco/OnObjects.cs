@@ -8,11 +8,14 @@ public class OnObjects : MonoBehaviour
     public GameObject shoot, shootOne;
     public GameObject laders;
     public GameObject[] robots;
+    public GameObject objects;
+    public OnObjects on;
 
     public enum Shot
     {
         One,
-        Two
+        Two,
+        three
     }
     public Shot shootDecition= Shot.Two;
 
@@ -26,8 +29,11 @@ public class OnObjects : MonoBehaviour
             case Shot.Two:
                 DestroyTwo();
                 break;
+            case Shot.three:
+                DestroyThree();
+                break;
         }
-        
+
     }
 
 
@@ -48,9 +54,24 @@ public class OnObjects : MonoBehaviour
         if (shoot == null && shootOne == null)
         {
             laders.SetActive(true);
-            for (int i = 0; i < robots.Length; i++)
+                for (int i = 0; i < robots.Length; i++)
+                {
+                    robots[i].SetActive(true);
+                }
+
+
+        }
+    }
+
+    public void DestroyThree()
+    {
+        if (shoot == null && shootOne == null)
+        {
+            laders.SetActive(true);
+
+            if (objects != null)
             {
-                robots[i].SetActive(true);
+                objects.SetActive(true);
             }
         }
     }
