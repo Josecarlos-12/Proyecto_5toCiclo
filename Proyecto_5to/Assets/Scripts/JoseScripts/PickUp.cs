@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
+using UnityEngine.XR;
 
 public class PickUp : MonoBehaviour
 {
@@ -8,27 +10,51 @@ public class PickUp : MonoBehaviour
     public float moveForce = 250;
     public Transform holdParent;
 
-    private GameObject heldObj;
-    // Update is called once per frame
+    public GameObject heldObj;
+    public LayerMask layer;
+
+    [Header("Bajar Energia")]
+    public float maxTimer=0.1f;
+    public float time;
+    public Energy energy;
+    public bool lessEner;
+
+    [Header("Disparar")]
+    public float force;
+    public bool inHand;
     void Update( )
     {
+        Shoot();
+        LessEnergy();
         if ( Input.GetKeyDown(KeyCode.E) )
         {
             if ( heldObj == null )
             {
                 RaycastHit hit;
-                if ( Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange) )
+                if ( Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, layer))
                 {
-                    PickupObject(hit.transform.gameObject);
+                    PickupObject(hit.transform.gameObject); Debug.Log("CogioObjeto");
                 }
             }
             else
             {
+                DropObject(); Debug.Log("SoltoObjeto");
+            }
+            /*if (Input.GetMouseButtonDown(0))
+            {
+                DropObject();
+                Rigidbody heldRig = heldObj.GetComponent<Rigidbody>();
+                heldRig.AddForce(transform.forward * force, ForceMode.Impulse);
+            }*/
+        }
+        if (energy.energy < 4)
+        {
+            if (heldObj != null)
+            {
                 DropObject();
             }
-
+               
         }
-
         if ( heldObj != null )
         {
             MoveObject();
@@ -48,8 +74,10 @@ public class PickUp : MonoBehaviour
     {
         if ( pickObj.GetComponent<Rigidbody>() )
         {
+            lessEner = true;
             Rigidbody objRig = pickObj.GetComponent<Rigidbody>();
             objRig.useGravity = false;
+            //objRig.isKinematic = true;
             objRig.drag = 10;
 
             objRig.transform.parent = holdParent;
@@ -57,13 +85,38 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    void DropObject( )
+    void DropObject()
     {
+        lessEner = false; 
+
         Rigidbody heldRig = heldObj.GetComponent<Rigidbody>();
         heldRig.useGravity = true;
+        //heldRig.isKinematic = false;
         heldRig.drag = 1;
 
         heldObj.transform.parent = null;
-        heldObj = null;
+        heldObj = null; 
+    }
+
+    public void LessEnergy()
+    {
+        if (lessEner)
+        {
+            time = time + Time.deltaTime;
+            if (time >= maxTimer)
+            {
+                time -= 1;
+                if (energy.energy >= 0)
+                {
+                    energy.energy -= 10;
+                }
+            }
+        }
+       
+    }
+
+    public void Shoot()
+    {
+      
     }
 }

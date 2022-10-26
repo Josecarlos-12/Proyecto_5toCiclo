@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 1567489429157235125}
   - component: {fileID: 1567489429157235122}
   - component: {fileID: 1567489429157235127}
+  - component: {fileID: 2821988051880147093}
   m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -302,6 +303,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 9046330588209641234}
   - {fileID: 1567489428994823443}
   m_Father: {fileID: 1567489429914520471}
   m_RootOrder: -1
@@ -504,6 +506,29 @@ MonoBehaviour:
   pointB: {fileID: 1567489428839660683}
   cameraMain: {fileID: 1567489429157235120}
   speeds: {fileID: 1567489429914520464}
+--- !u!114 &2821988051880147093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567489429157235121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25fe67df82088046af0929c07d71265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpRange: 5
+  moveForce: 400
+  holdParent: {fileID: 9046330588209641234}
+  heldObj: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 2048
+  maxTimer: 0.1
+  time: 0
+  energy: {fileID: 1567489429914520458}
+  lessEner: 0
 --- !u!1 &1567489429625596851
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +857,37 @@ MonoBehaviour:
   Regeneration: 4
   useShield: 0
   timer: 0
+--- !u!1 &7137760565307334128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9046330588209641234}
+  m_Layer: 3
+  m_Name: Hold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9046330588209641234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7137760565307334128}
+  m_LocalRotation: {x: -0.0038326085, y: -0.021615406, z: 0.0049253893, w: 0.9997469}
+  m_LocalPosition: {x: 0.94, y: 0.44, z: 3.13}
+  m_LocalScale: {x: 0.12496, y: 0.12495999, z: 0.124960005}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1567489429157235120}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7838497979666023534
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,16 +1003,14 @@ MonoBehaviour:
   maxLife: 3
   color: {r: 0, g: 0, b: 0, a: 0}
   newColor: {r: 1, g: 0, b: 0, a: 1}
-  damage: {fileID: 0}
-  intangible: {fileID: 0}
+  white: {fileID: 0}
   randonColor: {r: 0, g: 0, b: 0, a: 0}
   recover: 3
   prota: {fileID: 0}
-  positionInitial: {fileID: 0}
+  player: {fileID: 0}
   image: {fileID: 0}
   recorProta: 0
-  initialAll: {fileID: 0}
-  active: 0
+  intan: 0
 --- !u!1001 &1567489428366319427
 PrefabInstance:
   m_ObjectHideFlags: 0
