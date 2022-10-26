@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] FieldOfView fieldOfView;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform target;
-    [SerializeField] float stoppingDistance = 1f;
+    //[SerializeField] float stoppingDistance = 3f;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour
         if (fieldOfView.IsTarget)
         {
             destination = target.position;
-            agent.stoppingDistance = stoppingDistance;
+            agent.stoppingDistance = 7;
         }
         else
         {

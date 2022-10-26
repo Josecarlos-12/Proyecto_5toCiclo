@@ -23,7 +23,8 @@ public class Enemy2 : MonoBehaviour
     public MiniBosWalk mini;
     public bool point;
     public SpawnerRobotines robotines;
-    // Start is called before the first frame update
+
+
     void Start()
     {
 

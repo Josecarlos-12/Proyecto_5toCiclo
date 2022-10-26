@@ -19,6 +19,8 @@ public class MiniBosWalk : MonoBehaviour
     public MoveRGB move;
 
     public bool charge;
+    public bool tackle;
+    public Life lifeProta;
     void Start()
     {
         
@@ -40,6 +42,7 @@ public class MiniBosWalk : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, player.position) < detecte)
             {
+                tackle = true;
                 //Debug.Log("Player");
                 view = true;
                 agent.destination = player.position;
@@ -47,6 +50,7 @@ public class MiniBosWalk : MonoBehaviour
             }
             else
             {
+                tackle=false;
                 view = false;
             }
         }
@@ -71,7 +75,7 @@ public class MiniBosWalk : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detecte);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -80,6 +84,23 @@ public class MiniBosWalk : MonoBehaviour
             agent.speed = 0;
             move.move = false;
             StartCoroutine(FalseMove());
+        }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (tackle)
+            {
+                rb.AddForce(Vector3.left * 18, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * 2, ForceMode.Impulse);
+                agent.speed = 0;
+                move.move = false;
+                StartCoroutine(FalseMove());
+                lifeProta.life -= 5;
+            }
+            
         }
     }
 
