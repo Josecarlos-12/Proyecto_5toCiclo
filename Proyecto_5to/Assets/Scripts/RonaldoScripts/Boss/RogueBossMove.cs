@@ -4,61 +4,49 @@ using UnityEngine;
 
 public class RogueBossMove : MonoBehaviour
 {
-    public float MoveRango;
-    public float FireRango;
+    public bool Active;
     public float speed;
-
-    public LayerMask LayerPlayer;
-    public Transform PlayerPosition;
-
-    bool Detect;
-    bool FireDetect;
+    public float time_follow = 10;
+    public float damage;
+    Transform PlayerPosition;
+    RogueBossState pp;
     bool Move = true;
-    RogueBossFire Fire;
-
-    void Start()
+    float timer = 0;
+    private void Start()
     {
-        Fire = GetComponent<RogueBossFire>();
+        pp = GetComponent<RogueBossState>();
     }
 
     void Update()
     {
-        Detect = Physics.CheckSphere(transform.position,MoveRango,LayerPlayer);
-        FireDetect = Physics.CheckSphere(transform.position,FireRango, LayerPlayer);
         EnemyMovement();
+        PlayerPosition = pp.PlayerPosition;
     }
 
     void EnemyMovement()
     {
-
         
-        if (FireDetect)
+        if (timer > time_follow)
         {
-            transform.LookAt(new Vector3(PlayerPosition.position.x, transform.position.y, PlayerPosition.position.z));
-            if (Detect)
+            pp.state = RogueBossState.State.recharge;
+            timer = 0;
+            Active = false;
+        }
+        else
+        {
+            if (Active)
             {
-                Fire.Active = false;
+                timer += Time.deltaTime;
+                transform.LookAt(new Vector3(PlayerPosition.position.x, transform.position.y, PlayerPosition.position.z));
 
                 if (Move)
                     transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerPosition.position.x, transform.position.y, PlayerPosition.position.z), speed * Time.deltaTime);
                 else if (!Move)
                     transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerPosition.position.x, transform.position.y, PlayerPosition.position.z), 0 * Time.deltaTime);
             }
-            else
-            {
-                Fire.Active = true;
-            }
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, MoveRango);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, FireRango);
-    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))

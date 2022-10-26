@@ -5123,6 +5123,7 @@ GameObject:
   - component: {fileID: 1145197014}
   - component: {fileID: 1145197013}
   - component: {fileID: 1145197012}
+  - component: {fileID: 1145197018}
   - component: {fileID: 1145197016}
   - component: {fileID: 1145197017}
   m_Layer: 0
@@ -5224,13 +5225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570b854b83b2c3443bd6e830a1c7e107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveRango: 13
-  FireRango: 30
-  speed: 2
-  LayerPlayer:
-    serializedVersion: 2
-    m_Bits: 8
-  PlayerPosition: {fileID: 240115320}
+  Active: 0
+  speed: 4
+  time_follow: 10
+  damage: 0
 --- !u!114 &1145197017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5246,10 +5244,29 @@ MonoBehaviour:
   Active: 0
   projectils: 3
   FireTime: 2.5
-  RechargeTime: 4
   PlayerPosition: {fileID: 1538546591}
   projectile: {fileID: 5967671470181361209, guid: a1ceb512a9067e44eb2e0542a76fedfc,
     type: 3}
+--- !u!114 &1145197018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145197011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c82ee2ad90491040abd41c93379e292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimerRecharge: 8
+  MoveRango: 19.1
+  FireRango: 30
+  LayerPlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  PlayerPosition: {fileID: 240115320}
+  state: 0
 --- !u!1 &1150563802
 GameObject:
   m_ObjectHideFlags: 0

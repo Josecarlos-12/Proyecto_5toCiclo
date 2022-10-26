@@ -7,14 +7,18 @@ public class RogueBossFire : MonoBehaviour
     public bool Active;
     public int projectils;
     public float FireTime = 2.5f;
-    public float RechargeTime = 6.2f;
     public Transform PlayerPosition;
 
     public GameObject projectile;
 
-    bool Recharge = true;
+    RogueBossState pp;
+
     int count;
     float timer = 0;
+    void Start()
+    {
+        pp = GetComponent<RogueBossState>();
+    }
     void Update()
     {
         if (Active)
@@ -23,35 +27,24 @@ public class RogueBossFire : MonoBehaviour
         {
             timer = 0;
         }
-
     }
-
     void Fire()
     {
         timer += Time.deltaTime;
-        if (Recharge)
+        if (timer > FireTime)
         {
-            if (timer > FireTime)
+            if (count >= projectils)
             {
-                Instantiate(projectile,new Vector3(PlayerPosition.transform.position.x, PlayerPosition.transform.position.y, PlayerPosition.transform.position.z),new Quaternion(0,0,0,0));
+                pp.state = RogueBossState.State.recharge;
+                count = 0;
+                Active = false;
+            }
+            else
+            {
+                Instantiate(projectile, new Vector3(PlayerPosition.transform.position.x, PlayerPosition.transform.position.y, PlayerPosition.transform.position.z), new Quaternion(0, 0, 0, 0));
                 count++;
-
-                if(count >= projectils)
-                {
-                    Debug.Log("Recargar");
-                    Recharge = false;
-                    count = 0;
-                }
-                timer = 0;
             }
-        }
-        else
-        {
-            if(timer > RechargeTime)
-            {
-                timer = 0;
-                Recharge = true;
-            }
+            timer = 0;
         }
     }
 }
