@@ -4,44 +4,40 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public GameObject TimeZone;
-    public GameObject Zone;
+    public float Damage;
+    public GameObject esto;
+    public bool damageRecibe = false;
+    GameObject Player;
 
-    public GameObject sphre;
 
-    public float speed = 2;
-    public float timer;
-    float ti;
-    bool damage;
-
-    void Start()
-    {
-        TimeZone.transform.localScale = Vector3.zero;
-    }
     void Update()
     {
-        timer += Time.deltaTime;
-        TimeZone.transform.localScale = Vector3.Lerp(TimeZone.transform.localScale, Zone.transform.localScale,speed*Time.deltaTime);
-
-        
-        ti += Time.deltaTime * 0.5f;
-        sphre.transform.position = Vector3.Lerp(sphre.transform.position,Zone.transform.position, ti);
-
-        if (timer > 2.5)
-        {
-            Debug.Log("explosion");
-            Destroy(this.gameObject);
+    }
+    public void Impact()
+    {
+        if (damageRecibe) {
+            Debug.Log("daño recibido");
+            Destroy(esto);
         }
-        if (timer > 2.4)
+        else
         {
-            damage = true;  
+            Destroy(esto);
+            Debug.Log("Explosion");
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && damage)
+        if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Daño recibido");
+            Player = other.GetComponent<GameObject>();
+            damageRecibe = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            damageRecibe = false;
         }
     }
 }
