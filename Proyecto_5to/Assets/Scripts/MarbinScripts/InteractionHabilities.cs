@@ -14,6 +14,7 @@ public class InteractionHabilities : MonoBehaviour
     public Shield shield;
     public Life life;
     public Energy energy;
+    public Weapon weapon;
 
     public enum habilities
     {
@@ -110,7 +111,7 @@ public class InteractionHabilities : MonoBehaviour
 
     public void OtherBullet()
     {
-        Debug.Log("Bala");
+        weapon.typeBullet = true;
         Cursor.visible = false;
         Time.timeScale = 1;
         options[2].SetActive(false);
