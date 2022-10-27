@@ -29,6 +29,8 @@ public class MoveRGB : MonoBehaviour
     //public KeyCode crouchKey=KeyCode.LeftControl;
 
     public Vector3 movementVector = Vector3.zero;
+
+    RaycastHit hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +81,7 @@ public class MoveRGB : MonoBehaviour
             rb.velocity = velocity;
         }        
     }
+
 
     public void Crouch()
     {
