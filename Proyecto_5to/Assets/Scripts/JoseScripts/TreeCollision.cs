@@ -22,7 +22,7 @@ public class TreeCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ( other.gameObject.CompareTag("Bullet") )
+        if ( other.gameObject.CompareTag("Bullet") || other.gameObject.CompareTag("LaserProta"))
         {
             treee.material.color = Color.green;
             bulletCollision = true;
