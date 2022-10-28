@@ -42,8 +42,12 @@ public class Enemy2 : MonoBehaviour
     {
         if (Life <= 0)
         {
-            decition.transform.position = transform.position;
-            decition.SetActive(true);
+            if (decition!= null)
+            {
+                decition.transform.position = transform.position;
+                decition.SetActive(true);
+            }
+            
             Destroy(gameObject);
         }
     }

@@ -27,6 +27,7 @@ public class TreePuzzle : MonoBehaviour
     public int count, countO, countT, countF;
 
     public GameObject enemy;
+    public GameObject boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +111,7 @@ public class TreePuzzle : MonoBehaviour
             lTrueFour=true;
             if(enemy!=null)
             enemy.SetActive(true);
+            boss.SetActive(true);
         }
         
         if(false1.a >= 1 || false2.a >= 1 || false3.a >= 1 )
