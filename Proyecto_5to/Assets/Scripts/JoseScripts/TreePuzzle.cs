@@ -108,6 +108,7 @@ public class TreePuzzle : MonoBehaviour
         {
             lTrueThree = false;
             lTrueFour=true;
+            if(enemy!=null)
             enemy.SetActive(true);
         }
         

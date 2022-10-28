@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class RobotinIATwo : MonoBehaviour
 {
@@ -48,6 +50,11 @@ public class RobotinIATwo : MonoBehaviour
     public Transform girBad;
     public Animator girAnim;
     public GameObject enemyFiveLife;
+    public GameObject enemyDeath;
+    public Rigidbody rbGirl;
+
+
+    public TextMeshProUGUI text;
     public enum LifeDecition
     {
         cinematica,
@@ -86,6 +93,7 @@ public class RobotinIATwo : MonoBehaviour
             case LifeDecition.cinematica:
                 if (life <= 0)
                 {
+                    
                     CountT++;
                     circle.enabled = false;
                     render.mesh = null;
@@ -93,6 +101,7 @@ public class RobotinIATwo : MonoBehaviour
                     agent.enabled = false;
                     rb.isKinematic = true;
                     godDecition.SetActive(true);
+                    text.text = "Verónica: !Noooo, Como pudiste! Me las vas a pagar¡";
                     girl.SetActive(false);
                     target.SetActive(false);
                     StartCoroutine("OnDecitionGod");
@@ -116,7 +125,8 @@ public class RobotinIATwo : MonoBehaviour
         yield return new WaitForSeconds(5);
         //godDecition.SetActive(false);
         target.SetActive(true);
-        Destroy(allDecition);
+        text.text = "";
+        Destroy(allDecition);        
     }
 
 
@@ -151,6 +161,7 @@ public class RobotinIATwo : MonoBehaviour
     {
         if (life <= 5)
         {
+            
             CanMove = true;
             shoot.canShoot = true;
 
@@ -158,6 +169,7 @@ public class RobotinIATwo : MonoBehaviour
 
             if(count == 1)
             {
+                text.text = "Verónica: ¡Espera espera, no le hagas más daño!";
                 girl.SetActive(true);
                 cinematica.SetActive(true);
                 target.SetActive(false);
@@ -170,11 +182,12 @@ public class RobotinIATwo : MonoBehaviour
 
     public IEnumerator Enemy()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
         cinematica.SetActive(false);
         cameraEnemy.SetActive(true);
-
+        text.text = "Verónica: ¡Ellos también son seres vivos, déjalos en paz!";
         yield return new WaitForSeconds(3);
+        text.text = "";
         cameraEnemy.SetActive(false);
         target.SetActive(true);
         StartCoroutine("DecitionBad");
@@ -183,6 +196,7 @@ public class RobotinIATwo : MonoBehaviour
     public IEnumerator DecitionBad()
     {
         yield return new WaitForSeconds(5);
+        text.text = "Verónica: ¡AAAAAAHHHHH!";
         circle.enabled = false;
         render.mesh = null;
         shotEnemy.enabled = false;
@@ -197,12 +211,17 @@ public class RobotinIATwo : MonoBehaviour
     public IEnumerator OnDecitionBad()
     {
         yield return new WaitForSeconds(3);
+        text.text = "";
         target.SetActive(true);
         decitionBad.SetActive(false);
         girBad.SetParent(null);
         girAnim.enabled = false;
         girBad.transform.position = transform.position;
-        enemyFiveLife.SetActive(true);
+        rbGirl.isKinematic = false;
+        girBad.Rotate(new Vector3(85.595f, transform.position.y, transform.position.z));
+        //enemyFiveLife.SetActive(true);
+        enemyDeath.SetActive(true);
+        enemyDeath.transform.position = transform.position; 
         Destroy(allDecition);
 
     }
