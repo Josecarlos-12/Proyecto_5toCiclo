@@ -62,7 +62,10 @@ public class Energy : MonoBehaviour
     {
         energy -= 2;
     }
-
+    public void ReductionEnergyLaser()
+    {
+        energy -= 5;
+    }
     public void ReductionEnergyDash()
     {
         energy -= 15;

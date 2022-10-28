@@ -13,12 +13,12 @@ public class NextLevel : MonoBehaviour
         if (other.gameObject.name=="Mod2")
         {
             prota.position=mod[0].position;
-            life.positionInitial.position = mod[0].position;
+            //life.positionInitial.position = mod[0].position;
         }
         if (other.gameObject.name == "Mod3")
         {
             prota.position = mod[1].position;
-            life.positionInitial.position = mod[1].position;
+            //life.positionInitial.position = mod[1].position;
         }
     }
 }
