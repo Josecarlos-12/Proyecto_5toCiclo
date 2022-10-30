@@ -10,12 +10,14 @@ public class BrittlePlatform : MonoBehaviour
     public Collider collision;
     Vector3 start;
 
+    public Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         collision = GetComponent<Collider>();
         start = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -24,6 +26,7 @@ public class BrittlePlatform : MonoBehaviour
         {
             Debug.Log("contacto");
             StartCoroutine(Waiting());
+            anim.SetBool("Shake", true);
         }
     }
 
@@ -43,5 +46,6 @@ public class BrittlePlatform : MonoBehaviour
         //rb.velocity = Vector3.zero;
         rb.isKinematic = true;
         collision.isTrigger = false;
+        anim.SetBool("Shake", false);
     }
 }
