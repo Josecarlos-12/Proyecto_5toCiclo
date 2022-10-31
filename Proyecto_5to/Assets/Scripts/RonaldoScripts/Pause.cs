@@ -7,7 +7,6 @@ public class Pause : MonoBehaviour
 
     public bool isPaused=false;
     public GameObject pauseMenuUI;
-    public GameObject OpcionesMenuUI;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.P))
@@ -31,7 +30,6 @@ public class Pause : MonoBehaviour
     {
         Cursor.visible = false;
         pauseMenuUI.SetActive(false);
-        OpcionesMenuUI.SetActive(false);
         isPaused = false;
         Time.timeScale = 1;
 

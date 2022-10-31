@@ -21,6 +21,7 @@ public class RogueBossMove : MonoBehaviour
     {
         EnemyMovement();
         PlayerPosition = pp.PlayerPosition;
+        transform.LookAt(new Vector3(PlayerPosition.position.x, transform.position.y, PlayerPosition.position.z));
     }
 
     void EnemyMovement()
@@ -37,7 +38,6 @@ public class RogueBossMove : MonoBehaviour
             if (Active)
             {
                 timer += Time.deltaTime;
-                transform.LookAt(new Vector3(PlayerPosition.position.x, transform.position.y, PlayerPosition.position.z));
 
                 if (Move)
                     transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerPosition.position.x, transform.position.y, PlayerPosition.position.z), speed * Time.deltaTime);
