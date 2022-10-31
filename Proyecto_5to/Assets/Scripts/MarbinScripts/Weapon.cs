@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public bool canShoot;
     public GameObject initialBullet;
-    public GameObject bulletFast;
+    public GameObject bulletFast, laserBullet;
     public GameObject bulletSlow;
     public InteractionHabilities interactions;
 
@@ -14,9 +14,17 @@ public class Weapon : MonoBehaviour
     public float initialShoot;
     public Energy energy;
     public Shield shield;
+
+    [Header("Chambiar Bala")]
+    public bool chageBullet;
+    public bool typeBullet;
     private void Update()
     {
+        if(!typeBullet)
         Shoot();
+
+        if(typeBullet)
+        ShootLaser();
     }
 
     public void Shoot()
@@ -35,8 +43,7 @@ public class Weapon : MonoBehaviour
                     //Instacie bulletPrefab en la posicion de initialBullet
 
                     Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
-
-
+                    
                     //Obtuve el rigibody para agragar fuerza
                     //Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
 
@@ -48,23 +55,46 @@ public class Weapon : MonoBehaviour
 
                 }
 
-            }
-            if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield == false && interactions.shootSlow)
-            {
-                if (energy.energy > 3)
-                {
-                    energy.ReductionEnergyShoot();
-                    energy.recoverEnergy = true;
-                    //energy.ReductionEnergy();
-                    initialShoot = Time.time + timeShoot;
-
-                    //Instacie bulletPrefab en la posicion de initialBullet
-
-                    Instantiate(bulletSlow, initialBullet.transform.position, initialBullet.transform.rotation);
-                }
-            }
+            }            
         }
         
-    } 
+    }
+
+    public void ShootLaser()
+    {
+        if (canShoot)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                chageBullet = !chageBullet;
+            }
+            if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield == false)
+            {
+                if (!chageBullet)
+                {
+                    if (energy.energy > 2)
+                    {
+                        Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
+                        energy.ReductionEnergyShoot();
+                        energy.recoverEnergy = true;
+                        initialShoot = Time.time + timeShoot;
+
+                    }
+                }
+                if (chageBullet)
+                {
+                    if (energy.energy > 2)
+                    {
+                        Instantiate(laserBullet, initialBullet.transform.position, initialBullet.transform.rotation);
+                        energy.ReductionEnergyLaser();
+                        energy.recoverEnergy = true;
+                        initialShoot = Time.time + timeShoot;
+                    }
+                       
+                }
+            }            
+        }
+
+    }
 }
 

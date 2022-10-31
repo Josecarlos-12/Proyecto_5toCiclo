@@ -15,6 +15,8 @@ public class ShootRobotin : MonoBehaviour
     public GameObject Bullet;
     public Transform shotSpawn;
     public float bulletVelocity;
+
+    public bool canShoot;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -38,16 +40,19 @@ public class ShootRobotin : MonoBehaviour
     }
     void Shoot()
     {
-        if (Time.time > initialShoot)
+        if (!canShoot)
         {
-            Vector3 playerDirection = player.transform.position - transform.position;
-            initialShoot = Time.time + timeShoot;
-            GameObject bulletTemporal = Instantiate(Bullet, shotSpawn.transform.position, shotSpawn.transform.rotation) as GameObject;
-            Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
-            bulletTemporal.GetComponent<Rigidbody>().AddForce(playerDirection * bulletVelocity, ForceMode.Force);
-            Destroy(bulletTemporal, 4);
+            if (Time.time > initialShoot)
+            {
+                Vector3 playerDirection = player.transform.position - transform.position;
+                initialShoot = Time.time + timeShoot;
+                GameObject bulletTemporal = Instantiate(Bullet, shotSpawn.transform.position, shotSpawn.transform.rotation) as GameObject;
+                Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
+                bulletTemporal.GetComponent<Rigidbody>().AddForce(playerDirection * bulletVelocity, ForceMode.Force);
+                Destroy(bulletTemporal, 4);
 
-        }
+            }
+        }        
     }
 
     private void OnDrawGizmos()

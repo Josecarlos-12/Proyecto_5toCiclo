@@ -21,9 +21,13 @@ public class FalseCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        a++;
-        wrong.material.color = Color.red;
-        StartCoroutine(FlashColor());
+        if (other.gameObject.CompareTag("Bullet") || other.gameObject.CompareTag("LaserProta"))
+        {
+            a++;
+            wrong.material.color = Color.red;
+            StartCoroutine(FlashColor());
+        }
+            
     }
 
     public IEnumerator FlashColor( )

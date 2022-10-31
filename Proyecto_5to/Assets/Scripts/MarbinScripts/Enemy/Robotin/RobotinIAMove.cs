@@ -51,8 +51,12 @@ public class RobotinIAMove : MonoBehaviour
 
         if (Physics.CheckSphere(transform.position, AlertRange, playerMask))
         {
-            agent.destination = target.transform.position;
-            agent.stoppingDistance = 4;
+            if (life > 0)
+            {
+                agent.destination = target.transform.position;
+                agent.stoppingDistance = 4;
+            }
+                
         }
     }
    
@@ -66,7 +70,13 @@ public class RobotinIAMove : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            life--;
+            life-=20;
+        }
+        if (other.gameObject.CompareTag("Sword"))
+        {
+            life-=50;
+            Debug.Log("Macheteo");
         }
     }
+
 }

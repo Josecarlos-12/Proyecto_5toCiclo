@@ -42,8 +42,12 @@ public class Enemy2 : MonoBehaviour
     {
         if (Life <= 0)
         {
-            decition.transform.position = transform.position;
-            decition.SetActive(true);
+            if (decition!= null)
+            {
+                decition.transform.position = transform.position;
+                decition.SetActive(true);
+            }
+            
             Destroy(gameObject);
         }
     }
@@ -84,6 +88,11 @@ public class Enemy2 : MonoBehaviour
         {
             Life--;
         }
+        if (other.gameObject.CompareTag("Sword"))
+        {
+            Life -= 50;
+            Debug.Log("Macheteo");
+        }
     }
 
     private void OnDrawGizmos()
@@ -95,17 +104,17 @@ public class Enemy2 : MonoBehaviour
 
     public void Atacks()
     {
-        if (Life < 40)
+        if (Life < 700)
         {
             mini.charge = false;
             point = true;
         }
-        if(Life < 30)
+        if(Life < 600)
         {
             point = false;
             robotines.enabled = true;
         }
-        if (Life < 20)
+        if (Life < 200)
         {
             point = true;
         }

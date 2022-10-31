@@ -22,16 +22,35 @@ public class PickUp : MonoBehaviour
     [Header("Disparar")]
     public float force;
     public bool inHand;
+    public enum Guns
+    {
+        gunOne,
+        gunTwo
+    }
+    public Guns guns;
+
     void Update( )
     {
-        Shoot();
-        LessEnergy();
-        if ( Input.GetKeyDown(KeyCode.E) )
+        switch (guns)
         {
-            if ( heldObj == null )
+            case Guns.gunOne:
+                GunOne();
+                break;
+            case Guns.gunTwo:
+                GunTwo();
+                break;
+        }
+    }
+
+    public void GunOne()
+    {
+        LessEnergy();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (heldObj == null)
             {
                 RaycastHit hit;
-                if ( Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, layer))
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, layer))
                 {
                     PickupObject(hit.transform.gameObject); Debug.Log("CogioObjeto");
                 }
@@ -53,9 +72,9 @@ public class PickUp : MonoBehaviour
             {
                 DropObject();
             }
-               
+
         }
-        if ( heldObj != null )
+        if (heldObj != null)
         {
             MoveObject();
         }
@@ -65,7 +84,7 @@ public class PickUp : MonoBehaviour
     {
         if ( Vector3.Distance(heldObj.transform.position, holdParent.position) > 0.1f )
         {
-            Vector3 moveDirection = ( holdParent.position - heldObj.transform.position );
+            Vector3 moveDirection = ( holdParent.position - heldObj.transform.position ); 
             heldObj.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
         }
     }
@@ -79,7 +98,8 @@ public class PickUp : MonoBehaviour
             objRig.useGravity = false;
             //objRig.isKinematic = true;
             objRig.drag = 10;
-
+            objRig.constraints = RigidbodyConstraints.FreezePositionX;
+            objRig.constraints = RigidbodyConstraints.FreezePositionZ;
             objRig.transform.parent = holdParent;
             heldObj = pickObj;
         }
@@ -87,12 +107,15 @@ public class PickUp : MonoBehaviour
 
     void DropObject()
     {
+       
+
         lessEner = false; 
 
         Rigidbody heldRig = heldObj.GetComponent<Rigidbody>();
         heldRig.useGravity = true;
         //heldRig.isKinematic = false;
         heldRig.drag = 1;
+        heldRig.constraints = ~RigidbodyConstraints.FreezeAll;
 
         heldObj.transform.parent = null;
         heldObj = null; 
@@ -115,8 +138,63 @@ public class PickUp : MonoBehaviour
        
     }
 
-    public void Shoot()
+    //Arma Dos
+    public void GunTwo()
     {
-      
+        LessEnergy();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (heldObj == null)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, layer))
+                {
+                    PickupObjectTwo(hit.transform.gameObject); Debug.Log("CogioObjeto");
+                }
+            }
+            else
+            {
+                DropObjectTwo(); Debug.Log("SoltoObjeto");
+            }
+        }
+        if (energy.energy < 4)
+        {
+            if (heldObj != null)
+            {
+                DropObjectTwo();
+            }
+
+        }
+        if (heldObj != null)
+        {
+            //MoveObjectTwo();
+        }
+    }
+
+
+    void PickupObjectTwo(GameObject pickObj)
+    {
+        if (pickObj.GetComponent<Rigidbody>())
+        {
+            lessEner = true;
+            Rigidbody objRig = pickObj.GetComponent<Rigidbody>();
+            objRig.transform.SetParent(holdParent.transform);
+            objRig.useGravity = false;
+            objRig.isKinematic = true;
+            heldObj = pickObj;
+        }
+    }
+
+    void DropObjectTwo()
+    {
+
+        lessEner = false;
+
+        Rigidbody heldRig = heldObj.GetComponent<Rigidbody>();
+        heldRig.useGravity = true;
+        heldRig.isKinematic = false;
+        heldObj.transform.parent = null;
+        heldObj = null;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InteractuarJuny : MonoBehaviour
@@ -14,12 +15,17 @@ public class InteractuarJuny : MonoBehaviour
     public GameObject camaraGod, camaraProta;
     public Rigidbody rbPlayer;
     public bool god;
+
+    public TextMeshProUGUI text;
+    public GameObject badDecition;
+    public GameObject godDecition;
     private void Update()
     {
         //Timer();
 
         if(into && Input.GetKeyDown(KeyCode.E))
         {
+            godDecition.SetActive(true);
             god = true;
             Destroy(conteiner);
             juny.SetActive(true);
@@ -50,7 +56,17 @@ public class InteractuarJuny : MonoBehaviour
             StartCoroutine(Death());
             camaraDeath.SetActive(true);
             prota.SetActive(false);
+            text.text = "Juni:¿Por qué me dejas caeeeeer?";
+            badDecition.SetActive(true);
+            StartCoroutine("Dialogue");
         }
+    }
+
+    public IEnumerator Dialogue()
+    {
+        yield return new WaitForSeconds(2);
+        badDecition.SetActive(false);
+        text.text = "";
     }
 
     private void OnTriggerEnter(Collider other)

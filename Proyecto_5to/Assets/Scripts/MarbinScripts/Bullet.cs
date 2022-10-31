@@ -15,6 +15,14 @@ public class Bullet : MonoBehaviour
         rb.AddForce(transform.forward * speedBullet);
     }
 
+
+    public enum Destruction
+    {
+        One,
+        Two
+
+    } 
+    public Destruction destruction;
     private void Update()
     {
         
@@ -23,12 +31,26 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Shield"))
+        switch (destruction)
         {
-            //GameObject bulletClone = Instantiate(bulletHolePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.LookRotation(new Vector3(transform.rotation.x, 0,0)));
-            Destroy(gameObject);
-            //Destroy(bulletClone, 2f);
+            case Destruction.One:
+                if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Shield"))
+                {
+                    //GameObject bulletClone = Instantiate(bulletHolePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.LookRotation(new Vector3(transform.rotation.x, 0,0)));
+                    Destroy(gameObject);
+                    //Destroy(bulletClone, 2f);
+                }
+                break;
+            case Destruction.Two:
+                if (other.gameObject.CompareTag("Enemy") ||  other.gameObject.CompareTag("Shield"))
+                {
+                    //GameObject bulletClone = Instantiate(bulletHolePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.LookRotation(new Vector3(transform.rotation.x, 0,0)));
+                    Destroy(gameObject);
+                    //Destroy(bulletClone, 2f);
+                }
+                break;
         }
+       
 
     }
 

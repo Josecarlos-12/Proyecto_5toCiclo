@@ -10,16 +10,16 @@ public class EnemyController : MonoBehaviour
     public Quaternion angle;
     public float grade;
 
-    public GameObject target;
+    public Transform target;
 
     void Start()
     {
-        target = GameObject.Find("Player");
+        //target = GameObject.Find("Player");
     }
 
     public void Enemy_behaviour()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) > 10)
+        if (Vector3.Distance(transform.position, target.position) > 10)
         {
             //Aqui la animacion de correr pasa a ser false 
             chronometer += 1 * Time.deltaTime;

@@ -68,6 +68,11 @@ public class Enemy : MonoBehaviour
         {
             Life-=10;
         }
+        if (other.gameObject.CompareTag("Sword"))
+        {
+            Life -= 50;
+            Debug.Log("Macheteo");
+        }
     }
 
     private void OnDrawGizmos()

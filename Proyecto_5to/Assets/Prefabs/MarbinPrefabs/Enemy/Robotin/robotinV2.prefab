@@ -162,6 +162,7 @@ MonoBehaviour:
   Bullet: {fileID: 8965840145675707570, guid: 1a9dd96a0b3dc1b419d92e8083bb9d12, type: 3}
   shotSpawn: {fileID: 4388695849297355357}
   bulletVelocity: 100
+  canShoot: 0
 --- !u!114 &4388695848950581085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,12 +177,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 4388695848950581087}
   target: {fileID: 0}
-  stoppingDistance: 3
   playerMask:
     serializedVersion: 2
     m_Bits: 8
   AlertRange: 44.76
-  life: 3
+  life: 120
   robotin: {fileID: 4388695848950581026}
 --- !u!1 &4388695849297355298
 GameObject:

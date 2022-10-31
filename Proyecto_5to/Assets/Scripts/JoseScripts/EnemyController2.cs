@@ -20,6 +20,7 @@ public class EnemyController2 : MonoBehaviour
 
     public void Enemy_behaviour()
     {
+        
         if (Vector3.Distance(transform.position, target.transform.position) > 10)
         {
             ani.SetBool("ComingOut",false);

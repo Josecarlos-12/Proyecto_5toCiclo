@@ -29,7 +29,9 @@ public class InteractionTuto : MonoBehaviour
         if(touch && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("TocoE");
-            respawn.prota.position = new Vector3(respawn.next[0].position.x, respawn.next[0].position.y + 3, respawn.next[0].position.z);
+            respawn.prota.position = respawn.next[0].position;
+            respawn.prota.rotation = respawn.next[0].rotation;
+            //respawn.cameraPosition.rotation = Quaternion.Euler(0, 0, 0);
             move.move = true;
         }
     }
