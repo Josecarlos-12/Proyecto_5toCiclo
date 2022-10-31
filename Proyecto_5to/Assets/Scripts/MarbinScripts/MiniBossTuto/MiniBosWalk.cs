@@ -98,7 +98,7 @@ public class MiniBosWalk : MonoBehaviour
                 agent.speed = 0;
                 move.move = false;
                 StartCoroutine(FalseMove());
-                lifeProta.life -= 5;
+                lifeProta.life -= 100;
             }
             
         }

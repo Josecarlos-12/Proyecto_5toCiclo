@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RespawnGigant : MonoBehaviour
 {
@@ -18,10 +20,7 @@ public class RespawnGigant : MonoBehaviour
         {
             module = other.gameObject;
         }*/
-        if (other.gameObject.CompareTag("Gigant"))
-        {
-            prota.position=new Vector3(floor.position.x, floor.position.y+5, floor.position.z);
-        }
+       
         /*if (other.gameObject.CompareTag("Enemy"))
         {
             prota.position=new Vector3(module.transform.position.x, module.transform.position.y+3, module.transform.position.z);
@@ -53,9 +52,18 @@ public class RespawnGigant : MonoBehaviour
             //prota.rotation = next[4].rotation;
             //cameraPosition.rotation = Quaternion.Euler(0, 0, 0);
         }
+        else if (other.gameObject.name == "NextFive")
+        {
+            prota.position = new Vector3(next[3].position.x, next[3].position.y + 3, next[3].position.z);
+            prota.rotation = next[3].rotation;
+        }
+        else if ( other.gameObject.name== "NextLoby")
+        {
+            SceneManager.LoadScene("LobbyScene");
+        }
         #endregion
 
-       
+
 
         if (other.gameObject.CompareTag("EnemyBullet"))
         {

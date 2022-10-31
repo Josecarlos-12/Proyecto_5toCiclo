@@ -5,7 +5,7 @@ using UnityEngine;
 public class OnObjects : MonoBehaviour
 {
 
-    public GameObject shoot, shootOne;
+    public GameObject shoot, shootOne, shootThre;
     public GameObject laders;
     public GameObject[] robots;
     public GameObject objects;
@@ -15,7 +15,8 @@ public class OnObjects : MonoBehaviour
     {
         One,
         Two,
-        three
+        three,
+        four,
     }
     public Shot shootDecition= Shot.Two;
 
@@ -31,6 +32,9 @@ public class OnObjects : MonoBehaviour
                 break;
             case Shot.three:
                 DestroyThree();
+                break;
+            case Shot.four:
+                DestroyFour();
                 break;
         }
 
@@ -73,6 +77,14 @@ public class OnObjects : MonoBehaviour
             {
                 objects.SetActive(true);
             }
+        }
+    }
+
+    public void DestroyFour()
+    {
+        if (shoot == null && shootOne == null && shootThre==null)
+        {
+            laders.SetActive(true);
         }
     }
 }

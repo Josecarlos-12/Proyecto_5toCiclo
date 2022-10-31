@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 684.0879, g: 686.6212, b: 821.99084, a: 1}
+  m_IndirectSpecularColor: {r: 677.3063, g: 677.24615, b: 803.54407, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5177,7 +5177,7 @@ MonoBehaviour:
   bulletVelocity: 30
   timeShoot: 0.5
   initialShoot: 0
-  Life: 15
+  Life: 150
 --- !u!136 &155006470
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8165,7 +8165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5170cbaad8ca60445831f43f20e4cd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  module: {fileID: 0}
   prota: {fileID: 1410183033}
   cameraPosition: {fileID: 0}
   floor: {fileID: 0}
@@ -8177,7 +8176,6 @@ MonoBehaviour:
   - {fileID: 2116991750}
   - {fileID: 385628560}
   - {fileID: 1775012875}
-  time: {fileID: 820782473}
   lastCheckPoint: {fileID: 0}
 --- !u!1 &262464348
 GameObject:
@@ -9363,6 +9361,7 @@ GameObject:
   - component: {fileID: 291339935}
   - component: {fileID: 291339934}
   - component: {fileID: 291339937}
+  - component: {fileID: 291339938}
   m_Layer: 0
   m_Name: MiniBoss (2)
   m_TagString: Untagged
@@ -9468,6 +9467,19 @@ MonoBehaviour:
   timeShoot: 2
   shotSpawn: {fileID: 1717032113}
   Bullet: {fileID: 7623083078206137299, guid: c0725ffd3c5e97049b1294cc3b51f467, type: 3}
+--- !u!114 &291339938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291339929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c600cb334d7e83141b8016359a7bebfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 150
 --- !u!1 &294496588
 GameObject:
   m_ObjectHideFlags: 0
@@ -10201,6 +10213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoot: {fileID: 68329993}
   shootOne: {fileID: 0}
+  shootThre: {fileID: 0}
   laders: {fileID: 227866011}
   robots:
   - {fileID: 291339929}
@@ -18129,6 +18142,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.026268732
       objectReference: {fileID: 0}
+    - target: {fileID: 1567489428994823442, guid: f47be62ebdf0aff4c87a97b94587a25d,
+        type: 3}
+      propertyPath: canShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1567489429157235120, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -18946,7 +18964,7 @@ MonoBehaviour:
   bulletVelocity: 30
   timeShoot: 0.5
   initialShoot: 0
-  Life: 100
+  Life: 150
 --- !u!136 &665896178
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22551,7 +22569,7 @@ MonoBehaviour:
   bulletVelocity: 30
   timeShoot: 0.5
   initialShoot: 0
-  Life: 100
+  Life: 150
 --- !u!136 &825683325
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23962,12 +23980,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5170cbaad8ca60445831f43f20e4cd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  module: {fileID: 0}
   prota: {fileID: 1796949089}
   cameraPosition: {fileID: 0}
   floor: {fileID: 0}
   next: []
-  time: {fileID: 0}
   lastCheckPoint: {fileID: 0}
 --- !u!114 &891644663
 MonoBehaviour:
@@ -24573,6 +24589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoot: {fileID: 1786328637}
   shootOne: {fileID: 1272354076}
+  shootThre: {fileID: 0}
   laders: {fileID: 547141935}
   robots:
   - {fileID: 825683320}
@@ -36583,7 +36600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1332695506
 Transform:
   m_ObjectHideFlags: 0
@@ -43712,7 +43729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5170cbaad8ca60445831f43f20e4cd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  module: {fileID: 0}
   prota: {fileID: 779054359}
   cameraPosition: {fileID: 669677412}
   floor: {fileID: 0}
@@ -43722,7 +43738,6 @@ MonoBehaviour:
   - {fileID: 1974867383}
   - {fileID: 385628560}
   - {fileID: 1775012875}
-  time: {fileID: 0}
   lastCheckPoint: {fileID: 71443446}
 --- !u!136 &1663172196
 CapsuleCollider:
@@ -46373,6 +46388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoot: {fileID: 1235491235}
   shootOne: {fileID: 69429614}
+  shootThre: {fileID: 0}
   laders: {fileID: 227866011}
   robots:
   - {fileID: 291339929}
@@ -50346,7 +50362,7 @@ MonoBehaviour:
   bulletVelocity: 30
   timeShoot: 0.5
   initialShoot: 0
-  Life: 15
+  Life: 150
 --- !u!136 &1916155279
 CapsuleCollider:
   m_ObjectHideFlags: 0

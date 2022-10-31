@@ -1,3 +1,4 @@
+using GistLevelDesigner;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,18 +66,21 @@ public class Life : MonoBehaviour
             //Si toca al enemigo que le baje vida
             if (other.gameObject.CompareTag("BulletRobotin"))
             {
-                life-=2;
+                life-=50;
             }
             if (other.gameObject.CompareTag("LaserTuto"))
             {
-                life-=10;
+                life-=200;
+            }
+            if (other.gameObject.CompareTag("Gigant"))
+            {
+                life -= 50;
             }
         }
-       
-            if (other.gameObject.CompareTag("MaxLife"))
-            {
-                life = maxLife;
-                Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("MaxLife"))
+        {
+            life = maxLife;
+            Destroy(other.gameObject);
             }
             if (other.gameObject.CompareTag("Recover"))
             {
