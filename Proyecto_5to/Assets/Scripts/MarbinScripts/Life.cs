@@ -1,6 +1,7 @@
 using GistLevelDesigner;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,13 +29,20 @@ public class Life : MonoBehaviour
 
 
     public bool intan;
+
+    [Header("Perdiste")]
+    public GameObject over;
+
+ 
     private void Start()
     {
+        
         //damage.material.color= color;
     }
 
     public void Update()
     {
+       
             LifeDestroy();
             image.fillAmount = life / maxLife;
     }
@@ -53,7 +61,8 @@ public class Life : MonoBehaviour
         }
         if(recover == 0)
         {
-            Destroy(prota);
+            //Destroy(prota);
+           
             //recover = 3;
         }
     }
@@ -87,6 +96,7 @@ public class Life : MonoBehaviour
                 recover += 1;
                 Destroy(other.gameObject);
             }
+        
     }
 
 
@@ -96,4 +106,5 @@ public class Life : MonoBehaviour
         intan = false;
         white.material.color = Color.white;
     }
+       
 }

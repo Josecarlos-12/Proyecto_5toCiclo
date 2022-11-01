@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             render.material.color = Color.red;
-            Life-=5;
+            Life-=20;
             StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("BulletSlow"))
