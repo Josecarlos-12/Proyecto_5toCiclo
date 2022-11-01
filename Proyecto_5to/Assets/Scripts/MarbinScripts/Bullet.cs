@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public Rigidbody rb;
     public float speedBullet;
     public float destructtion;
+    public float damageB;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,7 +21,6 @@ public class Bullet : MonoBehaviour
     {
         One,
         Two
-
     } 
     public Destruction destruction;
     private void Update()

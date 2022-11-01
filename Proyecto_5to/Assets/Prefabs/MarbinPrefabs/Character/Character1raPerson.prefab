@@ -981,6 +981,7 @@ MonoBehaviour:
   colliderSword: {fileID: 0}
   on: 0
   time: 0.2
+  damage: 50
 --- !u!1 &4190473853292167423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,9 +1204,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0182255267f6263489e7c32ff9d3b92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sword: {fileID: 986182281064870367}
+  bullet: {fileID: 0}
+  life: {fileID: 0}
+  energy: {fileID: 1567489429914520458}
+  move: {fileID: 1567489429914520464}
+  shield: {fileID: 1567489429914520459}
   imageExperience: {fileID: 0}
+  ObjecExperience: {fileID: 0}
   experience: 0
   maxExperience: 1000
+  text: {fileID: 0}
+  count: 0
+  count2: 0
+  count3: 0
+  count4: 0
+  level1: {fileID: 0}
+  level2: {fileID: 0}
+  level3: {fileID: 0}
+  level4: {fileID: 0}
+  one: 0
+  two: 0
+  three: 0
+  four: 0
+  five: 0
 --- !u!1 &8419287706993446133
 GameObject:
   m_ObjectHideFlags: 0

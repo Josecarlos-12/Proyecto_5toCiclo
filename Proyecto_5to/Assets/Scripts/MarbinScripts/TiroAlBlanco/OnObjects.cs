@@ -6,7 +6,7 @@ public class OnObjects : MonoBehaviour
 {
 
     public GameObject shoot, shootOne, shootThre;
-    public GameObject laders;
+    public GameObject laders, prota,cameraMain;
     public GameObject[] robots;
     public GameObject objects;
     public OnObjects on;
@@ -82,9 +82,19 @@ public class OnObjects : MonoBehaviour
 
     public void DestroyFour()
     {
-        if (shoot == null && shootOne == null && shootThre==null)
+        if (shoot == null && shootOne == null && shootThre == null)
         {
             laders.SetActive(true);
+            cameraMain.SetActive(true);
+            prota.SetActive(false);
+            StartCoroutine(CameraFalse());
         }
+    }
+
+    public IEnumerator CameraFalse()
+    {
+        yield return new WaitForSeconds(3);
+        prota.SetActive(true);
+        cameraMain.SetActive(false);
     }
 }

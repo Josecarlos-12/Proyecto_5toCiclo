@@ -28,7 +28,8 @@ public class Enemy2 : MonoBehaviour
 
     public Renderer enemy;
 
-
+    public Sword sword;
+    public Bullet bullet;
     void Start()
     {
         
@@ -93,12 +94,12 @@ public class Enemy2 : MonoBehaviour
         {
             StartCoroutine(ChangeColor());
             enemy.material.color = Color.red;
-            Life-=20;
+            Life-=bullet.damageB;
         }
         if (other.gameObject.CompareTag("Sword"))
         {
             enemy.material.color = Color.red;
-            Life -= 50;
+            Life -= sword.damage;
             StartCoroutine(ChangeColor());
             Debug.Log("Macheteo");
         }

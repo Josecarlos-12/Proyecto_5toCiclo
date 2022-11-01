@@ -10,6 +10,7 @@ public class Sword : MonoBehaviour
     public GameObject colliderSword;
     public bool on;
     public float time = 0.2f;
+    public float damage=50;
    
 
     // Start is called before the first frame update
