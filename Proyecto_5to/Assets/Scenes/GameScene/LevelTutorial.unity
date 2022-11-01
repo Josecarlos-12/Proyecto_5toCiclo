@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1381.6196, g: 1039.3654, b: 831.4426, a: 1}
+  m_IndirectSpecularColor: {r: 1361.3156, g: 1017.91406, b: 802.9573, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1545,6 +1545,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!65 &71058656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3044,6 +3049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 30
   capaDelJugador:
     serializedVersion: 2
@@ -3911,7 +3917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178040294}
   m_LocalRotation: {x: -0, y: -0.7325411, z: -0, w: 0.6807228}
-  m_LocalPosition: {x: -85.7, y: -264.8852, z: 1.6}
+  m_LocalPosition: {x: -81.46134, y: -267.8852, z: 1.9111699}
   m_LocalScale: {x: 8, y: 0.1, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4866,7 +4872,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1a1ce55de3e3bea498bc8e7b50ce1ae9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -41.5
+      value: -42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a1ce55de3e3bea498bc8e7b50ce1ae9,
         type: 3}
@@ -5786,6 +5792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 30
   capaDelJugador:
     serializedVersion: 2
@@ -7145,6 +7152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!65 &405542180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8987,6 +8999,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!65 &560242787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11216,15 +11233,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef54a6ebfa1db124bbb2c3bfebe28e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: {fileID: 0}
-  move: {fileID: 0}
-  jump: {fileID: 0}
+  respawn: {fileID: 493838752}
+  move: {fileID: 1140963327}
+  jump: {fileID: 1140963325}
   touch: 0
-  dash: {fileID: 0}
-  weaponA: {fileID: 0}
+  dash: {fileID: 1140963323}
+  weaponA: {fileID: 176709975}
   weaponB: {fileID: 0}
   cameraView: {fileID: 0}
-  shieldActive: {fileID: 0}
+  shieldActive: {fileID: 1140963312}
   interactions: 5
 --- !u!65 &642585284
 BoxCollider:
@@ -11438,11 +11455,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 30
   capaDelJugador:
     serializedVersion: 2
     m_Bits: 8
-  player: {fileID: 0}
+  player: {fileID: 1140963319}
   Bullet: {fileID: 3379580939301357955, guid: 3912d0d2412cd3e4db54ea2ea20d18f3, type: 3}
   shotSpawn: {fileID: 1637866092}
   bulletVelocity: 0
@@ -11717,6 +11735,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!65 &667275823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14213,7 +14236,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b2c08789b79c5a64bbb2936f9ff1287d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 92.05188
+      value: 90.683815
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b2c08789b79c5a64bbb2936f9ff1287d,
         type: 3}
@@ -14223,7 +14246,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b2c08789b79c5a64bbb2936f9ff1287d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2609.3425
+      value: -2609.9578
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b2c08789b79c5a64bbb2936f9ff1287d,
         type: 3}
@@ -17931,17 +17954,17 @@ PrefabInstance:
     - target: {fileID: 1567489429914520471, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.237309
+      value: 93.784454
       objectReference: {fileID: 0}
     - target: {fileID: 1567489429914520471, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 491.22
+      value: 33.22
       objectReference: {fileID: 0}
     - target: {fileID: 1567489429914520471, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2673.5342
+      value: -2617.5583
       objectReference: {fileID: 0}
     - target: {fileID: 1567489429914520471, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
@@ -21240,6 +21263,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9ceedfc94be023428d94560fd57784f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1140963327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1567489429914520464, guid: f47be62ebdf0aff4c87a97b94587a25d,
+    type: 3}
+  m_PrefabInstance: {fileID: 979441073}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140963306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6500e0f20376c894fad73c03184183fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1141861131 stripped
@@ -29509,6 +29544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 30
   capaDelJugador:
     serializedVersion: 2
@@ -31592,17 +31628,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2683fa0f9c8e50c45aeeba8905e83dbb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -84.1
+      value: -79.86134
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2683fa0f9c8e50c45aeeba8905e83dbb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -270.45
+      value: -273.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2683fa0f9c8e50c45aeeba8905e83dbb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.3
+      value: 4.61117
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2683fa0f9c8e50c45aeeba8905e83dbb,
         type: 3}
@@ -32983,6 +33019,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!65 &1788753897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35324,6 +35365,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!65 &1884720946
 BoxCollider:
   m_ObjectHideFlags: 0
