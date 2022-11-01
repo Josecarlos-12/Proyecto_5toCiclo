@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public Renderer render;
     public float AlertRange;
     public LayerMask capaDelJugador;
     public Transform player;
@@ -62,7 +63,9 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            render.material.color = Color.red;
             Life-=5;
+            StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("BulletSlow"))
         {
@@ -70,9 +73,17 @@ public class Enemy : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Sword"))
         {
+            render.material.color = Color.red;
             Life -= 50;
             Debug.Log("Macheteo");
+            StartCoroutine(ChangeColor());
         }
+    }
+
+    public IEnumerator ChangeColor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        render.material.color = Color.white;
     }
 
     private void OnDrawGizmos()

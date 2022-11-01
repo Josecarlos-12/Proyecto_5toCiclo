@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy2 : MonoBehaviour
 {
@@ -17,22 +18,26 @@ public class Enemy2 : MonoBehaviour
     public float timeShoot = 0.2f;
     public float initialShoot;
     [Header("Amount life")]
-    [SerializeField] private int Life = 100;
-
+    public float Life = 100;
+    public float maxLife = 100;
+    public Image lifeBar;
 
     public MiniBosWalk mini;
     public bool point;
     public SpawnerRobotines robotines;
 
+    public Renderer enemy;
+
 
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        lifeBar.fillAmount = Life / maxLife;
         Point();
         LifeDestroy();
         Atacks();
@@ -86,13 +91,22 @@ public class Enemy2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Life--;
+            StartCoroutine(ChangeColor());
+            enemy.material.color = Color.red;
+            Life-=20;
         }
         if (other.gameObject.CompareTag("Sword"))
         {
+            enemy.material.color = Color.red;
             Life -= 50;
+            StartCoroutine(ChangeColor());
             Debug.Log("Macheteo");
         }
+    }
+    public IEnumerator ChangeColor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        enemy.material.color = Color.white;
     }
 
     private void OnDrawGizmos()
