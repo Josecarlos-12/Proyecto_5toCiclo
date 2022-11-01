@@ -21,6 +21,9 @@ public class RobotinIAMove : MonoBehaviour
 
     public float life=3;
     public GameObject robotin;
+
+    public Renderer render;
+
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
@@ -70,13 +73,23 @@ public class RobotinIAMove : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            render.material.color = Color.red;
             life-=20;
+            StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("Sword"))
         {
-            life-=50;
+            render.material.color = Color.red;
+            life -=50;
             Debug.Log("Macheteo");
+            StartCoroutine(ChangeColor());
         }
     }
 
+
+    public IEnumerator ChangeColor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        render.material.color = Color.white;
+    }
 }
