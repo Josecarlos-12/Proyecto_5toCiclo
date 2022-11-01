@@ -24,6 +24,8 @@ public class RobotinIAMove : MonoBehaviour
 
     public Renderer render;
 
+    public GameObject experience;
+
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
@@ -45,6 +47,8 @@ public class RobotinIAMove : MonoBehaviour
     {
         if (life <= 0)
         {
+            Instantiate(experience, transform.position, Quaternion.identity);
+            Instantiate(experience, new Vector3 (transform.position.x+2,transform.position.y,transform.position.z), Quaternion.identity);
             Destroy(gameObject);
         }
     }

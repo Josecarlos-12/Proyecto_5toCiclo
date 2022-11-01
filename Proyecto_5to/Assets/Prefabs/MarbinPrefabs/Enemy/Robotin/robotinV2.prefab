@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4388695848950581085}
   m_Layer: 0
   m_Name: robotinV2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,6 +185,8 @@ MonoBehaviour:
   life: 120
   robotin: {fileID: 4388695848950581026}
   render: {fileID: 7098127271097477153}
+  experience: {fileID: 7051179569648928871, guid: 89b63dc096a186b4abd8ac05be6799b2,
+    type: 3}
 --- !u!1 &4388695849297355298
 GameObject:
   m_ObjectHideFlags: 0

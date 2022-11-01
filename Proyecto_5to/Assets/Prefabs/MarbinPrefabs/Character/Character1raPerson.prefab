@@ -1079,6 +1079,7 @@ GameObject:
   - component: {fileID: 1250235345508933643}
   - component: {fileID: 9161371631822523721}
   - component: {fileID: 114024435048039401}
+  - component: {fileID: 1030461730029693249}
   m_Layer: 3
   m_Name: DetecteTriger
   m_TagString: Untagged
@@ -1189,6 +1190,22 @@ MonoBehaviour:
   image: {fileID: 0}
   recorProta: 0
   intan: 0
+  over: {fileID: 0}
+--- !u!114 &1030461730029693249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838497979666023534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0182255267f6263489e7c32ff9d3b92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageExperience: {fileID: 0}
+  experience: 0
+  maxExperience: 1000
 --- !u!1 &8419287706993446133
 GameObject:
   m_ObjectHideFlags: 0
