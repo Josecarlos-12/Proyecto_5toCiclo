@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -60,6 +59,10 @@ public class RespawnGigant : MonoBehaviour
         else if ( other.gameObject.name== "NextLoby")
         {
             SceneManager.LoadScene("LobbyScene");
+        }
+        if (other.gameObject.name=="LevelOne")
+        {
+            SceneManager.LoadScene("TestingSceneNivel1");
         }
         #endregion
 

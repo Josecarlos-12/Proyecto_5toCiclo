@@ -43,7 +43,15 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(jumpOne)
+        if (PlayerPrefs.GetInt("DoubleJump") == 1)
+        {
+            jumpOne= false;
+            jumpTwo = true;
+        }
+
+
+
+            if (jumpOne)
         JumpOnly();
 
         if (jumpTwo)
@@ -122,7 +130,7 @@ public class Jump : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         //Si colisionamos con el suelo que sea =true
-        if (collision.gameObject.tag == "Floor")
+        if (collision.gameObject.tag == "Floor" || collision.gameObject.tag == "Platform")
         {
             jump = true;
             grounded = true;
@@ -136,7 +144,7 @@ public class Jump : MonoBehaviour
     public void OnCollisionExit(Collision collision) 
     {
         //Si no colisionamos con el suelo que sea =false
-        if(collision.gameObject.tag=="Floor")
+        if(collision.gameObject.tag=="Floor" ||  collision.gameObject.tag == "Platform")
         {
             jump = false;
             grounded =false;

@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.9976076, y: 5.2587667, z: 12.882828}
-  m_Center: {x: -0.50880414, y: 0.042240176, z: -1.8091769}
+  m_Size: {x: 1.4743407, y: 4.1696925, z: 3.4871516}
+  m_Center: {x: -0.24716826, y: -0.14753352, z: -0.36808896}
 --- !u!1 &1567489428631039144
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +685,6 @@ GameObject:
   - component: {fileID: 1567489429914520457}
   - component: {fileID: 1567489429914520470}
   - component: {fileID: 1567489429914520458}
-  - component: {fileID: 4842439867299793025}
   - component: {fileID: 986182281064870367}
   m_Layer: 3
   m_Name: Character1raPerson
@@ -820,6 +819,7 @@ MonoBehaviour:
   crouchYScale: 0.7
   canCrouch: 0
   movementVector: {x: 0, y: 0, z: 0}
+  prota: {fileID: 1567489429914520471}
 --- !u!114 &1567489429914520465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,25 +944,6 @@ MonoBehaviour:
   count: 0
   timer: 0
   image: {fileID: 0}
---- !u!114 &4842439867299793025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567489429914520478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0db94f1d5d5e1409439ecdbc6c0a81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canShild: 0
-  shield: {fileID: 1567489428631039144}
-  anim: {fileID: 0}
-  shieldLife: {fileID: 1567489428631039147}
-  Regeneration: 4
-  useShield: 0
-  timer: 0
 --- !u!114 &986182281064870367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,6 +1194,7 @@ MonoBehaviour:
   imageExperience: {fileID: 0}
   ObjecExperience: {fileID: 0}
   experience: 0
+  EXP: 0
   maxExperience: 1000
   text: {fileID: 0}
   count: 0

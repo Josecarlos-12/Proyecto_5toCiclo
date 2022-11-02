@@ -20,7 +20,12 @@ public class DashController : MonoBehaviour
 
      void Update()
     {
-        if (canDash)
+        if (PlayerPrefs.GetInt("Dash") == 1)
+        {
+            canDash=true;
+        }
+
+            if (canDash)
         {
             
             if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !energy.use)

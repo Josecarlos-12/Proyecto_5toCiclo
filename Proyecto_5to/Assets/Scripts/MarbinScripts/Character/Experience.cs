@@ -16,6 +16,7 @@ public class Experience : MonoBehaviour
     public Image imageExperience;
     public GameObject ObjecExperience;
     public float experience;
+    public float EXP;
     public float maxExperience;
 
 
@@ -29,6 +30,8 @@ public class Experience : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetFloat("EXP", 0);
+
         ObjecExperience.SetActive(false);
         imageExperience.enabled = false;
     }
@@ -36,6 +39,8 @@ public class Experience : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerPrefs.SetFloat("EXP", experience);
+
         MoreExperience();
         imageExperience.fillAmount = experience / maxExperience;
     }
