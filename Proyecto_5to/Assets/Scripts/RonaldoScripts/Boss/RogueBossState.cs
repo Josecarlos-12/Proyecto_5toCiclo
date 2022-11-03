@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RogueBossState : MonoBehaviour
 {
+    public float MaxHP = 100;
+    float HP = 100;
     public float TimerRecharge = 15;
     public float MoveRango;
     public float FireRango;
+    public Image HPbar;
     public LayerMask LayerPlayer;
     public Transform PlayerPosition;
     RogueBossFire Fire;
     RogueBossMove Move;
+    RogueBossInvoke Invoker;
     public State state;
 
     bool Detect;
@@ -20,13 +25,15 @@ public class RogueBossState : MonoBehaviour
 
     public enum State
     {
-        run, shoot, idle, recharge
+        run, shoot, idle, recharge, invoke
     }
     void Start()
     {
+        HP = MaxHP;
         state = State.idle;
         Fire = GetComponent<RogueBossFire>();
         Move = GetComponent<RogueBossMove>();
+        Invoker = GetComponent<RogueBossInvoke>();
     }
     void Update()
     {
@@ -44,10 +51,15 @@ public class RogueBossState : MonoBehaviour
                 Fire.Active = true;
                 break;
 
+            case State.invoke:
+                Invoker.Active = true;
+                break;
+
             case State.recharge:
                 Recharge();
                 break;
         }
+        HPbar.fillAmount = HP / MaxHP;
     }
 
     void PlayerDetect()
@@ -63,7 +75,11 @@ public class RogueBossState : MonoBehaviour
             }
             else if (!Detect)
             {
-                state = State.shoot;
+                if(HP > 80)
+                    state = State.shoot;
+                else if(HP < 79)
+                    state = State.invoke;
+
             }
         }
         else

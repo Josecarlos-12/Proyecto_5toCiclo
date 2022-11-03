@@ -7,7 +7,7 @@ public class RogueBossFire : MonoBehaviour
     public bool Active;
     public int projectils;
     public float FireTime = 2.5f;
-    public Transform PlayerPosition;
+    Transform PlayerPosition;
 
     public GameObject projectile;
 
@@ -30,6 +30,8 @@ public class RogueBossFire : MonoBehaviour
     }
     void Fire()
     {
+        PlayerPosition = pp.PlayerPosition;
+
         timer += Time.deltaTime;
         if (timer > FireTime)
         {
@@ -41,7 +43,7 @@ public class RogueBossFire : MonoBehaviour
             }
             else
             {
-                Instantiate(projectile, new Vector3(PlayerPosition.transform.position.x, PlayerPosition.transform.position.y, PlayerPosition.transform.position.z), new Quaternion(0, 0, 0, 0));
+                Instantiate(projectile, new Vector3(PlayerPosition.transform.position.x, 0.13f, PlayerPosition.transform.position.z), new Quaternion(0, 0, 0, 0));
                 count++;
             }
             timer = 0;
