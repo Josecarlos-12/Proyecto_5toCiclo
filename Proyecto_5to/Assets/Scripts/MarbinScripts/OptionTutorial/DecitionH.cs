@@ -102,6 +102,8 @@ public class DecitionH : MonoBehaviour
         jumpp.jumpOne = true;
         jumpp.jumpTwo = false;
         jumpp.jumpsRemaining = 1;
+        jumpp.maxJumpCount = 1;
+
 
         dashC.canDash = false;
 
