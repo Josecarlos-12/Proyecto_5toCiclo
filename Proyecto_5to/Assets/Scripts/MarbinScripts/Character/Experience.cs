@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +28,15 @@ public class Experience : MonoBehaviour
     public GameObject level1, level2, level3, level4;
 
     public bool one, two, three, four, five;
-    // Start is called before the first frame update
+
+    public string expePref = "EXP";
+
+
+    private void Awake()
+    {
+        //LoadData();
+    }
+
     void Start()
     {
         PlayerPrefs.SetFloat("EXP", 0);
@@ -39,11 +48,13 @@ public class Experience : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.SetFloat("EXP", experience);
+        
 
         MoreExperience();
         imageExperience.fillAmount = experience / maxExperience;
     }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Experience"))
@@ -99,7 +110,7 @@ public class Experience : MonoBehaviour
                 level2.SetActive(true);
             }
         }
-        if (experience >= 850)
+        /*if (experience >= 850)
         {
             text.text = "Nivel 3";
             count3++;
@@ -118,7 +129,7 @@ public class Experience : MonoBehaviour
                 Time.timeScale = 0;
                 level4.SetActive(true);
             }
-        }
+        }*/
     }
 
 
@@ -189,5 +200,24 @@ public class Experience : MonoBehaviour
         shield.canShild = true;
     }
     #endregion
+
+
+
+
+    public void SaveEsperience()
+    {
+        PlayerPrefs.SetFloat(expePref, experience);
+    }
+
+    public void LoadData()
+    {
+        experience = PlayerPrefs.GetFloat(expePref, 0);
+    }
+
+
+    private void OnDestroy()
+    {
+        SaveEsperience();
+    }
 
 }
