@@ -12,6 +12,8 @@ public class RobotinIAMove : MonoBehaviour
 
     public NavMeshAgent agent;
     public GameObject target;
+    public Sword sword;
+    public Bullet bullet;
     public LayerMask playerMask;
     public float AlertRange;
 
@@ -21,9 +23,14 @@ public class RobotinIAMove : MonoBehaviour
 
     public float life=3;
     public GameObject robotin;
+
+    public Renderer render;
+
+    public GameObject experience;
+
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("Player"); 
         startPos = transform.position;
         startRotation = transform.rotation;
     }
@@ -42,13 +49,14 @@ public class RobotinIAMove : MonoBehaviour
     {
         if (life <= 0)
         {
+            Instantiate(experience, transform.position, Quaternion.identity);
+            Instantiate(experience, new Vector3 (transform.position.x+2,transform.position.y,transform.position.z), Quaternion.identity);
             Destroy(gameObject);
         }
     }
 
     private void Destination()
     {
-
         if (Physics.CheckSphere(transform.position, AlertRange, playerMask))
         {
             if (life > 0)
@@ -56,7 +64,6 @@ public class RobotinIAMove : MonoBehaviour
                 agent.destination = target.transform.position;
                 agent.stoppingDistance = 4;
             }
-                
         }
     }
    
@@ -70,13 +77,23 @@ public class RobotinIAMove : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            life-=20;
+            render.material.color = Color.red;
+            life-=bullet.damageB;
+            StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("Sword"))
         {
-            life-=50;
+            render.material.color = Color.red;
+            life -=sword.damage;
             Debug.Log("Macheteo");
+            StartCoroutine(ChangeColor());
         }
     }
 
+
+    public IEnumerator ChangeColor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        render.material.color = Color.white;
+    }
 }

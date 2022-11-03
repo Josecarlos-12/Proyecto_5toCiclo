@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public Rigidbody rb;
     public float speedBullet;
     public float destructtion;
+    public float damageB;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,7 +21,6 @@ public class Bullet : MonoBehaviour
     {
         One,
         Two
-
     } 
     public Destruction destruction;
     private void Update()
@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
         switch (destruction)
         {
             case Destruction.One:
-                if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Shield"))
+                if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Shield") || other.gameObject.CompareTag("Big"))
                 {
                     //GameObject bulletClone = Instantiate(bulletHolePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.LookRotation(new Vector3(transform.rotation.x, 0,0)));
                     Destroy(gameObject);

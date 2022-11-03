@@ -13,6 +13,8 @@ public class InteractionTuto : MonoBehaviour
     public CameraView cameraView;
     public Shield shieldActive;
 
+    public GameObject text;
+
     public enum Interactions
     {
         move,
@@ -44,6 +46,7 @@ public class InteractionTuto : MonoBehaviour
                 if (other.gameObject.CompareTag("Player"))
                 {
                     touch = true;
+                    text.SetActive(true);
                 }
                 break;
 
@@ -93,5 +96,6 @@ public class InteractionTuto : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         touch = false;
+        text.SetActive(false);
     }
 }

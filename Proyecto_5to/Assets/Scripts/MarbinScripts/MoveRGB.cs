@@ -29,6 +29,7 @@ public class MoveRGB : MonoBehaviour
     //public KeyCode crouchKey=KeyCode.LeftControl;
 
     public Vector3 movementVector = Vector3.zero;
+    public Transform prota;
 
     RaycastHit hit;
     // Start is called before the first frame update
@@ -104,5 +105,23 @@ public class MoveRGB : MonoBehaviour
                 speed = initialSpeed;
             }
         }       
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = collision.transform;
+           
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            transform.parent = null;
+            prota.localScale = new Vector3(1, 1, 1);
+        }
     }
 }

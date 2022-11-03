@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public Renderer render;
     public float AlertRange;
     public LayerMask capaDelJugador;
     public Transform player;
@@ -15,7 +16,10 @@ public class Enemy : MonoBehaviour
     public float timeShoot = 0.2f;
     public float initialShoot;
     [Header("Amount life")]
-    [SerializeField] private int Life = 100;
+    public float Life = 100;
+    public Sword sword;
+    public Bullet bullet;
+    public GameObject experience;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,8 @@ public class Enemy : MonoBehaviour
         if (Life <= 0)
         {
             Destroy(gameObject);
+            Instantiate(experience, transform.position, Quaternion.identity);
+            Instantiate(experience, new Vector3(transform.position.x + 2, transform.position.y, transform.position.z), Quaternion.identity);
         }
     }
 
@@ -62,17 +68,27 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Life-=5;
+            render.material.color = Color.red;
+            Life-=20;
+            StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("BulletSlow"))
         {
-            Life-=10;
+            Life-=bullet.damageB;
         }
         if (other.gameObject.CompareTag("Sword"))
         {
-            Life -= 50;
+            render.material.color = Color.red;
+            Life -= sword.damage;
             Debug.Log("Macheteo");
+            StartCoroutine(ChangeColor());
         }
+    }
+
+    public IEnumerator ChangeColor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        render.material.color = Color.white;
     }
 
     private void OnDrawGizmos()

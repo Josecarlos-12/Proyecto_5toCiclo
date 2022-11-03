@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.9976076, y: 5.2587667, z: 12.882828}
-  m_Center: {x: -0.50880414, y: 0.042240176, z: -1.8091769}
+  m_Size: {x: 1.4743407, y: 4.1696925, z: 3.4871516}
+  m_Center: {x: -0.24716826, y: -0.14753352, z: -0.36808896}
 --- !u!1 &1567489428631039144
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +685,6 @@ GameObject:
   - component: {fileID: 1567489429914520457}
   - component: {fileID: 1567489429914520470}
   - component: {fileID: 1567489429914520458}
-  - component: {fileID: 4842439867299793025}
   - component: {fileID: 986182281064870367}
   m_Layer: 3
   m_Name: Character1raPerson
@@ -820,6 +819,7 @@ MonoBehaviour:
   crouchYScale: 0.7
   canCrouch: 0
   movementVector: {x: 0, y: 0, z: 0}
+  prota: {fileID: 1567489429914520471}
 --- !u!114 &1567489429914520465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,25 +944,6 @@ MonoBehaviour:
   count: 0
   timer: 0
   image: {fileID: 0}
---- !u!114 &4842439867299793025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567489429914520478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0db94f1d5d5e1409439ecdbc6c0a81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canShild: 0
-  shield: {fileID: 1567489428631039144}
-  anim: {fileID: 0}
-  shieldLife: {fileID: 1567489428631039147}
-  Regeneration: 4
-  useShield: 0
-  timer: 0
 --- !u!114 &986182281064870367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,6 +962,7 @@ MonoBehaviour:
   colliderSword: {fileID: 0}
   on: 0
   time: 0.2
+  damage: 50
 --- !u!1 &4190473853292167423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,6 +1061,7 @@ GameObject:
   - component: {fileID: 1250235345508933643}
   - component: {fileID: 9161371631822523721}
   - component: {fileID: 114024435048039401}
+  - component: {fileID: 1030461730029693249}
   m_Layer: 3
   m_Name: DetecteTriger
   m_TagString: Untagged
@@ -1189,6 +1172,44 @@ MonoBehaviour:
   image: {fileID: 0}
   recorProta: 0
   intan: 0
+  over: {fileID: 0}
+--- !u!114 &1030461730029693249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838497979666023534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0182255267f6263489e7c32ff9d3b92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sword: {fileID: 986182281064870367}
+  bullet: {fileID: 0}
+  life: {fileID: 0}
+  energy: {fileID: 1567489429914520458}
+  move: {fileID: 1567489429914520464}
+  shield: {fileID: 1567489429914520459}
+  imageExperience: {fileID: 0}
+  ObjecExperience: {fileID: 0}
+  experience: 0
+  EXP: 0
+  maxExperience: 1000
+  text: {fileID: 0}
+  count: 0
+  count2: 0
+  count3: 0
+  count4: 0
+  level1: {fileID: 0}
+  level2: {fileID: 0}
+  level3: {fileID: 0}
+  level4: {fileID: 0}
+  one: 0
+  two: 0
+  three: 0
+  four: 0
+  five: 0
 --- !u!1 &8419287706993446133
 GameObject:
   m_ObjectHideFlags: 0
