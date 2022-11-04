@@ -15,6 +15,8 @@ public class Weapon : MonoBehaviour
     public Energy energy;
     public Shield shield;
 
+    public Experience exp;
+
     [Header("Chambiar Bala")]
     public bool chageBullet;
     public bool typeBullet;
@@ -31,7 +33,7 @@ public class Weapon : MonoBehaviour
     {
         if (canShoot)
         {
-            if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield == false)
+            if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield == false && !exp.options)
             {
                 if (energy.energy > 2)
                 {
@@ -68,7 +70,7 @@ public class Weapon : MonoBehaviour
             {
                 chageBullet = !chageBullet;
             }
-            if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield == false)
+            if (Input.GetButtonDown("Fire1") && Time.time > initialShoot && energy.use == false && shield.useShield == false && !exp.options)
             {
                 if (!chageBullet)
                 {
