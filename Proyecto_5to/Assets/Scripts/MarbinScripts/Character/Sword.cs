@@ -11,7 +11,7 @@ public class Sword : MonoBehaviour
     public bool on;
     public float time = 0.2f;
     public float damage=50;
-   
+    public bool animRep;
 
     // Start is called before the first frame update
     void Start()
@@ -46,11 +46,11 @@ public class Sword : MonoBehaviour
             
         }
 
-        if (Input.GetMouseButtonDown(1) && attack)
+        if (Input.GetMouseButtonDown(1) && attack && !animRep)
         {
             anim.SetBool("Attack", true);
             StartCoroutine("DesactiveSword");
-            
+            animRep = true;
             //colliderSword.tag = "Sword";
         }
         else if (Input.GetKeyUp(KeyCode.F) && !attack)
@@ -64,7 +64,7 @@ public class Sword : MonoBehaviour
         yield return new WaitForSeconds(time);
         //sword.SetActive(false);
         anim.SetBool("Attack", false);
-        
+        animRep=false;
        // colliderSword.tag = "Untagged";
     }
 }

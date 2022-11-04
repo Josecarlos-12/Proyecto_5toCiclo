@@ -31,15 +31,24 @@ public class Experience : MonoBehaviour
 
     public string expePref = "EXP";
 
+    public bool options;
 
+    public float bulletD;
+    public float meleD;
+    public float bulletSpeed;
+    public float moveSped;
     private void Awake()
     {
-        //LoadData();
+       LoadData();
     }
 
     void Start()
     {
-        PlayerPrefs.SetFloat("EXP", 0);
+        //PlayerPrefs.SetFloat("OP1", 0);
+        //PlayerPrefs.SetFloat("OP2", 0);
+        //PlayerPrefs.SetFloat("EXP", 0);
+        //PlayerPrefs.SetFloat("OPTION1", 0);
+        //PlayerPrefs.SetFloat("OPTION2", 0);
 
         ObjecExperience.SetActive(false);
         imageExperience.enabled = false;
@@ -48,8 +57,8 @@ public class Experience : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
+        OPTIONS();
         MoreExperience();
         imageExperience.fillAmount = experience / maxExperience;
     }
@@ -59,12 +68,13 @@ public class Experience : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Experience"))
         {
+            Destroy(other.gameObject);
             if (experience <= maxExperience)
             {
                 ObjecExperience.SetActive(true);
                 imageExperience.enabled = true;
                 experience += 50;
-                Destroy(other.gameObject);
+                
                 StartCoroutine(Experi());
             }
         }
@@ -79,7 +89,7 @@ public class Experience : MonoBehaviour
 
     public void MoreExperience()
     {
-        if (experience >= 300)
+        if (experience >= 300 && PlayerPrefs.GetFloat("OP1")==0)
         {            
             text.text = "Nivel 1";
 
@@ -88,14 +98,18 @@ public class Experience : MonoBehaviour
 
             if (count == 1)
             {
+                // ESpara que salga el canvas
+                PlayerPrefs.SetFloat("OP1", 1);
+                options = true;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Time.timeScale = 0;
                 level1.SetActive(true);
             }
         }
-        if (experience >= 550)
+        if (experience >= 550 && PlayerPrefs.GetFloat("OP2") == 0)
         {
+            
             text.text = "Nivel 2";
 
             if (count2 < 3)
@@ -104,6 +118,8 @@ public class Experience : MonoBehaviour
 
             if (count2 == 1)
             {
+                PlayerPrefs.SetFloat("OP2", 1);
+                options = true;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Time.timeScale = 0;
@@ -136,26 +152,33 @@ public class Experience : MonoBehaviour
     #region Option1
     public void DamageShoot()
     {
+        options = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         Time.timeScale = 1;
         bullet.damageB += 10;
         level1.SetActive(false);
+
+        // elegir primera opcion
+        PlayerPrefs.SetFloat("OPTION1", 1);
     }
 
     public void MeleSword()
     {
+        options = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         Time.timeScale = 1;
         sword.damage += 10;
         level1.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION1", 2);
     }
 
     public void Resistence()
     {
+        options = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -165,6 +188,7 @@ public class Experience : MonoBehaviour
         life.life = life.maxLife;
         energy.energyMax += 100;
         energy.energy=energy.energyMax;
+        PlayerPrefs.SetFloat("OPTION1", 3);
     }
     #endregion
 
@@ -172,32 +196,39 @@ public class Experience : MonoBehaviour
     #region Option2
     public void SpeedShoot()
     {
+        options = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         Time.timeScale = 1;
         bullet.speedBullet += 2000;
         level2.SetActive(false);
+
+        PlayerPrefs.SetFloat("OPTION2", 1);
     }
 
     public void speedMove()
     {
+        options = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         Time.timeScale = 1;
         move.speed += 7;
         level2.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION2", 2);
     }
 
     public void Shield()
     {
+        options = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         Time.timeScale = 1;
         level2.SetActive(false);
         shield.canShild = true;
+        PlayerPrefs.SetFloat("OPTION2", 3);
     }
     #endregion
 
@@ -218,6 +249,39 @@ public class Experience : MonoBehaviour
     private void OnDestroy()
     {
         SaveEsperience();
+    }
+
+
+    public void OPTIONS()
+    {
+       if( PlayerPrefs.GetFloat("OPTION1") == 1)
+        {
+            bullet.damageB = 30;
+        }
+        if (PlayerPrefs.GetFloat("OPTION1") == 2)
+        {
+            sword.damage = 60;
+        }
+        if (PlayerPrefs.GetFloat("OPTION1") == 3)
+        {
+            life.maxLife = 1100;
+            energy.energy = 1100;
+        }
+
+
+        if (PlayerPrefs.GetFloat("OPTION2") == 1)
+        {
+            bullet.speedBullet = 5000;
+        }
+        if (PlayerPrefs.GetFloat("OPTION2") == 2)
+        {
+            move.speed = 15;
+        }
+        if (PlayerPrefs.GetFloat("OPTION2") == 3)
+        {
+            shield.canShild = true;
+        }
+
     }
 
 }

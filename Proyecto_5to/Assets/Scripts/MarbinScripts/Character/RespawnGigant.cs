@@ -13,6 +13,12 @@ public class RespawnGigant : MonoBehaviour
 
     public Transform lastCheckPoint;
 
+    private void Update()
+    {
+        Inputs();
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         /*if (other.gameObject.CompareTag("Module"))
@@ -100,5 +106,26 @@ public class RespawnGigant : MonoBehaviour
         prota.rotation = next[2].rotation;
     }
 
-
+    public void Inputs()
+    {
+        if ( Input.GetKeyDown(KeyCode.N) && Input.GetKeyDown(KeyCode.T) && Input.GetKeyDown(KeyCode.W))
+        {
+            prota.rotation = Quaternion.Euler(0, -180, 0);
+        }
+        else if ( Input.GetKeyDown(KeyCode.N) && Input.GetKeyDown(KeyCode.T) && Input.GetKeyDown(KeyCode.H))
+        {
+            prota.position = new Vector3(next[1].position.x, next[1].position.y + 3, next[1].position.z);
+            prota.rotation = next[1].rotation;
+        }
+        else if (Input.GetKeyDown(KeyCode.N) && Input.GetKeyDown(KeyCode.F) && Input.GetKeyDown(KeyCode.O))
+        {
+            prota.position = new Vector3(next[2].position.x, next[2].position.y + 3, next[2].position.z);
+            prota.rotation = next[2].rotation;
+        }
+        else if (Input.GetKeyDown(KeyCode.N) && Input.GetKeyDown(KeyCode.F) && Input.GetKeyDown(KeyCode.V))
+        {
+            prota.position = new Vector3(next[3].position.x, next[3].position.y + 3, next[3].position.z);
+            prota.rotation = next[3].rotation;
+        }
+    }
 }
