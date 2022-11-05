@@ -120,7 +120,7 @@ public class Enemy2 : MonoBehaviour
     {
         if (Life < 700)
         {
-            mini.charge = false;
+            //mini.charge = false;
             point = true;
         }
         if(Life < 600)
