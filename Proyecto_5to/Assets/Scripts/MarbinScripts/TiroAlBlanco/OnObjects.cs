@@ -10,6 +10,7 @@ public class OnObjects : MonoBehaviour
     public GameObject[] robots;
     public GameObject objects;
     public OnObjects on;
+    public int count;
 
     public enum Shot
     {
@@ -84,10 +85,17 @@ public class OnObjects : MonoBehaviour
     {
         if (shoot == null && shootOne == null && shootThre == null)
         {
-            laders.SetActive(true);
-            cameraMain.SetActive(true);
-            prota.SetActive(false);
-            StartCoroutine(CameraFalse());
+            if(count<3)
+            count++;
+
+            if (count == 1)
+            {
+                laders.SetActive(true);
+                cameraMain.SetActive(true);
+                prota.SetActive(false);
+                StartCoroutine(CameraFalse());
+            }
+            
         }
     }
 
