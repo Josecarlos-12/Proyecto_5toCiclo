@@ -18,7 +18,7 @@ public class DestroyBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Floor") || other.gameObject.name=="Diana")
+        if(other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Floor") || other.gameObject.name=="Diana" || other.gameObject.CompareTag("Shield"))
         {
             Destroy(gameObject);
         }

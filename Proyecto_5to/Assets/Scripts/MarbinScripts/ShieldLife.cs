@@ -132,12 +132,12 @@ public class ShieldLife : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") )
         {
             lifeShield -= 3;
             damage = true;
         }
-        if (other.gameObject.CompareTag("Respawn"))
+        if (other.gameObject.CompareTag("Respawn") || other.gameObject.CompareTag("BulletRobotin"))
         {
             lifeShield -= 10;
             damage = true;

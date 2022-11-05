@@ -18,7 +18,6 @@ public class Life : MonoBehaviour
 
 
     public int recover = 3;
-    public GameObject prota;
 
     public Transform player;
 

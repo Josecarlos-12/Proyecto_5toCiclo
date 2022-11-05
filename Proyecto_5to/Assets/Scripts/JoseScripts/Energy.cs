@@ -9,16 +9,11 @@ public class Energy : MonoBehaviour
     [Header("Energy Amount")]
     public float energy = 100;
     public float energyMax = 100;
-    public int lessEnergy;
-    public bool shoot;
-    public bool laser;
-    public bool dash;
     public bool jump;
-    public Weapon weapon;
     public bool use;
     public bool recoverEnergy;
-    public int count;
     public float timer;
+    public float maxTimer=1;
 
     public Image image;
 
@@ -39,9 +34,9 @@ public class Energy : MonoBehaviour
     public void AddEnergy()
     {
         timer += Time.deltaTime;
-        if (timer >= 1)
+        if (timer >= maxTimer)
         {
-            timer -= 1;
+            timer -= maxTimer;
             if (energy < energyMax)
             {
                 energy+=3;

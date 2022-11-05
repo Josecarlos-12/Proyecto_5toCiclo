@@ -7,8 +7,6 @@ using UnityEngine.UIElements;
 public class Jump : MonoBehaviour
 {
     public bool jumpTwo;
-    public bool canJump;
-    public bool doubleCanJump;
     Rigidbody rb;
     public float jumpHeight=10;
     public bool grounded;

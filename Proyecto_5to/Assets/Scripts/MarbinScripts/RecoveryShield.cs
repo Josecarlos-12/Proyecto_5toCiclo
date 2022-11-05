@@ -17,7 +17,7 @@ public class RecoveryShield : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shieldLife.one && !shieldLife.duration)
+       /* if (shieldLife.one && !shieldLife.duration)
         {
             
             shieldLife.one = false;
@@ -47,7 +47,7 @@ public class RecoveryShield : MonoBehaviour
         {
             shieldLife.six = false;
             //StartCoroutine(Hexa6());
-        }
+        }*/
     }
 
     public IEnumerator Hexa1()

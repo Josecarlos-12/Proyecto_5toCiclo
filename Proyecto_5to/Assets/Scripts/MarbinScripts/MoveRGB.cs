@@ -6,24 +6,20 @@ using static UnityEngine.EventSystems.StandaloneInputModule;
 public class MoveRGB : MonoBehaviour
 {
     [Header("Speeds")]
-    public float moveNormal = 8;
-    public float moveAim = 4;
-
     public bool move;
-    public bool objects;
     public float speed;
     public Rigidbody rb;
     public Head head;
     public bool crounch;
     public Jump jump;    
 
-    [Header("Crouching")]
+    /*[Header("Crouching")]
     public float initialSpeed;
     public float crawlSpeed;
     //public float crouchSpeed;
     public float crouchYScale;
     private float startYScale;
-    public bool canCrouch;
+    public bool canCrouch;*/
 
     //[Header("Keybinds")]
     //public KeyCode crouchKey=KeyCode.LeftControl;
@@ -36,17 +32,17 @@ public class MoveRGB : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        startYScale=transform.localScale.y;
+        //startYScale=transform.localScale.y;
         
-        initialSpeed = speed;
-        crawlSpeed = speed*0.5f;
+        //initialSpeed = speed;
+        //crawlSpeed = speed*0.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-        Crouch();
+        //Crouch();
     }
 
     public void Move()
@@ -86,7 +82,7 @@ public class MoveRGB : MonoBehaviour
 
     public void Crouch()
     {
-        if (canCrouch)
+        /*if (canCrouch)
         {
             //Te agachas
             if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -104,7 +100,7 @@ public class MoveRGB : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
                 speed = initialSpeed;
             }
-        }       
+        }       */
     }
 
     private void OnCollisionEnter(Collision collision)

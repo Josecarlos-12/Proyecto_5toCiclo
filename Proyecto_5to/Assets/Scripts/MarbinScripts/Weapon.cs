@@ -7,8 +7,6 @@ public class Weapon : MonoBehaviour
     public bool canShoot;
     public GameObject initialBullet;
     public GameObject bulletFast, laserBullet;
-    public GameObject bulletSlow;
-    public InteractionHabilities interactions;
 
     public float timeShoot = 0.2f;
     public float initialShoot;

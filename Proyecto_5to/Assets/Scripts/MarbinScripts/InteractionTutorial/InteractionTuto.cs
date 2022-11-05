@@ -59,7 +59,7 @@ public class InteractionTuto : MonoBehaviour
             case Interactions.crouch:
                 if (other.gameObject.CompareTag("Player"))
                 {
-                    move.canCrouch = true;
+                    //move.canCrouch = true;
                 }
                 break;
             case Interactions.doubleJump:
