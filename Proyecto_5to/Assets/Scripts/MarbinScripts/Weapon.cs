@@ -78,6 +78,7 @@ public class Weapon : MonoBehaviour
                 {
                     if (energy.energy > 2)
                     {
+                        shootAudio.Play();
                         Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
                         energy.ReductionEnergyShoot();
                         energy.recoverEnergy = true;
@@ -89,6 +90,7 @@ public class Weapon : MonoBehaviour
                 {
                     if (energy.energy > 2)
                     {
+                        shootAudio.Play();
                         Instantiate(laserBullet, initialBullet.transform.position, initialBullet.transform.rotation);
                         energy.ReductionEnergyLaser();
                         energy.recoverEnergy = true;

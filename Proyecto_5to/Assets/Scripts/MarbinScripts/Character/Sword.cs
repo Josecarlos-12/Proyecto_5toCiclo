@@ -12,6 +12,7 @@ public class Sword : MonoBehaviour
     public float time = 0.2f;
     public float damage=50;
     public bool animRep;
+    public bool canAtack;
 
     // Start is called before the first frame update
     void Start()
@@ -22,41 +23,44 @@ public class Sword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (canAtack)
         {
-            on = !on;
-            if (on)
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                attack = true;
-                sword.SetActive(true);
-                //sword.SetActive(true);
-                //anim.SetBool("Save", false);
-                //StopCoroutine("DesactiveSword");
-               
+                on = !on;
+                if (on)
+                {
+                    attack = true;
+                    sword.SetActive(true);
+                    //sword.SetActive(true);
+                    //anim.SetBool("Save", false);
+                    //StopCoroutine("DesactiveSword");
 
+
+
+                }
+                else
+                {
+                    sword.SetActive(false);
+                    attack = false;
+                    //anim.SetBool("Save", true);
+                    //StartCoroutine("DesactiveSword");
+                }
 
             }
-            else
-            {
-                sword.SetActive(false);
-                attack = false;
-                //anim.SetBool("Save", true);
-                //StartCoroutine("DesactiveSword");
-            }
-            
-        }
 
-        if (Input.GetMouseButtonDown(1) && attack && !animRep)
-        {
-            anim.SetBool("Attack", true);
-            StartCoroutine("DesactiveSword");
-            animRep = true;
-            //colliderSword.tag = "Sword";
-        }
-        else if (Input.GetKeyUp(KeyCode.F) && !attack)
-        {
-           // anim.SetBool("Attack", false);
-        }
+            if (Input.GetMouseButtonDown(1) && attack && !animRep)
+            {
+                anim.SetBool("Attack", true);
+                StartCoroutine("DesactiveSword");
+                animRep = true;
+                //colliderSword.tag = "Sword";
+            }
+            else if (Input.GetKeyUp(KeyCode.F) && !attack)
+            {
+                // anim.SetBool("Attack", false);
+            }
+        }        
     }
 
     public IEnumerator DesactiveSword()

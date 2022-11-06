@@ -156,7 +156,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f9efe3b052ae13248a3398b322bde2d0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -958,6 +958,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jump: {fileID: 1567489429914520465}
   dash: {fileID: 1567489429914520457}
+  weapon: {fileID: 1567489428994823442}
+  sword: {fileID: 986182281064870367}
   question: {fileID: 0}
   respawn: {fileID: 0}
 --- !u!114 &1567489429914520458
@@ -1000,6 +1002,7 @@ MonoBehaviour:
   time: 0.2
   damage: 50
   animRep: 0
+  canAtack: 0
 --- !u!1 &4190473853292167423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1229,7 @@ MonoBehaviour:
   energy: {fileID: 1567489429914520458}
   move: {fileID: 1567489429914520464}
   shield: {fileID: 1567489429914520459}
+  weapon: {fileID: 1567489428994823442}
   imageExperience: {fileID: 0}
   ObjecExperience: {fileID: 0}
   experience: 0

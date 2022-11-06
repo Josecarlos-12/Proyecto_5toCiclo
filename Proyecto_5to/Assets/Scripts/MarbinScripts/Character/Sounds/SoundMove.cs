@@ -28,12 +28,14 @@ public class SoundMove : MonoBehaviour
             }
             else
             {
-                footSteps.Stop();
+                footSteps.Pause();
+                //footSteps.Stop();
             }
         }
         else
         {
-            footSteps.Stop();
+            footSteps.Pause();
+            //footSteps.Stop();
         }
     }
 
