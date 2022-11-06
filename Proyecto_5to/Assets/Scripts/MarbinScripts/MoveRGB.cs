@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static FlyingPatrol;
 using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class MoveRGB : MonoBehaviour
@@ -11,7 +12,7 @@ public class MoveRGB : MonoBehaviour
     public Rigidbody rb;
     public Head head;
     public bool crounch;
-    public Jump jump;    
+    public Jump jump;
 
     /*[Header("Crouching")]
     public float initialSpeed;
@@ -20,6 +21,8 @@ public class MoveRGB : MonoBehaviour
     public float crouchYScale;
     private float startYScale;
     public bool canCrouch;*/
+
+   
 
     //[Header("Keybinds")]
     //public KeyCode crouchKey=KeyCode.LeftControl;
@@ -53,7 +56,6 @@ public class MoveRGB : MonoBehaviour
             float vertical = Input.GetAxisRaw("Vertical");
 
             Vector3 velocity = Vector3.zero;
-
             if (horizontal != 0 || vertical != 0)
             {
                 movementVector = (transform.forward * vertical + transform.right * horizontal).normalized;
@@ -64,7 +66,6 @@ public class MoveRGB : MonoBehaviour
                 //rb.velocity = transform.forward.normalized * vel * inputMove.z + transform.right.normalized * vel * inputMove.x;
             }
 
-            
             /*if(Input.GetKeyDown(KeyCode.LeftControl))
             {
                 speed=crawlSpeed;

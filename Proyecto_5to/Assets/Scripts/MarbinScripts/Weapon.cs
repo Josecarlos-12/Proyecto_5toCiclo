@@ -18,6 +18,9 @@ public class Weapon : MonoBehaviour
     [Header("Chambiar Bala")]
     public bool chageBullet;
     public bool typeBullet;
+
+    [Header("Bala SFX")]
+    public AudioSource shootAudio;
     private void Update()
     {
         if(!typeBullet)
@@ -35,6 +38,7 @@ public class Weapon : MonoBehaviour
             {
                 if (energy.energy > 2)
                 {
+                    shootAudio.Play();
                     energy.ReductionEnergyShoot();
                     energy.recoverEnergy = true;
                     //energy.ReductionEnergy();
