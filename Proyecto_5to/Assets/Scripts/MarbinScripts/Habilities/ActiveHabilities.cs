@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActiveHabilities : MonoBehaviour
 {
     public Jump jump;
     public DashController dash;
+    public Weapon weapon;
+    public Sword sword;
 
     public GameObject question;
     public RespawnGigant respawn;
-
+    public Image shoot;
     private void Start()
     {
-        PlayerPrefs.SetInt("DoubleJump", 0);
-        PlayerPrefs.SetInt("Dash", 0);
+        //PlayerPrefs.SetInt("DoubleJump", 0);
+        //PlayerPrefs.SetInt("Dash", 0);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -32,6 +35,17 @@ public class ActiveHabilities : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0;
+        }
+
+        if (other.gameObject.name == "Aim")
+        {
+            shoot.color = Color.white;
+            weapon.canShoot = true;
+        }
+
+        if (other.gameObject.name == "SwordAttack")
+        {
+            sword.canAtack = true;
         }
     }
     

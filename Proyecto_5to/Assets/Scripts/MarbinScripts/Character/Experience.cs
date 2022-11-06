@@ -13,6 +13,7 @@ public class Experience : MonoBehaviour
     public Energy energy;
     public MoveRGB move;
     public Shield shield;
+    public Weapon weapon;
 
     public Image imageExperience;
     public GameObject ObjecExperience;
@@ -49,6 +50,8 @@ public class Experience : MonoBehaviour
         //PlayerPrefs.SetFloat("EXP", 0);
         //PlayerPrefs.SetFloat("OPTION1", 0);
         //PlayerPrefs.SetFloat("OPTION2", 0);
+        //PlayerPrefs.SetFloat("OPTION3", 0);
+        //PlayerPrefs.SetFloat("OPTION4", 0);
 
         ObjecExperience.SetActive(false);
         imageExperience.enabled = false;
@@ -107,7 +110,8 @@ public class Experience : MonoBehaviour
                 level1.SetActive(true);
             }
         }
-        if (experience >= 550 && PlayerPrefs.GetFloat("OP2") == 0)
+
+        if (experience >= 550 && PlayerPrefs.GetFloat("OP1") == 1)
         {
             
             text.text = "Nivel 2";
@@ -118,7 +122,7 @@ public class Experience : MonoBehaviour
 
             if (count2 == 1)
             {
-                PlayerPrefs.SetFloat("OP2", 1);
+                PlayerPrefs.SetFloat("OP1", 2);
                 options = true;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
@@ -126,37 +130,43 @@ public class Experience : MonoBehaviour
                 level2.SetActive(true);
             }
         }
-        /*if (experience >= 850)
+
+        if (experience >= 850 && PlayerPrefs.GetFloat("OP1") == 2)
         {
             text.text = "Nivel 3";
             count3++;
             if (count3 == 1)
             {
+                PlayerPrefs.SetFloat("OP1", 3);
+                options = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 Time.timeScale = 0;
                 level3.SetActive(true);
             }
         }
-        if (experience >= 1100)
+
+        if (experience >= 1100 && PlayerPrefs.GetFloat("OP1") == 3)
         {
             text.text = "Nivel 4";
             count4++;
             if (count4 == 1)
             {
+                PlayerPrefs.SetFloat("OP1", 4);
+                options = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 Time.timeScale = 0;
                 level4.SetActive(true);
             }
-        }*/
+        }
     }
 
 
     #region Option1
     public void DamageShoot()
     {
-        options = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        Time.timeScale = 1;
+        OculMouse();
         bullet.damageB += 10;
         level1.SetActive(false);
 
@@ -166,11 +176,7 @@ public class Experience : MonoBehaviour
 
     public void MeleSword()
     {
-        options = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        Time.timeScale = 1;
+        OculMouse();
         sword.damage += 10;
         level1.SetActive(false);
         PlayerPrefs.SetFloat("OPTION1", 2);
@@ -178,11 +184,7 @@ public class Experience : MonoBehaviour
 
     public void Resistence()
     {
-        options = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        Time.timeScale = 1;
+        OculMouse();
         level1.SetActive(false);
         life.maxLife += 100;
         life.life = life.maxLife;
@@ -192,15 +194,10 @@ public class Experience : MonoBehaviour
     }
     #endregion
 
-
     #region Option2
     public void SpeedShoot()
     {
-        options = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        Time.timeScale = 1;
+        OculMouse();
         bullet.speedBullet += 2000;
         level2.SetActive(false);
 
@@ -209,11 +206,7 @@ public class Experience : MonoBehaviour
 
     public void speedMove()
     {
-        options = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        Time.timeScale = 1;
+        OculMouse();
         move.speed += 7;
         level2.SetActive(false);
         PlayerPrefs.SetFloat("OPTION2", 2);
@@ -221,20 +214,66 @@ public class Experience : MonoBehaviour
 
     public void Shield()
     {
-        options = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        Time.timeScale = 1;
+        OculMouse();
         level2.SetActive(false);
         shield.canShild = true;
         PlayerPrefs.SetFloat("OPTION2", 3);
     }
     #endregion
 
+    #region Option3
+    public void Alcance()
+    {
+        OculMouse();
+        level3.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION3", 1);
+    }
+
+    public void VelMove()
+    {
+        OculMouse();
+        level3.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION3", 2);
+    }
 
 
+    public void RegenerationLife()
+    {
+        OculMouse();
+        level3.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION3", 3);
+    }
+    #endregion
 
+    #region Option4
+    public void BulletThunder()
+    {
+        OculMouse();
+        level4.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION4", 1);
+    }
+    public void ChoroLife()
+    {
+        OculMouse();
+        level4.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION4", 2);
+    }
+    public void RegenerationEXP()
+    {
+        OculMouse();
+        level4.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION4", 3);
+    }
+
+    #endregion
+
+    public void OculMouse()
+    {
+        options = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+    }
     public void SaveEsperience()
     {
         PlayerPrefs.SetFloat(expePref, experience);
@@ -282,6 +321,28 @@ public class Experience : MonoBehaviour
             shield.canShild = true;
         }
 
+
+        if (PlayerPrefs.GetFloat("OPTION3") == 1)
+        {
+        }
+        if (PlayerPrefs.GetFloat("OPTION3") == 2)
+        {
+        }
+        if (PlayerPrefs.GetFloat("OPTION3") == 3)
+        {
+        }
+
+
+        if (PlayerPrefs.GetFloat("OPTION4") == 1)
+        {
+            weapon.typeBullet = true;
+        }
+        if (PlayerPrefs.GetFloat("OPTION4") == 2)
+        {
+        }
+        if (PlayerPrefs.GetFloat("OPTION4") == 3)
+        {
+        }
     }
 
 }

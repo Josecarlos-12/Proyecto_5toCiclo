@@ -76,25 +76,21 @@ public class Weapon : MonoBehaviour
             {
                 if (!chageBullet)
                 {
-                    if (energy.energy > 2)
-                    {
-                        Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
-                        energy.ReductionEnergyShoot();
-                        energy.recoverEnergy = true;
-                        initialShoot = Time.time + timeShoot;
-
-                    }
+                    shootAudio.Play();
+                    Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
+                    energy.recoverEnergy = true;
+                    initialShoot = Time.time + timeShoot;                    
                 }
                 if (chageBullet)
                 {
-                    if (energy.energy > 2)
+                    if (energy.energy > 100)
                     {
+                        shootAudio.Play();
                         Instantiate(laserBullet, initialBullet.transform.position, initialBullet.transform.rotation);
                         energy.ReductionEnergyLaser();
                         energy.recoverEnergy = true;
                         initialShoot = Time.time + timeShoot;
-                    }
-                       
+                    }                       
                 }
             }            
         }

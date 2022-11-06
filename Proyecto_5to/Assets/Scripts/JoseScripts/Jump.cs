@@ -80,7 +80,7 @@ public class Jump : MonoBehaviour
                 jumpsRemaining = 2;
 
             }
-            if (energy.energy > 10)
+            if (energy.energy > 150)
             {
                 maxJumpCount = 2;
             }

@@ -39,7 +39,7 @@ public class Energy : MonoBehaviour
             timer -= maxTimer;
             if (energy < energyMax)
             {
-                energy+=3;
+                energy+=25;
             }
         }
         if(energy < 0)
@@ -50,20 +50,20 @@ public class Energy : MonoBehaviour
 
     public void ReductionEnergyJump()
     {
-        energy -= 10;
+        energy -= 150;
     }
 
     public void ReductionEnergyShoot()
     {
-        energy -= 2;
+        //energy -= 2;
     }
     public void ReductionEnergyLaser()
     {
-        energy -= 5;
+        energy -= 100;
     }
     public void ReductionEnergyDash()
     {
-        energy -= 15;
+        energy -= 150;
     }
 
     public void LessEnergy()

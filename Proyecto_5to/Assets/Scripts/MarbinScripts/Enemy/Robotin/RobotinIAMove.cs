@@ -13,7 +13,7 @@ public class RobotinIAMove : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject target;
     public Sword sword;
-    public Bullet bullet;
+    public Bullet bullet, laser;
     public LayerMask playerMask;
     public float AlertRange;
 
@@ -79,6 +79,12 @@ public class RobotinIAMove : MonoBehaviour
         {
             render.material.color = Color.red;
             life-=bullet.damageB;
+            StartCoroutine(ChangeColor());
+        }
+        if (other.gameObject.CompareTag("LaserProta"))
+        {
+            render.material.color = Color.red;
+            life -= laser.damageB;
             StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("Sword"))
