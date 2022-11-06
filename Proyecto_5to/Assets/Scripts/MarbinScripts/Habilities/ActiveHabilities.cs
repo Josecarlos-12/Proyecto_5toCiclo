@@ -1,31 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ActiveHabilities : MonoBehaviour
 {
     public Jump jump;
     public DashController dash;
-    public Weapon aim;
-    public CameraView camAim;
-    public Shield shield;
+
+    public GameObject question;
+    public RespawnGigant respawn;
+
+    private void Start()
+    {
+        PlayerPrefs.SetInt("DoubleJump", 0);
+        PlayerPrefs.SetInt("Dash", 0);
+    }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Jump")
         {
-            jump.jumpOne = true;
-
+            jump.jumpOne = false;
+            jump.jumpTwo = true;
+            dash.canDash = true;
         }
-        if (other.gameObject.name == "Aim")
+        if(other.gameObject.name == "Question")
         {
-            aim.canShoot=true;
-        }
-        if (other.gameObject.name == "Shield")
-        {
-            shield.canShild = true;
+            Destroy(other.gameObject);
+            question.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0;
         }
     }
     
+    public void YesDoJumo()
+    {
+        PlayerPrefs.SetInt("DoubleJump", 1);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+        question.SetActive(false);
+        dash.canDash = false;
+        respawn.prota.position = new Vector3(respawn.next[2].position.x, respawn.next[2].position.y + 3, respawn.next[2].position.z);
+        respawn.prota.rotation = respawn.next[2].rotation;
+    }
 
+    public void Dash()
+    {
+        PlayerPrefs.SetInt("Dash", 1);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+        question.SetActive(false);
+        jump.jumpTwo = false;
+        jump.jumpOne = true;
+        jump.maxJumpCount = 1;
+        respawn.prota.position = new Vector3(respawn.next[2].position.x, respawn.next[2].position.y + 3, respawn.next[2].position.z);
+        respawn.prota.rotation = respawn.next[2].rotation;
+    }
 }

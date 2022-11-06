@@ -108,21 +108,21 @@ public class RespawnGigant : MonoBehaviour
 
     public void Inputs()
     {
-        if ( Input.GetKeyDown(KeyCode.N) && Input.GetKeyDown(KeyCode.T) && Input.GetKeyDown(KeyCode.W))
+        if ( Input.GetKeyDown(KeyCode.F1))
         {
             prota.rotation = Quaternion.Euler(0, -180, 0);
         }
-        else if ( Input.GetKeyDown(KeyCode.N) && Input.GetKeyDown(KeyCode.T) && Input.GetKeyDown(KeyCode.H))
+        else if ( Input.GetKeyDown(KeyCode.F2))
         {
             prota.position = new Vector3(next[1].position.x, next[1].position.y + 3, next[1].position.z);
             prota.rotation = next[1].rotation;
         }
-        else if (Input.GetKeyDown(KeyCode.N) && Input.GetKeyDown(KeyCode.F) && Input.GetKeyDown(KeyCode.O))
+        else if (Input.GetKeyDown(KeyCode.F3))
         {
             prota.position = new Vector3(next[2].position.x, next[2].position.y + 3, next[2].position.z);
             prota.rotation = next[2].rotation;
         }
-        else if (Input.GetKeyDown(KeyCode.N) && Input.GetKeyDown(KeyCode.F) && Input.GetKeyDown(KeyCode.V))
+        else if (Input.GetKeyDown(KeyCode.F4))
         {
             prota.position = new Vector3(next[3].position.x, next[3].position.y + 3, next[3].position.z);
             prota.rotation = next[3].rotation;

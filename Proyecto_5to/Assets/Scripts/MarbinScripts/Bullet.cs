@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject bulletHolePrefab;
     public Rigidbody rb;
     public float speedBullet;
     public float destructtion;

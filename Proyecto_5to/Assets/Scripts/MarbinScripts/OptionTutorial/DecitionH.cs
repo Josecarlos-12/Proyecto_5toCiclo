@@ -14,6 +14,14 @@ public class DecitionH : MonoBehaviour
 
     public Jump jumpp;
     public DashController dashC;
+
+    public int touhCountJump, touchCounDash;
+    public DecitionH decitionj, decitionD;
+
+
+    // varibales  cuando tocas 2 veces las habilidades
+    public GameObject jumpDash;
+    public int countDJ;
     public enum Habilite
     {
         DJUMP,
@@ -23,8 +31,12 @@ public class DecitionH : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("DoubleJump", 0);
-        PlayerPrefs.SetInt("Dash", 0);
+        
+    }
+
+    private void Update()
+    {
+        KnockedTwice();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,14 +50,11 @@ public class DecitionH : MonoBehaviour
                     if (count < 3)
                         count++;
 
-                    if (count == 1)
+                    if (count == 1 && touhCountJump == 0)
                     {
-                        
+                        touhCountJump += 1;
                         coll.enabled = false;
                         coll2.enabled = false;
-                        Cursor.lockState = CursorLockMode.None;
-                        Cursor.visible = true;
-                        Time.timeScale = 0;
                         dJump.SetActive(true);
                     }                    
                     break;
@@ -54,10 +63,10 @@ public class DecitionH : MonoBehaviour
                     if (count < 3)
                         count++;
 
-                    if (count == 1)
+                    if (count == 1  && touchCounDash==0)
                     {
-                        
-                        
+
+                        touchCounDash += 1;
                         coll.enabled = false;
                         coll2.enabled = false;
                         Cursor.lockState = CursorLockMode.None;
@@ -73,29 +82,24 @@ public class DecitionH : MonoBehaviour
         }
     }
 
-
-
-    public void YesDoJumo()
+    public void KnockedTwice()
     {
-        PlayerPrefs.SetInt("DoubleJump", 1);
-        boxJ.SetActive(true);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Time.timeScale = 1;
-        dJump.SetActive(false);
-        Destroy(gameObject);
+        if(decitionD.touchCounDash>0 && decitionj.touhCountJump > 0)
+        {
+            if(countDJ<3)
+            countDJ ++;
+
+            if (countDJ == 1)
+            {
+                dJump.SetActive(false);
+                dash.SetActive(false);
+                jumpDash.SetActive(true);
+            }
+            
+        }
     }
 
-    public void Dash()
-    {
-        PlayerPrefs.SetInt("Dash", 1);
-        boxD.SetActive(true);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Time.timeScale = 1;
-        dash.SetActive(false);
-        Destroy(gameObject);
-    }
+ 
 
     public void Return()
     {
