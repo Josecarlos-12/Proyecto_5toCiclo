@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 666.98157, g: 662.3204, b: 773.88617, a: 1}
+  m_IndirectSpecularColor: {r: 670.0547, g: 666.8047, b: 782.9752, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2801,6 +2801,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   sword: {fileID: 0}
   bullet: {fileID: 0}
+  laser: {fileID: 0}
 --- !u!114 &115932674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4153,6 +4154,7 @@ MonoBehaviour:
   Life: 120
   sword: {fileID: 1567489428807935720}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
+  laser: {fileID: 691430955296938421, guid: dac547ee6697acd4ba756e28455b1f11, type: 3}
   experience: {fileID: 7051179569648928871, guid: 89b63dc096a186b4abd8ac05be6799b2,
     type: 3}
 --- !u!136 &178407503
@@ -4771,6 +4773,9 @@ RectTransform:
   - {fileID: 665286425}
   - {fileID: 2025114551}
   - {fileID: 1619800810}
+  - {fileID: 2054499543}
+  - {fileID: 1122817112}
+  - {fileID: 1448885672}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11929,6 +11934,7 @@ MonoBehaviour:
   Life: 120
   sword: {fileID: 1567489428807935720}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
+  laser: {fileID: 0}
   experience: {fileID: 7051179569648928871, guid: 89b63dc096a186b4abd8ac05be6799b2,
     type: 3}
 --- !u!136 &631240615
@@ -12495,6 +12501,7 @@ MonoBehaviour:
   render: {fileID: 1067640857}
   sword: {fileID: 1567489428807935720}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
+  laser: {fileID: 691430955296938421, guid: dac547ee6697acd4ba756e28455b1f11, type: 3}
   experience: {fileID: 7051179569648928871, guid: 89b63dc096a186b4abd8ac05be6799b2,
     type: 3}
 --- !u!1 &666539019
@@ -19264,6 +19271,7 @@ MonoBehaviour:
   Life: 120
   sword: {fileID: 1567489428807935720}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
+  laser: {fileID: 0}
   experience: {fileID: 7051179569648928871, guid: 89b63dc096a186b4abd8ac05be6799b2,
     type: 3}
 --- !u!136 &1058843821
@@ -20319,6 +20327,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122484396}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1122817111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122817112}
+  - component: {fileID: 1122817114}
+  - component: {fileID: 1122817113}
+  m_Layer: 5
+  m_Name: Escudo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1122817112
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122817111}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 205382974}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -59, y: 62}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1122817113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122817111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6a2d8652b8b74694388107aab1ef5d14, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1122817114
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122817111}
+  m_CullTransparentMesh: 1
 --- !u!1 &1127286504
 GameObject:
   m_ObjectHideFlags: 0
@@ -21244,6 +21328,7 @@ MonoBehaviour:
   Life: 100
   sword: {fileID: 0}
   bullet: {fileID: 0}
+  laser: {fileID: 0}
   experience: {fileID: 0}
 --- !u!136 &1178545596
 CapsuleCollider:
@@ -26715,6 +26800,82 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.341394, y: 3.5740814, z: 12.121552}
   m_Center: {x: 0.00018692017, y: 0.00011444092, z: 0.0000021457658}
+--- !u!1 &1448885671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448885672}
+  - component: {fileID: 1448885674}
+  - component: {fileID: 1448885673}
+  m_Layer: 5
+  m_Name: Espada
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1448885672
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448885671}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 205382974}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -170, y: 62}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1448885673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448885671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 17ad442e52bfae747ad63b18ce952e01, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1448885674
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448885671}
+  m_CullTransparentMesh: 1
 --- !u!1 &1453566035
 GameObject:
   m_ObjectHideFlags: 0
@@ -30208,6 +30369,7 @@ MonoBehaviour:
   enemy: {fileID: 995031638}
   sword: {fileID: 1567489428807935720}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
+  laser: {fileID: 691430955296938421, guid: dac547ee6697acd4ba756e28455b1f11, type: 3}
 --- !u!54 &1595167706
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32177,6 +32339,7 @@ MonoBehaviour:
   Life: 120
   sword: {fileID: 1567489428807935720}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
+  laser: {fileID: 691430955296938421, guid: dac547ee6697acd4ba756e28455b1f11, type: 3}
   experience: {fileID: 7051179569648928871, guid: 89b63dc096a186b4abd8ac05be6799b2,
     type: 3}
 --- !u!136 &1667383841
@@ -38732,6 +38895,82 @@ Transform:
   m_Father: {fileID: 1518093961}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!1 &2054499542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054499543}
+  - component: {fileID: 2054499545}
+  - component: {fileID: 2054499544}
+  m_Layer: 5
+  m_Name: Shoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2054499543
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054499542}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 205382974}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -288, y: 62}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2054499544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054499542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cc4d8f796d4152a4da4e195e4942c81f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2054499545
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054499542}
+  m_CullTransparentMesh: 1
 --- !u!1 &2070296375
 GameObject:
   m_ObjectHideFlags: 0
@@ -40896,6 +41135,21 @@ PrefabInstance:
       propertyPath: damage
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 986182281064870367, guid: f47be62ebdf0aff4c87a97b94587a25d,
+        type: 3}
+      propertyPath: canAtack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 986182281064870367, guid: f47be62ebdf0aff4c87a97b94587a25d,
+        type: 3}
+      propertyPath: swordImage
+      value: 
+      objectReference: {fileID: 1448885673}
+    - target: {fileID: 986182281064870367, guid: f47be62ebdf0aff4c87a97b94587a25d,
+        type: 3}
+      propertyPath: swordInitial.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1030461730029693249, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
       propertyPath: life
@@ -40990,7 +41244,7 @@ PrefabInstance:
     - target: {fileID: 1567489429914520458, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
       propertyPath: energy
-      value: 1000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1567489429914520458, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
@@ -41000,7 +41254,7 @@ PrefabInstance:
     - target: {fileID: 1567489429914520458, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
       propertyPath: energyMax
-      value: 1000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1567489429914520464, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}

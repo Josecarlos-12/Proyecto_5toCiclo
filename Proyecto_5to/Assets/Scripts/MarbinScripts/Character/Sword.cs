@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sword : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Sword : MonoBehaviour
     public float damage=50;
     public bool animRep;
     public bool canAtack;
+
+    public Color swordInitial;
+    public Image swordImage;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,7 @@ public class Sword : MonoBehaviour
                 on = !on;
                 if (on)
                 {
+                    swordImage.color = Color.white;
                     attack = true;
                     sword.SetActive(true);
                     //sword.SetActive(true);
@@ -41,6 +46,7 @@ public class Sword : MonoBehaviour
                 }
                 else
                 {
+                    swordImage.color = swordInitial;
                     sword.SetActive(false);
                     attack = false;
                     //anim.SetBool("Save", true);

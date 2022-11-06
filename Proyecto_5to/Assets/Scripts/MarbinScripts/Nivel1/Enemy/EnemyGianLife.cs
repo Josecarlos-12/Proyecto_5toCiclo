@@ -7,7 +7,7 @@ public class EnemyGianLife : MonoBehaviour
     public float life=150;
     public Renderer render; 
     public Sword sword;
-    public Bullet bullet;
+    public Bullet bullet, laser;
     public GameObject experience;
 
     void Update()
@@ -26,6 +26,12 @@ public class EnemyGianLife : MonoBehaviour
         {
             render.material.color = Color.red;
             life -= bullet.damageB;
+            StartCoroutine(ChangeColor());
+        }
+        if (other.gameObject.CompareTag("LaserProta"))
+        {
+            render.material.color = Color.red;
+            life -= laser.damageB;
             StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("Sword"))

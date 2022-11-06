@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActiveHabilities : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ActiveHabilities : MonoBehaviour
 
     public GameObject question;
     public RespawnGigant respawn;
-
+    public Image shoot;
     private void Start()
     {
         //PlayerPrefs.SetInt("DoubleJump", 0);
@@ -38,6 +39,7 @@ public class ActiveHabilities : MonoBehaviour
 
         if (other.gameObject.name == "Aim")
         {
+            shoot.color = Color.white;
             weapon.canShoot = true;
         }
 

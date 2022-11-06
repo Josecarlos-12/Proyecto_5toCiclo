@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     [Header("Amount life")]
     public float Life = 100;
     public Sword sword;
-    public Bullet bullet;
+    public Bullet bullet, laser;
     public GameObject experience;
     // Start is called before the first frame update
     void Start()
@@ -69,12 +69,14 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             render.material.color = Color.red;
-            Life-=20;
+            Life -= bullet.damageB;
             StartCoroutine(ChangeColor());
         }
-        if (other.gameObject.CompareTag("BulletSlow"))
+        if (other.gameObject.CompareTag("LaserProta"))
         {
-            Life-=bullet.damageB;
+            render.material.color = Color.red;
+            Life -= laser.damageB;
+            StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("Sword"))
         {

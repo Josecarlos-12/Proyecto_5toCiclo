@@ -28,7 +28,7 @@ public class Enemy2 : MonoBehaviour
     public Renderer enemy;
 
     public Sword sword;
-    public Bullet bullet;
+    public Bullet bullet, laser;
     void Start()
     {
         
@@ -94,6 +94,12 @@ public class Enemy2 : MonoBehaviour
             StartCoroutine(ChangeColor());
             enemy.material.color = Color.red;
             Life-=bullet.damageB;
+        }
+        if (other.gameObject.CompareTag("LaserProta"))
+        {
+            enemy.material.color = Color.red;
+            Life -= laser.damageB;
+            StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("Sword"))
         {
