@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Larry : MonoBehaviour
+public class Pena : MonoBehaviour
 {
     [Header("Movimiento")]
     public Transform[] points;
@@ -14,18 +14,20 @@ public class Larry : MonoBehaviour
 
     [Header("Seguimiento")]
     public GameObject player;
-    public float detecte, detectePunch;    
+    public float detecte, detectePunch;
     public bool view;
-    public Rigidbody rb;
 
     [Header("Ataque")]
-    public Animator anim;
-    public bool punch;
+    public int count;
+    public bool attack, touch;
+    public Rigidbody rb;
+    public MoveRGB move;
+    public Life lifeProta;
 
     [Header("Life")]
     public float life;
     public Sword sword;
-    public Bullet bullet, laser; 
+    public Bullet bullet, laser;
     public Renderer render;
 
     private void Start()
@@ -35,12 +37,11 @@ public class Larry : MonoBehaviour
 
     void Update()
     {
-        if (agent.remainingDistance < distancePoint && !view && !punch)
+        if (agent.remainingDistance < distancePoint && !view)
         {
             GotoNextPoint();
         }
         Detectec();
-        DetectecPunch();
         Life();
     }
 
@@ -55,43 +56,31 @@ public class Larry : MonoBehaviour
     public void Detectec()
     {
         //Taclear       
-         if (Vector3.Distance(transform.position, player.transform.position) < detecte )
-         {
+        if (Vector3.Distance(transform.position, player.transform.position) < detecte)
+        {
             transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             Debug.Log("Player");
             view = true;
             agent.destination = player.transform.position;
-            agent.speed = 15;
-            //agent.stoppingDistance = 3f;
+           
+            agent.speed = 10;
+            agent.stoppingDistance = 1.4f;
+                        
+                                
         }
         else
         {
+            agent.stoppingDistance = 1;
+            attack = false;
+            count = 0;
             agent.speed = 4;
-            //agent.stoppingDistance = 1;
             view = false;
-         }
-    }
-
-    public void DetectecPunch()
-    {
-        if (Vector3.Distance(transform.position, player.transform.position) < detectePunch)
-        {
-            anim.SetBool("Attack", true);
-            agent.destination = transform.position;
-            agent.speed = 0;
-            Debug.Log("Punch");
-            punch = true;
         }
-        else
-        {
-            anim.SetBool("Attack", false);
-            punch = false;
-        }
-    }
-
+    }   
 
     public void GotoNextPoint()
     {
+        Debug.Log("Caminando");
         if (points.Length == 0)
         {
             return;
@@ -122,7 +111,10 @@ public class Larry : MonoBehaviour
             Debug.Log("Macheteo");
             StartCoroutine(ChangeColor());
         }
+       
     }
+  
+    
 
     public IEnumerator ChangeColor()
     {

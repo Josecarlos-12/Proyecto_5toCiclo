@@ -99,7 +99,10 @@ public class Life : MonoBehaviour
         if (other.gameObject.name == "PunchLarry")
         {
             move.move = false;
-            rb.AddForce(Vector3.right * 5, ForceMode.Impulse);
+            //Este Funciona
+            //rb.AddForce(((Vector2)(transform.position - other.gameObject.transform.position)).normalized * 5, ForceMode.Impulse);
+            
+            //rb.AddForce(Vector3.forward * 5, ForceMode.Impulse);
             //rb.AddForce(Vector3.up, ForceMode.Impulse);               
             life -= 100;
             StartCoroutine("LarryFalse");
@@ -108,7 +111,7 @@ public class Life : MonoBehaviour
 
     public IEnumerator LarryFalse()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
         move.move = true;
     }
 
