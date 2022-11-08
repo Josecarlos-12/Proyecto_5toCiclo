@@ -944,6 +944,10 @@ MonoBehaviour:
   dashEffect: {fileID: 5968683736330681681, guid: 00549afdb97dd044b93075dd27979162,
     type: 3}
   energy: {fileID: 1567489429914520458}
+  volume: {fileID: 0}
+  vi: {fileID: 0}
+  bvin: 0
+  intensity: 0.2
 --- !u!114 &1567489429914520470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,6 +1216,8 @@ MonoBehaviour:
   player: {fileID: 1567489429914520471}
   image: {fileID: 0}
   recorProta: 0
+  rb: {fileID: 1567489429914520467}
+  move: {fileID: 1567489429914520464}
   intan: 0
   over: {fileID: 0}
 --- !u!114 &1030461730029693249

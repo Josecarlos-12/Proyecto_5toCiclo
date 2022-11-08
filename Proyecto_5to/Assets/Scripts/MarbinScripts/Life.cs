@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Life : MonoBehaviour
 {
@@ -24,7 +25,8 @@ public class Life : MonoBehaviour
     public Image image;
     public bool recorProta;
 
-
+    public Rigidbody rb;
+    public MoveRGB move;
 
     public bool intan;
 
@@ -88,15 +90,27 @@ public class Life : MonoBehaviour
         {
             life = maxLife;
             Destroy(other.gameObject);
-            }
-            if (other.gameObject.CompareTag("Recover"))
-            {
-                recover += 1;
-                Destroy(other.gameObject);
-            }
-        
+        }
+        if (other.gameObject.CompareTag("Recover"))
+        {
+            recover += 1;
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.name == "PunchLarry")
+        {
+            move.move = false;
+            rb.AddForce(Vector3.right * 5, ForceMode.Impulse);
+            //rb.AddForce(Vector3.up, ForceMode.Impulse);               
+            life -= 100;
+            StartCoroutine("LarryFalse");
+        }        
     }
 
+    public IEnumerator LarryFalse()
+    {
+        yield return new WaitForSeconds(1f);
+        move.move = true;
+    }
 
     public IEnumerator IntangibleFalse()
     {
