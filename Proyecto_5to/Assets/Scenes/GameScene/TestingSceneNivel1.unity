@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 671.1833, g: 668.3839, b: 785.9943, a: 1}
+  m_IndirectSpecularColor: {r: 655.1619, g: 645.0078, b: 739.0886, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -30269,7 +30269,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.63067645
+  m_Radius: 0.81
   m_Center: {x: -0.003853248, y: -0.07678602, z: -0.065933555}
 --- !u!114 &1595167702
 MonoBehaviour:
@@ -41226,6 +41226,11 @@ PrefabInstance:
       propertyPath: canShoot
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1567489429914520457, guid: f47be62ebdf0aff4c87a97b94587a25d,
+        type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 432432460}
     - target: {fileID: 1567489429914520457, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
       propertyPath: canDash

@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class Jump : MonoBehaviour
 {
+    public SoundMove floor;
     public bool jumpTwo;
     Rigidbody rb;
     public float jumpHeight=10;
@@ -61,7 +62,7 @@ public class Jump : MonoBehaviour
 
     public void JumpOnly()
     {
-        if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemainingTwo > 0))
+        if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemainingTwo > 0) && floor.floor)
         {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             jumpsRemainingTwo -= 1;
@@ -75,7 +76,7 @@ public class Jump : MonoBehaviour
                 countJump++;
             }
 
-            if (countJump == 1)
+            if (countJump == 1 && floor.floor)
             {
                 jumpsRemaining = 2;
 

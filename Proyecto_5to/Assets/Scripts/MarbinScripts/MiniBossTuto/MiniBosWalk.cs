@@ -93,8 +93,9 @@ public class MiniBosWalk : MonoBehaviour
         {
             if (tackle)
             {
-                rb.AddForce(Vector3.left * 18, ForceMode.Impulse);
-                rb.AddForce(Vector3.up * 2, ForceMode.Impulse);
+                //rb.AddForce(Vector3.left * 18, ForceMode.Impulse);
+                rb.AddForce(((Vector2)(other.gameObject.transform.position - transform.position)).normalized * 10, ForceMode.Impulse);
+                //rb.AddForce(Vector3.up * 1, ForceMode.Impulse);
                 agent.speed = 0;
                 move.move = false;
                 StartCoroutine(FalseMove());
