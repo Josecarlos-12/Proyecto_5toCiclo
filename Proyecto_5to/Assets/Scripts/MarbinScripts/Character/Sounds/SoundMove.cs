@@ -41,7 +41,7 @@ public class SoundMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Floor"))
+        if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Platform"))
         {
             floor = true;
         }        
@@ -49,7 +49,7 @@ public class SoundMove : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Floor"))
+        if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Platform"))
         {
             floor = false;
         }
