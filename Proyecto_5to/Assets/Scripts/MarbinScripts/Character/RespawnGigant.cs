@@ -62,14 +62,7 @@ public class RespawnGigant : MonoBehaviour
             prota.position = new Vector3(next[3].position.x, next[3].position.y + 3, next[3].position.z);
             prota.rotation = next[3].rotation;
         }
-        else if ( other.gameObject.name== "NextLoby")
-        {
-            SceneManager.LoadScene("LobbyScene");
-        }
-        if (other.gameObject.name=="LevelOne")
-        {
-            SceneManager.LoadScene("TestingSceneNivel1");
-        }
+      
         #endregion
 
 
@@ -79,6 +72,17 @@ public class RespawnGigant : MonoBehaviour
             prota.position = new Vector3(next[1].position.x, next[1].position.y + 3, next[1].position.z);
             prota.rotation = next[1].rotation;
         }
+
+        #region Nexts Levels
+        if (other.gameObject.name == "NextLoby")
+        {
+            SceneManager.LoadScene("LobbyScene");
+        }
+        if (other.gameObject.name == "LevelOne")
+        {
+            SceneManager.LoadScene("TestingSceneNivel1");
+        }
+        #endregion
 
         #region Respawn
         if (other.gameObject.CompareTag("checkpoint"))
