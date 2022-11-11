@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class LessLifeProta : MonoBehaviour
 {
-    public Pena pena;
-    public GameObject circle, circleTwo;
+    public PenaV2 pena;
 
     private void Start()
     {
-        //circle.SetActive(true);
-        //circleTwo.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            pena.agent.speed = 0;
             pena.move.move = false;
-            StartCoroutine("LarryFalse");
-           // circle.SetActive(false);
+            StartCoroutine("LarryFalse"); Debug.Log("Bajo 200");
+            // circle.SetActive(false);
             //circleTwo.SetActive(true);
             //pena.rb.AddForce(((Vector2)(other.gameObject.transform.position - transform.position)).normalized * 10, ForceMode.Impulse);
-            pena.rb.AddForce(((Vector3)(other.gameObject.transform.position - transform.position)).normalized * 8, ForceMode.Impulse);
+            pena.rb.AddForce(((Vector3)(other.gameObject.transform.position - transform.position)).normalized * 35, ForceMode.Impulse);
             pena.lifeProta.life -= 200;
-            pena.agent.speed = 0;
-            pena.touch = true;
+            pena.col.SetActive(false);
+            pena.col2.SetActive(true);
+            pena.bColl = true;
             /*if (pena.count == 1 && !pena.attack)
             {
                 pena.lifeProta.life -= 200;                
@@ -47,7 +44,6 @@ public class LessLifeProta : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         pena.move.move = true;
-        yield return new WaitForSeconds(1f);
-        pena.touch = false;
+        
     }
 }

@@ -53,7 +53,7 @@ public class Life : MonoBehaviour
         if (life <= 0)
         {
             white.material.color = Color.green;
-            player.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+            player.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
             intan = true;
             life = maxLife;
             recover -= 1;

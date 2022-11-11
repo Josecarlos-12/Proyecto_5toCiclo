@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Pena : MonoBehaviour
+public class PenaV2 : MonoBehaviour
 {
     [Header("Movimiento")]
     public Transform[] points;
@@ -23,7 +23,8 @@ public class Pena : MonoBehaviour
     public Rigidbody rb;
     public MoveRGB move;
     public Life lifeProta;
-    public Collider col;
+    public GameObject col, col2;
+    public bool bColl;
 
     [Header("Life")]
     public float life;
@@ -45,7 +46,11 @@ public class Pena : MonoBehaviour
         {
             GotoNextPoint();
         }
-        Detectec();
+        if (!stop)
+        {
+            Detectec();
+        }
+        
         DetectecStop();
         Life();
     }
@@ -63,25 +68,25 @@ public class Pena : MonoBehaviour
         //Taclear       
         if (Vector3.Distance(transform.position, player.transform.position) < detecte)
         {
-            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-            Debug.Log("Player");
-            view = true;
             agent.destination = player.transform.position;
-            agent.speed = 10;                       
-            agent.stoppingDistance = 1.4f;
-            col.enabled = true;
-                                
+            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+            view = true;
+            if (!bColl)
+            {
+                col.SetActive(true);
+                col2.SetActive(false);
+            }
+            
+            agent.speed = 7;
         }
         else
         {
-            agent.stoppingDistance = 1;
-            attack = false;
-            count = 0;
             agent.speed = 4;
+            attack = false;
             view = false;
-            col.enabled = false;
-            //lessLife.circle.SetActive(true);
-            //lessLife.circleTwo.SetActive(false);
+            col2.SetActive(false);
+            col.SetActive(false);
+            bColl = false;
         }
     }
 
@@ -91,15 +96,20 @@ public class Pena : MonoBehaviour
         {
             agent.destination = transform.position;
             agent.speed = 0;
-            Debug.Log("Punch");
+            
             stop = true;
+            
+        }
+        else
+        {
+            StartCoroutine(SpeedTimer());
         }
     }
 
     public IEnumerator SpeedTimer()
     {
         yield return new WaitForSeconds(2);
-        agent.speed = 10;
+        stop = false;
     }
 
     public void GotoNextPoint()
@@ -114,7 +124,7 @@ public class Pena : MonoBehaviour
     }
 
 
-  
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

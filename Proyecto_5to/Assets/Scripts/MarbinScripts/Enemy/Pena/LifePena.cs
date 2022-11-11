@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class LifePena : MonoBehaviour
 {
-    public Pena pena;
+    public PenaV2 pena;
 
     private void OnTriggerEnter(Collider other)
     {
