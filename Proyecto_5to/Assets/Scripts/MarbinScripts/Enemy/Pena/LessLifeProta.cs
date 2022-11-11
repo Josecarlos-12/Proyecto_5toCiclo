@@ -5,7 +5,13 @@ using UnityEngine;
 public class LessLifeProta : MonoBehaviour
 {
     public Pena pena;
+    public GameObject circle, circleTwo;
 
+    private void Start()
+    {
+        //circle.SetActive(true);
+        //circleTwo.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,22 +20,13 @@ public class LessLifeProta : MonoBehaviour
             pena.agent.speed = 0;
             pena.move.move = false;
             StartCoroutine("LarryFalse");
-            if (pena.count == 0)
-            {
-                pena.lifeProta.life -= 200;
-                pena.rb.AddForce(((Vector2)(other.gameObject.transform.position - transform.position)).normalized * 20, ForceMode.Impulse);
-            }
-            
-            pena.attack = true;
-            Debug.Log(pena.lifeProta.life);
-
-            pena.count = 1;
-
-            if(pena.count == 1)
-            {
-                pena.lifeProta.life -= 50;
-                pena.rb.AddForce(((Vector2)(other.gameObject.transform.position - transform.position)).normalized * 8, ForceMode.Impulse);
-            }
+           // circle.SetActive(false);
+            //circleTwo.SetActive(true);
+            //pena.rb.AddForce(((Vector2)(other.gameObject.transform.position - transform.position)).normalized * 10, ForceMode.Impulse);
+            pena.rb.AddForce(((Vector3)(other.gameObject.transform.position - transform.position)).normalized * 8, ForceMode.Impulse);
+            pena.lifeProta.life -= 200;
+            pena.agent.speed = 0;
+            pena.touch = true;
             /*if (pena.count == 1 && !pena.attack)
             {
                 pena.lifeProta.life -= 200;                
@@ -50,5 +47,7 @@ public class LessLifeProta : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         pena.move.move = true;
+        yield return new WaitForSeconds(1f);
+        pena.touch = false;
     }
 }

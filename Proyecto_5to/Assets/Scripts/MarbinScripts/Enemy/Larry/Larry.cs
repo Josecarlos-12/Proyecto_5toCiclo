@@ -27,6 +27,7 @@ public class Larry : MonoBehaviour
     public Sword sword;
     public Bullet bullet, laser; 
     public Renderer render;
+    public GameObject larryContainer;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class Larry : MonoBehaviour
     {
         if (life <= 0)
         {
-            Destroy(gameObject);
+            Destroy(larryContainer);
         }
     }
 
@@ -61,7 +62,7 @@ public class Larry : MonoBehaviour
             Debug.Log("Player");
             view = true;
             agent.destination = player.transform.position;
-            agent.speed = 15;
+            agent.speed = 20;
             //agent.stoppingDistance = 3f;
         }
         else

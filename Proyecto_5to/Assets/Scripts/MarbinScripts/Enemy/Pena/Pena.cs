@@ -29,7 +29,10 @@ public class Pena : MonoBehaviour
     public Sword sword;
     public Bullet bullet, laser;
     public Renderer render;
+    public GameObject allContainer;
 
+
+    //public LessLifeProta lessLife;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -49,7 +52,7 @@ public class Pena : MonoBehaviour
     {
         if (life <= 0)
         {
-            Destroy(gameObject);
+            Destroy(allContainer);
         }
     }
 
@@ -62,8 +65,11 @@ public class Pena : MonoBehaviour
             Debug.Log("Player");
             view = true;
             agent.destination = player.transform.position;
-           
-            agent.speed = 10;
+            if (!touch)
+            {
+                agent.speed = 10;
+            }
+            
             agent.stoppingDistance = 1.4f;
                         
                                 
@@ -75,6 +81,8 @@ public class Pena : MonoBehaviour
             count = 0;
             agent.speed = 4;
             view = false;
+            //lessLife.circle.SetActive(true);
+            //lessLife.circleTwo.SetActive(false);
         }
     }   
 
@@ -90,37 +98,7 @@ public class Pena : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            render.material.color = Color.red;
-            life -= bullet.damageB;
-            StartCoroutine(ChangeColor());
-        }
-        if (other.gameObject.CompareTag("LaserProta"))
-        {
-            render.material.color = Color.red;
-            life -= laser.damageB;
-            StartCoroutine(ChangeColor());
-        }
-        if (other.gameObject.CompareTag("Sword"))
-        {
-            render.material.color = Color.red;
-            life -= sword.damage;
-            Debug.Log("Macheteo");
-            StartCoroutine(ChangeColor());
-        }
-       
-    }
   
-    
-
-    public IEnumerator ChangeColor()
-    {
-        yield return new WaitForSeconds(0.5f);
-        render.material.color = Color.white;
-    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
