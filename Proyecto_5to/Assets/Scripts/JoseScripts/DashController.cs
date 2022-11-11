@@ -19,6 +19,9 @@ public class DashController : MonoBehaviour
     public Vignette vi;
     public bool bvin;
     public float intensity=0.2f;
+
+    [Header("Dash SFX")]
+    public AudioSource dashAudio;
     void Start()
     {
         volume.profile.TryGet(out Vignette vignette);
@@ -30,7 +33,8 @@ public class DashController : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Dash") == 1)
         {
-            canDash=true;
+            //dashAudio.Play();
+            canDash =true;
         }
 
         if (bvin)
@@ -54,7 +58,7 @@ public class DashController : MonoBehaviour
                 
                 if (energy.energy > 150)
                 {
-                    
+                    dashAudio.Play();
                     bvin = true;
 
                     StartCoroutine(Dash());
@@ -81,8 +85,8 @@ public class DashController : MonoBehaviour
 
     private void Dashing()
     {
-        
-        isDashing=false;
+        //dashAudio.Play();
+        isDashing =false;
 
         GameObject effect= Instantiate(dashEffect, Camera.main.transform.position, dashEffect.transform.rotation);
         effect.transform.parent=Camera.main.transform;
@@ -92,12 +96,12 @@ public class DashController : MonoBehaviour
     
     public IEnumerator Dash()
     {
-        isDashing = true;
+        //isDashing = true;
         float timer = 0;
 
         while (timer < 1)
         {
-            
+            //dashAudio.Play();
             float vertical = Input.GetAxisRaw("Vertical");
             float horizontal = Input.GetAxisRaw("Horizontal");
             timer += Time.deltaTime;
