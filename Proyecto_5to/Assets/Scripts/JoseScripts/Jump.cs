@@ -31,6 +31,8 @@ public class Jump : MonoBehaviour
     public int jumpsRemainingTwo = 0;
     public bool jumpOne;
 
+    [Header("Jump SFX")]
+    public AudioSource jumpAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +66,7 @@ public class Jump : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemainingTwo > 0) && floor.floor)
         {
+            jumpAudio.Play();
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             jumpsRemainingTwo -= 1;
         }

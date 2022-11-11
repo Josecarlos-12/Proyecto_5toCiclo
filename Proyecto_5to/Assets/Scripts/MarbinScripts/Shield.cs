@@ -14,6 +14,8 @@ public class Shield : MonoBehaviour
     public bool useShield;
     public float timer;
 
+    [Header("Shield SFX")]
+    public AudioSource shieldAudio;
 
     void Update()
     {
@@ -28,6 +30,7 @@ public class Shield : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.C) && !shieldLife.duration)
             {
+                shieldAudio.Play();
                 shield.SetActive(true);
                 useShield = true;
             }
