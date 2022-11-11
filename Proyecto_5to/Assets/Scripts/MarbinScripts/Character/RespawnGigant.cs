@@ -114,7 +114,8 @@ public class RespawnGigant : MonoBehaviour
     {
         if ( Input.GetKeyDown(KeyCode.F1))
         {
-            prota.rotation = Quaternion.Euler(0, -180, 0);
+            prota.position = new Vector3(next[0].position.x, next[0].position.y + 3, next[0].position.z);
+            prota.rotation = next[0].rotation;
         }
         else if ( Input.GetKeyDown(KeyCode.F2))
         {
