@@ -121,4 +121,22 @@ public class MoveRGB : MonoBehaviour
             prota.localScale = new Vector3(1, 1, 1);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PenaAttack"))
+        {
+            Debug.Log("Toco Pena");
+            rb.velocity = Vector3.zero;
+            move = false;
+            StartCoroutine("LarryFalse");
+            //rb.MovePosition(Vector3.zero);
+        }
+
+    }
+    public IEnumerator LarryFalse()
+    {
+        yield return new WaitForSeconds(0.3f);
+        move = true;
+    }
 }

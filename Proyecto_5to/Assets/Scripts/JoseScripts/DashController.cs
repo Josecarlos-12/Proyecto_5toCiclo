@@ -53,25 +53,25 @@ public class DashController : MonoBehaviour
             if (canDash)
         {
             
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !energy.use)
-            {
-                
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !energy.use && Input.GetAxis("Vertical") != 0)
+            {                
                 if (energy.energy > 150)
                 {
                     dashAudio.Play();
                     bvin = true;
-
-                    StartCoroutine(Dash());
-                    if (Input.GetAxis("Vertical") != 0)
-                    {
-                        energy.ReductionEnergyDash();
-                    }
-                    if (Input.GetAxis("Horizontal") != 0)
-                    {
-                        energy.ReductionEnergyDash();
-                    }
+                    StartCoroutine(Dash());                    
+                    energy.ReductionEnergyDash();                                                                            
                 }
-
+            }
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !energy.use && Input.GetAxis("Horizontal") != 0)
+            {
+                if (energy.energy > 150)
+                {
+                    dashAudio.Play();
+                    bvin = true;
+                    StartCoroutine(Dash());
+                    energy.ReductionEnergyDash();
+                }
             }
         }
         

@@ -77,11 +77,14 @@ public class PenaV2 : MonoBehaviour
                 col2.SetActive(false);
             }
             
-            agent.speed = 7;
+            agent.speed = 16;
+            agent.acceleration = 200;
+            //agent.angularSpeed = 500;
         }
         else
         {
             agent.speed = 4;
+            agent.acceleration = 8;
             attack = false;
             view = false;
             col2.SetActive(false);
@@ -95,10 +98,8 @@ public class PenaV2 : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) < detecteStop)
         {
             agent.destination = transform.position;
-            agent.speed = 0;
-            
-            stop = true;
-            
+            agent.speed = 0;            
+            stop = true;            
         }
         else
         {
