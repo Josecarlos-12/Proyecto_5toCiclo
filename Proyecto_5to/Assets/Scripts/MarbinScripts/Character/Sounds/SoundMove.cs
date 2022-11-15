@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SoundMove : MonoBehaviour
 {
-    public bool floor; 
+    public bool floor;
+    public MoveRGB move;
     [Header("Pasos Sonidos")]
     public AudioSource footSteps;
 
@@ -21,7 +22,7 @@ public class SoundMove : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
             {
-                if (!footSteps.isPlaying)
+                if (!footSteps.isPlaying && move.move)
                 {
                     footSteps.Play();
                 }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class NewCamera : MonoBehaviour
 {
+    public bool moveCamera;
     public Transform playerBody;
     public float mouseSensitivity = 80f;
     float xRotation = 0;
@@ -35,16 +36,20 @@ public class NewCamera : MonoBehaviour
 
     public void MoveCamera()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (moveCamera)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, negativeX, positiveX);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, negativeX, positiveX);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        playerBody.Rotate(Vector3.up * mouseX);
-        //gun.Rotate(new Vector3(-1 * mouseY,0, 0) );
+            playerBody.Rotate(Vector3.up * mouseX);
+            //gun.Rotate(new Vector3(-1 * mouseY,0, 0) );
+        }
+
     }
 
 }

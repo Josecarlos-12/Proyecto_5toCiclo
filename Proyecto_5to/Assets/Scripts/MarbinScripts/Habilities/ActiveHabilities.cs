@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,13 @@ public class ActiveHabilities : MonoBehaviour
     public GameObject question;
     public RespawnGigant respawn;
     public Image shoot;
+
+    public AudioSource audioSource;
+    public GameObject gText;
+    public TextMeshProUGUI text;
+    [TextArea(8,8)]
+    public string[] sText;
+    public float[] time;
     private void Start()
     {
         //PlayerPrefs.SetInt("DoubleJump", 0);
@@ -21,6 +29,10 @@ public class ActiveHabilities : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.name == "JumpOne")
+        {
+            jump.jumpOne = true;
+        }
         if (other.gameObject.name == "Jump")
         {
             jump.jumpOne = false;
@@ -44,8 +56,24 @@ public class ActiveHabilities : MonoBehaviour
 
         if (other.gameObject.name == "SwordAttack")
         {
+            other.GetComponent<Collider>().enabled = false;
             sword.canAtack = true;
+            audioSource.Play();
+            StartCoroutine(NexDialogue());
         }
+    }
+
+    public IEnumerator NexDialogue()
+    {
+        yield return new WaitForSeconds(time[0]);
+        gText.SetActive(true);
+        text.text = sText[0];
+        yield return new WaitForSeconds(time[1]);
+        text.text = sText[1];
+        yield return new WaitForSeconds(time[2]);
+        text.text = sText[2];
+        yield return new WaitForSeconds(time[3]);
+        gText.SetActive(false);
     }
     
     public void YesDoJumo()

@@ -648,7 +648,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2ba378366c3c7f446af29b0e2f83f547, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1.2
   Loop: 0
   Mute: 0
@@ -874,7 +874,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f9efe3b052ae13248a3398b322bde2d0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -984,6 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: 0
+  move: {fileID: 888039505135825244}
   footSteps: {fileID: 888039505271220339}
 --- !u!1 &888039505274681195
 GameObject:
@@ -1276,6 +1277,19 @@ MonoBehaviour:
   meleD: 0
   bulletSpeed: 0
   moveSped: 0
+  sMaxExperience: MaxExperience
+  sBulletD: BD
+  fBulletD: 0
+  sBulletSpeed: BulletSpeed
+  fBulletSpeed: 0
+  sSwordD: SD
+  fSwordD: 0
+  SLaserD: LD
+  fLaserD: 0
+  sLifeEnergy: LE
+  fLifeEnergy: 0
+  sSpeedProta: SpeedProta
+  fSpeedProta: 0
 --- !u!1 &888039505455561432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,6 +1846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6941e7d4cd7384047bfcf028a350b56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveCamera: 0
   playerBody: {fileID: 888039505135825239}
   mouseSensitivity: 80
   positiveX: 60
