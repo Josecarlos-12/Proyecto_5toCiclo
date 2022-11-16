@@ -1238,6 +1238,9 @@ MonoBehaviour:
   move: {fileID: 888039505135825244}
   intan: 0
   over: {fileID: 0}
+  regeneration: 0
+  time: 0
+  maxTime: 2
 --- !u!114 &888039505282705413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,6 +1255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sword: {fileID: 888039505135825219}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
+  laser: {fileID: 0}
   life: {fileID: 888039505282705412}
   energy: {fileID: 888039505135825218}
   move: {fileID: 888039505135825244}
@@ -1288,6 +1292,12 @@ MonoBehaviour:
   fBulletD: 0
   sBulletSpeed: BulletSpeed
   fBulletSpeed: 0
+  sLaserSpeed: LaserSpeed
+  fLaserSpeed: 0
+  sBulletAlcanec: BulletAlcance
+  fBulletAlcance: 0
+  sLaserAlcance: LaserAlcance
+  fLaserAlcance: 0
   sSwordD: SD
   fSwordD: 0
   SLaserD: LD
@@ -2150,6 +2160,7 @@ GameObject:
   - component: {fileID: 888039506415114151}
   - component: {fileID: 888039506415114152}
   - component: {fileID: 888039506415114153}
+  - component: {fileID: 6406297004693117262}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Sword
@@ -2235,6 +2246,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2681176, y: 3.0117283, z: 0.15211819}
   m_Center: {x: 0, y: 0, z: -0.00000023841858}
+--- !u!114 &6406297004693117262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888039506415114155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761ba3c60ed84a64499cf0cbf294c701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: {fileID: 888039505282705412}
+  stealLife: 0
 --- !u!1 &888039506478117537
 GameObject:
   m_ObjectHideFlags: 0

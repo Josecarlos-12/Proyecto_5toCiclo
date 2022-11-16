@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class Experience : MonoBehaviour
 {
+    public SwordPunch sworPunch;
     public Sword sword;
-    public Bullet bullet;
+    public Bullet bullet,laser;
     public Life life;
     public Energy energy;
     public MoveRGB move;
@@ -51,6 +52,15 @@ public class Experience : MonoBehaviour
 
     public string sBulletSpeed = "BulletSpeed";
     public float fBulletSpeed;
+
+    public string sLaserSpeed = "LaserSpeed";
+    public float fLaserSpeed;
+
+    public string sBulletAlcanec = "BulletAlcance";
+    public float fBulletAlcance;
+
+    public string sLaserAlcance = "LaserAlcance";
+    public float fLaserAlcance;
 
     public string sSwordD = "SD";
     public float fSwordD;
@@ -221,6 +231,7 @@ public class Experience : MonoBehaviour
         maxExperience = 550;
         OculMouse();
         fBulletD = bullet.damageB += 10;
+        fLaserD = laser.damageB + 10;
         level1.SetActive(false);
 
         // elegir primera opcion
@@ -231,7 +242,7 @@ public class Experience : MonoBehaviour
     {
         maxExperience = 550;
         OculMouse();
-        fSwordD = sword.damage += 10;
+        fSwordD = sword.damage + 10;
         level1.SetActive(false);
         PlayerPrefs.SetFloat("OPTION1", 2);
     }
@@ -255,6 +266,7 @@ public class Experience : MonoBehaviour
         maxExperience = 850;
         OculMouse();
         fBulletSpeed= bullet.speedBullet + 2000;
+        fLaserSpeed = laser.speedBullet + 2000;
         level2.SetActive(false);
 
         PlayerPrefs.SetFloat("OPTION2", 1);
@@ -282,6 +294,8 @@ public class Experience : MonoBehaviour
     #region Option3
     public void Alcance()
     {
+        bullet.destructtion = fBulletAlcance;
+        laser.destructtion = fLaserAlcance;
         maxExperience = 1100;
         OculMouse();
         level3.SetActive(false);
@@ -290,6 +304,7 @@ public class Experience : MonoBehaviour
 
     public void VelMove()
     {
+        fSwordD = sword.damage + 10;
         maxExperience = 1100;
         OculMouse();
         level3.SetActive(false);
@@ -314,7 +329,7 @@ public class Experience : MonoBehaviour
         PlayerPrefs.SetFloat("OPTION4", 1);
     }
     public void ChoroLife()
-    {
+    {        
         OculMouse();
         level4.SetActive(false);
         PlayerPrefs.SetFloat("OPTION4", 2);
@@ -356,8 +371,17 @@ public class Experience : MonoBehaviour
         //Velocidad Bala
         PlayerPrefs.SetFloat(sBulletSpeed, fBulletSpeed);
 
+        //Velocidad Laser
+        PlayerPrefs.SetFloat(sLaserSpeed, fLaserSpeed);
+
         //Velocidad Personaje
         PlayerPrefs.SetFloat(sSpeedProta, fSpeedProta);
+
+        //Alcance Bala
+        PlayerPrefs.SetFloat(sBulletAlcanec, fBulletAlcance);
+
+        //Alcance Laser
+        PlayerPrefs.SetFloat(sLaserAlcance, fLaserAlcance);
     }
 
     public void LoadData()
@@ -371,6 +395,9 @@ public class Experience : MonoBehaviour
         //Daño Bala
         fBulletD = PlayerPrefs.GetFloat(sBulletD, 0);
 
+        //Daño Laser
+        fLaserD = PlayerPrefs.GetFloat(SLaserD, 0);
+
         //Daño Espada
         fSwordD = PlayerPrefs.GetFloat(sSwordD, 0);
 
@@ -380,8 +407,11 @@ public class Experience : MonoBehaviour
         //Velocidad Bala
         fBulletSpeed=PlayerPrefs.GetFloat(sBulletSpeed,0);
 
+        //Velocidad laser
+        fLaserSpeed = PlayerPrefs.GetFloat(sLaserSpeed, 0);
+
         //Velocidad Prota
-        fSpeedProta=PlayerPrefs.GetFloat(sSpeedProta,0);
+        fSpeedProta =PlayerPrefs.GetFloat(sSpeedProta,0);
     }
 
 
@@ -396,6 +426,7 @@ public class Experience : MonoBehaviour
        if( PlayerPrefs.GetFloat("OPTION1") == 1)
         {
             bullet.damageB = fBulletD;
+            laser.damageB = fLaserD;
         }
         if (PlayerPrefs.GetFloat("OPTION1") == 2)
         {
@@ -411,6 +442,7 @@ public class Experience : MonoBehaviour
         if (PlayerPrefs.GetFloat("OPTION2") == 1)
         {
             bullet.speedBullet = fBulletSpeed;
+            laser.speedBullet = fLaserSpeed;
         }
         if (PlayerPrefs.GetFloat("OPTION2") == 2)
         {
@@ -424,12 +456,16 @@ public class Experience : MonoBehaviour
 
         if (PlayerPrefs.GetFloat("OPTION3") == 1)
         {
+            bullet.destructtion = fBulletAlcance;
+            laser.destructtion = fLaserAlcance;            
         }
         if (PlayerPrefs.GetFloat("OPTION3") == 2)
         {
+            //No le pongo condicion porque el resultado se guarda en Option1=1
         }
         if (PlayerPrefs.GetFloat("OPTION3") == 3)
         {
+            life.regeneration = true;
         }
 
 
@@ -439,6 +475,7 @@ public class Experience : MonoBehaviour
         }
         if (PlayerPrefs.GetFloat("OPTION4") == 2)
         {
+            sworPunch.stealLife = true;
         }
         if (PlayerPrefs.GetFloat("OPTION4") == 3)
         {

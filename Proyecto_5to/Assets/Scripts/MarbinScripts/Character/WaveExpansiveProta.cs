@@ -11,6 +11,8 @@ public class WaveExpansiveProta : MonoBehaviour
     public Rigidbody rb;
     public float jump;
 
+    public bool canExplotion;
+
     private void Update()
     {
         Explotion();
@@ -20,25 +22,34 @@ public class WaveExpansiveProta : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Q))
         {
-
-            rb.AddForce(Vector3.up*jump,ForceMode.Impulse);
-            
-            Collider[] objects = Physics.OverlapSphere(transform.position, radius);
-
-            foreach (Collider obj in objects)
+            if (canExplotion)
             {
-                Rigidbody rb2d = obj.GetComponent<Rigidbody>();
-                if (rb2d != null)
-                {
-                    Vector3 direction = obj.transform.position - transform.position;
-                    float distance = 0.3f + direction.magnitude;
-                    float forceInitial = forceExplotion / distance;
-                    rb2d.AddForce(direction * forceInitial);
-                }
-            }
+                canExplotion = false;
+                StartCoroutine(ExplotioTrue());
+                rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
 
+                Collider[] objects = Physics.OverlapSphere(transform.position, radius);
+
+                foreach (Collider obj in objects)
+                {
+                    Rigidbody rb2d = obj.GetComponent<Rigidbody>();
+                    if (rb2d != null)
+                    {
+                        Vector3 direction = obj.transform.position - transform.position;
+                        float distance = 0.3f + direction.magnitude;
+                        float forceInitial = forceExplotion / distance;
+                        rb2d.AddForce(direction * forceInitial);
+                    }
+                }
+            }           
         }
        
+    }
+
+    public IEnumerator ExplotioTrue()
+    {
+        yield return new WaitForSeconds(3);
+        canExplotion = true;
     }
 
     private void OnDrawGizmos()

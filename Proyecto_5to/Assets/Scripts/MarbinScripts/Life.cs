@@ -33,6 +33,10 @@ public class Life : MonoBehaviour
     [Header("Perdiste")]
     public GameObject over;
 
+    [Header("Regenerar Vida")]
+    public bool regeneration;
+    public float time, maxTime;
+    
  
     private void Start()
     {
@@ -42,9 +46,26 @@ public class Life : MonoBehaviour
 
     public void Update()
     {
-       
+        Regeneration();
             LifeDestroy();
             image.fillAmount = life / maxLife;
+    }
+
+    public void Regeneration()
+    {
+        if (regeneration)
+        {
+            time += Time.deltaTime;
+            if (time > maxTime)
+            {
+                time = 0;
+                if (life < maxLife)
+                {
+                    life += 30;
+                }
+                    
+            }
+        }        
     }
 
     public void LifeDestroy()
