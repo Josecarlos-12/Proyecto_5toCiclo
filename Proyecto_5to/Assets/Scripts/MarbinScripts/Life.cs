@@ -85,6 +85,25 @@ public class Life : MonoBehaviour
             {
                 life -= 50;
             }
+            if (other.gameObject.CompareTag("WaveSword"))
+            {
+                life -= 50;
+            }
+            if (other.gameObject.name == "PunchLarry")
+            {
+                move.move = false;
+                //Este Funciona
+                //rb.AddForce(((Vector2)(transform.position - other.gameObject.transform.position)).normalized * 8, ForceMode.Impulse);
+
+                //rb.AddForce(Vector3.forward * 5, ForceMode.Impulse);
+                //rb.AddForce(Vector3.up, ForceMode.Impulse);               
+                life -= 100;
+                StartCoroutine("LarryFalse");
+            }
+            if (other.gameObject.CompareTag("SwordBoss"))
+            {
+                life -= 100;
+            }
         }
         if (other.gameObject.CompareTag("MaxLife"))
         {
@@ -96,17 +115,7 @@ public class Life : MonoBehaviour
             recover += 1;
             Destroy(other.gameObject);
         }
-        if (other.gameObject.name == "PunchLarry")
-        {
-            move.move = false;
-            //Este Funciona
-            //rb.AddForce(((Vector2)(transform.position - other.gameObject.transform.position)).normalized * 8, ForceMode.Impulse);
-            
-            //rb.AddForce(Vector3.forward * 5, ForceMode.Impulse);
-            //rb.AddForce(Vector3.up, ForceMode.Impulse);               
-            life -= 100;
-            StartCoroutine("LarryFalse");
-        }
+        
     }
 
     public IEnumerator LarryFalse()

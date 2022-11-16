@@ -132,7 +132,15 @@ public class MoveRGB : MonoBehaviour
             StartCoroutine("LarryFalse");
             //rb.MovePosition(Vector3.zero);
         }
-
+        if ( other.gameObject.CompareTag("WaveSword"))
+        {
+            rb.AddForce(new Vector3(transform.position.x-other.gameObject.transform.position.x  , 0, transform.position.z - other.gameObject.transform.position.z  ).normalized * 10, ForceMode.Impulse);
+            Debug.Log("Toco Pena");
+            rb.velocity = Vector3.zero;
+            move = false;
+            StartCoroutine("LarryFalse");
+            //rb.MovePosition(Vector3.zero);
+        }
     }
     public IEnumerator LarryFalse()
     {

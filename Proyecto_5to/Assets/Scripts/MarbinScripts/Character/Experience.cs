@@ -39,6 +39,8 @@ public class Experience : MonoBehaviour
     public float bulletSpeed;
     public float moveSped;
 
+    [Header("Enemigo")]
+    public ExperienceFollow robotin;
 
     [Header("Guardar Datos")]
     public string sMaxExperience = "MaxExperience";
@@ -100,7 +102,7 @@ public class Experience : MonoBehaviour
             {
                 ObjecExperience.SetActive(true);
                 imageExperience.enabled = true;
-                experience += 50;
+                experience += robotin.experience;
                 
                 StartCoroutine(Experi());
             }

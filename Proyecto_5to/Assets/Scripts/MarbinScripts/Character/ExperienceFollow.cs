@@ -7,6 +7,7 @@ public class ExperienceFollow : MonoBehaviour
     public GameObject prota;
     public float size;
     public float speed;
+    public float experience;
 
     // Start is called before the first frame update
     void Start()
