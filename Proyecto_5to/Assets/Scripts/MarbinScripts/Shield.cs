@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
+using UnityEngine.UI;
 
 public class Shield : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class Shield : MonoBehaviour
     [Header("Shield SFX")]
     public AudioSource shieldAudio;
 
+
+    [Header("Imagen Escudo")]
+    public Color shieldInitial;
+    public Image shieldImage;
+
     void Update()
     {
         AddLife();
@@ -30,12 +36,14 @@ public class Shield : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.C) && !shieldLife.duration)
             {
+                shieldImage.color = Color.white;
                 shieldAudio.Play();
                 shield.SetActive(true);
                 useShield = true;
             }
             else if (Input.GetKeyUp(KeyCode.C) || shieldLife.duration)
             {
+                shieldImage.color = shieldInitial;
                 anim.SetBool("On", true);
                 useShield = false;
             }

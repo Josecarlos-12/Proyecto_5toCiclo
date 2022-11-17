@@ -50,7 +50,7 @@ public class Energy : MonoBehaviour
 
     public void ReductionEnergyJump()
     {
-        energy -= 150;
+        energy -= lessDash;
     }
 
     public void ReductionEnergyShoot()

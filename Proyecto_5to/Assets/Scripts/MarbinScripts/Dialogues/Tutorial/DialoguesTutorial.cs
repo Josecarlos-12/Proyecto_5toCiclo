@@ -23,6 +23,8 @@ public class DialoguesTutorial : MonoBehaviour
     [TextArea(8,8)]
     public string[] dialogues;
     public float[] fTimeDialogues;
+    public AudioSource r, l;
+    public AudioClip pit;
 
     private void Start()
     {
@@ -42,6 +44,9 @@ public class DialoguesTutorial : MonoBehaviour
         text.text = dialogues[3];
         yield return new WaitForSeconds(fTimeDialogues[4]);
         gText.SetActive(false);
+        l.clip = pit;
+        l.Play();
+        l.loop = true;
         text.text = dialogues[4];
     }
 
@@ -59,6 +64,7 @@ public class DialoguesTutorial : MonoBehaviour
                 audioclip[1].SetActive(true);
                 StartCoroutine(NextColl());
                 StartCoroutine(NextRight());
+                l.Stop();
             }
             else
             {
@@ -70,6 +76,7 @@ public class DialoguesTutorial : MonoBehaviour
         {
             if (hit.transform.name == "Right")
             {
+                r.Stop();
                 gText.SetActive(true);
                 text.text = dialogues[5];
                 audi.clip = acPro;
@@ -104,6 +111,9 @@ public class DialoguesTutorial : MonoBehaviour
         text.text = dialogues[4];
         yield return new WaitForSeconds(fTimeDialogues[6]);
         gText.SetActive(false);
+        r.clip = pit;
+        r.Play();
+        r.loop = true;
     }
 
     public IEnumerator NextColl()

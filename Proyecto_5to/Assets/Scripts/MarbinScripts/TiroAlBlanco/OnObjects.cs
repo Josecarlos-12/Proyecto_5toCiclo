@@ -49,6 +49,7 @@ public class OnObjects : MonoBehaviour
             laders.SetActive(true);
             for(int i = 0; i < robots.Length; i++)
             {
+                if(robots[i] != null)
                 robots[i].SetActive(true);
             }
         }
@@ -61,7 +62,10 @@ public class OnObjects : MonoBehaviour
             laders.SetActive(true);
                 for (int i = 0; i < robots.Length; i++)
                 {
+                if( robots[i] != null)
+                {
                     robots[i].SetActive(true);
+                }                    
                 }
 
 
