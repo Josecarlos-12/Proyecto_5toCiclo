@@ -4,7 +4,7 @@ using System.Drawing;
 using UnityEngine;
 
 public class ShootRobotin : MonoBehaviour
-{
+{    
     bool Alert;
     public float AlertRange;
     public LayerMask playerMask;
@@ -17,6 +17,8 @@ public class ShootRobotin : MonoBehaviour
     public float bulletVelocity;
 
     public bool canShoot;
+    
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -59,4 +61,5 @@ public class ShootRobotin : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, AlertRange);
     }
+
 }

@@ -11,6 +11,7 @@ public class PenaV2 : MonoBehaviour
     public NavMeshAgent agent;
     public int destPoint = 0;
     public float speedMin, speedMax;
+    public Rigidbody rbEnemy;
 
     [Header("Seguimiento")]
     public GameObject player;
@@ -24,7 +25,7 @@ public class PenaV2 : MonoBehaviour
     public MoveRGB move;
     public Life lifeProta;
     public GameObject col, col2;
-    public bool bColl;
+    public bool bColl, funtionAll;
 
     [Header("Life")]
     public float life;
@@ -42,16 +43,21 @@ public class PenaV2 : MonoBehaviour
 
     void Update()
     {
-        if (agent.remainingDistance < distancePoint && !view && !stop)
+        if (funtionAll)
         {
-            GotoNextPoint();
+            if (agent.remainingDistance < distancePoint && !view && !stop)
+            {
+                GotoNextPoint();
+            }
+            if (!stop)
+            {
+                Detectec();
+            }
+
+            DetectecStop();
+
         }
-        if (!stop)
-        {
-            Detectec();
-        }
-        
-        DetectecStop();
+       
         Life();
     }
 
@@ -133,5 +139,54 @@ public class PenaV2 : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detecteStop);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {        
+        if (other.gameObject.name == "WaveProta")
+        {
+            if (count < 3)
+            {
+                count++;
+            }
+            if (count == 1)
+            {
+                Debug.Log("Toco Wave");
+                funtionAll = false;
+                StartCoroutine(ChangeColor());
+                StartCoroutine(Empuje());
+                life -= 60;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "WaveProta")
+        {
+            
+        }
+    }
+
+    public IEnumerator Empuje()
+    {
+        yield return new WaitForSeconds(1);
+        rbEnemy.constraints = ~RigidbodyConstraints.FreezeAll;
+        StartCoroutine(TrueRotation());
+    }
+
+    public IEnumerator TrueRotation()
+    {
+        yield return new WaitForSeconds(1);
+        funtionAll = true;
+        count = 0;
+        rbEnemy.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+
+    public IEnumerator ChangeColor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        render.material.color = Color.white;
     }
 }

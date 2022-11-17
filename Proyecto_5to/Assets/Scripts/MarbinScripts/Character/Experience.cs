@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Experience : MonoBehaviour
 {
+    public WaveExpansiveProta waveProta;
     public SwordPunch sworPunch;
     public Sword sword;
     public Bullet bullet,laser;
@@ -479,7 +480,7 @@ public class Experience : MonoBehaviour
         }
         if (PlayerPrefs.GetFloat("OPTION4") == 3)
         {
-
+            waveProta.canExplotion = true;
         }
     }
 
