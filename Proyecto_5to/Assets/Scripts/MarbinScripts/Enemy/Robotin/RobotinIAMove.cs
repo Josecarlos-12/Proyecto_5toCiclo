@@ -1,6 +1,7 @@
 using MarwanZaky.MathfX;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,6 +29,8 @@ public class RobotinIAMove : MonoBehaviour
 
     public GameObject experience;
 
+    public int count;
+    public Rigidbody rb;
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player"); 
@@ -94,8 +97,42 @@ public class RobotinIAMove : MonoBehaviour
             Debug.Log("Macheteo");
             StartCoroutine(ChangeColor());
         }
+
+        if (other.gameObject.name == "WaveProta")
+        {         
+            if (count < 3)
+            {
+                count++;
+            }
+            if (count == 1)
+            {
+                StartCoroutine(ChangeColor());
+                StartCoroutine(Empuje());
+                life -= 60;
+            }
+        }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "WaveProta")
+        {
+            count = 0;
+        }
+    }
+
+    public IEnumerator Empuje()
+    {
+        yield return new WaitForSeconds(1);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        StartCoroutine(TrueRotation());
+    }
+
+    public IEnumerator TrueRotation()
+    {
+        yield return new WaitForSeconds(1);
+        rb.constraints = ~RigidbodyConstraints.FreezeAll;
+    }
 
     public IEnumerator ChangeColor()
     {

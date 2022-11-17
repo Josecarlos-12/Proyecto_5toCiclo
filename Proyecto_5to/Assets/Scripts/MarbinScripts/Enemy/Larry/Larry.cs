@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,6 +29,9 @@ public class Larry : MonoBehaviour
     public Bullet bullet, laser; 
     public Renderer render;
     public GameObject larryContainer;
+
+    [Header("Empuje")]
+    public int count;
 
     private void Start()
     {
@@ -103,26 +107,41 @@ public class Larry : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider other)
+    {        
+        if (other.gameObject.name == "WaveProta")
+        {
+            if (count < 3)
+            {
+                count++;
+            }
+            if (count == 1)
+            {
+                StartCoroutine(Empuje());
+                StartCoroutine(ChangeColor());
+                life -= 60;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.name == "WaveProta")
         {
-            render.material.color = Color.red;
-            life -= bullet.damageB;
-            StartCoroutine(ChangeColor());
+            count = 0;
         }
-        if (other.gameObject.CompareTag("LaserProta"))
-        {
-            render.material.color = Color.red;
-            life -= laser.damageB;
-            StartCoroutine(ChangeColor());
-        }
-        if (other.gameObject.CompareTag("Sword"))
-        {
-            render.material.color = Color.red;
-            life -= sword.damage;
-            Debug.Log("Macheteo");
-            StartCoroutine(ChangeColor());
-        }
+    }
+
+    public IEnumerator Empuje()
+    {
+        yield return new WaitForSeconds(1);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        StartCoroutine(TrueRotation());
+    }
+
+    public IEnumerator TrueRotation()
+    {
+        yield return new WaitForSeconds(1);
+        rb.constraints = ~RigidbodyConstraints.FreezeAll;
     }
 
     public IEnumerator ChangeColor()

@@ -13,6 +13,8 @@ public class WaveExpansiveProta : MonoBehaviour
 
     public bool canExplotion;
 
+    public GameObject waveExpansive;
+
     private void Update()
     {
         Explotion();
@@ -24,10 +26,10 @@ public class WaveExpansiveProta : MonoBehaviour
         {
             if (canExplotion)
             {
+                waveExpansive.SetActive(true);
                 canExplotion = false;
                 StartCoroutine(ExplotioTrue());
                 rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
-
                 Collider[] objects = Physics.OverlapSphere(transform.position, radius);
 
                 foreach (Collider obj in objects)
@@ -38,18 +40,18 @@ public class WaveExpansiveProta : MonoBehaviour
                         Vector3 direction = obj.transform.position - transform.position;
                         float distance = 0.3f + direction.magnitude;
                         float forceInitial = forceExplotion / distance;
-                        rb2d.AddForce(direction * forceInitial);
+                        rb2d.AddForce(direction * forceInitial);                        
                     }
                 }
             }           
-        }
-       
+        }       
     }
 
     public IEnumerator ExplotioTrue()
     {
         yield return new WaitForSeconds(3);
         canExplotion = true;
+        waveExpansive.SetActive(false);
     }
 
     private void OnDrawGizmos()
