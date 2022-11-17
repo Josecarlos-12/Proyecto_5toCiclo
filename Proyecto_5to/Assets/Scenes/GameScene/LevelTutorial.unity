@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1353.2864, g: 1009.2669, b: 791.313, a: 1}
+  m_IndirectSpecularColor: {r: 1353.3552, g: 1009.3145, b: 791.39404, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2063,6 +2063,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5519313167591551144, guid: 1089938ecf732a74789ddae747e2364c,
+        type: 3}
+      propertyPath: PanelBrillo
+      value: 
+      objectReference: {fileID: 315470116}
     - target: {fileID: 5519313167682937453, guid: 1089938ecf732a74789ddae747e2364c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2087,6 +2092,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 128.42993
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519313167955679724, guid: 1089938ecf732a74789ddae747e2364c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1025677910}
+    - target: {fileID: 5519313167955679724, guid: 1089938ecf732a74789ddae747e2364c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519313167955679727, guid: 1089938ecf732a74789ddae747e2364c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1831.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519313167955679727, guid: 1089938ecf732a74789ddae747e2364c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1028.637
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519313167955679727, guid: 1089938ecf732a74789ddae747e2364c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -915.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519313167955679727, guid: 1089938ecf732a74789ddae747e2364c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -119
       objectReference: {fileID: 0}
     - target: {fileID: 5519313167970516211, guid: 1089938ecf732a74789ddae747e2364c,
         type: 3}
@@ -4269,6 +4304,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 247895184}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &315470116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1622921953558607165, guid: 84e0f2c428d6f0442bd66ef2f7a3565a,
+    type: 3}
+  m_PrefabInstance: {fileID: 247895184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &327658823
 PrefabInstance:
   m_ObjectHideFlags: 0
