@@ -9,6 +9,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class Life : MonoBehaviour
 {
     [Header("Amount life")]
+    public float fReLife=30;
     public float life = 3;
     public float maxLife = 3;
     public Color color;
@@ -61,7 +62,7 @@ public class Life : MonoBehaviour
                 time = 0;
                 if (life < maxLife)
                 {
-                    life += 30;
+                    life += fReLife;
                 }
                     
             }

@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 888039505001173634}
+  initialBullet2: {fileID: 7504091834551908748}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 4355183378793333456, guid: dac547ee6697acd4ba756e28455b1f11,
@@ -139,6 +140,9 @@ MonoBehaviour:
   energy: {fileID: 888039505135825218}
   shield: {fileID: 888039505135825246}
   exp: {fileID: 888039505282705413}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
   shootAudio: {fileID: 888039505001173632}
@@ -524,6 +528,7 @@ MonoBehaviour:
   timer: 0
   maxTimer: 1
   image: {fileID: 0}
+  lessDash: 150
 --- !u!114 &888039505135825219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1244,6 +1249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c490d01e5b6f6a640a82d52774ee29b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fReLife: 30
   life: 1000
   maxLife: 1000
   color: {r: 0, g: 0, b: 0, a: 0}
@@ -1273,10 +1279,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0182255267f6263489e7c32ff9d3b92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sworPunch: {fileID: 0}
+  waveProta: {fileID: 8828230924321630275}
+  sworPunch: {fileID: 6406297004693117262}
   sword: {fileID: 888039505135825219}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
-  laser: {fileID: 0}
+  laser: {fileID: 691430955296938421, guid: dac547ee6697acd4ba756e28455b1f11, type: 3}
   life: {fileID: 888039505282705412}
   energy: {fileID: 888039505135825218}
   move: {fileID: 888039505135825244}
@@ -1292,15 +1299,22 @@ MonoBehaviour:
   count2: 0
   count3: 0
   count4: 0
+  count5: 0
+  count6: 0
+  count7: 0
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
   level4: {fileID: 0}
+  level5: {fileID: 0}
+  level6: {fileID: 0}
+  level7: {fileID: 0}
   one: 0
   two: 0
   three: 0
   four: 0
   five: 0
+  choroLife: 0
   expePref: EXP
   options: 0
   bulletD: 0
@@ -1327,6 +1341,12 @@ MonoBehaviour:
   fLifeEnergy: 0
   sSpeedProta: SpeedProta
   fSpeedProta: 0
+  sRegenerationLife: ReLife
+  fReLife: 0
+  roboLife: RoboLife
+  fRoboLi: 0
+  sLessDash: LessDash
+  fLessDa: 0
 --- !u!1 &888039505455561432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,6 +1711,7 @@ Transform:
   m_Children:
   - {fileID: 888039506478117536}
   - {fileID: 888039505001173633}
+  - {fileID: 1149737273390506747}
   - {fileID: 888039505455561431}
   m_Father: {fileID: 888039505135825239}
   m_RootOrder: -1
@@ -2280,6 +2301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 888039505282705412}
+  choro: 25
   stealLife: 0
 --- !u!1 &888039506478117537
 GameObject:
@@ -2523,3 +2545,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7504091834551908748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149737273390506747}
+  m_Layer: 3
+  m_Name: Gun (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1149737273390506747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7504091834551908748}
+  m_LocalRotation: {x: -0.0036559883, y: 0.013980589, z: 0.0050606085, w: 0.9998828}
+  m_LocalPosition: {x: -1.321, y: -0.218, z: 0.603}
+  m_LocalScale: {x: 0.12496, y: 0.124960005, z: 0.124960005}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 888039505762802481}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -0.427, y: 1.6, z: 0.574}

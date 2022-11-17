@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2161.1768, g: 2267.7832, b: 3299.246, a: 1}
+  m_IndirectSpecularColor: {r: 2163.2256, g: 2270.5312, b: 3304.4883, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3719,6 +3719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c490d01e5b6f6a640a82d52774ee29b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fReLife: 30
   life: 3
   maxLife: 3
   color: {r: 0.6415094, g: 0.20980178, b: 0.20980178, a: 1}
@@ -3756,6 +3757,7 @@ MonoBehaviour:
   timer: 0
   maxTimer: 1
   image: {fileID: 0}
+  lessDash: 150
 --- !u!136 &297310199
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4614,6 +4616,12 @@ Transform:
   m_Father: {fileID: 134064303}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &325166277 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1567489429157235120, guid: f47be62ebdf0aff4c87a97b94587a25d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2061141519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &326676027
 GameObject:
   m_ObjectHideFlags: 0
@@ -7840,6 +7848,7 @@ MonoBehaviour:
   timer: 0
   maxTimer: 1
   image: {fileID: 2113810076}
+  lessDash: 150
 --- !u!114 &514351747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7854,6 +7863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 1
   initialBullet: {fileID: 1320911930}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 0}
@@ -7862,6 +7872,9 @@ MonoBehaviour:
   energy: {fileID: 514351746}
   shield: {fileID: 514351748}
   exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
   shootAudio: {fileID: 0}
@@ -9937,6 +9950,7 @@ MonoBehaviour:
   timer: 0
   maxTimer: 1
   image: {fileID: 2113810076}
+  lessDash: 150
 --- !u!4 &638376116
 Transform:
   m_ObjectHideFlags: 0
@@ -9978,6 +9992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c490d01e5b6f6a640a82d52774ee29b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fReLife: 30
   life: 3
   maxLife: 3
   color: {r: 0.6415094, g: 0.20980178, b: 0.20980178, a: 1}
@@ -11404,6 +11419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c490d01e5b6f6a640a82d52774ee29b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fReLife: 30
   life: 3
   maxLife: 3
   color: {r: 1, g: 1, b: 1, a: 1}
@@ -11455,6 +11471,7 @@ MonoBehaviour:
   timer: 0
   maxTimer: 1
   image: {fileID: 0}
+  lessDash: 150
 --- !u!1 &808620268
 GameObject:
   m_ObjectHideFlags: 0
@@ -17830,6 +17847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 1302944955}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 0}
@@ -17838,6 +17856,9 @@ MonoBehaviour:
   energy: {fileID: 297310198}
   shield: {fileID: 609473867}
   exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
   shootAudio: {fileID: 0}
@@ -22167,7 +22188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 1784827988}
-  stealLife: 1
+  choro: 25
+  stealLife: 0
 --- !u!1 &1705817570
 GameObject:
   m_ObjectHideFlags: 0
@@ -23258,6 +23280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 1793469763}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 0}
   laserBullet: {fileID: 0}
   timeShoot: 0.2
@@ -23265,6 +23288,9 @@ MonoBehaviour:
   energy: {fileID: 794107945}
   shield: {fileID: 0}
   exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
   shootAudio: {fileID: 0}
@@ -24143,6 +24169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 1846566123}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 0}
@@ -24151,6 +24178,9 @@ MonoBehaviour:
   energy: {fileID: 638376115}
   shield: {fileID: 2004489794}
   exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
   shootAudio: {fileID: 0}
@@ -25696,6 +25726,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939577003}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1941776191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1941776192}
+  m_Layer: 3
+  m_Name: Gun (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1941776192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941776191}
+  m_LocalRotation: {x: -0.0036559883, y: 0.013980589, z: 0.0050606085, w: 0.9998828}
+  m_LocalPosition: {x: -1.321, y: -0.218, z: 0.603}
+  m_LocalScale: {x: 0.12496, y: 0.124960005, z: 0.124960005}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 325166277}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -0.427, y: 1.6, z: 0.574}
 --- !u!1 &1954446861
 GameObject:
   m_ObjectHideFlags: 0
@@ -27374,6 +27435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 2028752225}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 0}
@@ -27382,6 +27444,9 @@ MonoBehaviour:
   energy: {fileID: 297310198}
   shield: {fileID: 609473867}
   exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
   shootAudio: {fileID: 0}
@@ -27882,9 +27947,24 @@ PrefabInstance:
       objectReference: {fileID: 2113810076}
     - target: {fileID: 1567489428994823442, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
+      propertyPath: maxTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567489428994823442, guid: f47be62ebdf0aff4c87a97b94587a25d,
+        type: 3}
       propertyPath: canShoot
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1567489428994823442, guid: f47be62ebdf0aff4c87a97b94587a25d,
+        type: 3}
+      propertyPath: bDoubleBullet2
+      value: 
+      objectReference: {fileID: 1941776191}
+    - target: {fileID: 1567489428994823442, guid: f47be62ebdf0aff4c87a97b94587a25d,
+        type: 3}
+      propertyPath: initialBullet2
+      value: 
+      objectReference: {fileID: 1941776191}
     - target: {fileID: 1567489429157235127, guid: f47be62ebdf0aff4c87a97b94587a25d,
         type: 3}
       propertyPath: moveCamera
@@ -27986,6 +28066,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1854770132}
+    - targetCorrespondingSourceObject: {fileID: 1567489429157235120, guid: f47be62ebdf0aff4c87a97b94587a25d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1941776192}
   m_SourcePrefab: {fileID: 100100000, guid: f47be62ebdf0aff4c87a97b94587a25d, type: 3}
 --- !u!4 &2061141520 stripped
 Transform:
@@ -28546,6 +28630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 2127346632}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 0}
@@ -28554,6 +28639,9 @@ MonoBehaviour:
   energy: {fileID: 638376115}
   shield: {fileID: 2004489794}
   exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
   shootAudio: {fileID: 0}

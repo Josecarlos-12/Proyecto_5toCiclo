@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public bool canShoot;
-    public GameObject initialBullet;
+    public GameObject initialBullet, initialBullet2;
     public GameObject bulletFast, laserBullet;
 
     public float timeShoot = 0.2f;
@@ -14,6 +14,11 @@ public class Weapon : MonoBehaviour
     public Shield shield;
 
     public Experience exp;
+
+    [Header("Dos Balas")]
+    public bool bDoubleBullet;
+    public float time, maxTime;
+
 
     [Header("Chambiar Bala")]
     public bool chageBullet;
@@ -42,11 +47,20 @@ public class Weapon : MonoBehaviour
                     energy.ReductionEnergyShoot();
                     energy.recoverEnergy = true;
                     //energy.ReductionEnergy();
-                    initialShoot = Time.time + timeShoot;
+                    if (!bDoubleBullet)
+                    {
+                        Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
+                    }
+                    else if (bDoubleBullet)
+                    {
+                        Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
+                        Instantiate(bulletFast, initialBullet2.transform.position, initialBullet2.transform.rotation);
+                    }
 
+                   
+                    
                     //Instacie bulletPrefab en la posicion de initialBullet
 
-                    Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
                     
                     //Obtuve el rigibody para agragar fuerza
                     //Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
@@ -59,7 +73,7 @@ public class Weapon : MonoBehaviour
 
                 }
 
-            }            
+            }
         }
         
     }
@@ -77,7 +91,15 @@ public class Weapon : MonoBehaviour
                 if (!chageBullet)
                 {
                     shootAudio.Play();
-                    Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
+                    if (!bDoubleBullet)
+                    {
+                        Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
+                    }
+                    else if (bDoubleBullet)
+                    {
+                        Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
+                        Instantiate(bulletFast, initialBullet2.transform.position, initialBullet2.transform.rotation);
+                    }
                     energy.recoverEnergy = true;
                     initialShoot = Time.time + timeShoot;                    
                 }

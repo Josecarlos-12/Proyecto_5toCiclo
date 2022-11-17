@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwordPunch : MonoBehaviour
 {
     public Life life;
+    public float choro=25;
     public bool stealLife;
 
     private void OnTriggerEnter(Collider other)
@@ -13,7 +14,7 @@ public class SwordPunch : MonoBehaviour
         {
             if (stealLife)
             {
-                life.life += 25;
+                life.life += choro;
             }
         }
     }

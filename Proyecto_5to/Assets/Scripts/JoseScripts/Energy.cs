@@ -16,7 +16,7 @@ public class Energy : MonoBehaviour
     public float maxTimer=1;
 
     public Image image;
-
+    public float lessDash = 150;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +63,7 @@ public class Energy : MonoBehaviour
     }
     public void ReductionEnergyDash()
     {
-        energy -= 150;
+        energy -= lessDash;
     }
 
     public void LessEnergy()

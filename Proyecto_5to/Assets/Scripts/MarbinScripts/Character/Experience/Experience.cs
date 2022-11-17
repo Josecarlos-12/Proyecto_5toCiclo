@@ -25,12 +25,12 @@ public class Experience : MonoBehaviour
 
 
     public TextMeshProUGUI text;
-    public int count, count2, count3, count4;
+    public int count, count2, count3, count4, count5, count6, count7;
 
 
-    public GameObject level1, level2, level3, level4;
+    public GameObject level1, level2, level3, level4, level5, level6, level7;
 
-    public bool one, two, three, four, five;
+    public bool one, two, three, four, five, choroLife;
 
     public string expePref = "EXP";
 
@@ -74,6 +74,15 @@ public class Experience : MonoBehaviour
 
     public string sSpeedProta = "SpeedProta";
     public float fSpeedProta;
+
+    public string sRegenerationLife = "ReLife";
+    public float fReLife;
+
+    public string roboLife = "RoboLife";
+    public float fRoboLi;
+
+    public string sLessDash = "LessDash";
+    public float fLessDa;
 
     private void Awake()
     {
@@ -176,7 +185,7 @@ public class Experience : MonoBehaviour
             }
         }
 
-        if (experience >= 550 && PlayerPrefs.GetFloat("OP1") == 1)
+        if (experience >= 650 && PlayerPrefs.GetFloat("OP1") == 1)
         {                        
             if (count2 < 3)
                 count2++;
@@ -190,7 +199,7 @@ public class Experience : MonoBehaviour
             }
         }
 
-        if (experience >= 850 && PlayerPrefs.GetFloat("OP1") == 2)
+        if (experience >= 1200 && PlayerPrefs.GetFloat("OP1") == 2)
         {
             if (count3 < 3)
                 count3++;
@@ -204,7 +213,7 @@ public class Experience : MonoBehaviour
             }
         }
 
-        if (experience >= 1100 && PlayerPrefs.GetFloat("OP1") == 3)
+        if (experience >= 1850 && PlayerPrefs.GetFloat("OP1") == 3)
         {
             if (count4 < 3)
                 count4++;
@@ -229,7 +238,7 @@ public class Experience : MonoBehaviour
     #region Option1
     public void DamageShoot()
     {
-        maxExperience = 550;
+        maxExperience = 650;
         OculMouse();
         fBulletD = bullet.damageB += 10;
         fLaserD = laser.damageB + 10;
@@ -241,7 +250,7 @@ public class Experience : MonoBehaviour
 
     public void MeleSword()
     {
-        maxExperience = 550;
+        maxExperience = 650;
         OculMouse();
         fSwordD = sword.damage + 10;
         level1.SetActive(false);
@@ -250,12 +259,12 @@ public class Experience : MonoBehaviour
 
     public void Resistence()
     {
-        maxExperience = 550;
+        maxExperience = 650;
         OculMouse();
         level1.SetActive(false);
         fLifeEnergy= life.maxLife += 100;
         life.life = life.maxLife;
-        //fLifeEnergy = energy.energyMax += 100;
+        fLifeEnergy = energy.energyMax + 100;
         energy.energy=energy.energyMax;
         PlayerPrefs.SetFloat("OPTION1", 3);
     }
@@ -264,7 +273,7 @@ public class Experience : MonoBehaviour
     #region Option2
     public void SpeedShoot()
     {
-        maxExperience = 850;
+        maxExperience = 1200;
         OculMouse();
         fBulletSpeed= bullet.speedBullet + 2000;
         fLaserSpeed = laser.speedBullet + 2000;
@@ -275,7 +284,7 @@ public class Experience : MonoBehaviour
 
     public void speedMove()
     {
-        maxExperience = 850;
+        maxExperience = 1200;
         OculMouse();
         fSpeedProta = move.speed + 7;
         level2.SetActive(false);
@@ -284,7 +293,7 @@ public class Experience : MonoBehaviour
 
     public void Shield()
     {
-        maxExperience = 850;
+        maxExperience = 1200;
         OculMouse();
         level2.SetActive(false);
         shield.canShild = true;
@@ -297,16 +306,16 @@ public class Experience : MonoBehaviour
     {
         bullet.destructtion = fBulletAlcance;
         laser.destructtion = fLaserAlcance;
-        maxExperience = 1100;
+        maxExperience = 1850;
         OculMouse();
         level3.SetActive(false);
         PlayerPrefs.SetFloat("OPTION3", 1);
     }
 
-    public void VelMove()
+    public void MeleSwordV2()
     {
         fSwordD = sword.damage + 10;
-        maxExperience = 1100;
+        maxExperience = 1850;
         OculMouse();
         level3.SetActive(false);
         PlayerPrefs.SetFloat("OPTION3", 2);
@@ -315,7 +324,7 @@ public class Experience : MonoBehaviour
 
     public void RegenerationLife()
     {
-        maxExperience = 1100;
+        maxExperience = 1850;
         OculMouse();
         level3.SetActive(false);
         PlayerPrefs.SetFloat("OPTION3", 3);
@@ -325,21 +334,120 @@ public class Experience : MonoBehaviour
     #region Option4
     public void BulletThunder()
     {
+        maxExperience = 2200;
         OculMouse();
         level4.SetActive(false);
         PlayerPrefs.SetFloat("OPTION4", 1);
     }
     public void ChoroLife()
-    {        
+    {
+        choroLife = true;
+        maxExperience = 2200;
         OculMouse();
         level4.SetActive(false);
         PlayerPrefs.SetFloat("OPTION4", 2);
     }
     public void RegenerationEXP()
     {
+        maxExperience = 2200;
         OculMouse();
         level4.SetActive(false);
         PlayerPrefs.SetFloat("OPTION4", 3);
+    }
+
+    #endregion
+
+
+    #region Option5
+    public void SpeedShootV2()
+    {
+        maxExperience = 2650;
+        OculMouse();
+        fBulletSpeed = bullet.speedBullet + 2000;
+        fLaserSpeed = laser.speedBullet + 2000;
+        level5.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION5", 1);
+    }
+    public void speedMoveV2()
+    {
+        maxExperience = 2650;
+        fSpeedProta = move.speed + 7;
+        OculMouse();
+        level5.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION5", 2);
+    }
+    public void RegenerationLifeV2()
+    {
+        fReLife = life.fReLife + 30;
+        maxExperience = 2650;
+        OculMouse();
+        level5.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION5", 3);
+    }
+
+    #endregion
+
+
+    #region Option6
+    public void DamageShootV2()
+    {
+        maxExperience = 3100;
+        OculMouse();
+        fBulletD = bullet.damageB += 10;
+        fLaserD = laser.damageB + 10;
+        level6.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION6", 1);
+    }
+    public void MeleSwordV3()
+    {
+        maxExperience = 3100;
+        fSwordD = sword.damage + 10;
+        OculMouse();
+        level6.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION6", 2);
+    }
+    public void ResistenceV2()
+    {
+        fLifeEnergy = life.maxLife += 100;
+        life.life = life.maxLife;
+        fLifeEnergy = energy.energyMax += 100;
+        energy.energy = energy.energyMax;
+        maxExperience = 3100;
+        OculMouse();
+        level6.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION6", 3);
+    }
+
+    #endregion
+
+    #region Option7
+    public void DoubleBullet()
+    {
+        OculMouse();
+        level7.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION7", 1);
+    }
+    public void ChoroLifeMore()
+    {
+        if (!choroLife)
+        {
+           fRoboLi = 25;
+        }
+        else if (choroLife)
+        {
+            fRoboLi = sworPunch.choro += 25;
+        }
+
+        OculMouse();
+        level7.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION7", 2);
+    }
+    public void LessDash()
+    {
+        fLessDa= energy.lessDash - 50;
+        OculMouse();
+        level7.SetActive(false);
+        PlayerPrefs.SetFloat("OPTION7", 3);
     }
 
     #endregion
@@ -363,6 +471,9 @@ public class Experience : MonoBehaviour
         //Daño Bala
         PlayerPrefs.SetFloat(sBulletD, fBulletD);
 
+        //Daño Laser
+        PlayerPrefs.SetFloat(SLaserD, fLaserD);
+
         //Daño Espada
         PlayerPrefs.SetFloat(sSwordD, fSwordD);
 
@@ -383,6 +494,15 @@ public class Experience : MonoBehaviour
 
         //Alcance Laser
         PlayerPrefs.SetFloat(sLaserAlcance, fLaserAlcance);
+
+        //Regenerar vida
+        PlayerPrefs.SetFloat(sLaserAlcance, fLaserAlcance);
+
+        //Robo Vida - Espada
+        PlayerPrefs.SetFloat(roboLife, fRoboLi);
+
+        //menos cantidad para el dash
+        PlayerPrefs.SetFloat(sLessDash, fLessDa);
     }
 
     public void LoadData()
@@ -413,6 +533,15 @@ public class Experience : MonoBehaviour
 
         //Velocidad Prota
         fSpeedProta =PlayerPrefs.GetFloat(sSpeedProta,0);
+
+        //Regenerar Vida
+        fReLife = PlayerPrefs.GetFloat(sRegenerationLife, 0);
+
+        //Robar vida - Espada
+        fRoboLi = PlayerPrefs.GetFloat(roboLife, 0);
+
+        //menos cantidad para el dash
+        fLessDa = PlayerPrefs.GetFloat(sLessDash, 0);
     }
 
 
@@ -462,6 +591,7 @@ public class Experience : MonoBehaviour
         }
         if (PlayerPrefs.GetFloat("OPTION3") == 2)
         {
+            sword.damage = fSwordD;
             //No le pongo condicion porque el resultado se guarda en Option1=1
         }
         if (PlayerPrefs.GetFloat("OPTION3") == 3)
@@ -481,6 +611,53 @@ public class Experience : MonoBehaviour
         if (PlayerPrefs.GetFloat("OPTION4") == 3)
         {
             waveProta.canExplotion = true;
+        }
+
+
+        if(PlayerPrefs.GetFloat("OPTION5") == 1)
+        {
+            bullet.speedBullet = fBulletSpeed;
+            laser.speedBullet = fLaserSpeed;
+        }
+        if (PlayerPrefs.GetFloat("OPTION5") == 2)
+        {
+            move.speed = fSpeedProta;
+        }
+        if (PlayerPrefs.GetFloat("OPTION5") == 3)
+        {
+            life.regeneration = true;
+            life.fReLife = fReLife;
+        }
+
+
+        if (PlayerPrefs.GetFloat("OPTION6") == 1)
+        {
+            bullet.damageB = fBulletD;
+            laser.damageB = fLaserD;
+        }
+        if (PlayerPrefs.GetFloat("OPTION6") == 2)
+        {
+            sword.damage = fSwordD;
+        }
+        if (PlayerPrefs.GetFloat("OPTION6") == 3)
+        {
+            life.maxLife = fLifeEnergy;
+            energy.energyMax = fLifeEnergy;
+        }
+
+
+        if (PlayerPrefs.GetFloat("OPTION7") == 1)
+        {
+            weapon.bDoubleBullet = true;
+        }
+        if (PlayerPrefs.GetFloat("OPTION7") == 2)
+        {
+            sworPunch.stealLife = true;
+            sworPunch.choro = fRoboLi;
+        }
+        if (PlayerPrefs.GetFloat("OPTION7") == 3)
+        {
+            energy.lessDash = fLessDa;
         }
     }
 
