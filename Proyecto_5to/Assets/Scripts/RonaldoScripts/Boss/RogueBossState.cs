@@ -9,17 +9,26 @@ public class RogueBossState : MonoBehaviour
     float HP = 100;
     public float TimerRecharge = 15;
     public float MoveRango;
+    public float MeleeRango;
     public float FireRango;
+
     public Image HPbar;
     public LayerMask LayerPlayer;
     public Transform PlayerPosition;
+    public GameObject ShieldPrefab;
+
     RogueBossFire Fire;
     RogueBossMove Move;
     RogueBossInvoke Invoker;
+    RogueBossMelee Melee;
+    RogueBossShield Shield;
+
     public State state;
 
     bool Detect;
     bool FireDetect;
+    bool MeleeDetect;
+    bool ShieldActives;
 
     float Timer;
 
@@ -34,6 +43,7 @@ public class RogueBossState : MonoBehaviour
         Fire = GetComponent<RogueBossFire>();
         Move = GetComponent<RogueBossMove>();
         Invoker = GetComponent<RogueBossInvoke>();
+        Melee = GetComponent<RogueBossMelee>();
     }
     void Update()
     {
@@ -60,12 +70,19 @@ public class RogueBossState : MonoBehaviour
                 break;
         }
         HPbar.fillAmount = HP / MaxHP;
+
+        Detect = Physics.CheckSphere(transform.position, MoveRango, LayerPlayer);
+        if (MeleeDetect)
+        {
+            Melee.Active = true;
+        }
+        GenerateShield();
     }
 
     void PlayerDetect()
     {
-        Detect = Physics.CheckSphere(transform.position, MoveRango, LayerPlayer);
         FireDetect = Physics.CheckSphere(transform.position, FireRango, LayerPlayer);
+        MeleeDetect = Physics.CheckSphere(transform.position + new Vector3(0f,-1f,0f), MeleeRango, LayerPlayer);
 
         if (FireDetect)
         {
@@ -79,7 +96,6 @@ public class RogueBossState : MonoBehaviour
                     state = State.shoot;
                 else if(HP < 79)
                     state = State.invoke;
-
             }
         }
         else
@@ -106,5 +122,38 @@ public class RogueBossState : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, FireRango);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, MeleeRango);
+    }
+
+    void GenerateShield()
+    {
+        Shield.Shield_1 = true;
+
+        if(HP < 50)
+        Shield.Shield_2 = true;
+
+        ShieldActives = Shield.DefenseActive;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bullet") && !ShieldActives)
+        {
+            HP -= 1.5f;
+        }
+        if (other.gameObject.CompareTag("Sword") && !ShieldActives)
+        {
+            HP -= 5;
+        }
+    }
+
+    void Death()
+    {
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
