@@ -81,7 +81,8 @@ public class Jump : MonoBehaviour
 
             if (countJump == 1 && floor.floor)
             {
-                jumpsRemaining = 2;
+            
+            jumpsRemaining = 2;
 
             }
             if (energy.energy > 150)
@@ -105,8 +106,8 @@ public class Jump : MonoBehaviour
             //Una vez presionado espacio poder saltar
             if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
             {
-
-                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            jumpAudio.Play();
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 jumpsRemaining -= 1; //Reducir 1 salto
             }
 

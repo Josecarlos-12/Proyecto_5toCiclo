@@ -44,6 +44,7 @@ public class Enemy2 : MonoBehaviour
     public Collider mesh;
     public Transform ex1, ex2, ex3, ex4;
     public GameObject experiencia;
+    public AudioSource audi;
 
     void Start()
     {
@@ -202,7 +203,8 @@ public class Enemy2 : MonoBehaviour
                 mesh.enabled = true;
                 anim.SetBool("Death", true);
                 textContainer.SetActive(true);
-                text.text = "Det... Deten... Detente...";
+                audi.Play();
+                text.text = "Det... Deten... Detente... por favor";
                 cameraEnemy.SetActive(true);
                 onObje.prota.SetActive(false);
                 StartCoroutine(CameraFalse());
@@ -215,11 +217,11 @@ public class Enemy2 : MonoBehaviour
 
     public IEnumerator CameraFalse()
     {
-        yield return new WaitForSeconds(3f);
-        text.text = "Sólo nos esta-mos de-fen-dien... do.";
-        yield return new WaitForSeconds(3f);
-        text.text = "¿Por qué siem-pre los hu-manos destru-yen to-do?";
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
+        text.text = "No ves que sólo nos esta-mos de-fen-dien... do.";
+        yield return new WaitForSeconds(5f);
+        text.text = "¿Por qué siem-pre los hu-manos necesitan destruirlo todo?";
+        yield return new WaitForSeconds(8f);
         textContainer.SetActive(false);
         cameraEnemy.SetActive(false);
         onObje.DestroyFour();        

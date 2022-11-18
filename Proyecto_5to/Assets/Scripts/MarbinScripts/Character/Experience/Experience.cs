@@ -86,18 +86,18 @@ public class Experience : MonoBehaviour
 
     private void Awake()
     {
-       //LoadData();
+       LoadData();
     }
 
     void Start()
     {
-        PlayerPrefs.SetFloat("OP1", 0);
-        PlayerPrefs.SetFloat("OP2", 0);
-        PlayerPrefs.SetFloat("EXP", 0);
-        PlayerPrefs.SetFloat("OPTION1", 0);
-        PlayerPrefs.SetFloat("OPTION2", 0);
-        PlayerPrefs.SetFloat("OPTION3", 0);
-        PlayerPrefs.SetFloat("OPTION4", 0);
+        //PlayerPrefs.SetFloat("OP1", 0);
+        //PlayerPrefs.SetFloat("OP2", 0);
+        //PlayerPrefs.SetFloat("EXP", 0);
+        //PlayerPrefs.SetFloat("OPTION1", 0);
+        //PlayerPrefs.SetFloat("OPTION2", 0);
+        //PlayerPrefs.SetFloat("OPTION3", 0);
+        //PlayerPrefs.SetFloat("OPTION4", 0);
 
         ObjecExperience.SetActive(false);
         imageExperience.enabled = false;

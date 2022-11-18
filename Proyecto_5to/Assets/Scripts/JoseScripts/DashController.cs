@@ -37,6 +37,15 @@ public class DashController : MonoBehaviour
             canDash =true;
         }
 
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            dashSpeed += 5;
+        }
+        else if (Input.GetKeyDown(KeyCode.F7))
+        {
+            dashSpeed -= 5;
+        }
+
         if (bvin)
         {
             if (vi.intensity.value < intensity)
