@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class OnObjects : MonoBehaviour
 {
-
+    public AudioSource audi;
     public GameObject shoot, shootOne, shootThre;
-    public GameObject laders, prota,cameraMain;
+    public GameObject laders, prota, cameraMain;
     public GameObject[] robots;
     public GameObject objects;
     public OnObjects on;
     public int count;
+
+    [Header("Dialogos")]
+    public TextMeshProUGUI textMesh;
+    public string[] sText;
+    public GameObject text;
+    public float[] time;
 
     public enum Shot
     {
@@ -33,9 +40,6 @@ public class OnObjects : MonoBehaviour
                 break;
             case Shot.three:
                 DestroyThree();
-                break;
-            case Shot.four:
-                DestroyFour();
                 break;
         }
 
@@ -87,20 +91,16 @@ public class OnObjects : MonoBehaviour
 
     public void DestroyFour()
     {
-        if (shoot == null && shootOne == null && shootThre == null)
-        {
-            if(count<3)
-            count++;
+        if(count<3)
+        count++;
 
-            if (count == 1)
-            {
-                laders.SetActive(true);
-                cameraMain.SetActive(true);
-                prota.SetActive(false);
-                StartCoroutine(CameraFalse());
-            }
-            
+        if (count == 1)
+        {
+            laders.SetActive(true);
+            cameraMain.SetActive(true);
+            StartCoroutine(CameraFalse());
         }
+            
     }
 
     public IEnumerator CameraFalse()
@@ -108,5 +108,15 @@ public class OnObjects : MonoBehaviour
         yield return new WaitForSeconds(3);
         prota.SetActive(true);
         cameraMain.SetActive(false);
+        text.SetActive(true);
+        audi.Play();
+        textMesh.text = sText[0];
+        StartCoroutine(TextDialogues());
+    }
+
+    public IEnumerator TextDialogues()
+    {
+        yield return new WaitForSeconds(time[0]);
+        text.SetActive(false);
     }
 }

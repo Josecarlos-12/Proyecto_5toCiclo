@@ -21,17 +21,22 @@ public class MiniBosWalk : MonoBehaviour
     public bool charge;
     public bool tackle;
     public Life lifeProta;
+    public bool canMove = true;
+
     void Start()
     {
         
     }
 
     void Update()
-    {       
-        if (agent.remainingDistance < 0.5f && !view)
+    {
+        if (canMove)
         {
-            GotoNextPoint();
-        }
+            if (agent.remainingDistance < 0.5f && !view)
+            {
+                GotoNextPoint();
+            }
+        }        
         Detectec();
     }
 
@@ -46,7 +51,8 @@ public class MiniBosWalk : MonoBehaviour
                 //Debug.Log("Player");
                 view = true;
                 agent.destination = player.position;
-                agent.speed = 10;
+                agent.speed =40;
+                agent.acceleration = 25;
             }
             else
             {
@@ -59,6 +65,7 @@ public class MiniBosWalk : MonoBehaviour
 
     public void GotoNextPoint()
     {
+        agent.acceleration = 8;
         agent.speed = 3.5f;
         if (points.Length == 0)
         {

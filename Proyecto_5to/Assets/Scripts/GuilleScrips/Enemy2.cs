@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 public class Enemy2 : MonoBehaviour
@@ -29,9 +31,23 @@ public class Enemy2 : MonoBehaviour
 
     public Sword sword;
     public Bullet bullet, laser;
+    public Collider cEnemy;
+
+    [Header("Dialogos")]
+    public GameObject cameraEnemy;
+    public GameObject textContainer;
+    public TextMeshProUGUI text;
+    public float time;
+    public OnObjects onObje;
+    public int countEnemy;
+    public Animator anim;
+    public Collider mesh;
+    public Transform ex1, ex2, ex3, ex4;
+    public GameObject experiencia;
+
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,6 +70,12 @@ public class Enemy2 : MonoBehaviour
             }
             
             Destroy(gameObject);
+
+            Instantiate(experiencia, transform.position, Quaternion.identity);
+            Instantiate(experiencia, ex1.position, Quaternion.identity);
+            Instantiate(experiencia, ex2.position, Quaternion.identity);
+            Instantiate(experiencia, ex3.position, Quaternion.identity);
+            Instantiate(experiencia, ex4.position, Quaternion.identity);
         }
     }
 
@@ -109,6 +131,30 @@ public class Enemy2 : MonoBehaviour
             Debug.Log("Macheteo");
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            StartCoroutine(ChangeColor());
+            enemy.material.color = Color.red;
+            Life -= bullet.damageB;
+        }
+        if (collision.gameObject.CompareTag("LaserProta"))
+        {
+            enemy.material.color = Color.red;
+            Life -= laser.damageB;
+            StartCoroutine(ChangeColor());
+        }
+        if (collision.gameObject.CompareTag("Sword"))
+        {
+            enemy.material.color = Color.red;
+            Life -= sword.damage;
+            StartCoroutine(ChangeColor());
+            Debug.Log("Macheteo");
+        }
+    }
+
     public IEnumerator ChangeColor()
     {
         yield return new WaitForSeconds(0.5f);
@@ -138,5 +184,44 @@ public class Enemy2 : MonoBehaviour
         {
             point = true;
         }
+        if (Life < 100)
+        {
+            point = false;
+            robotines.enabled = false;
+            mini.tackle = false;
+            mini.charge = false;
+            mini.canMove = false;
+            cEnemy.isTrigger = false;
+            mini.agent.enabled = false;
+            
+            if(countEnemy<3)
+            countEnemy++;
+
+            if (countEnemy == 1)
+            {
+                mesh.enabled = true;
+                anim.SetBool("Death", true);
+                textContainer.SetActive(true);
+                text.text = "Det... Deten... Detente...";
+                cameraEnemy.SetActive(true);
+                onObje.prota.SetActive(false);
+                StartCoroutine(CameraFalse());
+            }          
+
+            
+        }
+
+    }
+
+    public IEnumerator CameraFalse()
+    {
+        yield return new WaitForSeconds(3f);
+        text.text = "Sólo nos esta-mos de-fen-dien... do.";
+        yield return new WaitForSeconds(3f);
+        text.text = "¿Por qué siem-pre los hu-manos destru-yen to-do?";
+        yield return new WaitForSeconds(3f);
+        textContainer.SetActive(false);
+        cameraEnemy.SetActive(false);
+        onObje.DestroyFour();        
     }
 }
