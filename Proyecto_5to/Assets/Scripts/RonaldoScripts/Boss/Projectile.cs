@@ -9,10 +9,6 @@ public class Projectile : MonoBehaviour
     public bool damageRecibe = false;
     GameObject Player;
 
-
-    void Update()
-    {
-    }
     public void Impact()
     {
         if (damageRecibe) {
