@@ -11,7 +11,7 @@ public class Larry : MonoBehaviour
     public float distancePoint;
     public NavMeshAgent agent;
     public int destPoint = 0;
-    public float speedMin, speedMax;
+    public float speedMin, aceeleration;
 
     [Header("Seguimiento")]
     public GameObject player;
@@ -29,6 +29,8 @@ public class Larry : MonoBehaviour
     public Bullet bullet, laser; 
     public Renderer render;
     public GameObject larryContainer;
+    public Transform tEx;
+    public GameObject experience;
 
     [Header("Empuje")]
     public int count;
@@ -53,6 +55,8 @@ public class Larry : MonoBehaviour
     {
         if (life <= 0)
         {
+            Instantiate(experience, transform.position, Quaternion.identity);
+            Instantiate(experience, tEx.position, Quaternion.identity);
             Destroy(larryContainer);
         }
     }
@@ -66,12 +70,14 @@ public class Larry : MonoBehaviour
             Debug.Log("Player");
             view = true;
             agent.destination = player.transform.position;
-            agent.speed = 20;
+            agent.speed = speedMin;
+            agent.acceleration = aceeleration;
             //agent.stoppingDistance = 3f;
         }
         else
         {
             agent.speed = 4;
+            agent.acceleration = 8;
             //agent.stoppingDistance = 1;
             view = false;
          }

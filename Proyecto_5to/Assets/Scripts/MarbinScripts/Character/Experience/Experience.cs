@@ -106,10 +106,28 @@ public class Experience : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        NormalExperiecie();
         OPTIONS();
         TextExperience();
         MoreExperience();
         imageExperience.fillAmount = experience / maxExperience;
+    }
+
+    public void NormalExperiecie()
+    {
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            Debug.Log("SA");
+            experience = 0;
+            maxExperience = 300;
+            PlayerPrefs.SetFloat("OP1", 0);
+            PlayerPrefs.SetFloat("OP2", 0);
+            PlayerPrefs.SetFloat("EXP", 0);
+            PlayerPrefs.SetFloat("OPTION1", 0);
+            PlayerPrefs.SetFloat("OPTION2", 0);
+            PlayerPrefs.SetFloat("OPTION3", 0);
+            PlayerPrefs.SetFloat("OPTION4", 0);
+        }
     }
 
 

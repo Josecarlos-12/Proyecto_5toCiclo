@@ -87,7 +87,7 @@ public class Enemy2 : MonoBehaviour
         if (point)
         {
             if (Alert == true)
-            {
+            {                
                 Vector3 posJugador = new Vector3(player.position.x, transform.position.y, player.position.z);
                 transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
                 Shoot();
@@ -105,7 +105,6 @@ public class Enemy2 : MonoBehaviour
             GameObject bulletTemporal = Instantiate(Bullet, shotSpawn.transform.position, shotSpawn.transform.rotation) as GameObject;
             Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
             bulletTemporal.GetComponent<Rigidbody>().AddForce(playerDirection * bulletVelocity, ForceMode.Force);
-
         }
     }
 

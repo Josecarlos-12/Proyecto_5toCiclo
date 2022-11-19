@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 678.47076, g: 678.8219, b: 806.68945, a: 1}
+  m_IndirectSpecularColor: {r: 671.8377, g: 669.28455, b: 787.90784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2914,6 +2914,7 @@ MonoBehaviour:
   agent: {fileID: 115932671}
   destPoint: 0
   detecte: 0
+  detecteTacle: 0
   player: {fileID: 0}
   view: 0
   rb: {fileID: 0}
@@ -2922,6 +2923,15 @@ MonoBehaviour:
   tackle: 0
   lifeProta: {fileID: 0}
   canMove: 1
+  speedNormal: 0
+  speedSuper: 40
+  aceleration: 25
+  acelerationNormal: 8
+  bAnimTacle: 0
+  tacleOn: 0
+  force: 30
+  anim: {fileID: 0}
+  funtionAll: 0
 --- !u!114 &115932673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10498,7 +10508,7 @@ PrefabInstance:
     - target: {fileID: 5519313166857235481, guid: 1089938ecf732a74789ddae747e2364c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.5175171
+      value: -0.5175781
       objectReference: {fileID: 0}
     - target: {fileID: 5519313166918332538, guid: 1089938ecf732a74789ddae747e2364c,
         type: 3}
@@ -11681,7 +11691,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553812986}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c04cd928f6d736c40981bd3155cd8add, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -19232,7 +19242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952865226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.22}
+  m_LocalPosition: {x: 0, y: -0.207, z: 0.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19810,7 +19820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decition: {fileID: 0}
-  AlertRange: 60
+  AlertRange: 90
   playerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -19819,7 +19829,7 @@ MonoBehaviour:
   shotSpawn: {fileID: 952865227}
   bulletVelocity: 250
   timeShoot: 3
-  initialShoot: 2
+  initialShoot: 0
   Life: 800
   maxLife: 800
   lifeBar: {fileID: 881314721}
@@ -25360,7 +25370,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234954715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -32859,7 +32869,7 @@ MonoBehaviour:
   point: {fileID: 1233043901}
   pointA: {fileID: 1749611918}
   time: 0
-  maxTime: 10
+  maxTime: 25
 --- !u!195 &1595167703
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -32902,6 +32912,7 @@ MonoBehaviour:
   agent: {fileID: 1595167703}
   destPoint: 0
   detecte: 90
+  detecteTacle: 40
   player: {fileID: 408627378}
   view: 0
   rb: {fileID: 2092175304}
@@ -32910,6 +32921,15 @@ MonoBehaviour:
   tackle: 0
   lifeProta: {fileID: 570075083}
   canMove: 1
+  speedNormal: 15
+  speedSuper: 70
+  aceleration: 120
+  acelerationNormal: 8
+  bAnimTacle: 0
+  tacleOn: 0
+  force: 30
+  anim: {fileID: 995031642}
+  funtionAll: 0
 --- !u!54 &1595167706
 Rigidbody:
   m_ObjectHideFlags: 0

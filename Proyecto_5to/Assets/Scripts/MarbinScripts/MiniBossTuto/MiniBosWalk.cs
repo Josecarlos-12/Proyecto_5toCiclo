@@ -12,7 +12,7 @@ public class MiniBosWalk : MonoBehaviour
     public int destPoint = 0;
 
 
-    public float detecte;
+    public float detecte, detecteTacle;
     public Transform player;
     public bool view;
     public Rigidbody rb;
@@ -23,21 +23,30 @@ public class MiniBosWalk : MonoBehaviour
     public Life lifeProta;
     public bool canMove = true;
 
+    [Header("Velocidades")]
+    public float speedNormal;
+    public float speedSuper = 40, aceleration = 25 , acelerationNormal=8;
+    public bool bAnimTacle, tacleOn;
+    public float force = 30;
+
+    public Animator anim;
+
+    public bool funtionAll;
+
     void Start()
     {
-        
     }
 
     void Update()
-    {
+    {       
         if (canMove)
         {
             if (agent.remainingDistance < 0.5f && !view)
             {
                 GotoNextPoint();
             }
-        }        
-        Detectec();
+        }
+        Detectec();               
     }
 
     public void Detectec()
@@ -45,21 +54,43 @@ public class MiniBosWalk : MonoBehaviour
         //Taclear
         if (charge == true)
         {
-            if (Vector3.Distance(transform.position, player.position) < detecte)
+            if (Vector3.Distance(transform.position, player.position) < detecte && !tacleOn)
             {
                 tackle = true;
                 //Debug.Log("Player");
                 view = true;
                 agent.destination = player.position;
-                agent.speed =40;
-                agent.acceleration = 25;
+                agent.speed = speedNormal;
+                agent.acceleration = acelerationNormal;
             }
             else
             {
                 tackle=false;
                 view = false;
             }
+
+            if (Vector3.Distance(transform.position, player.position) < detecteTacle && !tacleOn)
+            {
+                agent.speed = 0;
+                anim.SetBool("Tacle", true);
+                StartCoroutine(AnimTacle());
+            }
         }
+
+        if (tacleOn)
+        {
+            agent.speed = 0;
+        }
+        
+    }
+
+    public IEnumerator AnimTacle()
+    {
+        yield return new WaitForSeconds(0.1f);
+        agent.speed = speedSuper;
+        agent.acceleration = aceleration;
+        yield return new WaitForSeconds(0.9f);
+        anim.SetBool("Tacle", false);
         
     }
 
@@ -80,6 +111,9 @@ public class MiniBosWalk : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, detecte);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, detecteTacle);
     }
 
     /*private void OnCollisionEnter(Collision collision)
@@ -100,8 +134,9 @@ public class MiniBosWalk : MonoBehaviour
         {
             if (tackle)
             {
+                tacleOn = true;
                 //rb.AddForce(Vector3.left * 18, ForceMode.Impulse);
-                rb.AddForce(new Vector3(other.gameObject.transform.position.x - transform.position.x, 0, other.gameObject.transform.position.z - transform.position.z).normalized * 35, ForceMode.Impulse);
+                rb.AddForce(new Vector3(other.gameObject.transform.position.x - transform.position.x, 0, other.gameObject.transform.position.z - transform.position.z).normalized * force, ForceMode.Impulse);
                 //rb.AddForce(Vector3.up * 1, ForceMode.Impulse);
                 agent.speed = 0;
                 move.move = false;
@@ -116,7 +151,7 @@ public class MiniBosWalk : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         move.move = true;
-        yield return new WaitForSeconds(2);
-        agent.speed = 3.5f;
+        yield return new WaitForSeconds(0.5f);
+        tacleOn = false;
     }
 }
