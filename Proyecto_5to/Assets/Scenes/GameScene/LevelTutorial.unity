@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1345.0608, g: 1000.234, b: 779.3417, a: 1}
+  m_IndirectSpecularColor: {r: 1363.2717, g: 1019.932, b: 805.55585, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25357,6 +25357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6e5661f62e92e41a464d16e4720fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audi: {fileID: 0}
   shoot: {fileID: 71058654}
   shootOne: {fileID: 560242785}
   shootThre: {fileID: 0}
@@ -25367,6 +25368,10 @@ MonoBehaviour:
   objects: {fileID: 0}
   on: {fileID: 0}
   count: 0
+  textMesh: {fileID: 0}
+  sText: []
+  text: {fileID: 0}
+  time: []
   shootDecition: 2
 --- !u!1 &1864311847
 GameObject:
@@ -28246,6 +28251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6e5661f62e92e41a464d16e4720fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audi: {fileID: 0}
   shoot: {fileID: 1565831672}
   shootOne: {fileID: 373134635}
   shootThre: {fileID: 0}
@@ -28256,6 +28262,10 @@ MonoBehaviour:
   objects: {fileID: 0}
   on: {fileID: 0}
   count: 0
+  textMesh: {fileID: 0}
+  sText: []
+  text: {fileID: 0}
+  time: []
   shootDecition: 2
 --- !u!1001 &2099115759
 PrefabInstance:
@@ -29350,6 +29360,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 888039505001173663, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: initialShoot
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 888039505135825216, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: volume
@@ -29587,6 +29602,21 @@ PrefabInstance:
       propertyPath: level4
       value: 
       objectReference: {fileID: 395856918}
+    - target: {fileID: 888039505282705413, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: level5
+      value: 
+      objectReference: {fileID: 1050497449}
+    - target: {fileID: 888039505282705413, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: level6
+      value: 
+      objectReference: {fileID: 1658116332}
+    - target: {fileID: 888039505282705413, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: level7
+      value: 
+      objectReference: {fileID: 1055076151}
     - target: {fileID: 888039505282705413, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: ObjecExperience

@@ -56,12 +56,12 @@ public class Weapon : MonoBehaviour
                         Instantiate(bulletFast, initialBullet.transform.position, initialBullet.transform.rotation);
                         Instantiate(bulletFast, initialBullet2.transform.position, initialBullet2.transform.rotation);
                     }
+                    initialShoot = Time.time + timeShoot;
 
-                   
-                    
+
                     //Instacie bulletPrefab en la posicion de initialBullet
 
-                    
+
                     //Obtuve el rigibody para agragar fuerza
                     //Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
 

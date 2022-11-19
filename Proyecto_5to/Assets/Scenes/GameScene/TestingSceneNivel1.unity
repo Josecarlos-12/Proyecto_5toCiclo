@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 671.98315, g: 669.6107, b: 788.40717, a: 1}
+  m_IndirectSpecularColor: {r: 678.47076, g: 678.8219, b: 806.68945, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5260,6 +5260,21 @@ PrefabInstance:
       propertyPath: level4
       value: 
       objectReference: {fileID: 1619800809}
+    - target: {fileID: 888039505282705413, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: level5
+      value: 
+      objectReference: {fileID: 914147872}
+    - target: {fileID: 888039505282705413, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: level6
+      value: 
+      objectReference: {fileID: 455385453}
+    - target: {fileID: 888039505282705413, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: level7
+      value: 
+      objectReference: {fileID: 552489733}
     - target: {fileID: 888039505282705413, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: shield
@@ -28595,6 +28610,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.888271, y: 0.9042237, z: 19.314087}
   m_Center: {x: -0.000490427, y: 0, z: 0.00014305115}
+--- !u!114 &1407987193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407987189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6e5661f62e92e41a464d16e4720fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audi: {fileID: 0}
+  shoot: {fileID: 4727846}
+  shootOne: {fileID: 552572665}
+  shootThre: {fileID: 2100268759}
+  laders: {fileID: 1127286504}
+  prota: {fileID: 0}
+  cameraMain: {fileID: 0}
+  robots: []
+  objects: {fileID: 0}
+  on: {fileID: 0}
+  count: 0
+  textMesh: {fileID: 0}
+  sText: []
+  text: {fileID: 0}
+  time: []
+  shootDecition: 3
 --- !u!1 &1410089932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5519313166636792356, guid: 1089938ecf732a74789ddae747e2364c,

@@ -41,6 +41,9 @@ public class OnObjects : MonoBehaviour
             case Shot.three:
                 DestroyThree();
                 break;
+            case Shot.four:
+                DestroyThreeOn();
+                break;
         }
 
     }
@@ -71,6 +74,23 @@ public class OnObjects : MonoBehaviour
                     robots[i].SetActive(true);
                 }                    
                 }
+
+
+        }
+    }
+
+    public void DestroyThreeOn()
+    {
+        if (shoot == null && shootOne == null && shootThre == null)
+        {
+            laders.SetActive(true);
+            for (int i = 0; i < robots.Length; i++)
+            {
+                if (robots[i] != null)
+                {
+                    robots[i].SetActive(true);
+                }
+            }
 
 
         }
