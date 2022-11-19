@@ -15,6 +15,9 @@ public class WaveExpansiveProta : MonoBehaviour
 
     public GameObject waveExpansive;
 
+    [Header("OndaE SFX")]
+    public AudioSource explosionAudio;
+
     private void Update()
     {
         Explotion();
@@ -26,6 +29,7 @@ public class WaveExpansiveProta : MonoBehaviour
         {
             if (canExplotion)
             {
+                explosionAudio.Play();
                 waveExpansive.SetActive(true);
                 canExplotion = false;
                 StartCoroutine(ExplotioTrue());

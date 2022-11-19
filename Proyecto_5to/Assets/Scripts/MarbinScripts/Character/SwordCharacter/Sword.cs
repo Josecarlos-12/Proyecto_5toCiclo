@@ -18,6 +18,9 @@ public class Sword : MonoBehaviour
     public Color swordInitial;
     public Image swordImage;
 
+    [Header("Espada Efecto")]
+    public AudioSource swordAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +60,7 @@ public class Sword : MonoBehaviour
 
             if (Input.GetMouseButtonDown(1) && attack && !animRep)
             {
+                swordAudio.Play();
                 anim.SetBool("Attack", true);
                 StartCoroutine("DesactiveSword");
                 animRep = true;
