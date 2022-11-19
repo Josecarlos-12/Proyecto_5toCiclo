@@ -13,6 +13,8 @@ public class RespawnGigant : MonoBehaviour
 
     public Transform lastCheckPoint;
 
+
+    public Energy ener;
     private void Update()
     {
         Inputs();
@@ -94,6 +96,7 @@ public class RespawnGigant : MonoBehaviour
 
         if (other.gameObject.CompareTag("Respawn"))
         {
+            ener.energy = ener.energyMax;
             Debug.Log("Respawn");
             prota.position= lastCheckPoint.transform.position;
             prota.rotation = lastCheckPoint.rotation;

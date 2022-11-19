@@ -442,6 +442,8 @@ MonoBehaviour:
   useShield: 0
   timer: 0
   shieldAudio: {fileID: 888039505135825220}
+  shieldInitial: {r: 0, g: 0, b: 0, a: 0}
+  shieldImage: {fileID: 0}
 --- !u!95 &888039505135825247
 Animator:
   serializedVersion: 4
@@ -1137,6 +1139,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   lastCheckPoint: {fileID: 0}
+  ener: {fileID: 888039505135825218}
 --- !u!1 &888039505282705414
 GameObject:
   m_ObjectHideFlags: 0
