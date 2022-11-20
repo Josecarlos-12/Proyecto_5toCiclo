@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.Mathematics;
 
 public class MenuController : MonoBehaviour
 {
@@ -11,6 +12,15 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private float defaultVolume = 100;
+
+    [Header("GamePlay Settings")]
+    [SerializeField] private TMP_Text controllerSenTextValue = null;
+    [SerializeField] private  Slider controllerSenSlider= null;
+    [SerializeField] private int defaultSen = 4;
+    public int mainControllerSen = 4;
+
+    [Header("Toogle Settings")]
+    [SerializeField] private Toggle invertYToggle = null;
 
     [Header("Confirmation")]
     [SerializeField] private GameObject comfirmationPrompt=null;
@@ -55,6 +65,27 @@ public class MenuController : MonoBehaviour
         StartCoroutine(ConfirmationBox());
     }
 
+    public void SetControllerSen(float sensitivity)
+    {
+        mainControllerSen = Mathf.RoundToInt(sensitivity);
+        controllerSenTextValue.text = sensitivity.ToString("0");
+    }
+
+    public void GameplayApply( )
+    {
+        if ( invertYToggle.isOn )
+        {
+            PlayerPrefs.SetInt("masterInvertY", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("masterInvertY", 0);
+        }
+
+        PlayerPrefs.SetFloat("masterSen", mainControllerSen);
+        StartCoroutine(ConfirmationBox());
+    }
+
     public void ResetButton(string MenuType)
     {
         if(MenuType == "Audio" )
@@ -64,12 +95,21 @@ public class MenuController : MonoBehaviour
             volumeTextValue.text = defaultVolume.ToString("0");
             VolumeApply();
         }
+
+        if ( MenuType == "Gameplay" )
+        {
+            controllerSenTextValue.text = defaultSen.ToString("0");
+            controllerSenSlider.value = defaultSen;
+            mainControllerSen = defaultSen;
+            invertYToggle.isOn = false;
+            GameplayApply( );
+        }
     }
 
     public IEnumerator ConfirmationBox( )
     {
         comfirmationPrompt.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         comfirmationPrompt.SetActive(false);
     }
 }
