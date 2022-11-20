@@ -117,9 +117,9 @@ public class Jump : MonoBehaviour
                 if (count == 1)
                 {
                     energy.jump = true;
-                    energy.ReductionEnergyJump();
+                energy.ReductionEnergyJump();
 
-                }
+            }
             }
 
             else
@@ -128,6 +128,7 @@ public class Jump : MonoBehaviour
                 count = 0;
                 energy.jump = false;
             }
+
                 
     }
     public void OnCollisionEnter(Collision collision)

@@ -556,6 +556,7 @@ MonoBehaviour:
   canAtack: 0
   swordInitial: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 1}
   swordImage: {fileID: 0}
+  swordAudio: {fileID: -6879013909039197220}
 --- !u!82 &888039505135825220
 AudioSource:
   m_ObjectHideFlags: 0
@@ -970,7 +971,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab3b7a9ed9eac8449beaca0e185acb3c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1.2
   Loop: 0
