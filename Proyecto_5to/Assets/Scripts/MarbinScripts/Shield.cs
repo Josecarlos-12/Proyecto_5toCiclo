@@ -23,6 +23,8 @@ public class Shield : MonoBehaviour
     public Color shieldInitial;
     public Image shieldImage;
 
+    public KeyCode kSh = KeyCode.C;
+
     void Update()
     {
         AddLife();
@@ -34,14 +36,14 @@ public class Shield : MonoBehaviour
     {
         if (canShild)
         {
-            if (Input.GetKeyDown(KeyCode.C) && !shieldLife.duration)
+            if (Input.GetKeyDown(kSh) && !shieldLife.duration)
             {
                 shieldImage.color = Color.white;
                 shieldAudio.Play();
                 shield.SetActive(true);
                 useShield = true;
             }
-            else if (Input.GetKeyUp(KeyCode.C) || shieldLife.duration)
+            else if (Input.GetKeyUp(kSh) || shieldLife.duration)
             {
                 shieldImage.color = shieldInitial;
                 anim.SetBool("On", true);

@@ -21,6 +21,7 @@ public class Sword : MonoBehaviour
     [Header("Espada Efecto")]
     public AudioSource swordAudio;
 
+    public KeyCode kSworrd = KeyCode.R;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,7 @@ public class Sword : MonoBehaviour
     {
         if (canAtack)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(kSworrd))
             {
                 on = !on;
                 if (on)

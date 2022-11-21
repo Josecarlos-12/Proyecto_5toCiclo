@@ -22,6 +22,8 @@ public class DashController : MonoBehaviour
 
     [Header("Dash SFX")]
     public AudioSource dashAudio;
+
+    public KeyCode kDash = KeyCode.LeftShift;
     void Start()
     {
         volume.profile.TryGet(out Vignette vignette);
@@ -62,7 +64,7 @@ public class DashController : MonoBehaviour
             if (canDash)
         {
             
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !energy.use && Input.GetAxis("Vertical") != 0)
+            if (Input.GetKeyDown(kDash) && !isDashing && !energy.use && Input.GetAxis("Vertical") != 0)
             {                
                 if (energy.energy > 150)
                 {
@@ -72,7 +74,7 @@ public class DashController : MonoBehaviour
                     energy.ReductionEnergyDash();                                                                            
                 }
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && !energy.use && Input.GetAxis("Horizontal") != 0)
+            if (Input.GetKeyDown(kDash) && !isDashing && !energy.use && Input.GetAxis("Horizontal") != 0)
             {
                 if (energy.energy > 150)
                 {

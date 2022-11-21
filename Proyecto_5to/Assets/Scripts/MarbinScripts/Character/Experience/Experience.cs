@@ -117,6 +117,7 @@ public class Experience : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F9))
         {
+            text.text = "Experiencia";
             Debug.Log("SA");
             experience = 0;
             maxExperience = 300;
@@ -127,6 +128,30 @@ public class Experience : MonoBehaviour
             PlayerPrefs.SetFloat("OPTION2", 0);
             PlayerPrefs.SetFloat("OPTION3", 0);
             PlayerPrefs.SetFloat("OPTION4", 0);
+            //Onda Explosiva
+            waveProta.canExplotion = false;
+            //Robar Vida con cuchillo
+            sworPunch.stealLife = false;
+            sworPunch.choro = 25;
+            //Daño Espada
+            sword.damage = 50;
+            //Daño bala
+            bullet.damageB = 20;
+            //Daño laser
+            laser.damageB = 50;
+            //Vida
+            life.life= 1000;
+            life.maxLife = 1000;
+            //Energia
+            energy.energy = 1000;
+            energy.energyMax = 1000;
+            // Velocidad de movimiento prota
+            move.speed = 13;
+            //Escudo
+            shield.canShild = false;
+            //Tipos de disparo
+            weapon.typeBullet = false;
+            weapon.bDoubleBullet = false;
         }
     }
 

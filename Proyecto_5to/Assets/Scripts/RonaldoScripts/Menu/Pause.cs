@@ -7,18 +7,21 @@ public class Pause : MonoBehaviour
 
     public bool isPaused=false;
     public GameObject pauseMenuUI;
+    public Experience option;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(isPaused)
             {
+                option.options = false;
                 ResumeGame();
                 Cursor.lockState = CursorLockMode.Locked;
                 
             }
             else
             {
+                option.options = true;
                 PauseGame();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;

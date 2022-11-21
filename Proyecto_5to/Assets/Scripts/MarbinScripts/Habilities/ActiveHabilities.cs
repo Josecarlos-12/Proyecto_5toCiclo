@@ -27,6 +27,18 @@ public class ActiveHabilities : MonoBehaviour
         //PlayerPrefs.SetInt("Dash", 0);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            PlayerPrefs.SetInt("DoubleJump", 0);
+            PlayerPrefs.SetInt("Dash", 0);
+            jump.maxJumpCount = 1;
+            jump.jumpTwo = false;
+            jump.jumpOne = true;
+        }
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "JumpOne")

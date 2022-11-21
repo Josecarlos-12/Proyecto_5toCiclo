@@ -34,6 +34,8 @@ public class Jump : MonoBehaviour
     [Header("Jump SFX")]
     public AudioSource jumpAudio;
 
+
+    public KeyCode kJP=KeyCode.Space;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +66,7 @@ public class Jump : MonoBehaviour
 
     public void JumpOnly()
     {
-        if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemainingTwo > 0) && floor.floor)
+        if ((Input.GetKeyDown(kJP)) && (jumpsRemainingTwo > 0) && floor.floor)
         {
             jumpAudio.Play();
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
@@ -104,7 +106,7 @@ public class Jump : MonoBehaviour
                 intera = 0;
             }
             //Una vez presionado espacio poder saltar
-            if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
+            if ((Input.GetKeyDown(kJP)) && (jumpsRemaining > 0))
             {
             jumpAudio.Play();
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
