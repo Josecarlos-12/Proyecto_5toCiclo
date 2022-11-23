@@ -72,10 +72,12 @@ public class Larry : MonoBehaviour
             agent.destination = player.transform.position;
             agent.speed = speedMin;
             agent.acceleration = aceeleration;
+            agent.stoppingDistance = 1.5f;
             //agent.stoppingDistance = 3f;
         }
         else
         {
+            agent.stoppingDistance = 1;
             agent.speed = 4;
             agent.acceleration = 8;
             //agent.stoppingDistance = 1;
