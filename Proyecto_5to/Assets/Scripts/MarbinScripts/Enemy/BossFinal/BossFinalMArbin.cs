@@ -26,6 +26,8 @@ public class BossFinalMArbin : MonoBehaviour
     public Bullet bullet, laser;
     public GameObject allContainer;
 
+    public GameObject bulleta;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +37,9 @@ public class BossFinalMArbin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Bullet();
 
-
-        if (followCombo)
+        /*if (followCombo)
         {
            Follow();
            Combo();
@@ -47,7 +49,14 @@ public class BossFinalMArbin : MonoBehaviour
         SwordWave();
         Life();
 
-        SwordsInCircle();
+        SwordsInCircle();*/
+    }
+
+    public void Bullet()
+    {
+        if (Vector3.Distance(transform.position, prota.transform.position) < size)
+        {
+        }
     }
 
     public void Follow()

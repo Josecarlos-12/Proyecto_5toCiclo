@@ -33,7 +33,14 @@ public class RobotinIAMove : MonoBehaviour
     public Rigidbody rb;
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player"); 
+        target = GameObject.FindGameObjectWithTag("Player");
+
+        /*GameObject[] tar = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject t in tar)
+        {
+            Destroy(t);
+        }*/
+
         startPos = transform.position;
         startRotation = transform.rotation;
     }

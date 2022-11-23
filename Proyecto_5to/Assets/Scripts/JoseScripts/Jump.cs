@@ -142,7 +142,7 @@ public class Jump : MonoBehaviour
             grounded = true;
             //Resetear la cantidad de saltos una vez colisione con el suelo
             jumpsRemaining = maxJumpCount;
-            jumpsRemainingTwo = maxJumpCount;
+            jumpsRemainingTwo = 1;
         }
     }
 
