@@ -95,9 +95,17 @@ public class RespawnGigant : MonoBehaviour
         {
             SceneManager.LoadScene("LobbyScene");
         }
+        if (other.gameObject.name == "NextLoby2")
+        {
+            SceneManager.LoadScene("LobbyScene2");
+        }
         if (other.gameObject.name == "LevelOne")
         {
             SceneManager.LoadScene("TestingSceneNivel1");
+        }
+        if (other.gameObject.name == "LevelTwo")
+        {
+            SceneManager.LoadScene("Level2V2");
         }
         #endregion
 
