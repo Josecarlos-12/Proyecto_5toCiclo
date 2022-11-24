@@ -113,7 +113,7 @@ public class OpenDoor : MonoBehaviour
             if (count4 < 3)
                 count4++;
 
-            if (count2 == 1)
+            if (count4 == 1)
                 conteiner += 1;
         }
 
@@ -161,11 +161,11 @@ public class OpenDoor : MonoBehaviour
             if (count9 < 3)
                 count9++;
 
-            if (count2 == 1)
+            if (count9 == 1)
                 conteiner += 1;
         }
 
-        if (robots[10] == null)
+        /*if (robots[10] == null)
         {
             if (count10 < 3)
                 count10++;
@@ -199,6 +199,6 @@ public class OpenDoor : MonoBehaviour
 
             if (count13 == 1)
                 conteiner += 1;
-        }
+        }*/
     }
 }
