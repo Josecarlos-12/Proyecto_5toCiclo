@@ -83,8 +83,8 @@ public class PenaV2 : MonoBehaviour
                 col2.SetActive(false);
             }
             
-            agent.speed = 16;
-            agent.acceleration = 200;
+            agent.speed = 10;
+            agent.acceleration = 14;
             //agent.angularSpeed = 500;
         }
         else

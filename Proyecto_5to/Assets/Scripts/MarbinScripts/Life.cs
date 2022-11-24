@@ -113,14 +113,14 @@ public class Life : MonoBehaviour
             }
             if (other.gameObject.name == "PunchLarry")
             {
-                move.move = false;
+                //move.move = false;
                 //Este Funciona
                 //rb.AddForce(((Vector2)(transform.position - other.gameObject.transform.position)).normalized * 8, ForceMode.Impulse);
 
                 //rb.AddForce(Vector3.forward * 5, ForceMode.Impulse);
                 //rb.AddForce(Vector3.up, ForceMode.Impulse);               
-                life -= 100;
-                StartCoroutine("LarryFalse");
+                life -= 25;
+                //StartCoroutine("LarryFalse");
             }
             if (other.gameObject.CompareTag("SwordBoss"))
             {
