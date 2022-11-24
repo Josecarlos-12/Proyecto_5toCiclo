@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RogueBossFire : MonoBehaviour
+public class RogueBossFireV2 : MonoBehaviour
 {
     public bool Active;
     public int projectils;
     public float FireTime = 2.5f;
-    Transform PlayerPosition;
+    public Transform PlayerPosition;
 
     public GameObject projectile;
 
-    RogueBossState pp;
 
     int count;
     float timer = 0;
@@ -19,7 +18,6 @@ public class RogueBossFire : MonoBehaviour
     public float y;
     void Start()
     {
-        pp = GetComponent<RogueBossState>();
     }
     void Update()
     {
@@ -32,16 +30,14 @@ public class RogueBossFire : MonoBehaviour
     }
     void Fire()
     {
-        PlayerPosition = pp.PlayerPosition;
 
         timer += Time.deltaTime;
         if (timer > FireTime)
         {
             if (count >= projectils)
             {
-                pp.state = RogueBossState.State.recharge;
                 count = 0;
-                Active = false;
+                //Active = false;
             }
             else
             {
@@ -52,3 +48,4 @@ public class RogueBossFire : MonoBehaviour
         }
     }
 }
+

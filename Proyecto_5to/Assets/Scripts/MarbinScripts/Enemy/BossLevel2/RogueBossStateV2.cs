@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RogueBossState : MonoBehaviour
+public class RogueBossStateV2 : MonoBehaviour
 {
     public float MaxHP = 100;
     float HP = 100;
@@ -18,11 +17,11 @@ public class RogueBossState : MonoBehaviour
     public Transform PlayerPosition;
     public GameObject ShieldPrefab;
 
-    RogueBossFire Fire;
-    RogueBossMove Move;
-    RogueBossInvoke Invoker;
-    RogueBossMelee Melee;
-    RogueBossShield Shield;
+    RogueBossFireV2 Fire;
+    RogueBossMoveV2 Move;
+    RogueBossInvokeV2 Invoker;
+    RogueBossMeleeV2 Melee;
+    RogueBossShieldV2 Shield;
 
     public State state;
 
@@ -46,10 +45,10 @@ public class RogueBossState : MonoBehaviour
     {
         HP = MaxHP;
         state = State.idle;
-        Fire = GetComponent<RogueBossFire>();
-        Move = GetComponent<RogueBossMove>();
-        Invoker = GetComponent<RogueBossInvoke>();
-        Melee = GetComponent<RogueBossMelee>();
+        Fire = GetComponent<RogueBossFireV2>();
+        Move = GetComponent<RogueBossMoveV2>();
+        Invoker = GetComponent<RogueBossInvokeV2>();
+        Melee = GetComponent<RogueBossMeleeV2>();
     }
     void Update()
     {
@@ -89,7 +88,7 @@ public class RogueBossState : MonoBehaviour
     void PlayerDetect()
     {
         FireDetect = Physics.CheckSphere(transform.position, FireRango, LayerPlayer);
-        MeleeDetect = Physics.CheckSphere(transform.position + new Vector3(0f,-1f,0f), MeleeRango, LayerPlayer);
+        MeleeDetect = Physics.CheckSphere(transform.position + new Vector3(0f, -1f, 0f), MeleeRango, LayerPlayer);
 
         if (FireDetect)
         {
@@ -99,9 +98,9 @@ public class RogueBossState : MonoBehaviour
             }
             else if (!Detect)
             {
-                if(HP > 80)
+                if (HP > 80)
                     state = State.shoot;
-                else if(HP < 79)
+                else if (HP < 79)
                     state = State.invoke;
             }
         }
@@ -136,10 +135,10 @@ public class RogueBossState : MonoBehaviour
 
     void GenerateShield()
     {
-        Shield.Shield_1 = true;
+       Shield.Shield_1 = true;
 
-        if(HP < 50)
-        Shield.Shield_2 = true;
+        if (HP < 50)
+          Shield.Shield_2 = true;
 
         ShieldActives = Shield.DefenseActive;
     }
@@ -182,7 +181,7 @@ public class RogueBossState : MonoBehaviour
     public IEnumerator ChangeColor()
     {
         yield return new WaitForSeconds(0.5f);
-        render.material.color = Color.white; 
+        render.material.color = Color.white;
         yield return new WaitForSeconds(0.5f);
         count = 0;
     }

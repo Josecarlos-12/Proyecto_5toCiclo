@@ -126,6 +126,14 @@ public class Life : MonoBehaviour
             {
                 life -= 100;
             }
+            if (other.gameObject.CompareTag("BB2"))
+            {
+                life -= 100;
+            }
+            if (other.gameObject.CompareTag("EnemyWeapon"))
+            {
+                life -= 100;
+            }
         }
         if (other.gameObject.CompareTag("MaxLife"))
         {

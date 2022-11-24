@@ -78,7 +78,7 @@ public class Enemy3 : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             render.material.color = Color.red;
-            Life -= 10;
+            Life -= bullet.damageB;
             StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("LaserProta"))
