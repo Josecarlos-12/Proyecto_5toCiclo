@@ -107,6 +107,12 @@ public class RespawnGigant : MonoBehaviour
         {
             SceneManager.LoadScene("Level2V2");
         }
+        if (other.gameObject.name == "NetLobby3")
+        {
+            Debug.Log("Paso");
+            SceneManager.LoadScene("LobbyScene3");
+        }
+        
         #endregion
 
         #region Respawn

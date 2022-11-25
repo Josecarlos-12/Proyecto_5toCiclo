@@ -36,6 +36,7 @@ public class Jump : MonoBehaviour
 
 
     public KeyCode kJP=KeyCode.Space;
+    public float mass;
     // Start is called before the first frame update
     void Start()
     {
@@ -120,6 +121,7 @@ public class Jump : MonoBehaviour
                 {
                     energy.jump = true;
                 energy.ReductionEnergyJump();
+                StartCoroutine(MoreMass());
 
             }
             }
@@ -133,6 +135,14 @@ public class Jump : MonoBehaviour
 
                 
     }
+
+    public IEnumerator MoreMass()
+    {
+        yield return new WaitForSeconds(0f);
+        rb.mass = mass;
+    }
+
+
     public void OnCollisionEnter(Collision collision)
     {
         //Si colisionamos con el suelo que sea =true
@@ -143,6 +153,7 @@ public class Jump : MonoBehaviour
             //Resetear la cantidad de saltos una vez colisione con el suelo
             jumpsRemaining = maxJumpCount;
             jumpsRemainingTwo = 1;
+            rb.mass = 1.1f;
         }
     }
 

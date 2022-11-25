@@ -12,7 +12,7 @@ public class LifeBossL2 : MonoBehaviour
     public Renderer render;
     public Sword sword;
     public Bullet bullet, laser;
-    public int count, counIn, counIn2, countLife;
+    public int count, counIn, counIn2, countLife, countAn;
     public int count2, count3, count4;
     public int countT, countT1, countT2;
     public Image image;
@@ -22,7 +22,7 @@ public class LifeBossL2 : MonoBehaviour
     public Transform player;
     public float detecte, punch;
     public RogueBossMeleeV2 melee;
-    public GameObject groupSphere;
+    public GameObject groupSphere, groupSphereLeft;
 
     public GameObject larrys;
     public DesactiveHabilities habilities;
@@ -34,7 +34,14 @@ public class LifeBossL2 : MonoBehaviour
     public Animator anim;
 
     public Transform one, two, three, four;
+    public bool death;
 
+
+    [Header("Vida Final")]
+    public Renderer tp;
+    public Material liTP, tpNormal;
+    public Collider next;
+    public GameObject cam2;
     private void Start()
     {
         anim.enabled = false;
@@ -58,7 +65,7 @@ public class LifeBossL2 : MonoBehaviour
 
     public void Punch()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < punch)
+        if (Vector3.Distance(transform.position, player.transform.position) < punch && !death)
         {
             melee.Active = true;
         }
@@ -67,6 +74,19 @@ public class LifeBossL2 : MonoBehaviour
     public void UpdateLife()
     {
         image.fillAmount = HP / MaxHP;
+
+        if (HP <= 1000)
+        {
+            if(countAn<3)
+            countAn++;
+
+            if (countAn == 1)
+            {
+                intan = false;
+                groupSphereLeft.SetActive(true);
+                render.material = rose;
+            }            
+        }
 
 
         if (HP <= 600)
@@ -162,6 +182,10 @@ public class LifeBossL2 : MonoBehaviour
         }
         if(HP <= 100)
         {
+            death = true;
+            fire.active2 = false;
+            fire.Active = false;
+
             if (countT2 < 3)
                 countT2++;
 
@@ -169,14 +193,28 @@ public class LifeBossL2 : MonoBehaviour
             {
                 Debug.Log("Dialogo3");
                 Final();
-                fire.active2 = false;
-                fire.Active = false;
+                
                 anim.enabled = true;
+                FinalTP();
                 //anim.SetBool("Deaht", true);
             }
                 
         }
 
+    }
+
+    public IEnumerator FinalTP()
+    {
+        yield return new WaitForSeconds(1);
+        tp.material = liTP;
+        yield return new WaitForSeconds(1);
+        tp.material = tpNormal;
+        yield return new WaitForSeconds(1);
+        tp.material = liTP;
+        yield return new WaitForSeconds(2);
+        cam2.SetActive(false);
+        prota.SetActive(true);
+        next.enabled = true;
     }
 
     public void DestroySpheres()
@@ -282,7 +320,9 @@ public class LifeBossL2 : MonoBehaviour
     public IEnumerator CamDesactive()
     {
         yield return new WaitForSeconds(3);
-        prota.SetActive(true);
+        StartCoroutine(FinalTP());
+        //prota.SetActive(true);
         cam.SetActive(false);
+        cam2.SetActive(true);
     }
 }

@@ -13,7 +13,7 @@ public class IntoFither : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Entro a la batalla");
-            sphere.SetActive(true);
+            //sphere.SetActive(true);
             fire.Active = true;
         }
     }

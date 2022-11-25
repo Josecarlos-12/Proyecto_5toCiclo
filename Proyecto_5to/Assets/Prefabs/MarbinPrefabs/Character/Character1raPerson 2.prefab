@@ -358,7 +358,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c04cd928f6d736c40981bd3155cd8add, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Height: 3.5632935
   m_Direction: 1
   m_Center: {x: 0, y: 0.7816467, z: 0}
@@ -425,6 +425,7 @@ MonoBehaviour:
   jumpOne: 1
   jumpAudio: {fileID: 888039505135825221}
   kJP: 32
+  mass: 0
 --- !u!114 &888039505135825246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,7 +1314,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.62
   m_Height: 3.5766296
   m_Direction: 1
   m_Center: {x: 0, y: 0.7883148, z: 0}
@@ -1436,7 +1437,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.62
   m_Height: 3.6329536
   m_Direction: 1
   m_Center: {x: 0, y: 0.8164768, z: 0}
@@ -1629,9 +1630,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888039505580388517}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09, y: 1.44, z: 1.3390007}
-  m_LocalScale: {x: 0.14729999, y: 0.14729999, z: 0.14729999}
+  m_LocalRotation: {x: -0, y: 0.0066592693, z: -0, w: 0.9999779}
+  m_LocalPosition: {x: 0.5299374, y: 1.4400024, z: 0.5093112}
+  m_LocalScale: {x: 0.1473, y: 0.1473, z: 0.1473}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 888039505796277001}
@@ -1643,7 +1644,7 @@ Transform:
   - {fileID: 888039506354760561}
   m_Father: {fileID: 888039505135825239}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.763, z: 0}
 --- !u!95 &888039505580388514
 Animator:
   serializedVersion: 4
@@ -1908,7 +1909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888039505762802482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.96, z: -1.5}
+  m_LocalPosition: {x: 0.39, y: 1.96, z: -0.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

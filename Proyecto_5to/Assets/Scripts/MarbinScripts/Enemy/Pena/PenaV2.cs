@@ -121,7 +121,7 @@ public class PenaV2 : MonoBehaviour
 
     public void GotoNextPoint()
     {
-        Debug.Log("Caminando");
+        //Debug.Log("Caminando");
         if (points.Length == 0)
         {
             return;

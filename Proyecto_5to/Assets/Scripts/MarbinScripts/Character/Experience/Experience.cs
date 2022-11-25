@@ -99,8 +99,8 @@ public class Experience : MonoBehaviour
         //PlayerPrefs.SetFloat("OPTION3", 0);
         //PlayerPrefs.SetFloat("OPTION4", 0);
 
-        ObjecExperience.SetActive(false);
-        imageExperience.enabled = false;
+       // ObjecExperience.SetActive(false);
+        //imageExperience.enabled = false;
     }
 
     // Update is called once per frame
@@ -163,8 +163,8 @@ public class Experience : MonoBehaviour
             Destroy(other.gameObject);
             if (experience <= maxExperience)
             {
-                ObjecExperience.SetActive(true);
-                imageExperience.enabled = true;
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
                 experience += robotin.experience;
                 
                 StartCoroutine(Experi());
@@ -175,8 +175,8 @@ public class Experience : MonoBehaviour
     public IEnumerator Experi()
     {
         yield return new WaitForSeconds(3);
-        imageExperience.enabled = false;
-        ObjecExperience.SetActive(false);
+        //imageExperience.enabled = false;
+        //ObjecExperience.SetActive(false);
     }
 
     public void TextExperience()
