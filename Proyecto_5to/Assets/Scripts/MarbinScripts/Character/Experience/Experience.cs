@@ -630,7 +630,7 @@ public class Experience : MonoBehaviour
         if (PlayerPrefs.GetFloat("OPTION3") == 1)
         {
             bullet.destructtion = fBulletAlcance;
-            laser.destructtion = fLaserAlcance;            
+            //laser.destructtion = fLaserAlcance;            
         }
         if (PlayerPrefs.GetFloat("OPTION3") == 2)
         {
