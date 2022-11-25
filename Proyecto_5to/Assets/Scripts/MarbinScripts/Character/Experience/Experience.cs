@@ -117,7 +117,7 @@ public class Experience : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F9))
         {
-            text.text = "Experiencia";
+            text.text = "0";
             Debug.Log("SA");
             experience = 0;
             maxExperience = 300;
@@ -183,31 +183,31 @@ public class Experience : MonoBehaviour
     {
         if (PlayerPrefs.GetFloat("OP1") == 1)
         {
-            text.text = "Nivel 1";
+            text.text = "1";
         }
         if (PlayerPrefs.GetFloat("OP1") == 2)
         {
-            text.text = "Nivel 2";
+            text.text = "2";
         }
         if (PlayerPrefs.GetFloat("OP1") == 3)
         {
-            text.text = "Nivel 3";
+            text.text = "3";
         }
         if (PlayerPrefs.GetFloat("OP1") == 4)
         {
-            text.text = "Nivel 4";
+            text.text = "4";
         }
         if (PlayerPrefs.GetFloat("OP1") == 5)
         {
-            text.text = "Nivel 5";
+            text.text = "5";
         }
         if (PlayerPrefs.GetFloat("OP1") == 6)
         {
-            text.text = "Nivel 6";
+            text.text = "6";
         }
         if (PlayerPrefs.GetFloat("OP1") == 7)
         {
-            text.text = "Nivel 7";
+            text.text = "7";
         }
     }
 
