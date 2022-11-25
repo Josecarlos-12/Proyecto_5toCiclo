@@ -5,6 +5,8 @@ using UnityEngine;
 public class IntoFither : MonoBehaviour
 {
     public GameObject sphere;
+    public RogueBossFireV2 fire;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,6 +14,7 @@ public class IntoFither : MonoBehaviour
         {
             Debug.Log("Entro a la batalla");
             sphere.SetActive(true);
+            fire.Active = true;
         }
     }
 }

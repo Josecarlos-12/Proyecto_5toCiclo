@@ -89,6 +89,17 @@ public class Life : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (!intan)
+        {
+            if (other.gameObject.CompareTag("BB2"))
+            {
+                life -= 1;
+            }
+        }
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -123,10 +134,6 @@ public class Life : MonoBehaviour
                 //StartCoroutine("LarryFalse");
             }
             if (other.gameObject.CompareTag("SwordBoss"))
-            {
-                life -= 100;
-            }
-            if (other.gameObject.CompareTag("BB2"))
             {
                 life -= 100;
             }
