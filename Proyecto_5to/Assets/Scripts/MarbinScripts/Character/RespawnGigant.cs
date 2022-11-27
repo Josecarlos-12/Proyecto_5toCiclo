@@ -118,7 +118,7 @@ public class RespawnGigant : MonoBehaviour
         #region Respawn
         if (other.gameObject.CompareTag("checkpoint"))
         {
-            Debug.Log("Check");
+            //Debug.Log("Check");
             lastCheckPoint.position = other.transform.position;
             lastCheckPoint.rotation=other.transform.rotation;
         }

@@ -120,10 +120,10 @@ public class Jump : MonoBehaviour
                 if (count == 1)
                 {
                     energy.jump = true;
-                energy.ReductionEnergyJump();
-                StartCoroutine(MoreMass());
+                    energy.ReductionEnergyJump();
+                //StartCoroutine(MoreMass());
 
-            }
+                }
             }
 
             else
@@ -139,7 +139,7 @@ public class Jump : MonoBehaviour
     public IEnumerator MoreMass()
     {
         yield return new WaitForSeconds(0f);
-        rb.mass = mass;
+        //rb.mass = mass;
     }
 
 
@@ -153,7 +153,7 @@ public class Jump : MonoBehaviour
             //Resetear la cantidad de saltos una vez colisione con el suelo
             jumpsRemaining = maxJumpCount;
             jumpsRemainingTwo = 1;
-            rb.mass = 1.1f;
+            //rb.mass = 1.1f;
         }
     }
 

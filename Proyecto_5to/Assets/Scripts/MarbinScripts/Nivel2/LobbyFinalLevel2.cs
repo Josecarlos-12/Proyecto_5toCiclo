@@ -11,6 +11,7 @@ public class LobbyFinalLevel2 : MonoBehaviour
     public int count;
     public RespawnGigant res;
     public Animator doorDown;
+    public Collider col;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,7 @@ public class LobbyFinalLevel2 : MonoBehaviour
             BoosCamera();
         if (count == 2 || count == 3)
         {
+            col.enabled = true;
             res.prota.position = new Vector3(res.next[5].position.x, res.next[5].position.y + 3, res.next[5].position.z);
             res.prota.rotation = res.next[5].rotation;
         }

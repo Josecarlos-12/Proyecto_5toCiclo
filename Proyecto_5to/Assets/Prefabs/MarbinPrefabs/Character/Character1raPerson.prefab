@@ -121,6 +121,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   lastCheckPoint: {fileID: 0}
+  ener: {fileID: 0}
 --- !u!1 &1567489428631039144
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,8 +259,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567489428839660680}
   m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: -0.912, z: -0.032}
-  m_LocalScale: {x: 0.59341, y: 0.59341, z: 0.59341}
+  m_LocalPosition: {x: 0, y: -1.071, z: -0.032}
+  m_LocalScale: {x: 0.8504159, y: 0.8504159, z: 0.8504159}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567489429914520471}
@@ -387,6 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: 0
+  move: {fileID: 0}
   footSteps: {fileID: 3510491877953085850}
 --- !u!1 &1567489428994823440
 GameObject:
@@ -435,6 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 1567489428994823440}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 4355183378793333456, guid: dac547ee6697acd4ba756e28455b1f11,
@@ -444,6 +447,9 @@ MonoBehaviour:
   energy: {fileID: 1567489429914520458}
   shield: {fileID: 1567489429914520459}
   exp: {fileID: 1030461730029693249}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
   shootAudio: {fileID: 1858106831894974945}
@@ -770,6 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6941e7d4cd7384047bfcf028a350b56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveCamera: 0
   playerBody: {fileID: 1567489429914520471}
   mouseSensitivity: 80
   positiveX: 60
@@ -1012,6 +1019,8 @@ MonoBehaviour:
   jumpsRemainingTwo: 1
   jumpOne: 1
   jumpAudio: {fileID: 0}
+  kJP: 32
+  mass: 0
 --- !u!114 &1567489429914520459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,6 +1041,9 @@ MonoBehaviour:
   useShield: 0
   timer: 0
   shieldAudio: {fileID: 0}
+  shieldInitial: {r: 0, g: 0, b: 0, a: 0}
+  shieldImage: {fileID: 0}
+  kSh: 99
 --- !u!95 &1567489429914520456
 Animator:
   serializedVersion: 4
@@ -1074,6 +1086,7 @@ MonoBehaviour:
   bvin: 0
   intensity: 0.2
   dashAudio: {fileID: 0}
+  kDash: 304
 --- !u!114 &1567489429914520470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1093,6 +1106,11 @@ MonoBehaviour:
   question: {fileID: 0}
   respawn: {fileID: 493838752}
   shoot: {fileID: 0}
+  audioSource: {fileID: 0}
+  gText: {fileID: 0}
+  text: {fileID: 0}
+  sText: []
+  time: []
 --- !u!114 &1567489429914520458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,6 +1131,7 @@ MonoBehaviour:
   timer: 0
   maxTimer: 1
   image: {fileID: 0}
+  lessDash: 150
 --- !u!114 &986182281064870367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1136,6 +1155,8 @@ MonoBehaviour:
   canAtack: 0
   swordInitial: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 1}
   swordImage: {fileID: 0}
+  swordAudio: {fileID: 0}
+  kSworrd: 114
 --- !u!1 &4190473853292167423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,6 +1353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c490d01e5b6f6a640a82d52774ee29b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fReLife: 30
   life: 1000
   maxLife: 1000
   color: {r: 0, g: 0, b: 0, a: 0}
@@ -1346,6 +1368,9 @@ MonoBehaviour:
   move: {fileID: 1567489429914520464}
   intan: 0
   over: {fileID: 0}
+  regeneration: 0
+  time: 0
+  maxTime: 0
 --- !u!114 &1030461730029693249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,8 +1383,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0182255267f6263489e7c32ff9d3b92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveProta: {fileID: 0}
+  sworPunch: {fileID: 0}
   sword: {fileID: 986182281064870367}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
+  laser: {fileID: 0}
   life: {fileID: 114024435048039401}
   energy: {fileID: 1567489429914520458}
   move: {fileID: 1567489429914520464}
@@ -1375,21 +1403,54 @@ MonoBehaviour:
   count2: 0
   count3: 0
   count4: 0
+  count5: 0
+  count6: 0
+  count7: 0
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
   level4: {fileID: 0}
+  level5: {fileID: 0}
+  level6: {fileID: 0}
+  level7: {fileID: 0}
   one: 0
   two: 0
   three: 0
   four: 0
   five: 0
+  choroLife: 0
   expePref: EXP
   options: 0
   bulletD: 0
   meleD: 0
   bulletSpeed: 0
   moveSped: 0
+  robotin: {fileID: 0}
+  sMaxExperience: MaxExperience
+  sBulletD: BD
+  fBulletD: 0
+  sBulletSpeed: BulletSpeed
+  fBulletSpeed: 0
+  sLaserSpeed: LaserSpeed
+  fLaserSpeed: 0
+  sBulletAlcanec: BulletAlcance
+  fBulletAlcance: 0
+  sLaserAlcance: LaserAlcance
+  fLaserAlcance: 0
+  sSwordD: SD
+  fSwordD: 0
+  SLaserD: LD
+  fLaserD: 0
+  sLifeEnergy: LE
+  fLifeEnergy: 0
+  sSpeedProta: SpeedProta
+  fSpeedProta: 0
+  sRegenerationLife: ReLife
+  fReLife: 0
+  roboLife: RoboLife
+  fRoboLi: 0
+  sLessDash: LessDash
+  fLessDa: 0
 --- !u!1001 &1567489428366319427
 PrefabInstance:
   m_ObjectHideFlags: 0

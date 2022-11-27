@@ -17,7 +17,6 @@ public class Left : MonoBehaviour
 
             if (count == 1)
             {
-                Debug.Log("Left");
                 dialogue.gText.SetActive(true);
                 dialogue.l.Stop();
                 //dialogue.audioclip[0].SetActive(false);

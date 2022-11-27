@@ -19,7 +19,6 @@ public class Right : MonoBehaviour
             if (count == 1)
             {
                 Destroy(raycast);
-                Debug.Log("Right");
                 dialogue.r.enabled = false;
                 dialogue.gText.SetActive(true);
                 dialogue.text.text = dialogue.dialogues[5];

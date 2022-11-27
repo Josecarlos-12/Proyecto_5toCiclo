@@ -36,6 +36,7 @@ public class ActiveHabilities : MonoBehaviour
             jump.maxJumpCount = 1;
             jump.jumpTwo = false;
             jump.jumpOne = true;
+            dash.canDash = false;
         }
     }
 

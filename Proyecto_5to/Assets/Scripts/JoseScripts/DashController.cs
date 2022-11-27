@@ -64,7 +64,7 @@ public class DashController : MonoBehaviour
             if (canDash)
         {
             
-            if (Input.GetKeyDown(kDash) && !isDashing && !energy.use && Input.GetAxis("Vertical") != 0)
+            /*if (Input.GetKeyDown(kDash) && !isDashing && !energy.use && Input.GetAxis("Vertical") != 0)
             {                
                 if (energy.energy > 150)
                 {
@@ -83,9 +83,34 @@ public class DashController : MonoBehaviour
                     StartCoroutine(Dash());
                     energy.ReductionEnergyDash();
                 }
+            }*/
+        }
+
+        if (canDash)
+        {
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !energy.use && Input.GetAxis("Vertical") != 0)
+            {                
+                if (energy.energy > 150)
+                {
+                    StartCoroutine(Dash());
+                    dashAudio.Play();
+                    bvin = true;
+                    energy.ReductionEnergyDash();                                                                            
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.LeftShift)&& !energy.use && Input.GetAxis("Horizontal") != 0)
+            {
+                if (energy.energy > 150)
+                {
+                    StartCoroutine(Dash());
+                    dashAudio.Play();
+                    bvin = true;
+                    energy.ReductionEnergyDash();
+                }
             }
         }
-        
+
     }
 
     private void FixedUpdate()
