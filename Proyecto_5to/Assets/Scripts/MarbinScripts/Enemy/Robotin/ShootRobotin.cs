@@ -17,7 +17,10 @@ public class ShootRobotin : MonoBehaviour
     public float bulletVelocity;
 
     public bool canShoot;
-    
+
+    [Header("Sonido Robotin")]
+    public AudioSource audi;
+    public RobotinIAMove deathR;
 
     private void Start()
     {
@@ -25,6 +28,7 @@ public class ShootRobotin : MonoBehaviour
     }
     private void Update()
     {
+        if(!deathR.bDeath)
         Point();
     }
 
@@ -52,7 +56,7 @@ public class ShootRobotin : MonoBehaviour
                 Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
                 bulletTemporal.GetComponent<Rigidbody>().AddForce(playerDirection * bulletVelocity, ForceMode.Force);
                 Destroy(bulletTemporal, 4);
-
+                audi.Play();
             }
         }        
     }

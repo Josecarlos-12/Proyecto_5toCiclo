@@ -17,6 +17,8 @@ public class FlyingPatrol : MonoBehaviour
 
     public Transform robot;
 
+    public Enemy ri;
+
     public enum Walk
     {
         Walking,
@@ -52,23 +54,27 @@ public class FlyingPatrol : MonoBehaviour
 
     void MovePlatform()
     {
-        if (moveToTheNext)
+        if (!ri.bDeath)
         {
-            StopCoroutine(WaitForMove(0));
-            platformRB.MovePosition(Vector3.MoveTowards(platformRB.position, platformPosition[nextPosition].position, platformSpeed * Time.deltaTime));
-        }
-
-        if(Vector3.Distance(platformRB.position, platformPosition[nextPosition].position)<=0)
-        {
-            StartCoroutine(WaitForMove(waitTime));
-            actualPosition= nextPosition;
-            nextPosition++;
-
-            if(nextPosition>platformPosition.Length-1)
+            if (moveToTheNext)
             {
-                nextPosition=0;
+                StopCoroutine(WaitForMove(0));
+                platformRB.MovePosition(Vector3.MoveTowards(platformRB.position, platformPosition[nextPosition].position, platformSpeed * Time.deltaTime));
+            }
+
+            if (Vector3.Distance(platformRB.position, platformPosition[nextPosition].position) <= 0)
+            {
+                StartCoroutine(WaitForMove(waitTime));
+                actualPosition = nextPosition;
+                nextPosition++;
+
+                if (nextPosition > platformPosition.Length - 1)
+                {
+                    nextPosition = 0;
+                }
             }
         }
+        
     }
 
     IEnumerator WaitForMove(float time)
