@@ -38,7 +38,7 @@ public class FlyingPatrol : MonoBehaviour
             case Walk.Walking:
                 MovePlatform();
                 break;
-                case Walk.Rotation:
+            case Walk.Rotation:
                 Rotation();
                 break;
         }
