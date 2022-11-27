@@ -489,7 +489,7 @@ MonoBehaviour:
   volume: {fileID: 0}
   vi: {fileID: 0}
   bvin: 0
-  intensity: 0.2
+  intensity: 0.4
   dashAudio: {fileID: 888039505135825222}
   kDash: 304
 --- !u!114 &888039505135825217
@@ -534,7 +534,7 @@ MonoBehaviour:
   use: 0
   recoverEnergy: 0
   timer: 0
-  maxTimer: 1
+  maxTimer: 0.7
   image: {fileID: 0}
   lessDash: 150
 --- !u!114 &888039505135825219
@@ -1526,6 +1526,10 @@ MonoBehaviour:
   bulletSpeed: 0
   moveSped: 0
   robotin: {fileID: 2524756910690887519, guid: 89b63dc096a186b4abd8ac05be6799b2, type: 3}
+  boss: {fileID: 2524756910690887519, guid: 9e07909a9de59e442b24feb134712abf, type: 3}
+  pena: {fileID: 2524756910690887519, guid: f69b825188765ec4b88a16c38d1f29ea, type: 3}
+  larry: {fileID: 2524756910690887519, guid: f3db98e1dc5a76240a3a0df4e6e6b79e, type: 3}
+  boss2: {fileID: 2524756910690887519, guid: d21bd2d797e063c408f595af23d3f600, type: 3}
   sMaxExperience: MaxExperience
   sBulletD: BD
   fBulletD: 0

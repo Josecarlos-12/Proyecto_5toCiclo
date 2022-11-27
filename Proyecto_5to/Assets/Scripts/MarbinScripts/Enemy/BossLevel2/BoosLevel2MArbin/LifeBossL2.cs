@@ -42,6 +42,11 @@ public class LifeBossL2 : MonoBehaviour
     public Material liTP, tpNormal;
     public Collider next;
     public GameObject cam2;
+
+    [Header("Experience")]
+    public GameObject exp;
+    public Transform[] pos;
+
     private void Start()
     {
         anim.enabled = false;
@@ -297,6 +302,11 @@ public class LifeBossL2 : MonoBehaviour
         if (HP <= 0)
         {
             Destroy(gameObject);
+            Instantiate(exp, transform.position, Quaternion.identity);
+            Instantiate(exp, pos[0].position, Quaternion.identity);
+            Instantiate(exp, pos[1].position, Quaternion.identity);
+            Instantiate(exp, pos[2].position, Quaternion.identity);
+            Instantiate(exp, pos[3].position, Quaternion.identity);
         }
     }
 

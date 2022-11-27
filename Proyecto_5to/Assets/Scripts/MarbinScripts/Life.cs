@@ -130,7 +130,7 @@ public class Life : MonoBehaviour
 
                 //rb.AddForce(Vector3.forward * 5, ForceMode.Impulse);
                 //rb.AddForce(Vector3.up, ForceMode.Impulse);               
-                life -= 25;
+                life -= 50;
                 //StartCoroutine("LarryFalse");
             }
             if (other.gameObject.CompareTag("SwordBoss"))

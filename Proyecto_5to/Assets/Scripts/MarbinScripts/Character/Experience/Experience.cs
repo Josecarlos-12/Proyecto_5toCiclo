@@ -42,7 +42,7 @@ public class Experience : MonoBehaviour
     public float moveSped;
 
     [Header("Enemigo")]
-    public ExperienceFollow robotin;
+    public ExperienceFollow robotin, boss, pena, larry, boss2;
 
     [Header("Guardar Datos")]
     public string sMaxExperience = "MaxExperience";
@@ -86,7 +86,7 @@ public class Experience : MonoBehaviour
 
     private void Awake()
     {
-       LoadData();
+       //LoadData();
     }
 
     void Start()
@@ -152,6 +152,10 @@ public class Experience : MonoBehaviour
             //Tipos de disparo
             weapon.typeBullet = false;
             weapon.bDoubleBullet = false;
+            //Alcance
+            laser.destructtion = 0.5f;
+            bullet.destructtion = 0.5f;
+
         }
     }
 
@@ -170,6 +174,57 @@ public class Experience : MonoBehaviour
                 StartCoroutine(Experi());
             }
         }
+        if (other.gameObject.CompareTag("ExperienceBoss"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += boss.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        if (other.gameObject.CompareTag("ExperiencePena"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += pena.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        if (other.gameObject.CompareTag("ExperienceLarry"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += larry.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        if (other.gameObject.CompareTag("ExperiecieBoss2"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += boss2.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        
+
+
     }
 
     public IEnumerator Experi()
@@ -347,8 +402,8 @@ public class Experience : MonoBehaviour
     #region Option3
     public void Alcance()
     {
-        bullet.destructtion = fBulletAlcance;
-        laser.destructtion = fLaserAlcance;
+        fBulletAlcance = bullet.destructtion + 0.8f;
+        fLaserAlcance= laser.destructtion + 0.8f;
         maxExperience = 1850;
         OculMouse();
         level3.SetActive(false);
@@ -630,7 +685,7 @@ public class Experience : MonoBehaviour
         if (PlayerPrefs.GetFloat("OPTION3") == 1)
         {
             bullet.destructtion = fBulletAlcance;
-            //laser.destructtion = fLaserAlcance;            
+            laser.destructtion = fLaserAlcance;            
         }
         if (PlayerPrefs.GetFloat("OPTION3") == 2)
         {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 683.79846, g: 686.2214, b: 821.39526, a: 1}
+  m_IndirectSpecularColor: {r: 698.60986, g: 706.19476, b: 860.2551, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -826,6 +826,7 @@ MonoBehaviour:
   weaponB: {fileID: 0}
   cameraView: {fileID: 0}
   shieldActive: {fileID: 0}
+  text: {fileID: 0}
   interactions: 0
 --- !u!1 &19555941
 GameObject:
@@ -2130,6 +2131,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!65 &68329995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2353,6 +2359,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!65 &69429617
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5167,6 +5178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 30
   capaDelJugador:
     serializedVersion: 2
@@ -5178,6 +5190,10 @@ MonoBehaviour:
   timeShoot: 0.5
   initialShoot: 0
   Life: 150
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &155006470
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5296,7 +5312,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -8104,17 +8120,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energy: 100
   energyMax: 100
-  lessEnergy: 0
-  shoot: 0
-  laser: 0
-  dash: 0
   jump: 0
-  weapon: {fileID: 1377457500}
   use: 0
   recoverEnergy: 0
-  count: 0
   timer: 0
+  maxTimer: 1
   image: {fileID: 1945813954}
+  lessDash: 150
 --- !u!114 &255167181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8127,6 +8139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c490d01e5b6f6a640a82d52774ee29b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fReLife: 30
   life: 3
   maxLife: 3
   color: {r: 0.6415094, g: 0.20980178, b: 0.20980178, a: 1}
@@ -8134,11 +8147,16 @@ MonoBehaviour:
   white: {fileID: 0}
   randonColor: {r: 0, g: 0, b: 0, a: 0}
   recover: 3
-  prota: {fileID: 1410183024}
   player: {fileID: 0}
   image: {fileID: 1832420272}
   recorProta: 0
+  rb: {fileID: 0}
+  move: {fileID: 0}
   intan: 0
+  over: {fileID: 0}
+  regeneration: 0
+  time: 0
+  maxTime: 0
 --- !u!136 &255167182
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8177,6 +8195,7 @@ MonoBehaviour:
   - {fileID: 385628560}
   - {fileID: 1775012875}
   lastCheckPoint: {fileID: 0}
+  ener: {fileID: 0}
 --- !u!1 &262464348
 GameObject:
   m_ObjectHideFlags: 0
@@ -10211,14 +10230,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6e5661f62e92e41a464d16e4720fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audi: {fileID: 0}
   shoot: {fileID: 68329993}
   shootOne: {fileID: 0}
   shootThre: {fileID: 0}
   laders: {fileID: 227866011}
+  prota: {fileID: 0}
+  cameraMain: {fileID: 0}
   robots:
   - {fileID: 291339929}
   objects: {fileID: 0}
   on: {fileID: 308516191}
+  count: 0
+  textMesh: {fileID: 0}
+  sText: []
+  text: {fileID: 0}
+  time: []
   shootDecition: 1
 --- !u!4 &308516192
 Transform:
@@ -18737,6 +18764,7 @@ MonoBehaviour:
   weaponB: {fileID: 0}
   cameraView: {fileID: 0}
   shieldActive: {fileID: 0}
+  text: {fileID: 0}
   interactions: 1
 --- !u!65 &658874203
 BoxCollider:
@@ -18954,6 +18982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 30
   capaDelJugador:
     serializedVersion: 2
@@ -18965,6 +18994,10 @@ MonoBehaviour:
   timeShoot: 0.5
   initialShoot: 0
   Life: 150
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &665896178
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19422,6 +19455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 25.34
   capaDelJugador:
     serializedVersion: 2
@@ -19433,6 +19467,10 @@ MonoBehaviour:
   timeShoot: 2
   initialShoot: 0
   Life: 10
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &695107895
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22249,18 +22287,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 810792996}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 0}
-  bulletSlow: {fileID: 2488966308136632740, guid: aa0ba8b66ac2b434e8d387766f0f117a,
-    type: 3}
-  interactions: {fileID: 1773617373}
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 891644663}
   shield: {fileID: 1796949082}
+  exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
+  shootAudio: {fileID: 0}
 --- !u!4 &810792998
 Transform:
   m_ObjectHideFlags: 0
@@ -22565,6 +22606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 30
   capaDelJugador:
     serializedVersion: 2
@@ -22576,6 +22618,10 @@ MonoBehaviour:
   timeShoot: 0.5
   initialShoot: 0
   Life: 150
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &825683325
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23103,6 +23149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 10.21
   capaDelJugador:
     serializedVersion: 2
@@ -23114,6 +23161,10 @@ MonoBehaviour:
   timeShoot: 0.6
   initialShoot: 0
   Life: 15
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &852453432
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23962,6 +24013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c490d01e5b6f6a640a82d52774ee29b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fReLife: 30
   life: 3
   maxLife: 3
   color: {r: 0.6415094, g: 0.20980178, b: 0.20980178, a: 1}
@@ -23969,11 +24021,16 @@ MonoBehaviour:
   white: {fileID: 0}
   randonColor: {r: 0, g: 0, b: 0, a: 0}
   recover: 3
-  prota: {fileID: 1796949077}
   player: {fileID: 0}
   image: {fileID: 1832420272}
   recorProta: 0
+  rb: {fileID: 0}
+  move: {fileID: 0}
   intan: 0
+  over: {fileID: 0}
+  regeneration: 0
+  time: 0
+  maxTime: 0
 --- !u!114 &891644662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23991,6 +24048,7 @@ MonoBehaviour:
   floor: {fileID: 0}
   next: []
   lastCheckPoint: {fileID: 0}
+  ener: {fileID: 0}
 --- !u!114 &891644663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24005,17 +24063,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energy: 100
   energyMax: 100
-  lessEnergy: 0
-  shoot: 0
-  laser: 0
-  dash: 0
   jump: 0
-  weapon: {fileID: 1980049978}
   use: 0
   recoverEnergy: 0
-  count: 0
   timer: 0
+  maxTimer: 1
   image: {fileID: 1945813954}
+  lessDash: 150
 --- !u!136 &891644664
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24293,6 +24347,7 @@ MonoBehaviour:
   weaponB: {fileID: 0}
   cameraView: {fileID: 0}
   shieldActive: {fileID: 1410183034}
+  text: {fileID: 0}
   interactions: 6
 --- !u!1 &901252033
 GameObject:
@@ -24593,15 +24648,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6e5661f62e92e41a464d16e4720fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audi: {fileID: 0}
   shoot: {fileID: 1786328637}
   shootOne: {fileID: 1272354076}
   shootThre: {fileID: 0}
   laders: {fileID: 547141935}
+  prota: {fileID: 0}
+  cameraMain: {fileID: 0}
   robots:
   - {fileID: 825683320}
   - {fileID: 665896174}
   objects: {fileID: 915281721}
   on: {fileID: 915281723}
+  count: 0
+  textMesh: {fileID: 0}
+  sText: []
+  text: {fileID: 0}
+  time: []
   shootDecition: 1
 --- !u!1 &916085664
 GameObject:
@@ -29496,6 +29559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 10.21
   capaDelJugador:
     serializedVersion: 2
@@ -29507,6 +29571,10 @@ MonoBehaviour:
   timeShoot: 0.6
   initialShoot: 0
   Life: 15
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &1068232766
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30273,6 +30341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 8
   capaDelJugador:
     serializedVersion: 2
@@ -30284,6 +30353,10 @@ MonoBehaviour:
   timeShoot: 0.2
   initialShoot: 0
   Life: 100
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &1095389617
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32327,6 +32400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 10.21
   capaDelJugador:
     serializedVersion: 2
@@ -32338,6 +32412,10 @@ MonoBehaviour:
   timeShoot: 0.6
   initialShoot: 0
   Life: 15
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &1172145773
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34233,6 +34311,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!65 &1235491237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35337,6 +35420,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!1 &1276407597
 GameObject:
   m_ObjectHideFlags: 0
@@ -37747,18 +37835,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 1377457498}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 0}
-  bulletSlow: {fileID: 2488966308136632740, guid: aa0ba8b66ac2b434e8d387766f0f117a,
-    type: 3}
-  interactions: {fileID: 1773617373}
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 255167180}
   shield: {fileID: 1410183034}
+  exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
+  shootAudio: {fileID: 0}
 --- !u!23 &1377457502
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38332,6 +38423,7 @@ MonoBehaviour:
   agent: {fileID: 1392731108}
   destPoint: 0
   detecte: 0
+  detecteTacle: 0
   player: {fileID: 0}
   view: 0
   rb: {fileID: 0}
@@ -38339,6 +38431,16 @@ MonoBehaviour:
   charge: 0
   tackle: 0
   lifeProta: {fileID: 0}
+  canMove: 1
+  speedNormal: 0
+  speedSuper: 40
+  aceleration: 25
+  acelerationNormal: 8
+  bAnimTacle: 0
+  tacleOn: 0
+  force: 30
+  anim: {fileID: 0}
+  funtionAll: 0
 --- !u!114 &1392731110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38363,9 +38465,30 @@ MonoBehaviour:
   timeShoot: 7
   initialShoot: 2
   Life: 20
+  maxLife: 100
+  lifeBar: {fileID: 0}
   mini: {fileID: 0}
   point: 0
   robotines: {fileID: 0}
+  enemy: {fileID: 0}
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  cEnemy: {fileID: 0}
+  cameraEnemy: {fileID: 0}
+  textContainer: {fileID: 0}
+  text: {fileID: 0}
+  time: 0
+  onObje: {fileID: 0}
+  countEnemy: 0
+  anim: {fileID: 0}
+  mesh: {fileID: 0}
+  ex1: {fileID: 0}
+  ex2: {fileID: 0}
+  ex3: {fileID: 0}
+  ex4: {fileID: 0}
+  experiencia: {fileID: 0}
+  audi: {fileID: 0}
 --- !u!114 &1392731111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39006,9 +39129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ceedfc94be023428d94560fd57784f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor: {fileID: 0}
   jumpTwo: 0
-  canJump: 0
-  doubleCanJump: 0
   jumpHeight: 5.5
   grounded: 0
   maxJumpCount: 1
@@ -39020,6 +39142,9 @@ MonoBehaviour:
   intera: 0
   jumpsRemainingTwo: 1
   jumpOne: 0
+  jumpAudio: {fileID: 0}
+  kJP: 32
+  mass: 0
 --- !u!114 &1410183027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39032,20 +39157,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6500e0f20376c894fad73c03184183fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveNormal: 8
-  moveAim: 4
   move: 0
-  objects: 0
   speed: 8
   rb: {fileID: 0}
   head: {fileID: 0}
   crounch: 0
   jump: {fileID: 1410183026}
-  initialSpeed: 0
-  crawlSpeed: 0
-  crouchYScale: 0.7
-  canCrouch: 0
   movementVector: {x: 0, y: 0, z: 0}
+  prota: {fileID: 0}
 --- !u!54 &1410183029
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39167,6 +39286,10 @@ MonoBehaviour:
   Regeneration: 4
   useShield: 0
   timer: 0
+  shieldAudio: {fileID: 0}
+  shieldInitial: {r: 0, g: 0, b: 0, a: 0}
+  shieldImage: {fileID: 0}
+  kSh: 99
 --- !u!95 &1410183035
 Animator:
   serializedVersion: 4
@@ -39220,6 +39343,12 @@ MonoBehaviour:
   dashEffect: {fileID: 5968683736330681681, guid: 00549afdb97dd044b93075dd27979162,
     type: 3}
   energy: {fileID: 255167180}
+  volume: {fileID: 0}
+  vi: {fileID: 0}
+  bvin: 0
+  intensity: 0.2
+  dashAudio: {fileID: 0}
+  kDash: 304
 --- !u!114 &1410183038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41086,6 +41215,7 @@ MonoBehaviour:
   weaponB: {fileID: 0}
   cameraView: {fileID: 0}
   shieldActive: {fileID: 0}
+  text: {fileID: 0}
   interactions: 2
 --- !u!65 &1520238452
 BoxCollider:
@@ -43753,6 +43883,7 @@ MonoBehaviour:
   - {fileID: 385628560}
   - {fileID: 1775012875}
   lastCheckPoint: {fileID: 71443446}
+  ener: {fileID: 0}
 --- !u!136 &1663172196
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -46356,6 +46487,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  render: {fileID: 0}
+  renderTwo: {fileID: 0}
+  hellow: {fileID: 0}
+  red: {fileID: 0}
+  feedback: 0
 --- !u!1 &1789836671
 GameObject:
   m_ObjectHideFlags: 0
@@ -46400,14 +46536,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6e5661f62e92e41a464d16e4720fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audi: {fileID: 0}
   shoot: {fileID: 1235491235}
   shootOne: {fileID: 69429614}
   shootThre: {fileID: 0}
   laders: {fileID: 227866011}
+  prota: {fileID: 0}
+  cameraMain: {fileID: 0}
   robots:
   - {fileID: 291339929}
   objects: {fileID: 291339929}
   on: {fileID: 1789836673}
+  count: 0
+  textMesh: {fileID: 0}
+  sText: []
+  text: {fileID: 0}
+  time: []
   shootDecition: 2
 --- !u!1 &1796942998
 GameObject:
@@ -46501,6 +46645,12 @@ MonoBehaviour:
   dashEffect: {fileID: 5968683736330681681, guid: 00549afdb97dd044b93075dd27979162,
     type: 3}
   energy: {fileID: 891644663}
+  volume: {fileID: 0}
+  vi: {fileID: 0}
+  bvin: 0
+  intensity: 0.2
+  dashAudio: {fileID: 0}
+  kDash: 304
 --- !u!95 &1796949080
 Animator:
   serializedVersion: 4
@@ -46556,6 +46706,10 @@ MonoBehaviour:
   Regeneration: 4
   useShield: 0
   timer: 0
+  shieldAudio: {fileID: 0}
+  shieldInitial: {r: 0, g: 0, b: 0, a: 0}
+  shieldImage: {fileID: 0}
+  kSh: 99
 --- !u!114 &1796949083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46568,9 +46722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ceedfc94be023428d94560fd57784f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor: {fileID: 0}
   jumpTwo: 0
-  canJump: 0
-  doubleCanJump: 0
   jumpHeight: 5.5
   grounded: 0
   maxJumpCount: 1
@@ -46582,6 +46735,9 @@ MonoBehaviour:
   intera: 3
   jumpsRemainingTwo: 0
   jumpOne: 0
+  jumpAudio: {fileID: 0}
+  kJP: 32
+  mass: 0
 --- !u!114 &1796949084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46594,20 +46750,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6500e0f20376c894fad73c03184183fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveNormal: 8
-  moveAim: 4
   move: 0
-  objects: 0
   speed: 8
   rb: {fileID: 0}
   head: {fileID: 45768999}
   crounch: 0
   jump: {fileID: 1796949083}
-  initialSpeed: 0
-  crawlSpeed: 0
-  crouchYScale: 0.7
-  canCrouch: 0
   movementVector: {x: 0, y: 0, z: 0}
+  prota: {fileID: 0}
 --- !u!54 &1796949085
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -47017,18 +47167,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 1803694977}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 0}
-  bulletSlow: {fileID: 2488966308136632740, guid: aa0ba8b66ac2b434e8d387766f0f117a,
-    type: 3}
-  interactions: {fileID: 1773617373}
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 255167180}
   shield: {fileID: 1410183034}
+  exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
+  shootAudio: {fileID: 0}
 --- !u!1 &1806271647
 GameObject:
   m_ObjectHideFlags: 0
@@ -49169,9 +49322,30 @@ MonoBehaviour:
   timeShoot: 3
   initialShoot: 2
   Life: 50
+  maxLife: 100
+  lifeBar: {fileID: 0}
   mini: {fileID: 1882180865}
   point: 0
   robotines: {fileID: 1882180866}
+  enemy: {fileID: 0}
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  cEnemy: {fileID: 0}
+  cameraEnemy: {fileID: 0}
+  textContainer: {fileID: 0}
+  text: {fileID: 0}
+  time: 0
+  onObje: {fileID: 0}
+  countEnemy: 0
+  anim: {fileID: 0}
+  mesh: {fileID: 0}
+  ex1: {fileID: 0}
+  ex2: {fileID: 0}
+  ex3: {fileID: 0}
+  ex4: {fileID: 0}
+  experiencia: {fileID: 0}
+  audi: {fileID: 0}
 --- !u!54 &1882180860
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -49280,6 +49454,7 @@ MonoBehaviour:
   agent: {fileID: 1882180864}
   destPoint: 0
   detecte: 58.3
+  detecteTacle: 0
   player: {fileID: 779054359}
   view: 0
   rb: {fileID: 779054355}
@@ -49287,6 +49462,16 @@ MonoBehaviour:
   charge: 1
   tackle: 0
   lifeProta: {fileID: 1079288922}
+  canMove: 1
+  speedNormal: 0
+  speedSuper: 40
+  aceleration: 25
+  acelerationNormal: 8
+  bAnimTacle: 0
+  tacleOn: 0
+  force: 30
+  anim: {fileID: 0}
+  funtionAll: 0
 --- !u!114 &1882180866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50366,6 +50551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 30
   capaDelJugador:
     serializedVersion: 2
@@ -50377,6 +50563,10 @@ MonoBehaviour:
   timeShoot: 0.5
   initialShoot: 0
   Life: 150
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &1916155279
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -51195,6 +51385,7 @@ MonoBehaviour:
   weaponB: {fileID: 1803694979}
   cameraView: {fileID: 1916200334}
   shieldActive: {fileID: 0}
+  text: {fileID: 0}
   interactions: 5
 --- !u!1 &1944634482
 GameObject:
@@ -51972,18 +52163,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canShoot: 0
   initialBullet: {fileID: 1980049977}
+  initialBullet2: {fileID: 0}
   bulletFast: {fileID: 2488966308136632740, guid: 5f005c68d43fc5845a127101f5723945,
     type: 3}
   laserBullet: {fileID: 0}
-  bulletSlow: {fileID: 2488966308136632740, guid: aa0ba8b66ac2b434e8d387766f0f117a,
-    type: 3}
-  interactions: {fileID: 1773617373}
   timeShoot: 0.2
   initialShoot: 0
   energy: {fileID: 891644663}
   shield: {fileID: 1796949082}
+  exp: {fileID: 0}
+  bDoubleBullet: 0
+  time: 0
+  maxTime: 0
   chageBullet: 0
   typeBullet: 0
+  shootAudio: {fileID: 0}
 --- !u!65 &1980049979
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52837,6 +53031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b33db63034d9408487dfcea959de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  render: {fileID: 0}
   AlertRange: 25.34
   capaDelJugador:
     serializedVersion: 2
@@ -52848,6 +53043,10 @@ MonoBehaviour:
   timeShoot: 2
   initialShoot: 0
   Life: 10
+  sword: {fileID: 0}
+  bullet: {fileID: 0}
+  laser: {fileID: 0}
+  experience: {fileID: 0}
 --- !u!136 &2005103498
 CapsuleCollider:
   m_ObjectHideFlags: 0

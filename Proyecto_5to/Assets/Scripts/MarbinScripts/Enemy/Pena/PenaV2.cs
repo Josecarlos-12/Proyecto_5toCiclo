@@ -34,6 +34,9 @@ public class PenaV2 : MonoBehaviour
     public Renderer render;
     public GameObject allContainer;
 
+    [Header("Experience")]
+    public GameObject exp;
+
 
     //public LessLifeProta lessLife;
     private void Start()
@@ -66,6 +69,8 @@ public class PenaV2 : MonoBehaviour
         if (life <= 0)
         {
             Destroy(allContainer);
+            Instantiate(exp, new Vector3(transform.position.x+2, transform.position.y, transform.position.z), Quaternion.identity);
+            Instantiate(exp, new Vector3(transform.position.x-2, transform.position.y, transform.position.z), Quaternion.identity);
         }
     }
 
