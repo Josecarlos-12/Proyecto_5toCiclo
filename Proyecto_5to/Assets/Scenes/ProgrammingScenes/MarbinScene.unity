@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2161.1768, g: 2267.791, b: 3299.246, a: 1}
+  m_IndirectSpecularColor: {r: 2166.42, g: 2276.8867, b: 3322.7305, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1762,6 +1762,14 @@ MonoBehaviour:
   bullet: {fileID: 0}
   laser: {fileID: 0}
   experience: {fileID: 0}
+  deathAudi: {fileID: 0}
+  countMusic: 0
+  countDetec: 0
+  audi: {fileID: 0}
+  damage: {fileID: 0}
+  ADetec: {fileID: 0}
+  rb: {fileID: 0}
+  bDeath: 0
 --- !u!136 &134064300
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3128,6 +3136,14 @@ MonoBehaviour:
   bullet: {fileID: 0}
   laser: {fileID: 0}
   experience: {fileID: 0}
+  deathAudi: {fileID: 0}
+  countMusic: 0
+  countDetec: 0
+  audi: {fileID: 0}
+  damage: {fileID: 0}
+  ADetec: {fileID: 0}
+  rb: {fileID: 0}
+  bDeath: 0
 --- !u!136 &249154504
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8806,6 +8822,7 @@ MonoBehaviour:
   jumpOne: 0
   jumpAudio: {fileID: 0}
   kJP: 32
+  mass: 0
 --- !u!114 &609473869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10125,6 +10142,7 @@ MonoBehaviour:
   moveToTheNext: 1
   waitTime: 0
   robot: {fileID: 0}
+  ri: {fileID: 0}
   walk: 0
 --- !u!114 &751977109
 MonoBehaviour:
@@ -10154,6 +10172,14 @@ MonoBehaviour:
   bullet: {fileID: 0}
   laser: {fileID: 0}
   experience: {fileID: 0}
+  deathAudi: {fileID: 0}
+  countMusic: 0
+  countDetec: 0
+  audi: {fileID: 0}
+  damage: {fileID: 0}
+  ADetec: {fileID: 0}
+  rb: {fileID: 0}
+  bDeath: 0
 --- !u!136 &751977110
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10943,6 +10969,14 @@ MonoBehaviour:
   bullet: {fileID: 0}
   laser: {fileID: 0}
   experience: {fileID: 0}
+  deathAudi: {fileID: 0}
+  countMusic: 0
+  countDetec: 0
+  audi: {fileID: 0}
+  damage: {fileID: 0}
+  ADetec: {fileID: 0}
+  rb: {fileID: 0}
+  bDeath: 0
 --- !u!136 &823436349
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16398,6 +16432,14 @@ MonoBehaviour:
   bullet: {fileID: 0}
   laser: {fileID: 0}
   experience: {fileID: 0}
+  deathAudi: {fileID: 0}
+  countMusic: 0
+  countDetec: 0
+  audi: {fileID: 0}
+  damage: {fileID: 0}
+  ADetec: {fileID: 0}
+  rb: {fileID: 0}
+  bDeath: 0
 --- !u!136 &1247131606
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19964,7 +20006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1587549491
 Transform:
   m_ObjectHideFlags: 0
@@ -20467,6 +20509,14 @@ MonoBehaviour:
   bullet: {fileID: 0}
   laser: {fileID: 0}
   experience: {fileID: 0}
+  deathAudi: {fileID: 0}
+  countMusic: 0
+  countDetec: 0
+  audi: {fileID: 0}
+  damage: {fileID: 0}
+  ADetec: {fileID: 0}
+  rb: {fileID: 0}
+  bDeath: 0
 --- !u!136 &1651134892
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24419,6 +24469,7 @@ MonoBehaviour:
   jumpOne: 0
   jumpAudio: {fileID: 0}
   kJP: 32
+  mass: 0
 --- !u!114 &1916263538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25765,6 +25816,7 @@ MonoBehaviour:
   jumpOne: 0
   jumpAudio: {fileID: 0}
   kJP: 32
+  mass: 0
 --- !u!4 &2004489791
 Transform:
   m_ObjectHideFlags: 0
@@ -27817,6 +27869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ConteinerPena
+      objectReference: {fileID: 0}
+    - target: {fileID: 712173382611562693, guid: 3e4bdeb59429833448bbdbaa7d8173d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 712173382895096157, guid: 3e4bdeb59429833448bbdbaa7d8173d9,
         type: 3}

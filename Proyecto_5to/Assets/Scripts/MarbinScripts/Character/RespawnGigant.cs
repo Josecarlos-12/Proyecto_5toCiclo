@@ -112,7 +112,12 @@ public class RespawnGigant : MonoBehaviour
             Debug.Log("Paso");
             SceneManager.LoadScene("LobbyScene3");
         }
-        
+        if (other.gameObject.name == "LevelThreeBoss")
+        {
+            Debug.Log("Paso");
+            SceneManager.LoadScene("LevelBossFinal");
+        }
+
         #endregion
 
         #region Respawn
