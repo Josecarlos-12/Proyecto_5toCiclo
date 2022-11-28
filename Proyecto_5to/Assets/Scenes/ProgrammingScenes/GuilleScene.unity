@@ -427,7 +427,9 @@ MonoBehaviour:
   moveToTheNext: 1
   waitTime: 0
   robot: {fileID: 0}
-  walk: 0
+  ri: {fileID: 0}
+  ri2: {fileID: 0}
+  walk: 1
 --- !u!136 &206243267
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1669,6 +1671,14 @@ MonoBehaviour:
   bullet: {fileID: 0}
   laser: {fileID: 0}
   experience: {fileID: 0}
+  deathAudi: {fileID: 0}
+  countMusic: 0
+  countDetec: 0
+  audi: {fileID: 0}
+  damage: {fileID: 0}
+  ADetec: {fileID: 0}
+  rb: {fileID: 0}
+  bDeath: 0
 --- !u!136 &933792092
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1792,6 +1802,8 @@ MonoBehaviour:
   moveToTheNext: 1
   waitTime: 0
   robot: {fileID: 0}
+  ri: {fileID: 0}
+  ri2: {fileID: 0}
   walk: 0
 --- !u!1 &957546594
 GameObject:
@@ -3729,6 +3741,8 @@ MonoBehaviour:
   moveToTheNext: 1
   waitTime: 0
   robot: {fileID: 0}
+  ri: {fileID: 0}
+  ri2: {fileID: 0}
   walk: 0
 --- !u!114 &2016927433
 MonoBehaviour:
@@ -3798,6 +3812,8 @@ MonoBehaviour:
   ex4: {fileID: 0}
   experiencia: {fileID: 0}
   audi: {fileID: 0}
+  aShoot: {fileID: 0}
+  embestida: {fileID: 0}
 --- !u!1 &2035125865
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class Experience : MonoBehaviour
     public float moveSped;
 
     [Header("Enemigo")]
-    public ExperienceFollow robotin, boss, pena, larry, boss2;
+    public ExperienceFollow robotin, boss, pena, larry, boss2, panico;
 
     [Header("Guardar Datos")]
     public string sMaxExperience = "MaxExperience";
@@ -222,7 +222,18 @@ public class Experience : MonoBehaviour
                 StartCoroutine(Experi());
             }
         }
-        
+        if (other.gameObject.CompareTag("ExperiencePanico"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += panico.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
 
 
     }

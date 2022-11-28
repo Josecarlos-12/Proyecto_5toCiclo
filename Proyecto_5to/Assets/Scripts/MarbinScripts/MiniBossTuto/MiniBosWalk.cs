@@ -33,6 +33,10 @@ public class MiniBosWalk : MonoBehaviour
 
     public bool funtionAll;
 
+
+  
+
+
     void Start()
     {
     }
@@ -89,10 +93,13 @@ public class MiniBosWalk : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         agent.speed = speedSuper;
         agent.acceleration = aceleration;
+       
         yield return new WaitForSeconds(0.9f);
         anim.SetBool("Tacle", false);
         
     }
+
+   
 
     public void GotoNextPoint()
     {

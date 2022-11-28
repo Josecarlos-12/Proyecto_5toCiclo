@@ -18,6 +18,7 @@ public class FlyingPatrol : MonoBehaviour
     public Transform robot;
 
     public Enemy ri;
+    public Enemy3 ri2;
 
     public enum Walk
     {
@@ -49,7 +50,23 @@ public class FlyingPatrol : MonoBehaviour
 
     void Rotation()
     {
-        robot.Rotate(0, platformSpeed*Time.deltaTime, 0);
+        if (moveToTheNext)
+        {
+            StopCoroutine(WaitForMove(0));
+            platformRB.MovePosition(Vector3.MoveTowards(platformRB.position, platformPosition[nextPosition].position, platformSpeed * Time.deltaTime));
+        }
+
+        if (Vector3.Distance(platformRB.position, platformPosition[nextPosition].position) <= 0)
+        {
+            StartCoroutine(WaitForMove(waitTime));
+            actualPosition = nextPosition;
+            nextPosition++;
+
+            if (nextPosition > platformPosition.Length - 1)
+            {
+                nextPosition = 0;
+            }
+        }
     }
 
     void MovePlatform()
