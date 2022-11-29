@@ -12,6 +12,10 @@ public class BrittlePlatform : MonoBehaviour
 
     public Animator anim;
 
+    [Header("Sonido")]
+    public AudioSource audi;
+    public int count;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,6 +28,14 @@ public class BrittlePlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (count < 3)
+                count++;
+
+            if (count == 1)
+            {
+                audi.Play();
+            }
+
             Debug.Log("contacto");
             StartCoroutine(Waiting());
             anim.SetBool("Shake", true);
@@ -42,6 +54,7 @@ public class BrittlePlatform : MonoBehaviour
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawntime);
+        count = 0;
         transform.position = start;
         //rb.velocity = Vector3.zero;
         rb.isKinematic = true;
