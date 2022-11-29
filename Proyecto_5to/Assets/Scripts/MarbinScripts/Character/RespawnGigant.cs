@@ -17,6 +17,7 @@ public class RespawnGigant : MonoBehaviour
     public Energy ener;
     private void Update()
     {
+        NextLevelNumbers();
         Inputs();
     }
 
@@ -183,6 +184,32 @@ public class RespawnGigant : MonoBehaviour
         {
             prota.position = new Vector3(next[6].position.x, next[6].position.y + 3, next[6].position.z);
             prota.rotation = next[6].rotation;
+        }
+    }
+
+
+
+    public void NextLevelNumbers()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene("TestingSceneNivel1");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene("LobbyScene");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene("Level2V2");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SceneManager.LoadScene("LobbyScene2");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SceneManager.LoadScene("LevelBossFinal");
         }
     }
 }

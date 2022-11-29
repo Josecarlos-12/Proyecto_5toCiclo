@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 690.1449, g: 694.9519, b: 838.3507, a: 1}
+  m_IndirectSpecularColor: {r: 691.57556, g: 696.91364, b: 842.38464, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5717,6 +5717,11 @@ PrefabInstance:
     - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: moveCamera
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8828230924321630275, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: canExplotion
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -21204,7 +21209,11 @@ PrefabInstance:
       value: roboton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7efe4dbb21607234a849d4188a09b07b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1185306544}
   m_SourcePrefab: {fileID: 100100000, guid: 7efe4dbb21607234a849d4188a09b07b, type: 3}
 --- !u!4 &995031637 stripped
 Transform:
@@ -21605,6 +21614,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &995031649
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340145505}
+  m_Material: {fileID: 13400000, guid: c04cd928f6d736c40981bd3155cd8add, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.98
+  m_Center: {x: 0.000022888184, y: 0, z: 0.00024414062}
 --- !u!1001 &1003413143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26679,18 +26701,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185306543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 378.97144}
-  m_LocalScale: {x: 0.15282667, y: 0.15282668, z: 0.15282667}
+  m_LocalPosition: {x: 0, y: 0, z: 2480.2117}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2136650125}
   - {fileID: 881314720}
-  m_Father: {fileID: 1595167700}
+  m_Father: {fileID: 995031637}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 136.0626, y: 4.973886}
+  m_AnchoredPosition: {x: 890.3301, y: 33.109997}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185306545
@@ -35643,7 +35665,6 @@ Transform:
   - {fileID: 952865227}
   - {fileID: 1749611918}
   - {fileID: 1233043901}
-  - {fileID: 1185306544}
   - {fileID: 656464115}
   - {fileID: 1262946064}
   - {fileID: 1674427466}

@@ -86,7 +86,7 @@ public class Experience : MonoBehaviour
 
     private void Awake()
     {
-       //LoadData();
+       LoadData();
     }
 
     void Start()
@@ -99,7 +99,7 @@ public class Experience : MonoBehaviour
         //PlayerPrefs.SetFloat("OPTION3", 0);
         //PlayerPrefs.SetFloat("OPTION4", 0);
 
-       // ObjecExperience.SetActive(false);
+        // ObjecExperience.SetActive(false);
         //imageExperience.enabled = false;
     }
 
@@ -129,7 +129,7 @@ public class Experience : MonoBehaviour
             PlayerPrefs.SetFloat("OPTION3", 0);
             PlayerPrefs.SetFloat("OPTION4", 0);
             //Onda Explosiva
-            waveProta.canExplotion = false;
+            waveProta.expExplotion = false;
             //Robar Vida con cuchillo
             sworPunch.stealLife = false;
             sworPunch.choro = 25;
@@ -332,6 +332,44 @@ public class Experience : MonoBehaviour
                 PlayerPrefs.SetFloat("OP1", 4);
                 StopOculMose();
                 level4.SetActive(true);
+            }
+        }
+
+        if (experience >= 2200 && PlayerPrefs.GetFloat("OP1") == 4)
+        {
+            if (count5 < 3)
+                count5++;
+
+            if (count5 == 1)
+            {
+                PlayerPrefs.SetFloat("OP1", 5);
+                StopOculMose();
+                level5.SetActive(true);
+            }
+        }
+
+        if (experience >= 2650 && PlayerPrefs.GetFloat("OP1") == 5)
+        {
+            if (count6 < 3)
+                count6++;
+
+            if (count6 == 1)
+            {
+                PlayerPrefs.SetFloat("OP1", 6);
+                StopOculMose();
+                level6.SetActive(true);
+            }
+        }
+        if (experience >= 3100 && PlayerPrefs.GetFloat("OP1") == 6)
+        {
+            if (count7 < 3)
+                count7++;
+
+            if (count7 == 1)
+            {
+                PlayerPrefs.SetFloat("OP1", 7);
+                StopOculMose();
+                level7.SetActive(true);
             }
         }
     }
@@ -719,7 +757,7 @@ public class Experience : MonoBehaviour
         }
         if (PlayerPrefs.GetFloat("OPTION4") == 3)
         {
-            waveProta.canExplotion = true;
+            waveProta.expExplotion = true;
         }
 
 

@@ -4130,8 +4130,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.8290799, y: 1, z: 1}
-  m_Center: {x: 0.15252265, y: 0, z: -4.085049e-11}
+  m_Size: {x: 2.6297677, y: 1, z: 1}
+  m_Center: {x: -0.24782084, y: 0, z: -0.0000000017115707}
 --- !u!23 &640087790
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11472,12 +11472,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 138e25522feeb8940a92957a719b06b2, type: 2}
+      objectReference: {fileID: 2100000, guid: 8258bad8853b9154ea39118762398292, type: 2}
     - target: {fileID: -982065328737844710, guid: ae2c32fea5bbc0a4caa60477d0001c75,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 138e25522feeb8940a92957a719b06b2, type: 2}
+      objectReference: {fileID: 2100000, guid: 8258bad8853b9154ea39118762398292, type: 2}
     - target: {fileID: 514502122034307575, guid: ae2c32fea5bbc0a4caa60477d0001c75,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11492,7 +11492,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 138e25522feeb8940a92957a719b06b2, type: 2}
+      objectReference: {fileID: 2100000, guid: 8258bad8853b9154ea39118762398292, type: 2}
     - target: {fileID: 919132149155446097, guid: ae2c32fea5bbc0a4caa60477d0001c75,
         type: 3}
       propertyPath: m_Name
@@ -12942,6 +12942,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.211
       objectReference: {fileID: 0}
+    - target: {fileID: 888039505135825244, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 888039505135825246, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: shieldImage
@@ -13138,7 +13143,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1838960112}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470641536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6500e0f20376c894fad73c03184183fd, type: 3}
   m_Name: 
@@ -13194,6 +13199,38 @@ MonoBehaviour:
   isPaused: 0
   pauseMenuUI: {fileID: 1337164330}
   option: {fileID: 1838960113}
+--- !u!4 &1838960137 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 888039505135825239, guid: d6197c8b9a077c44b9a4494ad93b570a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838960112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1838960140 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 888039505135825243, guid: d6197c8b9a077c44b9a4494ad93b570a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838960112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1838960150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470641536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6500e0f20376c894fad73c03184183fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: 1
+  speed: 13
+  rb: {fileID: 1838960140}
+  head: {fileID: 0}
+  crounch: 0
+  jump: {fileID: 938277342}
+  movementVector: {x: 0, y: 0, z: 0}
+  prota: {fileID: 1838960137}
 --- !u!1 &1854893531
 GameObject:
   m_ObjectHideFlags: 0

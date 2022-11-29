@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1397.3037, g: 1055.726, b: 853.3158, a: 1}
+  m_IndirectSpecularColor: {r: 1412.521, g: 1071.2296, b: 873.6599, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -488,12 +488,6 @@ PrefabInstance:
 --- !u!4 &18081346 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d550f94ae5b430b4d83f89519a624409,
-    type: 3}
-  m_PrefabInstance: {fileID: 18081345}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &18081347 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4312310845079660775, guid: d550f94ae5b430b4d83f89519a624409,
     type: 3}
   m_PrefabInstance: {fileID: 18081345}
   m_PrefabAsset: {fileID: 0}
@@ -3266,6 +3260,7 @@ GameObject:
   - component: {fileID: 157207114}
   - component: {fileID: 157207113}
   - component: {fileID: 157207115}
+  - component: {fileID: 157207116}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -3472,6 +3467,20 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!114 &157207116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157207112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65221a0373190b941a110eacc9bc89ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  exp: {fileID: 406113868}
 --- !u!1 &171586786
 GameObject:
   m_ObjectHideFlags: 0
@@ -6591,12 +6600,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 378810620}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &378810622 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4312310845079660775, guid: d550f94ae5b430b4d83f89519a624409,
-    type: 3}
-  m_PrefabInstance: {fileID: 378810620}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &382047578
 GameObject:
   m_ObjectHideFlags: 0
@@ -7007,6 +7010,7 @@ GameObject:
   - component: {fileID: 417819336}
   - component: {fileID: 417819342}
   - component: {fileID: 417819343}
+  - component: {fileID: 417819344}
   m_Layer: 0
   m_Name: MiniBoss (6)
   m_TagString: Enemy
@@ -7022,7 +7026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417819334}
   m_LocalRotation: {x: -0.0009746416, y: 0.49396288, z: 0.000074215575, w: -0.86948246}
-  m_LocalPosition: {x: 3.200014, y: -21, z: 18.49999}
+  m_LocalPosition: {x: 3.200014, y: -19.8, z: 18.49999}
   m_LocalScale: {x: 1.0119946, y: 1.0119948, z: 1.0119945}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7045,7 +7049,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!23 &417819340
 MeshRenderer:
@@ -7109,7 +7113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12499a51038659244abadbca6e9626bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 18081347}
+  render: {fileID: 417819340}
   Life: 120
   sword: {fileID: 1025677883}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
@@ -7123,13 +7127,26 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417819334}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: c04cd928f6d736c40981bd3155cd8add, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6067200636698690116, guid: fca18fea2e2e5144b8d84b794743248e, type: 3}
+--- !u!135 &417819344
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417819334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9799325
+  m_Center: {x: 0.000061035156, y: -0.000030517578, z: -0.00000005960465}
 --- !u!1 &426664973 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5519313167757063113, guid: 1089938ecf732a74789ddae747e2364c,
@@ -9747,6 +9764,7 @@ GameObject:
   - component: {fileID: 583052355}
   - component: {fileID: 583052361}
   - component: {fileID: 583052362}
+  - component: {fileID: 583052363}
   m_Layer: 0
   m_Name: MiniBoss (5)
   m_TagString: Enemy
@@ -9762,7 +9780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583052353}
   m_LocalRotation: {x: -0.0009748171, y: 0.92403334, z: 0.00007187723, w: -0.38231057}
-  m_LocalPosition: {x: -4.299923, y: -21.200012, z: 26.799923}
+  m_LocalPosition: {x: -4.299923, y: -20, z: 26.799923}
   m_LocalScale: {x: 1.0119951, y: 1.0119947, z: 1.0119952}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9785,7 +9803,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!23 &583052359
 MeshRenderer:
@@ -9849,7 +9867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12499a51038659244abadbca6e9626bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 2108411735}
+  render: {fileID: 583052359}
   Life: 120
   sword: {fileID: 1025677883}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
@@ -9867,9 +9885,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6067200636698690116, guid: fca18fea2e2e5144b8d84b794743248e, type: 3}
+--- !u!135 &583052363
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583052353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9799321
+  m_Center: {x: 2.4424907e-15, y: 3.469447e-18, z: 0.000019013882}
 --- !u!1 &583430384
 GameObject:
   m_ObjectHideFlags: 0
@@ -10764,6 +10795,7 @@ GameObject:
   - component: {fileID: 658928030}
   - component: {fileID: 658928036}
   - component: {fileID: 658928037}
+  - component: {fileID: 658928038}
   m_Layer: 0
   m_Name: MiniBoss (9)
   m_TagString: Enemy
@@ -10779,7 +10811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658928028}
   m_LocalRotation: {x: 0.00015984656, y: 0.52514523, z: -0.00096430443, w: 0.85101205}
-  m_LocalPosition: {x: -11.81, y: -23.4, z: -32.36}
+  m_LocalPosition: {x: -11.81, y: -22.2, z: -32.36}
   m_LocalScale: {x: 1.011995, y: 1.0119948, z: 1.0119948}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10802,7 +10834,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!23 &658928034
 MeshRenderer:
@@ -10866,7 +10898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12499a51038659244abadbca6e9626bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 1874137960}
+  render: {fileID: 658928034}
   Life: 120
   sword: {fileID: 1025677883}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
@@ -10880,13 +10912,26 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658928028}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: c04cd928f6d736c40981bd3155cd8add, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6067200636698690116, guid: fca18fea2e2e5144b8d84b794743248e, type: 3}
+--- !u!135 &658928038
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658928028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.97993237
+  m_Center: {x: 0.00024414062, y: 0, z: -0.00000005960465}
 --- !u!1 &660725425
 GameObject:
   m_ObjectHideFlags: 0
@@ -12034,12 +12079,6 @@ PrefabInstance:
 --- !u!4 &734317721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d550f94ae5b430b4d83f89519a624409,
-    type: 3}
-  m_PrefabInstance: {fileID: 734317720}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &734317722 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4312310845079660775, guid: d550f94ae5b430b4d83f89519a624409,
     type: 3}
   m_PrefabInstance: {fileID: 734317720}
   m_PrefabAsset: {fileID: 0}
@@ -14150,6 +14189,7 @@ GameObject:
   - component: {fileID: 855057449}
   - component: {fileID: 855057455}
   - component: {fileID: 855057456}
+  - component: {fileID: 855057457}
   m_Layer: 0
   m_Name: MiniBoss (10)
   m_TagString: Enemy
@@ -14165,7 +14205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855057447}
   m_LocalRotation: {x: 0.000022504975, y: 0.6435226, z: -0.0009766831, w: 0.76542646}
-  m_LocalPosition: {x: -14.87, y: -23.39, z: -25.13}
+  m_LocalPosition: {x: -14.87, y: -22.2, z: -25.13}
   m_LocalScale: {x: 1.0119947, y: 1.0119947, z: 1.0119947}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14188,7 +14228,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!23 &855057453
 MeshRenderer:
@@ -14252,7 +14292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12499a51038659244abadbca6e9626bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 999108847}
+  render: {fileID: 855057453}
   Life: 120
   sword: {fileID: 1025677883}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
@@ -14266,13 +14306,26 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855057447}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: c04cd928f6d736c40981bd3155cd8add, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6067200636698690116, guid: fca18fea2e2e5144b8d84b794743248e, type: 3}
+--- !u!135 &855057457
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855057447}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.97993237
+  m_Center: {x: -3.5527137e-15, y: 0.000061035156, z: -0.000000059604645}
 --- !u!1001 &860480143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16224,12 +16277,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 999108845}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &999108847 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4312310845079660775, guid: d550f94ae5b430b4d83f89519a624409,
-    type: 3}
-  m_PrefabInstance: {fileID: 999108845}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1014138098
 GameObject:
   m_ObjectHideFlags: 0
@@ -16916,6 +16963,7 @@ GameObject:
   - component: {fileID: 1045197856}
   - component: {fileID: 1045197862}
   - component: {fileID: 1045197863}
+  - component: {fileID: 1045197864}
   m_Layer: 0
   m_Name: MiniBoss (4)
   m_TagString: Enemy
@@ -16931,7 +16979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045197854}
   m_LocalRotation: {x: 0.00094697764, y: -0.41408515, z: 0.00024221436, w: 0.9102377}
-  m_LocalPosition: {x: -12.899955, y: -20.900024, z: 18.699951}
+  m_LocalPosition: {x: -12.899955, y: -19.7, z: 18.699951}
   m_LocalScale: {x: 1.0119948, y: 1.0119947, z: 1.0119947}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16954,7 +17002,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!23 &1045197860
 MeshRenderer:
@@ -17018,7 +17066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12499a51038659244abadbca6e9626bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 378810622}
+  render: {fileID: 1045197860}
   Life: 120
   sword: {fileID: 1025677883}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
@@ -17033,12 +17081,25 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045197854}
   m_Material: {fileID: 13400000, guid: c04cd928f6d736c40981bd3155cd8add, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6067200636698690116, guid: fca18fea2e2e5144b8d84b794743248e, type: 3}
+--- !u!135 &1045197864
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045197854}
+  m_Material: {fileID: 13400000, guid: c04cd928f6d736c40981bd3155cd8add, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9799325
+  m_Center: {x: 0.000045776367, y: -1.3877788e-17, z: -0.00000005960465}
 --- !u!1 &1050497449
 GameObject:
   m_ObjectHideFlags: 0
@@ -27566,12 +27627,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1874137958}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &1874137960 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4312310845079660775, guid: d550f94ae5b430b4d83f89519a624409,
-    type: 3}
-  m_PrefabInstance: {fileID: 1874137958}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1874396698
 GameObject:
   m_ObjectHideFlags: 0
@@ -28677,6 +28732,7 @@ GameObject:
   - component: {fileID: 1988756982}
   - component: {fileID: 1988756988}
   - component: {fileID: 1988756989}
+  - component: {fileID: 1988756990}
   m_Layer: 0
   m_Name: MiniBoss (3)
   m_TagString: Enemy
@@ -28692,7 +28748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988756980}
   m_LocalRotation: {x: -0.00088702515, y: 0.958322, z: -0.00040939325, w: -0.2856887}
-  m_LocalPosition: {x: -18.7, y: -21, z: 28.8}
+  m_LocalPosition: {x: -18.7, y: -19.8, z: 28.8}
   m_LocalScale: {x: 1.011995, y: 1.0119947, z: 1.0119951}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28715,7 +28771,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!23 &1988756986
 MeshRenderer:
@@ -28779,7 +28835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12499a51038659244abadbca6e9626bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  render: {fileID: 734317722}
+  render: {fileID: 1988756986}
   Life: 120
   sword: {fileID: 1025677883}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
@@ -28800,6 +28856,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6067200636698690116, guid: fca18fea2e2e5144b8d84b794743248e, type: 3}
+--- !u!135 &1988756990
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988756980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9799325
+  m_Center: {x: -3.5527137e-15, y: -1.2143064e-17, z: 0.00006097555}
 --- !u!1 &2002341116
 GameObject:
   m_ObjectHideFlags: 0
@@ -30781,12 +30850,6 @@ PrefabInstance:
 --- !u!4 &2108411734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d550f94ae5b430b4d83f89519a624409,
-    type: 3}
-  m_PrefabInstance: {fileID: 2108411733}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &2108411735 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4312310845079660775, guid: d550f94ae5b430b4d83f89519a624409,
     type: 3}
   m_PrefabInstance: {fileID: 2108411733}
   m_PrefabAsset: {fileID: 0}
