@@ -102,6 +102,9 @@ public class MenuController : MonoBehaviour
             controllerSenSlider.value = defaultSen;
             mainControllerSen = defaultSen;
             invertYToggle.isOn = false;
+
+            //INGRESAR VALORES A LA CONFIGURACIÓN A "defaultSen"
+
             GameplayApply( );
         }
     }
