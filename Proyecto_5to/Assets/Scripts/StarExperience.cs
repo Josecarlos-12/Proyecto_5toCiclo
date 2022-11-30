@@ -65,6 +65,7 @@ public class StarExperience : MonoBehaviour
             //Alcance
             exp.laser.destructtion = 0.5f;
             exp.bullet.destructtion = 0.5f;
+
         }
     }
 }

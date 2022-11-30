@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Experience : MonoBehaviour
 {
+    public TextExperience textExperience;
     public WaveExpansiveProta waveProta;
     public SwordPunch sworPunch;
     public Sword sword;
@@ -117,17 +118,28 @@ public class Experience : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F9))
         {
+            PlayerPrefs.SetInt("BossDeath", 0);
+            count = 0;
+            count2 = 0;
+            count3 = 0;
+            count4 = 0;
+            count5 = 0;
+            count6 = 0;
+            count7 = 0;
+
             text.text = "0";
             Debug.Log("SA");
             experience = 0;
             maxExperience = 300;
             PlayerPrefs.SetFloat("OP1", 0);
-            PlayerPrefs.SetFloat("OP2", 0);
             PlayerPrefs.SetFloat("EXP", 0);
             PlayerPrefs.SetFloat("OPTION1", 0);
             PlayerPrefs.SetFloat("OPTION2", 0);
             PlayerPrefs.SetFloat("OPTION3", 0);
             PlayerPrefs.SetFloat("OPTION4", 0);
+            PlayerPrefs.SetFloat("OPTION5", 0);
+            PlayerPrefs.SetFloat("OPTION6", 0);
+            PlayerPrefs.SetFloat("OPTION7", 0);
             //Onda Explosiva
             waveProta.expExplotion = false;
             //Robar Vida con cuchillo
@@ -155,7 +167,7 @@ public class Experience : MonoBehaviour
             //Alcance
             laser.destructtion = 0.5f;
             bullet.destructtion = 0.5f;
-
+            //DOble bala
         }
     }
 
@@ -440,6 +452,7 @@ public class Experience : MonoBehaviour
 
     public void Shield()
     {
+        textExperience.TextShield();
         maxExperience = 1200;
         OculMouse();
         level2.SetActive(false);
@@ -481,6 +494,7 @@ public class Experience : MonoBehaviour
     #region Option4
     public void BulletThunder()
     {
+        textExperience.OtherBullet();
         maxExperience = 2200;
         OculMouse();
         level4.SetActive(false);
@@ -496,6 +510,7 @@ public class Experience : MonoBehaviour
     }
     public void RegenerationEXP()
     {
+        textExperience.Wave();
         maxExperience = 2200;
         OculMouse();
         level4.SetActive(false);

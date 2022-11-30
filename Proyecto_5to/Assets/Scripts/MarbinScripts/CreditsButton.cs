@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class CreditsButton : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.visible = true;
+
+    }
+
     public void Menu()
     {
         SceneManager.LoadScene("MainMenu");

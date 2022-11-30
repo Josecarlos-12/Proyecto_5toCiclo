@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1405.8403, g: 1064.636, b: 865.10706, a: 1}
+  m_IndirectSpecularColor: {r: 1370.3701, g: 1027.4539, b: 815.8117, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4491,6 +4491,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 91.574
       objectReference: {fileID: 0}
+    - target: {fileID: 6597922273352112152, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1211470691}
+    - target: {fileID: 6597922273352112152, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: gText
+      value: 
+      objectReference: {fileID: 1211470689}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d6197c8b9a077c44b9a4494ad93b570a, type: 3}
@@ -6250,6 +6260,7 @@ MonoBehaviour:
   timeBad:
   - 0
   - 3
+  count: 0
 --- !u!1 &942406673
 GameObject:
   m_ObjectHideFlags: 0
@@ -8536,8 +8547,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

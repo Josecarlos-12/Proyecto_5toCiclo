@@ -867,6 +867,7 @@ MonoBehaviour:
   rb: {fileID: 888039505135825243}
   jump: 6
   canExplotion: 0
+  expExplotion: 0
   waveExpansive: {fileID: 3866503170613878604}
   explosionAudio: {fileID: 5911336040637850083}
 --- !u!82 &5911336040637850083
@@ -1355,6 +1356,7 @@ GameObject:
   - component: {fileID: 888039505282705410}
   - component: {fileID: 888039505282705412}
   - component: {fileID: 888039505282705413}
+  - component: {fileID: 6597922273352112152}
   m_Layer: 3
   m_Name: DetecteTriger
   m_TagString: Untagged
@@ -1483,6 +1485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0182255267f6263489e7c32ff9d3b92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textExperience: {fileID: 6597922273352112152}
   waveProta: {fileID: 8828230924321630275}
   sworPunch: {fileID: 6406297004693117262}
   sword: {fileID: 888039505135825219}
@@ -1556,6 +1559,32 @@ MonoBehaviour:
   fRoboLi: 0
   sLessDash: LessDash
   fLessDa: 0
+--- !u!114 &6597922273352112152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888039505282705414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0140bb7620c10a2479bb1938a853019c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gText: {fileID: 0}
+  text: {fileID: 0}
+  count: 0
+  count2: 0
+  count3: 0
+  shield: 'Presionar "C" para utilizar el
+
+    escudo'
+  otherBullet: 'Presionar "Q" para cambiar la
+
+    bala'
+  wave: 'Presionar "Q" para cambiar la
+
+    bala'
 --- !u!1 &888039505455561432
 GameObject:
   m_ObjectHideFlags: 0
