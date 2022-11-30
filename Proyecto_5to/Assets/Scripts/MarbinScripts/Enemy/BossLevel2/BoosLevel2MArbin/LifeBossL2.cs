@@ -301,6 +301,7 @@ public class LifeBossL2 : MonoBehaviour
     {
         if (HP <= 0)
         {
+            PlayerPrefs.SetInt("BossDeath", 2);
             Destroy(gameObject);
             Instantiate(exp, transform.position, Quaternion.identity);
             Instantiate(exp, pos[0].position, Quaternion.identity);

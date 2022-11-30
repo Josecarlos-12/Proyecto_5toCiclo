@@ -65,6 +65,7 @@ public class Enemy2 : MonoBehaviour
     {
         if (Life <= 0)
         {
+            PlayerPrefs.SetInt("BossDeath", 1);
             if (decition!= null)
             {
                 decition.transform.position = transform.position;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1405.3682, g: 1064.1315, b: 864.4558, a: 1}
+  m_IndirectSpecularColor: {r: 1405.8403, g: 1064.636, b: 865.10706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6055,6 +6055,7 @@ GameObject:
   - component: {fileID: 938384632}
   - component: {fileID: 938384631}
   - component: {fileID: 938384630}
+  - component: {fileID: 938384637}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6224,6 +6225,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &938384637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938384629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd41ef9918658684ebfa601cb644e758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 1819938547}
+  text: {fileID: 1211470691}
+  gText: {fileID: 1211470689}
+  dialoguesGod:
+  - No has matado
+  timeGod:
+  - 0
+  - 3
+  dialoguesBad:
+  - Si has matado
+  timeBad:
+  - 0
+  - 3
 --- !u!1 &942406673
 GameObject:
   m_ObjectHideFlags: 0

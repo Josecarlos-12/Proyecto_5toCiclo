@@ -21,6 +21,9 @@ public class StarExperience : MonoBehaviour
 
         if (count == 1)
         {
+            //Enemies
+            PlayerPrefs.SetInt("BossDeath", 0);
+
             PlayerPrefs.SetInt("DoubleJump", 0);
             PlayerPrefs.SetInt("Dash", 0);
 
