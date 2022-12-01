@@ -32,7 +32,11 @@ public class NewJump : MonoBehaviour
 
         if (!canJump)
         {
-            StartCoroutine(Gravity());
+            StartCoroutine("Gravity");
+        }
+        else
+        {
+            StopCoroutine("Gravity");
         }
     }
 

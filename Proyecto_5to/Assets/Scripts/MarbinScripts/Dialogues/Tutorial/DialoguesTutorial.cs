@@ -135,7 +135,7 @@ public class DialoguesTutorial : MonoBehaviour
         yield return null;
         text.text = dialogues[4];
         yield return new WaitForSeconds(fTimeDialogues[6]);
-        gText.SetActive(false);
+        //gText.SetActive(false);
         r.clip = pit;
         r.Play();
         r.loop = true;
