@@ -8,6 +8,7 @@ public class Pause : MonoBehaviour
     public bool isPaused=false;
     public GameObject pauseMenuUI;
     public Experience option;
+    public AudioSource pauseSound;
 
     void Update()
     {
@@ -15,6 +16,7 @@ public class Pause : MonoBehaviour
         {
             if(isPaused)
             {
+                pauseSound.Play();
                 option.options = false;
                 ResumeGame();
                 Cursor.lockState = CursorLockMode.Locked;
@@ -22,6 +24,7 @@ public class Pause : MonoBehaviour
             }
             else
             {
+                pauseSound.Play();
                 option.options = true;
                 PauseGame();
                 Cursor.lockState = CursorLockMode.None;
