@@ -7,7 +7,7 @@ public class CameraLevelTwoOne : MonoBehaviour
     public GameObject cam, prota;
     public float time = 1.3f;
     public MoveRGB move;
-    public Jump jump;
+    public NewJump jump;
     public Weapon weapon;
     public DashController dash;
 
