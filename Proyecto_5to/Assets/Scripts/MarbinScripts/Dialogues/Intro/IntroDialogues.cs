@@ -21,7 +21,7 @@ public class IntroDialogues : MonoBehaviour
     {
         asDialogue1 = GetComponent<AudioSource>();
         asDialogue1.Play();        
-        StartCoroutine(NexDialogueVoice());
+        //StartCoroutine(NexDialogueVoice());
         StartCoroutine(NextDialogueText());
     }
 
@@ -38,22 +38,24 @@ public class IntroDialogues : MonoBehaviour
     }
 
     public IEnumerator NextDialogueText()
-    {
-        yield return null;
-        text.text = sDialogues[0];
+    {        
         yield return new WaitForSeconds(time[0]);
-        text.text = sDialogues[1];
+        text.text = sDialogues[0];
         yield return new WaitForSeconds(time[1]);
-        text.text = sDialogues[2];
+        text.text = sDialogues[1];
         yield return new WaitForSeconds(time[2]);
-        text.text = sDialogues[3];
+        text.text = sDialogues[2];
         yield return new WaitForSeconds(time[3]);
-        text.text = sDialogues[4];
+        text.text = sDialogues[3];
         yield return new WaitForSeconds(time[4]);
-        text.text = sDialogues[5];
+        text.text = sDialogues[4];
         yield return new WaitForSeconds(time[5]);
-        text.text = sDialogues[6]; 
+        text.text = sDialogues[5]; 
         yield return new WaitForSeconds(time[6]);
+        text.text = sDialogues[6];
+        yield return new WaitForSeconds(time[7]);
         text.text = sDialogues[7];
+        yield return new WaitForSeconds(time[8]);
+        SceneManager.LoadScene(nextLevel);
     }
 }

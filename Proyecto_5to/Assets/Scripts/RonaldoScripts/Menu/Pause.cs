@@ -32,6 +32,7 @@ public class Pause : MonoBehaviour
 
     public void ResumeGame()
     {
+        option.options = false;
         Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         isPaused = false;

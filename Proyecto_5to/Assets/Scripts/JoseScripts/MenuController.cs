@@ -30,8 +30,18 @@ public class MenuController : MonoBehaviour
     private string levelToLoad;
     [SerializeField] private GameObject noSavedGameDialog = null;
 
+    [Header("Sonido Initial")]
+    public AudioSource audioInitial;
+    public int count;
+
+    private void Update()
+    {
+        SoundInitial();
+    }
+
     public void NewGameDialogYes( )
     {
+        PlayerPrefs.SetInt("PreIntro", 1);
         SceneManager.LoadScene(_newGameLevel);
     }
     public void LoadMainMenu( )
@@ -118,5 +128,22 @@ public class MenuController : MonoBehaviour
         comfirmationPrompt.SetActive(true);
         yield return new WaitForSeconds(1);
         comfirmationPrompt.SetActive(false);
+    }
+
+    public void SoundInitial()
+    {        
+
+        if(PlayerPrefs.GetInt("PreIntro") == 0)
+        {
+            if(count<3)
+            count++;
+
+
+            if (count == 1)
+            {
+                audioInitial.Play();
+            }
+            
+        }
     }
 }
