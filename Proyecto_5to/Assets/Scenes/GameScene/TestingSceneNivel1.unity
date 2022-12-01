@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 676.5989, g: 676.13367, b: 801.4608, a: 1}
+  m_IndirectSpecularColor: {r: 670.7977, g: 667.8452, b: 784.9438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5827,6 +5827,11 @@ PrefabInstance:
       propertyPath: imageExperience
       value: 
       objectReference: {fileID: 119674995}
+    - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: sen
+      value: 
+      objectReference: {fileID: 1449759946}
     - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: moveCamera
@@ -34584,6 +34589,7 @@ GameObject:
   - component: {fileID: 1449759945}
   - component: {fileID: 1449759944}
   - component: {fileID: 1449759943}
+  - component: {fileID: 1449759946}
   m_Layer: 5
   m_Name: Sensibilidad_Text
   m_TagString: Untagged
@@ -34619,14 +34625,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449759941}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79dba97b5317be246b703c149e1993c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 87733124}
   slider: {fileID: 1571510868}
-  sliderValue: 0
+  sliderValue: 2
 --- !u!114 &1449759944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34725,6 +34731,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449759941}
   m_CullTransparentMesh: 1
+--- !u!114 &1449759946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449759941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensibility: {fileID: 1571510868}
+  sen: {fileID: 87733124}
+  sliderValue: 0
 --- !u!1 &1453566035
 GameObject:
   m_ObjectHideFlags: 0
@@ -37224,14 +37245,14 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1180205788}
   m_Direction: 0
   m_MinValue: 1
-  m_MaxValue: 8
+  m_MaxValue: 400
   m_WholeNumbers: 0
   m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1449759943}
-        m_TargetAssemblyTypeName: Sensitivity, Assembly-CSharp
+      - m_Target: {fileID: 1449759946}
+        m_TargetAssemblyTypeName: SensibilityMouse, Assembly-CSharp
         m_MethodName: ChangeSlider
         m_Mode: 0
         m_Arguments:

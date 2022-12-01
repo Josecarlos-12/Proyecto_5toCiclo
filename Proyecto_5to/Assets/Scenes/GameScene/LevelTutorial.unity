@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1372.3718, g: 1029.6693, b: 818.6454, a: 1}
+  m_IndirectSpecularColor: {r: 1361.3948, g: 1018.0892, b: 803.2894, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1869,14 +1869,14 @@ MonoBehaviour:
   m_HandleRect: {fileID: 203728371}
   m_Direction: 0
   m_MinValue: 1
-  m_MaxValue: 8
+  m_MaxValue: 400
   m_WholeNumbers: 0
   m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1251970694}
-        m_TargetAssemblyTypeName: Sensitivity, Assembly-CSharp
+      - m_Target: {fileID: 1251970697}
+        m_TargetAssemblyTypeName: SensibilityMouse, Assembly-CSharp
         m_MethodName: ChangeSlider
         m_Mode: 0
         m_Arguments:
@@ -3460,8 +3460,8 @@ RectTransform:
   m_Father: {fileID: 1669300289}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.14285715, y: 0}
-  m_AnchorMax: {x: 0.14285715, y: 1}
+  m_AnchorMin: {x: 0.01010101, y: 0}
+  m_AnchorMax: {x: 0.01010101, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20993,6 +20993,7 @@ GameObject:
   - component: {fileID: 1251970696}
   - component: {fileID: 1251970695}
   - component: {fileID: 1251970694}
+  - component: {fileID: 1251970697}
   m_Layer: 5
   m_Name: Sensibilidad_Text
   m_TagString: Untagged
@@ -21028,7 +21029,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251970692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79dba97b5317be246b703c149e1993c9, type: 3}
   m_Name: 
@@ -21134,6 +21135,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251970692}
   m_CullTransparentMesh: 1
+--- !u!114 &1251970697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251970692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensibility: {fileID: 97303321}
+  sen: {fileID: 1623713171}
+  sliderValue: 0
 --- !u!1 &1257678079
 GameObject:
   m_ObjectHideFlags: 0
@@ -21609,7 +21625,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.34139, y: 3.5740814, z: 12.121548}
+  m_Size: {x: 18.4, y: 3.5740814, z: 13.8}
   m_Center: {x: 0.0004310608, y: 0.0001296997, z: 0.0002462864}
 --- !u!1001 &1282352487
 PrefabInstance:
@@ -22161,7 +22177,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.14285715, y: 1}
+  m_AnchorMax: {x: 0.01010101, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -33356,6 +33372,11 @@ PrefabInstance:
       propertyPath: t
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: sen
+      value: 
+      objectReference: {fileID: 1251970697}
     - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: moveCamera

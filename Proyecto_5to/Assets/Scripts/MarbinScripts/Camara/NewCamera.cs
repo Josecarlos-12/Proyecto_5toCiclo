@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class NewCamera : MonoBehaviour
 {
+    public SensibilityMouse sen;
+
     public bool moveCamera;
     public Transform playerBody;
     public float mouseSensitivity = 80f;
@@ -38,6 +40,8 @@ public class NewCamera : MonoBehaviour
     {
         if (moveCamera)
         {
+            mouseSensitivity = sen.sensibility.value + 40;
+
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
