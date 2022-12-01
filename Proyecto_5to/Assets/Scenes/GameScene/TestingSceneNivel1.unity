@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 691.33417, g: 696.5598, b: 841.58545, a: 1}
+  m_IndirectSpecularColor: {r: 668.38684, g: 664.43506, b: 778.0764, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5415,6 +5415,7 @@ GameObject:
   - component: {fileID: 205382975}
   - component: {fileID: 205382976}
   - component: {fileID: 205382977}
+  - component: {fileID: 205382978}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5584,6 +5585,21 @@ MonoBehaviour:
   retu: 0
   count: 0
   Level: TestingSceneNivel1
+--- !u!114 &205382978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205382970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensibility: {fileID: 1571510868}
+  sen: {fileID: 87733124}
+  sliderValue: 0
 --- !u!1001 &206500834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5831,7 +5847,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sen
       value: 
-      objectReference: {fileID: 1449759946}
+      objectReference: {fileID: 205382978}
     - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: moveCamera
@@ -34599,7 +34615,6 @@ GameObject:
   - component: {fileID: 1449759945}
   - component: {fileID: 1449759944}
   - component: {fileID: 1449759943}
-  - component: {fileID: 1449759946}
   m_Layer: 5
   m_Name: Sensibilidad_Text
   m_TagString: Untagged
@@ -34741,21 +34756,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449759941}
   m_CullTransparentMesh: 1
---- !u!114 &1449759946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449759941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensibility: {fileID: 1571510868}
-  sen: {fileID: 87733124}
-  sliderValue: 0
 --- !u!1 &1453566035
 GameObject:
   m_ObjectHideFlags: 0
@@ -37261,7 +37261,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1449759946}
+      - m_Target: {fileID: 205382978}
         m_TargetAssemblyTypeName: SensibilityMouse, Assembly-CSharp
         m_MethodName: ChangeSlider
         m_Mode: 0
@@ -48157,7 +48157,7 @@ Transform:
   m_GameObject: {fileID: 2030003032}
   m_LocalRotation: {x: -0, y: -0.11811641, z: -0, w: 0.99299973}
   m_LocalPosition: {x: -10.2, y: 17.1661, z: -173.1}
-  m_LocalScale: {x: 11.088603, y: 40.382366, z: 11.088603}
+  m_LocalScale: {x: 14.03374, y: 40.382366, z: 14.033735}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 790647700}
@@ -48171,7 +48171,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030003032}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1

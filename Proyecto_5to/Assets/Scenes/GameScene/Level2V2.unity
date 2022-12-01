@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1405.8569, g: 1064.6477, b: 865.11237, a: 1}
+  m_IndirectSpecularColor: {r: 1356.751, g: 1012.90643, b: 796.328, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9848,7 +9848,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817272439}
+      - m_Target: {fileID: 938384637}
         m_TargetAssemblyTypeName: SensibilityMouse, Assembly-CSharp
         m_MethodName: ChangeSlider
         m_Mode: 0
@@ -19029,7 +19029,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sen
       value: 
-      objectReference: {fileID: 817272439}
+      objectReference: {fileID: 938384637}
     - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: moveCamera
@@ -22108,7 +22108,6 @@ GameObject:
   - component: {fileID: 817272438}
   - component: {fileID: 817272437}
   - component: {fileID: 817272436}
-  - component: {fileID: 817272439}
   m_Layer: 5
   m_Name: Sensibilidad_Text
   m_TagString: Untagged
@@ -22250,21 +22249,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817272434}
   m_CullTransparentMesh: 1
---- !u!114 &817272439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817272434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensibility: {fileID: 302737918}
-  sen: {fileID: 1475080131}
-  sliderValue: 0
 --- !u!1001 &823883562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25069,6 +25053,7 @@ GameObject:
   - component: {fileID: 938384632}
   - component: {fileID: 938384631}
   - component: {fileID: 938384630}
+  - component: {fileID: 938384637}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -25238,6 +25223,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &938384637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938384629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensibility: {fileID: 302737918}
+  sen: {fileID: 1475080131}
+  sliderValue: 0
 --- !u!1 &942406673
 GameObject:
   m_ObjectHideFlags: 0
