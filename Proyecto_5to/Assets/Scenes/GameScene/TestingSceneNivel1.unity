@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 691.10376, g: 696.27594, b: 841.0094, a: 1}
+  m_IndirectSpecularColor: {r: 690.0792, g: 694.771, b: 838.0166, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5877,6 +5877,11 @@ PrefabInstance:
       propertyPath: audioJump
       value: 
       objectReference: {fileID: 2092175327}
+    - target: {fileID: 3885135503207149651, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5911336040637850083, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: m_Volume
@@ -27180,7 +27185,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cf3feba8e57f57141929493a329b5857, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a0053517afe496746a23948f58715777, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -30035,7 +30040,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: aaf4594ebba23bd4886d981c548a6c7c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5fbade62595a7ac449adaeb970933f6f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
