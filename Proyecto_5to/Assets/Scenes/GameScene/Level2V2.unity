@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1356.751, g: 1012.90643, b: 796.328, a: 1}
+  m_IndirectSpecularColor: {r: 1365.3099, g: 1022.3425, b: 808.79645, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9848,7 +9848,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 938384637}
+      - m_Target: {fileID: 817272439}
         m_TargetAssemblyTypeName: SensibilityMouse, Assembly-CSharp
         m_MethodName: ChangeSlider
         m_Mode: 0
@@ -18323,7 +18323,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 18.6, y: 3.5740814, z: 13.2}
+  m_Size: {x: 17.34139, y: 3.5740814, z: 12.121548}
   m_Center: {x: 0.0004310608, y: 0.0001296997, z: 0.0002462864}
 --- !u!1 &618489963
 GameObject:
@@ -19029,7 +19029,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sen
       value: 
-      objectReference: {fileID: 938384637}
+      objectReference: {fileID: 817272439}
     - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: moveCamera
@@ -20177,8 +20177,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 41.101734, y: 14.976654, z: 4.2184563}
-  m_Center: {x: -6.145212, y: 70.74926, z: 6.7799625}
+  m_Size: {x: 41.101734, y: 14.976654, z: 3.7516823}
+  m_Center: {x: -6.145212, y: 70.74926, z: 6.5465755}
 --- !u!65 &644298683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22108,6 +22108,7 @@ GameObject:
   - component: {fileID: 817272438}
   - component: {fileID: 817272437}
   - component: {fileID: 817272436}
+  - component: {fileID: 817272439}
   m_Layer: 5
   m_Name: Sensibilidad_Text
   m_TagString: Untagged
@@ -22249,6 +22250,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817272434}
   m_CullTransparentMesh: 1
+--- !u!114 &817272439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817272434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensibility: {fileID: 302737918}
+  sen: {fileID: 1475080131}
+  sliderValue: 0
 --- !u!1001 &823883562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24741,8 +24757,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 41.101734, y: 14.976654, z: 4.10598}
-  m_Center: {x: -6.1452117, y: 70.74926, z: 6.7237244}
+  m_Size: {x: 41.101734, y: 14.976654, z: 3.1786735}
+  m_Center: {x: -6.1452117, y: 70.74926, z: 6.2600713}
 --- !u!65 &931487027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25053,7 +25069,6 @@ GameObject:
   - component: {fileID: 938384632}
   - component: {fileID: 938384631}
   - component: {fileID: 938384630}
-  - component: {fileID: 938384637}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -25223,21 +25238,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &938384637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938384629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensibility: {fileID: 302737918}
-  sen: {fileID: 1475080131}
-  sliderValue: 0
 --- !u!1 &942406673
 GameObject:
   m_ObjectHideFlags: 0
@@ -29197,8 +29197,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2039719, y: 35.548683, z: 6.984728}
-  m_Center: {x: 9.6273575, y: 17.774342, z: 0.4000001}
+  m_Size: {x: 2.4180832, y: 35.548683, z: 6.984728}
+  m_Center: {x: 9.234413, y: 17.774342, z: 0.4000001}
 --- !u!65 &1121152293
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29210,8 +29210,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.7346191, y: 52.619072, z: 6.984728}
-  m_Center: {x: 9.892681, y: 26.309536, z: -6.21}
+  m_Size: {x: 1.9746304, y: 52.619072, z: 6.984728}
+  m_Center: {x: 9.012687, y: 26.309536, z: -6.21}
 --- !u!65 &1121152294
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29223,8 +29223,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.4834633, y: 52.619072, z: 6.984728}
-  m_Center: {x: 9.767103, y: 26.309536, z: 5.882636}
+  m_Size: {x: 1.9746304, y: 52.619072, z: 6.984728}
+  m_Center: {x: 9.012687, y: 26.309536, z: 5.882636}
 --- !u!65 &1121152295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38858,26 +38858,6 @@ PrefabInstance:
       propertyPath: platformSpeed
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2844067455959733847, guid: ec524a2601a9c7f44a563e9a74236c9e,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 7.2894516
-      objectReference: {fileID: 0}
-    - target: {fileID: 2844067455959733847, guid: ec524a2601a9c7f44a563e9a74236c9e,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 9.294648
-      objectReference: {fileID: 0}
-    - target: {fileID: 2844067455959733847, guid: ec524a2601a9c7f44a563e9a74236c9e,
-        type: 3}
-      propertyPath: m_Center.x
-      value: -0.27970225
-      objectReference: {fileID: 0}
-    - target: {fileID: 2844067455959733847, guid: ec524a2601a9c7f44a563e9a74236c9e,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.19874555
-      objectReference: {fileID: 0}
     - target: {fileID: 2844067455998725437, guid: ec524a2601a9c7f44a563e9a74236c9e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45365,7 +45345,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 585c518a051eaa54cb0216eabb7363e6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -50910,7 +50890,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 18.62, y: 3.5740814, z: 13.5}
+  m_Size: {x: 17.34139, y: 3.5740814, z: 12.121548}
   m_Center: {x: 0.0004310608, y: 0.0001296997, z: 0.0002462864}
 --- !u!1 &1819026648
 GameObject:
@@ -56725,8 +56705,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16.241465, y: 2.5281334, z: 10.6905365}
-  m_Center: {x: -0.13724795, y: 0.014066696, z: -0.3452697}
+  m_Size: {x: 15, y: 2.5281334, z: 10}
+  m_Center: {x: 0, y: 0.014066696, z: -0}
 --- !u!65 &1974856729
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58656,8 +58636,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7382014, y: 35.548683, z: 6.984728}
-  m_Center: {x: 9.394472, y: 17.774342, z: 0.40000018}
+  m_Size: {x: 2.4598813, y: 35.548683, z: 6.984728}
+  m_Center: {x: 9.255312, y: 17.774342, z: 0.40000015}
 --- !u!65 &2055086009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60080,8 +60060,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.298412, y: 2.5281334, z: 10.671112}
-  m_Center: {x: 0.14920616, y: 0.014066696, z: -0.33555603}
+  m_Size: {x: 15, y: 2.5281334, z: 10}
+  m_Center: {x: 0, y: 0.014066696, z: -0}
 --- !u!65 &2132029032
 BoxCollider:
   m_ObjectHideFlags: 0

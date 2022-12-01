@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1356.751, g: 1012.90643, b: 796.328, a: 1}
+  m_IndirectSpecularColor: {r: 1365.3099, g: 1022.3425, b: 808.79645, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4427,7 +4427,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sen
       value: 
-      objectReference: {fileID: 938384638}
+      objectReference: {fileID: 1795674952}
     - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: moveCamera
@@ -7682,7 +7682,6 @@ GameObject:
   - component: {fileID: 938384631}
   - component: {fileID: 938384630}
   - component: {fileID: 938384637}
-  - component: {fileID: 938384638}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7878,21 +7877,6 @@ MonoBehaviour:
   - 0
   - 3
   count: 0
---- !u!114 &938384638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938384629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensibility: {fileID: 1936630152}
-  sen: {fileID: 34962644}
-  sliderValue: 0
 --- !u!1 &942406673
 GameObject:
   m_ObjectHideFlags: 0
@@ -14733,6 +14717,7 @@ GameObject:
   - component: {fileID: 1795674951}
   - component: {fileID: 1795674950}
   - component: {fileID: 1795674949}
+  - component: {fileID: 1795674952}
   m_Layer: 5
   m_Name: Sensibilidad_Text
   m_TagString: Untagged
@@ -14874,6 +14859,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795674947}
   m_CullTransparentMesh: 1
+--- !u!114 &1795674952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795674947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensibility: {fileID: 1936630152}
+  sen: {fileID: 34962644}
+  sliderValue: 0
 --- !u!1 &1795874452
 GameObject:
   m_ObjectHideFlags: 0
@@ -15636,7 +15636,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 938384638}
+      - m_Target: {fileID: 1795674952}
         m_TargetAssemblyTypeName: SensibilityMouse, Assembly-CSharp
         m_MethodName: ChangeSlider
         m_Mode: 0
@@ -16056,7 +16056,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 585c518a051eaa54cb0216eabb7363e6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
