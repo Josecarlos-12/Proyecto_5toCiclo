@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2166.42, g: 2276.8867, b: 3322.7305, a: 1}
+  m_IndirectSpecularColor: {r: 2183.205, g: 2319.045, b: 3452.4375, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7178,6 +7178,7 @@ MonoBehaviour:
   rb: {fileID: 514351742}
   jump: 15
   canExplotion: 0
+  expExplotion: 0
   waveExpansive: {fileID: 0}
   explosionAudio: {fileID: 0}
 --- !u!114 &514351744
@@ -10143,6 +10144,7 @@ MonoBehaviour:
   waitTime: 0
   robot: {fileID: 0}
   ri: {fileID: 0}
+  ri2: {fileID: 0}
   walk: 0
 --- !u!114 &751977109
 MonoBehaviour:
@@ -16044,6 +16046,7 @@ MonoBehaviour:
   noMove: 2
   prota: {fileID: 63163070}
   size: 11.14
+  stop: 0
   swordWave: {fileID: 7973167537080831597, guid: 0200cb53c4f0c3842bfc46091a7f887f,
     type: 3}
   pointShoot: {fileID: 1759236144}
@@ -16053,17 +16056,43 @@ MonoBehaviour:
   followCombo: 1
   inCircle: 0
   animAttack: 1
+  punch: 0
   time: 0
   maxTime: 1
   maxTime2: 0.3
   SwordsEnemy: {fileID: 808620268}
   life: 1500
+  maxLife: 1500
   material: {fileID: 1219451488}
   sword: {fileID: 2135748934}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
   laser: {fileID: 691430955296938421, guid: dac547ee6697acd4ba756e28455b1f11, type: 3}
   allContainer: {fileID: 1587549490}
   bulleta: {fileID: 0}
+  shield: {fileID: 0}
+  bShield: 0
+  iShield: 0
+  iShield2: 0
+  iShield3: 0
+  iShield4: 0
+  iShield5: 0
+  iShield6: 0
+  cProta: {fileID: 0}
+  timeShield: 0
+  iWave: 0
+  iWave2: 0
+  iWave3: 0
+  iWave4: 0
+  iWave5: 0
+  iWave6: 0
+  bWave: 0
+  bOnda: 0
+  onda: 0
+  iSword: 0
+  iSword2: 0
+  timeOnda: 0
+  MaxTimeOnda: 0
+  image: {fileID: 0}
 --- !u!54 &1219451491
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27720,6 +27749,7 @@ MonoBehaviour:
   rb: {fileID: 2135748937}
   jump: 6
   canExplotion: 0
+  expExplotion: 0
   waveExpansive: {fileID: 1854770131}
   explosionAudio: {fileID: 0}
 --- !u!1 &2143879088

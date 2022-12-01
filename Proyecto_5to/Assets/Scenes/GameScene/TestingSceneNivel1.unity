@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 672.7363, g: 670.6233, b: 790.34106, a: 1}
+  m_IndirectSpecularColor: {r: 668.32825, g: 664.3254, b: 777.98816, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5702,6 +5702,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 888039505135825245, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 888039505135825246, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: shieldImage
@@ -5727,6 +5732,11 @@ PrefabInstance:
       propertyPath: shieldInitial.r
       value: 0.36862746
       objectReference: {fileID: 0}
+    - target: {fileID: 888039505271220341, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 2092175325}
     - target: {fileID: 888039505274681194, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: lastCheckPoint
@@ -5857,6 +5867,11 @@ PrefabInstance:
       propertyPath: moveCamera
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3885135503207149651, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: audioJump
+      value: 
+      objectReference: {fileID: 2092175327}
     - target: {fileID: 5911336040637850083, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: m_Volume
@@ -28639,8 +28654,8 @@ RectTransform:
   m_Father: {fileID: 523262764}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.14285715, y: 0}
-  m_AnchorMax: {x: 0.14285715, y: 1}
+  m_AnchorMin: {x: 0.0025062656, y: 0}
+  m_AnchorMax: {x: 0.0025062656, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -29740,7 +29755,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.14285715, y: 1}
+  m_AnchorMax: {x: 0.0025062656, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -49430,6 +49445,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2332e2788d01804fb544b35c5010257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2092175325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3885135503207149651, guid: d6197c8b9a077c44b9a4494ad93b570a,
+    type: 3}
+  m_PrefabInstance: {fileID: 206500834}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064301693}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96be826b4a8ff04fb27ba42f8181c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &2092175327 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 888039505135825221, guid: d6197c8b9a077c44b9a4494ad93b570a,
+    type: 3}
+  m_PrefabInstance: {fileID: 206500834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2095218116
 GameObject:
   m_ObjectHideFlags: 0

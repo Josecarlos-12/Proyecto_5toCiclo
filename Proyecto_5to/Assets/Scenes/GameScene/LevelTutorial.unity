@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1365.3099, g: 1022.3425, b: 808.79645, a: 1}
+  m_IndirectSpecularColor: {r: 1399.0676, g: 1057.7678, b: 855.7354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5031,7 +5031,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d38f5285a9d31764e97b7983db4dac5b,
         type: 3}
       propertyPath: m_TagString
-      value: Floor
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -17780,6 +17780,18 @@ MonoBehaviour:
   isPaused: 0
   pauseMenuUI: {fileID: 618468944}
   option: {fileID: 406113868}
+--- !u!114 &1025677914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3885135503207149651, guid: d6197c8b9a077c44b9a4494ad93b570a,
+    type: 3}
+  m_PrefabInstance: {fileID: 888039506605906607}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862891016}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96be826b4a8ff04fb27ba42f8181c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1030009525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25721,7 +25733,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d38f5285a9d31764e97b7983db4dac5b,
         type: 3}
       propertyPath: m_TagString
-      value: Floor
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -31867,7 +31879,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d38f5285a9d31764e97b7983db4dac5b,
         type: 3}
       propertyPath: m_TagString
-      value: Floor
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -33117,6 +33129,11 @@ PrefabInstance:
       objectReference: {fileID: 1634783642}
     - target: {fileID: 888039505135825217, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
+      propertyPath: newJump
+      value: 
+      objectReference: {fileID: 1025677914}
+    - target: {fileID: 888039505135825217, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
       propertyPath: question
       value: 
       objectReference: {fileID: 1458418214}
@@ -33436,6 +33453,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 2.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885135503207149651, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: gravity
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885135503207149651, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5911336040637850083, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}

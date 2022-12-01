@@ -345,8 +345,8 @@ GameObject:
   - component: {fileID: 346169534}
   - component: {fileID: 346169533}
   - component: {fileID: 346169532}
-  - component: {fileID: 346169537}
   - component: {fileID: 346169536}
+  - component: {fileID: 346169538}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -534,7 +534,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &346169537
+--- !u!114 &346169538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -543,12 +543,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 346169531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 193748680e6ff524b97efef9cbf3cea0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f067bbb6136f9243a1c052d99000e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asDialogue1: {fileID: 346169536}
-  acDialogue2: {fileID: 8300000, guid: a0266b2bea224e94587277638d64f173, type: 3}
-  acDialogue3: {fileID: 8300000, guid: 362221dbc6db5b043aaf912c0a7e8079, type: 3}
   nextLevel: LevelTutorial
   text: {fileID: 405161794}
   time:

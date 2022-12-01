@@ -13,6 +13,7 @@ public class CreditsButton : MonoBehaviour
 
     public void Menu()
     {
-        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");        
     }
 }
