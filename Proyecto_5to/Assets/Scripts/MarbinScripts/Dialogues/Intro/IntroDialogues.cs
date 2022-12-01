@@ -17,13 +17,23 @@ public class IntroDialogues : MonoBehaviour
     [TextArea(8, 8)]
     public string[] sDialogues;
 
-    private void Start()
+    public int count;
+
+
+    private void Update()
     {
-        asDialogue1 = GetComponent<AudioSource>();
-        asDialogue1.Play();        
-        //StartCoroutine(NexDialogueVoice());
-        StartCoroutine(NextDialogueText());
+        if(count<3)
+        count++;
+
+        if (count == 1)
+        {
+           // asDialogue1 = GetComponent<AudioSource>();
+            //asDialogue1.Play();
+            //StartCoroutine(NexDialogueVoice());
+            StartCoroutine(NextDialogueText());
+        }
     }
+
 
     public IEnumerator NexDialogueVoice()
     {
