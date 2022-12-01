@@ -8,9 +8,10 @@ public class Pause : MonoBehaviour
     public bool isPaused=false;
     public GameObject pauseMenuUI;
     public Experience option;
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(isPaused)
             {
@@ -31,6 +32,7 @@ public class Pause : MonoBehaviour
 
     public void ResumeGame()
     {
+        option.options = false;
         Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         isPaused = false;

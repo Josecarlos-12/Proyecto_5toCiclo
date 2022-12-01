@@ -448,7 +448,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9619c8465475f0c499cff1d68852f6c8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 708023b5353c21a4ea596270a8314a46, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -552,26 +552,27 @@ MonoBehaviour:
   nextLevel: LevelTutorial
   text: {fileID: 405161794}
   time:
-  - 3
-  - 3
+  - 0
+  - 1
   - 2
   - 2
+  - 4
   - 3
-  - 2
   - 3
+  - 4
+  - 4
   sDialogues:
-  - "Bienvenido Garu, te trajimos aqu\xED junto\r\ncon el jugador Beck"
-  - 'debido a que ambos
+  - "Te trajimos aqu\xED junto con el jugador\r\nBeck"
+  - 'debido a que ambos ocupan
 
-    ocupan el primer puesto'
-  - 'del ranking de
-
-    los mejores jugadores de videojuegos.'
-  - En este torneo dentro de este nuevo mundo
-  - "pondr\xE1n a prueba sus habilidades para\r\ndemostrar"
-  - "qui\xE9n definitivamente es el mejor."
-  - "Les aconsejamos que dejen esa famosa\r\nrivalidad suya atr\xE1s,"
-  - en vez de eso, afronten esta nueva experiencia como mejor les parezca.
+    el primer puesto del ranking'
+  - "de los mejores jugadores de \nvideojuegos."
+  - "Conocemos que ustedes jam\xE1s \nse han enfrentado y es por eso que\nen este
+    torneo"
+  - "dentro de este nuevo mundo\npondr\xE1n a prueba sus habilidades"
+  - "para demostrar qui\xE9n definitivamente \nes el mejor."
+  - "Les aconsejamos que dejen esa\nfamosa rivalidad suya atr\xE1s,"
+  - "en vez de eso, afronten esta nueva \nexperiencia como mejor les parezca."
 --- !u!1 &405161792
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Bienvenido Garu, te trajimos aqu\xED junto\r\ncon el jugador Beck"
+  m_text: "Te trajimos aqu\xED junto con el jugador\r\nBeck"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47bed1ddf5478f2458eead564e42fdca, type: 2}
   m_sharedMaterial: {fileID: -5980838295592285283, guid: 47bed1ddf5478f2458eead564e42fdca,

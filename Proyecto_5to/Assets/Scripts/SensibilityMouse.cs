@@ -11,9 +11,12 @@ public class SensibilityMouse : MonoBehaviour
 
     public void Start()
     {
+        Cursor.visible = false;
         sensibility.value = PlayerPrefs.GetFloat("SenMouse", sliderValue);
 
     }
+
+
 
     public void ChangeSlider(float valor)
     {
