@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 670.7977, g: 667.8452, b: 784.9438, a: 1}
+  m_IndirectSpecularColor: {r: 672.7363, g: 670.6233, b: 790.34106, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5592,6 +5592,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6879013909039197220, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 888039505001173663, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: canShoot
@@ -5617,6 +5622,21 @@ PrefabInstance:
       propertyPath: swordImage
       value: 
       objectReference: {fileID: 1448885673}
+    - target: {fileID: 888039505135825220, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 888039505135825221, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 888039505135825222, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 888039505135825223, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: m_Name
@@ -5836,6 +5856,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moveCamera
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911336040637850083, guid: d6197c8b9a077c44b9a4494ad93b570a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6597922273352112152, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
@@ -17755,7 +17780,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 585c518a051eaa54cb0216eabb7363e6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
