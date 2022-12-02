@@ -39,7 +39,7 @@ public class BossFinalMArbin : MonoBehaviour
     public Collider cProta;
     public float timeShield;
     public int iWave, iWave2, iWave3, iWave4, iWave5, iWave6;
-    public bool bWave, bOnda;
+    public bool bWave, bOnda, death;
     public int onda, iSword, iSword2;
     public float timeOnda, MaxTimeOnda;
 
@@ -56,22 +56,26 @@ public class BossFinalMArbin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LifeImage();
-        Bullet();
-        if (!bShield && !bWave)
+        if (!death)
         {
-            Follow();
-            Combo();
-            AnimTrue();
-            // SwordWave();
-            
+            LifeImage();
+            Bullet();
+            if (!bShield && !bWave)
+            {
+                Follow();
+                Combo();
+                AnimTrue();
+                // SwordWave();
+
+            }
+            Life();
+            // SwordsInCircle();
+            LifeController();
+            LifeWave();
+            LifeSword();
+            Onda();
         }
-        Life();
-        // SwordsInCircle();
-        LifeController();
-        LifeWave();
-        LifeSword();
-        Onda();
+        
     }
 
     public void LifeImage()
@@ -306,7 +310,7 @@ public class BossFinalMArbin : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, prota.transform.position) < size && !punch)
             {
-                transform.LookAt(new Vector3(prota.transform.position.x, transform.position.y, prota.transform.position.z));
+                transform.LookAt(new Vector3(prota.transform.position.x, transform.position.y, prota.transform.position.z));                
                 agent.destination = prota.transform.position;
                 agent.speed = 15;
                 agent.acceleration = 30;
@@ -466,7 +470,9 @@ public class BossFinalMArbin : MonoBehaviour
     {
         if (life <= 0)
         {
-            Destroy(allContainer);
+            SwordsEnemy.SetActive(false);
+            death = true;
+            //Destroy(allContainer);
         }
     }
 
@@ -503,4 +509,6 @@ public class BossFinalMArbin : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         material.material.color = Color.white;
     }
+
+
 }
