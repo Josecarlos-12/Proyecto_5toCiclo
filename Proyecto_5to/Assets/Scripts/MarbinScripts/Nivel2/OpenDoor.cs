@@ -13,7 +13,7 @@ public class OpenDoor : MonoBehaviour
     public int count, count1, count2, count3, count4, count5, count6, count7, count8, count9, count10, count11, count12, count13;
     public Animator anim;
     public GameObject doorContainer;
-
+    public bool door;
 
     public enum Open
     {
@@ -29,6 +29,7 @@ public class OpenDoor : MonoBehaviour
 
         if (conteiner >= maxConteiner)
         {
+            door = true;
             anim.SetBool("Open", true);
         }
 
