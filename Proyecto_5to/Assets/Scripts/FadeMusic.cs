@@ -22,11 +22,13 @@ public class FadeMusic : MonoBehaviour
             {
                 time = 0; 
                 audioNormal.volume -= volumeNormmal;
+
+                if(audioBoss.volume<=0.01f)
                 audioBoss.volume += volumeBoss;
             }
             
 
-            if(audioNormal.volume <= 0.3f)
+            if(audioNormal.volume == 0f)
             {
                 audioNormal.enabled = false;
             }

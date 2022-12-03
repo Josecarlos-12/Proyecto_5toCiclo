@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1405.8325, g: 1064.6243, b: 865.1068, a: 1}
+  m_IndirectSpecularColor: {r: 1405.571, g: 1064.338, b: 864.7451, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2955,6 +2955,7 @@ MonoBehaviour:
   iSword2: 0
   timeOnda: 0
   MaxTimeOnda: 1
+  sworContainer: {fileID: 1760347689}
   image: {fileID: 69635027}
 --- !u!54 &314245238
 Rigidbody:
@@ -16224,6 +16225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: espada
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3e8b3ba11360a434b98579305c0537b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3e8b3ba11360a434b98579305c0537b4,
         type: 3}

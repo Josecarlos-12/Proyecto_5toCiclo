@@ -42,6 +42,7 @@ public class BossFinalMArbin : MonoBehaviour
     public bool bWave, bOnda, death;
     public int onda, iSword, iSword2;
     public float timeOnda, MaxTimeOnda;
+    public GameObject sworContainer;
 
     [Header("Imagenes")]
     public Image image;
@@ -472,6 +473,7 @@ public class BossFinalMArbin : MonoBehaviour
         {
             SwordsEnemy.SetActive(false);
             death = true;
+            sworContainer.SetActive(false);
             //Destroy(allContainer);
         }
     }
