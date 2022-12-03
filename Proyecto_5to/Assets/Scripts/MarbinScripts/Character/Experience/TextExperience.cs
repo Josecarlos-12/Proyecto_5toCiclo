@@ -10,8 +10,10 @@ public class TextExperience : MonoBehaviour
     public int count, count2, count3;
     [TextArea(4,4)]
     public string shield, otherBullet, wave;
-    
 
+    [Header("Audio")]
+    public AudioSource audi;
+    public AudioClip shiel, waveAudi;
 
 
     public void TextShield()
@@ -23,6 +25,8 @@ public class TextExperience : MonoBehaviour
 
         if (count == 1)
         {
+            audi.clip = shiel;
+            audi.Play();
             gText.SetActive(true);
             text.text= shield;
             StartCoroutine(DesactiveText());
@@ -53,6 +57,8 @@ public class TextExperience : MonoBehaviour
 
         if (count3 == 1)
         {
+            audi.clip = waveAudi;
+            audi.Play();
             gText.SetActive(true);
             text.text = wave;
             StartCoroutine(DesactiveText());

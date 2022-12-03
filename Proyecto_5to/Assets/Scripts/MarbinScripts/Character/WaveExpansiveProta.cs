@@ -27,7 +27,7 @@ public class WaveExpansiveProta : MonoBehaviour
     {
         if (expExplotion)
         {
-            if (Input.GetKeyUp(KeyCode.Q))
+            if (Input.GetKeyUp(KeyCode.E))
             {
                 if (canExplotion)
                 {
