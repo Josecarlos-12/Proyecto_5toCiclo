@@ -108,7 +108,7 @@ public class Life : MonoBehaviour
             //Si toca al enemigo que le baje vida
             if (other.gameObject.CompareTag("BulletRobotin"))
             {
-                life-=50;
+                life-=20;
             }
             if (other.gameObject.CompareTag("LaserTuto"))
             {
