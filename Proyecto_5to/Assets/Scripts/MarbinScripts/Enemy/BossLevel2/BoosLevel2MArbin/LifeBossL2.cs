@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using static ActiveOpenDoor;
 
 public class LifeBossL2 : MonoBehaviour
 {
@@ -46,6 +47,9 @@ public class LifeBossL2 : MonoBehaviour
     [Header("Experience")]
     public GameObject exp;
     public Transform[] pos;
+
+    public AudioSource boss;
+    public FadeMusic fade;
 
     private void Start()
     {
@@ -187,6 +191,8 @@ public class LifeBossL2 : MonoBehaviour
         }
         if(HP <= 100)
         {
+            fade.touch = false;
+            boss.volume -= 0.01f;
             death = true;
             fire.active2 = false;
             fire.Active = false;

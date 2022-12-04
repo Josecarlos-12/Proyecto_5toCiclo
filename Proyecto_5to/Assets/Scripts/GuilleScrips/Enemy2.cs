@@ -47,6 +47,9 @@ public class Enemy2 : MonoBehaviour
     public AudioSource audi, aShoot;
     [Header("Audio")]
     public AudioSource embestida;
+    public AudioSource boss;
+    public FadeMusic fade;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -193,6 +196,9 @@ public class Enemy2 : MonoBehaviour
         }
         if (Life < 100)
         {
+            fade.touch = false;
+            boss.volume -= 0.01f;
+
             point = false;
             robotines.enabled = false;
             mini.tackle = false;

@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 671.8679, g: 669.3773, b: 788.0532, a: 1}
+  m_IndirectSpecularColor: {r: 672.18933, g: 669.9414, b: 789.05774, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3100,6 +3100,8 @@ MonoBehaviour:
   audi: {fileID: 0}
   aShoot: {fileID: 0}
   embestida: {fileID: 0}
+  boss: {fileID: 0}
+  fade: {fileID: 0}
 --- !u!114 &115932674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23551,6 +23553,8 @@ MonoBehaviour:
   audi: {fileID: 995031644}
   aShoot: {fileID: 995031645}
   embestida: {fileID: 995031647}
+  boss: {fileID: 255874280}
+  fade: {fileID: 1880510747}
 --- !u!64 &995031641
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -49017,7 +49021,7 @@ Transform:
   m_GameObject: {fileID: 2030003032}
   m_LocalRotation: {x: -0, y: -0.11811641, z: -0, w: 0.99299973}
   m_LocalPosition: {x: -10.2, y: 17.1661, z: -173.1}
-  m_LocalScale: {x: 11.088603, y: 40.382366, z: 11.088603}
+  m_LocalScale: {x: 16.412241, y: 40.382366, z: 12.486876}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 790647700}
@@ -49031,7 +49035,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030003032}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1

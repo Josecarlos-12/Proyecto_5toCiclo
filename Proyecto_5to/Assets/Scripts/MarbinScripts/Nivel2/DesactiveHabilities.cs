@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DesactiveHabilities : MonoBehaviour
@@ -9,6 +10,10 @@ public class DesactiveHabilities : MonoBehaviour
     public Jump jump;
     public int random;
     public bool damageRandon;
+
+    public TextMeshProUGUI text;
+    public GameObject textGame;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +38,9 @@ public class DesactiveHabilities : MonoBehaviour
         {
             if (damageRandon)
             {
+                textGame.SetActive(true);
+                text.text = "Te han desactiva una habilidad temporalmente";
+                StartCoroutine(Text());
                 Debug.Log("TocoelAzul");
                 random = Random.Range(0, 4);
                 Debug.Log(random);
@@ -52,6 +60,12 @@ public class DesactiveHabilities : MonoBehaviour
                 StartCoroutine(Active());
             }
         }
+    }
+
+    public IEnumerator Text()
+    {
+        yield return new WaitForSeconds(3);
+        textGame.SetActive(false);
     }
 
     public IEnumerator Active()
