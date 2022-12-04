@@ -43,7 +43,7 @@ public class Experience : MonoBehaviour
     public float moveSped;
 
     [Header("Enemigo")]
-    public ExperienceFollow robotin, boss, pena, larry, boss2, panico;
+    public ExperienceFollow robotin, boss, pena, larry, boss2, panico, cartel, hades;
 
     [Header("Guardar Datos")]
     public string sMaxExperience = "MaxExperience";
@@ -183,6 +183,31 @@ public class Experience : MonoBehaviour
                 //imageExperience.enabled = true;
                 experience += robotin.experience;
                 
+                StartCoroutine(Experi());
+            }
+        }
+        
+            if (other.gameObject.CompareTag("ExperienceCartel"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += cartel.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        if (other.gameObject.CompareTag("Hades"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += hades.experience;
+
                 StartCoroutine(Experi());
             }
         }
@@ -585,12 +610,14 @@ public class Experience : MonoBehaviour
     #region Option7
     public void DoubleBullet()
     {
+        experience = maxExperience;
         OculMouse();
         level7.SetActive(false);
         PlayerPrefs.SetFloat("OPTION7", 1);
     }
     public void ChoroLifeMore()
     {
+        experience = maxExperience;
         if (!choroLife)
         {
            fRoboLi = 25;
@@ -606,7 +633,8 @@ public class Experience : MonoBehaviour
     }
     public void LessDash()
     {
-        fLessDa= energy.lessDash - 50;
+        experience = maxExperience;
+        fLessDa = energy.lessDash - 50;
         OculMouse();
         level7.SetActive(false);
         PlayerPrefs.SetFloat("OPTION7", 3);
