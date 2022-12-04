@@ -116,11 +116,11 @@ public class Life : MonoBehaviour
             }
             if (other.gameObject.CompareTag("Gigant"))
             {
-                life -= 50;
+                life -= 100;
             }
             if (other.gameObject.CompareTag("WaveSword"))
             {
-                life -= 50;
+                life -= 150;
             }
             if (other.gameObject.name == "PunchLarry")
             {
@@ -135,7 +135,11 @@ public class Life : MonoBehaviour
             }
             if (other.gameObject.CompareTag("SwordBoss"))
             {
-                life -= 100;
+                life -= 200;
+            }
+            if (other.gameObject.CompareTag("SwordChiquis"))
+            {
+                life -= 50;
             }
             if (other.gameObject.CompareTag("EnemyWeapon"))
             {

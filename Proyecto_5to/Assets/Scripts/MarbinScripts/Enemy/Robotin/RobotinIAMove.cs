@@ -104,7 +104,7 @@ public class RobotinIAMove : MonoBehaviour
 
                 if (count == 1)
                 {
-                    audi.volume = 1;
+                    audi.volume = 0.2f;
                     audi.clip = detection;
                     audi.Play();
                 }

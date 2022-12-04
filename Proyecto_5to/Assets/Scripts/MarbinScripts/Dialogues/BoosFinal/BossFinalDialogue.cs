@@ -113,7 +113,7 @@ public class BossFinalDialogue : MonoBehaviour
 
     public void LifeBoss()
     {
-        if (boss.life <= 1200)
+        if (boss.life <= 1500)
         {
             if(count<3)
             count++;
@@ -125,7 +125,7 @@ public class BossFinalDialogue : MonoBehaviour
                 StartCoroutine(MilDos());
             }
         }
-        if (boss.life <= 800)
+        if (boss.life <= 1000)
         {
             if (count2 < 3)
                 count2++;
@@ -137,7 +137,7 @@ public class BossFinalDialogue : MonoBehaviour
                 audioBoss.Play();
             }
         }
-        if (boss.life <= 600)
+        if (boss.life <= 500)
         {
             if (count3 < 3)
                 count3++;
@@ -149,7 +149,7 @@ public class BossFinalDialogue : MonoBehaviour
                 audioBoss.Play();
             }
         }
-        if (boss.life <= 100)
+        if (boss.life <= 300)
         {
             if (count4 < 3)
                 count4++;

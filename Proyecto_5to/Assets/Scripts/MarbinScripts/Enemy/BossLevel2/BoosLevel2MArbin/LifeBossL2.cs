@@ -80,7 +80,7 @@ public class LifeBossL2 : MonoBehaviour
     {
         image.fillAmount = HP / MaxHP;
 
-        if (HP <= 1000)
+        if (HP <= 1200)
         {
             if(countAn<3)
             countAn++;

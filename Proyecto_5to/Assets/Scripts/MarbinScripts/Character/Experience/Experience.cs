@@ -199,18 +199,6 @@ public class Experience : MonoBehaviour
                 StartCoroutine(Experi());
             }
         }
-        if (other.gameObject.CompareTag("Hades"))
-        {
-            Destroy(other.gameObject);
-            if (experience <= maxExperience)
-            {
-                //ObjecExperience.SetActive(true);
-                //imageExperience.enabled = true;
-                experience += hades.experience;
-
-                StartCoroutine(Experi());
-            }
-        }
         if (other.gameObject.CompareTag("ExperienceBoss"))
         {
             Destroy(other.gameObject);

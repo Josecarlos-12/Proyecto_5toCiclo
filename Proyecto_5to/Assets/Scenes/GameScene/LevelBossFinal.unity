@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1364, g: 1020.7583, b: 806.92566, a: 1}
+  m_IndirectSpecularColor: {r: 1363.8372, g: 1020.49756, b: 806.51196, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2923,8 +2923,8 @@ MonoBehaviour:
   maxTime: 1
   maxTime2: 0.3
   SwordsEnemy: {fileID: 38320223}
-  life: 1500
-  maxLife: 1500
+  life: 2000
+  maxLife: 2000
   material: {fileID: 314245240}
   sword: {fileID: 627866160}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
@@ -4332,7 +4332,7 @@ GameObject:
   - component: {fileID: 558628192}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: SwordBoss
+  m_TagString: SwordChiquis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4865,7 +4865,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sen
       value: 
-      objectReference: {fileID: 1795674952}
+      objectReference: {fileID: 938384640}
     - target: {fileID: 888039505762802447, guid: d6197c8b9a077c44b9a4494ad93b570a,
         type: 3}
       propertyPath: moveCamera
@@ -7967,7 +7967,7 @@ GameObject:
   - component: {fileID: 913196062}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: SwordBoss
+  m_TagString: SwordChiquis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8463,6 +8463,7 @@ GameObject:
   - component: {fileID: 938384637}
   - component: {fileID: 938384639}
   - component: {fileID: 938384638}
+  - component: {fileID: 938384640}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8893,6 +8894,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &938384640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938384629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensibility: {fileID: 1936630152}
+  sen: {fileID: 34962644}
+  sliderValue: 0
 --- !u!1 &942406673
 GameObject:
   m_ObjectHideFlags: 0
@@ -8985,7 +9001,7 @@ GameObject:
   - component: {fileID: 961572904}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: SwordBoss
+  m_TagString: SwordChiquis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11865,7 +11881,7 @@ GameObject:
   - component: {fileID: 1299259006}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: SwordBoss
+  m_TagString: SwordChiquis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11994,7 +12010,7 @@ GameObject:
   - component: {fileID: 1300376053}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: SwordBoss
+  m_TagString: SwordChiquis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16379,7 +16395,6 @@ GameObject:
   - component: {fileID: 1795674951}
   - component: {fileID: 1795674950}
   - component: {fileID: 1795674949}
-  - component: {fileID: 1795674952}
   m_Layer: 5
   m_Name: Sensibilidad_Text
   m_TagString: Untagged
@@ -16521,21 +16536,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795674947}
   m_CullTransparentMesh: 1
---- !u!114 &1795674952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795674947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e5bc854fb048044be988c5e436287b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensibility: {fileID: 1936630152}
-  sen: {fileID: 34962644}
-  sliderValue: 0
 --- !u!1 &1795874452
 GameObject:
   m_ObjectHideFlags: 0
@@ -16728,7 +16728,7 @@ GameObject:
   - component: {fileID: 1899216050}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: SwordBoss
+  m_TagString: SwordChiquis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17298,7 +17298,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1795674952}
+      - m_Target: {fileID: 938384640}
         m_TargetAssemblyTypeName: SensibilityMouse, Assembly-CSharp
         m_MethodName: ChangeSlider
         m_Mode: 0
@@ -18855,7 +18855,7 @@ GameObject:
   - component: {fileID: 2103088439}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: SwordBoss
+  m_TagString: SwordChiquis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19279,7 +19279,7 @@ GameObject:
   - component: {fileID: 2145423511}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: SwordBoss
+  m_TagString: SwordChiquis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
