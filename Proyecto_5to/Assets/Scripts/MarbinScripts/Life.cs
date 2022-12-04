@@ -112,7 +112,7 @@ public class Life : MonoBehaviour
             }
             if (other.gameObject.CompareTag("LaserTuto"))
             {
-                life-=200;
+                life-=150;
             }
             if (other.gameObject.CompareTag("Gigant"))
             {
@@ -130,7 +130,7 @@ public class Life : MonoBehaviour
 
                 //rb.AddForce(Vector3.forward * 5, ForceMode.Impulse);
                 //rb.AddForce(Vector3.up, ForceMode.Impulse);               
-                life -= 50;
+                life -= 20;
                 //StartCoroutine("LarryFalse");
             }
             if (other.gameObject.CompareTag("SwordBoss"))
@@ -139,8 +139,15 @@ public class Life : MonoBehaviour
             }
             if (other.gameObject.CompareTag("EnemyWeapon"))
             {
-                life -= 100;
+                move.move = false;
+                rb.AddForce(((Vector2)(transform.position - other.gameObject.transform.position)).normalized * 90, ForceMode.Impulse);
+                life -= 100; StartCoroutine("LarryFalse");
             }
+            if (other.gameObject.CompareTag("BulletPanico"))
+            {
+                life -= 80;
+            }
+            
         }
         if (other.gameObject.CompareTag("MaxLife"))
         {

@@ -22,9 +22,31 @@ public class Cofre : MonoBehaviour
     public GameObject gText;
     public TextMeshProUGUI textMesh;
 
+    public enum Modulos
+    {
+        mod1, mod2, mod3, mod4
+    }
+    public Modulos mod;
+
     private void Update()
     {
-        DestroyOpen();
+        switch (mod)
+        {
+            case Modulos.mod1:
+                DestroyOpen();
+                break;
+            case Modulos.mod2:
+                Mod2();
+            break;
+            case Modulos.mod3:
+                Mod3();
+                break;
+            case Modulos.mod4:
+                Mod4();
+                break;
+        }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -110,20 +132,85 @@ public class Cofre : MonoBehaviour
         {
             Debug.Log(door.door);
             if (robots[0] == null || robots[1] == null || robots[2] == null || robots[3] == null || robots[4] == null
-            || robots[5] == null || robots[6] == null || robots[7] == null || robots[8] == null || robots[9] == null)
+            || robots[5] == null || robots[6] == null || robots[7] == null || robots[8] == null || robots[9] == null || robots[10] == null || robots[11] == null)
             {
                 matoRobots = true;
             }
             if (robots[0] != null && robots[1] != null && robots[2] != null && robots[3] != null && robots[4] != null
-             && robots[5] != null && robots[6] != null && robots[7] != null && robots[8] != null && robots[9] != null)
+             && robots[5] != null && robots[6] != null && robots[7] != null && robots[8] != null && robots[9] != null && robots[10] != null && robots[11] != null)
+            {
+                noMato = true;
+            }
+        }
+    }
+
+    public void Mod2()
+    {
+        if (dor == null)
+        {
+            Debug.Log(door.door);
+            if (robots[0] == null || robots[1] == null || robots[2] == null || robots[3] == null || robots[4] == null
+            || robots[5] == null || robots[6] == null || robots[7] == null || robots[8] == null || robots[9] == null 
+            || robots[10] == null || robots[11] == null || robots[12] == null || robots[13] == null)
+            {
+                matoRobots = true;
+            }
+            if (robots[0] != null && robots[1] != null && robots[2] != null && robots[3] != null && robots[4] != null
+             && robots[5] != null && robots[6] != null && robots[7] != null && robots[8] != null && robots[9] != null 
+             && robots[10] != null && robots[11] != null && robots[12] != null && robots[13] != null)
+            {
+                noMato = true;
+            }
+        }
+    }
+
+    public void Mod3()
+    {
+        if (dor == null)
+        {
+            Debug.Log(door.door);
+            if (robots[0] == null || robots[1] == null || robots[2] == null || robots[3] == null || robots[4] == null
+            || robots[5] == null || robots[6] == null || robots[7] == null || robots[8] == null || robots[9] == null
+            || robots[10] == null || robots[11] == null || robots[12] == null || robots[13] == null || robots[14] == null
+            || robots[15] == null || robots[16] == null)
+            {
+                matoRobots = true;
+            }
+            if (robots[0] != null && robots[1] != null && robots[2] != null && robots[3] != null && robots[4] != null
+             && robots[5] != null && robots[6] != null && robots[7] != null && robots[8] != null && robots[9] != null
+             && robots[10] != null && robots[11] != null && robots[12] != null && robots[13] != null && robots[14] != null
+             && robots[15] != null && robots[16] != null)
             {
                 noMato = true;
             }
         }
 
-
     }
 
+    public void Mod4()
+    {
+        if (dor == null)
+        {
+            Debug.Log(door.door);
+            if (robots[0] == null || robots[1] == null || robots[2] == null || robots[3] == null || robots[4] == null
+            || robots[5] == null || robots[6] == null || robots[7] == null || robots[8] == null || robots[9] == null
+            || robots[10] == null || robots[11] == null || robots[12] == null || robots[13] == null || robots[14] == null
+            || robots[15] == null || robots[16] == null || robots[17] == null || robots[18] == null || robots[19] == null
+            || robots[20] == null || robots[21] == null)
+            {
+                matoRobots = true;
+            }
+            if (robots[0] != null && robots[1] != null && robots[2] != null && robots[3] != null && robots[4] != null
+             && robots[5] != null && robots[6] != null && robots[7] != null && robots[8] != null && robots[9] != null
+             && robots[10] != null && robots[11] != null && robots[12] != null && robots[13] != null && robots[14] != null
+             && robots[15] != null && robots[16] != null && robots[17] != null && robots[18] != null && robots[19] != null
+             && robots[20] != null && robots[21] != null)
+            {
+                noMato = true;
+            }
+        }
+
+    }
 
     public IEnumerator DialogueCofe()
     {

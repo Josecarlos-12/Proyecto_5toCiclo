@@ -26,6 +26,8 @@ public class Enemy3 : MonoBehaviour
     public Sword sword;
     public Bullet bullet, laser;
     public GameObject experience;
+    public bool life;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +68,7 @@ public class Enemy3 : MonoBehaviour
             GameObject bulletTemporal = Instantiate(Bullet, shotSpawn.transform.position, shotSpawn.transform.rotation) as GameObject;
             Rigidbody rb = bulletTemporal.GetComponent<Rigidbody>();
             bulletTemporal.GetComponent<Rigidbody>().AddForce(playerDirection * bulletVelocity, ForceMode.Force);
-            Shield.SetActive(false);
+            //Shield.SetActive(false);
 
 
         }
@@ -75,25 +77,29 @@ public class Enemy3 : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
+        if (!life)
         {
-            render.material.color = Color.red;
-            Life -= bullet.damageB;
-            StartCoroutine(ChangeColor());
+            if (other.gameObject.CompareTag("Bullet"))
+            {
+                render.material.color = Color.red;
+                Life -= bullet.damageB;
+                StartCoroutine(ChangeColor());
+            }
+            if (other.gameObject.CompareTag("LaserProta"))
+            {
+                render.material.color = Color.red;
+                Life -= laser.damageB;
+                StartCoroutine(ChangeColor());
+            }
+            if (other.gameObject.CompareTag("Sword"))
+            {
+                render.material.color = Color.red;
+                Life -= sword.damage;
+                Debug.Log("Macheteo");
+                StartCoroutine(ChangeColor());
+            }
         }
-        if (other.gameObject.CompareTag("LaserProta"))
-        {
-            render.material.color = Color.red;
-            Life -= laser.damageB;
-            StartCoroutine(ChangeColor());
-        }
-        if (other.gameObject.CompareTag("Sword"))
-        {
-            render.material.color = Color.red;
-            Life -= sword.damage;
-            Debug.Log("Macheteo");
-            StartCoroutine(ChangeColor());
-        }
+       
     }
 
     public IEnumerator ChangeColor()
@@ -110,9 +116,14 @@ public class Enemy3 : MonoBehaviour
 
     public void Atacks()
     {
-        if (Life < 150)
+        if (Life <= 100)
         {
-            Shield.SetActive(true);
+            if (Shield != null)
+            {
+                Shield.SetActive(true);
+                life = true;
+            }
+            
         }
        
 

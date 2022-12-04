@@ -6,6 +6,9 @@ public class LessLifeProta : MonoBehaviour
 {
     public PenaV2 pena;
     public float force = 20;
+
+    public int count;
+
     private void Start()
     {
     }
@@ -21,7 +24,7 @@ public class LessLifeProta : MonoBehaviour
             //pena.rb.AddForce(((Vector2)(other.gameObject.transform.position - transform.position)).normalized * 10, ForceMode.Impulse);
             //pena.rb.AddForce(((Vector3)(other.gameObject.transform.position - transform.position)).normalized * 35, ForceMode.Impulse);
             pena.rb.AddForce(new Vector3(other.gameObject.transform.position.x - transform.position.x, 0, other.gameObject.transform.position.z - transform.position.z).normalized * force, ForceMode.Impulse);
-            pena.lifeProta.life -= 200;
+            
             pena.col.SetActive(false);
             pena.col2.SetActive(true);
             pena.bColl = true;
@@ -38,6 +41,24 @@ public class LessLifeProta : MonoBehaviour
                 pena.rb.AddForce(((Vector2)(other.gameObject.transform.position - transform.position)).normalized * 6, ForceMode.Impulse);
                 Debug.Log(pena.lifeProta.life);
             }*/
+
+            if (count < 3)
+            {
+                count++;
+            }
+
+            if (count == 1)
+            {
+                pena.lifeProta.life -= 120;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            count = 0;
         }
     }
 
