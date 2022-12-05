@@ -19,7 +19,7 @@ public class RogueBossShield : MonoBehaviour
             InstantShield();
             Shield_1 = true;
         }
-        else if (Shield_1)
+        else if (Shield_1 && Shields_Actives == 0)
         {
             InstantShield();
             Shield_2 = true;
@@ -28,6 +28,7 @@ public class RogueBossShield : MonoBehaviour
         if(Shields_Actives == Shield_List.Count)
         {
             DefenseActive = false;
+            Shields_Actives = 0;
         }
     }
     void InstantShield()

@@ -47,6 +47,15 @@ public class RogueBossState : MonoBehaviour
     }
     void Update()
     {
+        HPbar.fillAmount = HP / MaxHP;
+
+        Detect = Physics.CheckSphere(transform.position, MoveRango, LayerPlayer);
+        if (MeleeDetect)
+        {
+            Melee.Active = true;
+        }
+        GenerateShield();
+
         switch (state)
         {
             case State.idle:
@@ -69,14 +78,7 @@ public class RogueBossState : MonoBehaviour
                 Recharge();
                 break;
         }
-        HPbar.fillAmount = HP / MaxHP;
 
-        Detect = Physics.CheckSphere(transform.position, MoveRango, LayerPlayer);
-        if (MeleeDetect)
-        {
-            Melee.Active = true;
-        }
-        GenerateShield();
     }
 
     void PlayerDetect()
