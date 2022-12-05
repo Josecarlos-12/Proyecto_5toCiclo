@@ -11,6 +11,7 @@ public class LarryLife : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            Debug.Log("Bala");
             larry.render.material.color = Color.red;
             larry.life -= larry.bullet.damageB;
             StartCoroutine(larry.ChangeColor());

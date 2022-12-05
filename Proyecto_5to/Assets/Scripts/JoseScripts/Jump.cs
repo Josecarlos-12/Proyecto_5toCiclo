@@ -34,6 +34,9 @@ public class Jump : MonoBehaviour
     [Header("Jump SFX")]
     public AudioSource jumpAudio;
 
+
+    public KeyCode kJP=KeyCode.Space;
+    public float mass;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +67,7 @@ public class Jump : MonoBehaviour
 
     public void JumpOnly()
     {
-        if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemainingTwo > 0) && floor.floor)
+        if ((Input.GetKeyDown(kJP)) && (jumpsRemainingTwo > 0) && floor.floor)
         {
             jumpAudio.Play();
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
@@ -104,7 +107,7 @@ public class Jump : MonoBehaviour
                 intera = 0;
             }
             //Una vez presionado espacio poder saltar
-            if ((Input.GetKeyDown(KeyCode.Space)) && (jumpsRemaining > 0))
+            if ((Input.GetKeyDown(kJP)) && (jumpsRemaining > 0))
             {
             jumpAudio.Play();
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
@@ -117,9 +120,10 @@ public class Jump : MonoBehaviour
                 if (count == 1)
                 {
                     energy.jump = true;
-                energy.ReductionEnergyJump();
+                    energy.ReductionEnergyJump();
+                //StartCoroutine(MoreMass());
 
-            }
+                }
             }
 
             else
@@ -131,6 +135,14 @@ public class Jump : MonoBehaviour
 
                 
     }
+
+    public IEnumerator MoreMass()
+    {
+        yield return new WaitForSeconds(0f);
+        //rb.mass = mass;
+    }
+
+
     public void OnCollisionEnter(Collision collision)
     {
         //Si colisionamos con el suelo que sea =true
@@ -140,7 +152,8 @@ public class Jump : MonoBehaviour
             grounded = true;
             //Resetear la cantidad de saltos una vez colisione con el suelo
             jumpsRemaining = maxJumpCount;
-            jumpsRemainingTwo = maxJumpCount;
+            jumpsRemainingTwo = 1;
+            //rb.mass = 1.1f;
         }
     }
 

@@ -8,6 +8,8 @@ public class SoundMove : MonoBehaviour
     public MoveRGB move;
     [Header("Pasos Sonidos")]
     public AudioSource footSteps;
+    public NewJump jump;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +42,18 @@ public class SoundMove : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Platform"))
         {
             floor = true;
+            jump.currentJumps = 0;
+            jump.canJump = true;
         }        
     }
 
@@ -53,6 +62,23 @@ public class SoundMove : MonoBehaviour
         if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Platform"))
         {
             floor = false;
+            jump.canJump = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Platform"))
+        {
+           
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Platform"))
+        {
+            
         }
     }
 }

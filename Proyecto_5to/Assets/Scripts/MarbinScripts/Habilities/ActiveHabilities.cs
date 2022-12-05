@@ -21,23 +21,41 @@ public class ActiveHabilities : MonoBehaviour
     [TextArea(8,8)]
     public string[] sText;
     public float[] time;
+
+    public NewJump newJump;
     private void Start()
     {
         //PlayerPrefs.SetInt("DoubleJump", 0);
         //PlayerPrefs.SetInt("Dash", 0);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            PlayerPrefs.SetInt("DoubleJump", 0);
+            PlayerPrefs.SetInt("Dash", 0);
+            jump.maxJumpCount = 1;
+            jump.jumpTwo = false;
+            jump.jumpOne = true;
+            dash.canDash = false;
+            newJump.doubleJump = false;
+        }
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "JumpOne")
         {
+            newJump.enabled = true;
             jump.jumpOne = true;
         }
         if (other.gameObject.name == "Jump")
         {
             jump.jumpOne = false;
             jump.jumpTwo = true;
-            dash.canDash = true;
+            dash.canDash = true; newJump.doubleJump = true;
+            
         }
         if(other.gameObject.name == "Question")
         {
@@ -98,6 +116,7 @@ public class ActiveHabilities : MonoBehaviour
         jump.jumpTwo = false;
         jump.jumpOne = true;
         jump.maxJumpCount = 1;
+        newJump.doubleJump = false;
         respawn.prota.position = new Vector3(respawn.next[2].position.x, respawn.next[2].position.y + 3, respawn.next[2].position.z);
         respawn.prota.rotation = respawn.next[2].rotation;
     }

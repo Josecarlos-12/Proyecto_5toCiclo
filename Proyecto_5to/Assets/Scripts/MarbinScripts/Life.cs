@@ -89,6 +89,17 @@ public class Life : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (!intan)
+        {
+            if (other.gameObject.CompareTag("BB2"))
+            {
+                life -= 1;
+            }
+        }
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -97,35 +108,50 @@ public class Life : MonoBehaviour
             //Si toca al enemigo que le baje vida
             if (other.gameObject.CompareTag("BulletRobotin"))
             {
-                life-=50;
+                life-=20;
             }
             if (other.gameObject.CompareTag("LaserTuto"))
             {
-                life-=200;
+                life-=150;
             }
             if (other.gameObject.CompareTag("Gigant"))
             {
-                life -= 50;
+                life -= 100;
             }
             if (other.gameObject.CompareTag("WaveSword"))
             {
-                life -= 50;
+                life -= 150;
             }
             if (other.gameObject.name == "PunchLarry")
             {
-                move.move = false;
+                //move.move = false;
                 //Este Funciona
                 //rb.AddForce(((Vector2)(transform.position - other.gameObject.transform.position)).normalized * 8, ForceMode.Impulse);
 
                 //rb.AddForce(Vector3.forward * 5, ForceMode.Impulse);
                 //rb.AddForce(Vector3.up, ForceMode.Impulse);               
-                life -= 100;
-                StartCoroutine("LarryFalse");
+                life -= 20;
+                //StartCoroutine("LarryFalse");
             }
             if (other.gameObject.CompareTag("SwordBoss"))
             {
-                life -= 100;
+                life -= 200;
             }
+            if (other.gameObject.CompareTag("SwordChiquis"))
+            {
+                life -= 50;
+            }
+            if (other.gameObject.CompareTag("EnemyWeapon"))
+            {
+                move.move = false;
+                rb.AddForce(((Vector2)(transform.position - other.gameObject.transform.position)).normalized * 90, ForceMode.Impulse);
+                life -= 100; StartCoroutine("LarryFalse");
+            }
+            if (other.gameObject.CompareTag("BulletPanico"))
+            {
+                life -= 80;
+            }
+            
         }
         if (other.gameObject.CompareTag("MaxLife"))
         {

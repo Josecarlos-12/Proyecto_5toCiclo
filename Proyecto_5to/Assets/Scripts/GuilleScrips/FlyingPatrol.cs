@@ -17,6 +17,9 @@ public class FlyingPatrol : MonoBehaviour
 
     public Transform robot;
 
+    public Enemy ri;
+    public Enemy3 ri2;
+
     public enum Walk
     {
         Walking,
@@ -38,7 +41,7 @@ public class FlyingPatrol : MonoBehaviour
             case Walk.Walking:
                 MovePlatform();
                 break;
-                case Walk.Rotation:
+            case Walk.Rotation:
                 Rotation();
                 break;
         }
@@ -47,28 +50,48 @@ public class FlyingPatrol : MonoBehaviour
 
     void Rotation()
     {
-        robot.Rotate(0, platformSpeed*Time.deltaTime, 0);
-    }
-
-    void MovePlatform()
-    {
         if (moveToTheNext)
         {
             StopCoroutine(WaitForMove(0));
             platformRB.MovePosition(Vector3.MoveTowards(platformRB.position, platformPosition[nextPosition].position, platformSpeed * Time.deltaTime));
         }
 
-        if(Vector3.Distance(platformRB.position, platformPosition[nextPosition].position)<=0)
+        if (Vector3.Distance(platformRB.position, platformPosition[nextPosition].position) <= 0)
         {
             StartCoroutine(WaitForMove(waitTime));
-            actualPosition= nextPosition;
+            actualPosition = nextPosition;
             nextPosition++;
 
-            if(nextPosition>platformPosition.Length-1)
+            if (nextPosition > platformPosition.Length - 1)
             {
-                nextPosition=0;
+                nextPosition = 0;
             }
         }
+    }
+
+    void MovePlatform()
+    {
+        if (!ri.bDeath)
+        {
+            if (moveToTheNext)
+            {
+                StopCoroutine(WaitForMove(0));
+                platformRB.MovePosition(Vector3.MoveTowards(platformRB.position, platformPosition[nextPosition].position, platformSpeed * Time.deltaTime));
+            }
+
+            if (Vector3.Distance(platformRB.position, platformPosition[nextPosition].position) <= 0)
+            {
+                StartCoroutine(WaitForMove(waitTime));
+                actualPosition = nextPosition;
+                nextPosition++;
+
+                if (nextPosition > platformPosition.Length - 1)
+                {
+                    nextPosition = 0;
+                }
+            }
+        }
+        
     }
 
     IEnumerator WaitForMove(float time)

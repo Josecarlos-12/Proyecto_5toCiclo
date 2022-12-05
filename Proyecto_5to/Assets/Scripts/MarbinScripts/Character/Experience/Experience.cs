@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Experience : MonoBehaviour
 {
+    public TextExperience textExperience;
     public WaveExpansiveProta waveProta;
     public SwordPunch sworPunch;
     public Sword sword;
@@ -42,7 +43,7 @@ public class Experience : MonoBehaviour
     public float moveSped;
 
     [Header("Enemigo")]
-    public ExperienceFollow robotin;
+    public ExperienceFollow robotin, boss, pena, larry, boss2, panico, cartel, hades;
 
     [Header("Guardar Datos")]
     public string sMaxExperience = "MaxExperience";
@@ -99,8 +100,8 @@ public class Experience : MonoBehaviour
         //PlayerPrefs.SetFloat("OPTION3", 0);
         //PlayerPrefs.SetFloat("OPTION4", 0);
 
-        ObjecExperience.SetActive(false);
-        imageExperience.enabled = false;
+        // ObjecExperience.SetActive(false);
+        //imageExperience.enabled = false;
     }
 
     // Update is called once per frame
@@ -117,16 +118,56 @@ public class Experience : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F9))
         {
+            PlayerPrefs.SetInt("BossDeath", 0);
+            count = 0;
+            count2 = 0;
+            count3 = 0;
+            count4 = 0;
+            count5 = 0;
+            count6 = 0;
+            count7 = 0;
+
+            text.text = "0";
             Debug.Log("SA");
             experience = 0;
             maxExperience = 300;
             PlayerPrefs.SetFloat("OP1", 0);
-            PlayerPrefs.SetFloat("OP2", 0);
             PlayerPrefs.SetFloat("EXP", 0);
             PlayerPrefs.SetFloat("OPTION1", 0);
             PlayerPrefs.SetFloat("OPTION2", 0);
             PlayerPrefs.SetFloat("OPTION3", 0);
             PlayerPrefs.SetFloat("OPTION4", 0);
+            PlayerPrefs.SetFloat("OPTION5", 0);
+            PlayerPrefs.SetFloat("OPTION6", 0);
+            PlayerPrefs.SetFloat("OPTION7", 0);
+            //Onda Explosiva
+            waveProta.expExplotion = false;
+            //Robar Vida con cuchillo
+            sworPunch.stealLife = false;
+            sworPunch.choro = 25;
+            //Daño Espada
+            sword.damage = 50;
+            //Daño bala
+            bullet.damageB = 20;
+            //Daño laser
+            laser.damageB = 50;
+            //Vida
+            life.life= 1000;
+            life.maxLife = 1000;
+            //Energia
+            energy.energy = 1000;
+            energy.energyMax = 1000;
+            // Velocidad de movimiento prota
+            move.speed = 13;
+            //Escudo
+            shield.canShild = false;
+            //Tipos de disparo
+            weapon.typeBullet = false;
+            weapon.bDoubleBullet = false;
+            //Alcance
+            laser.destructtion = 0.5f;
+            bullet.destructtion = 0.5f;
+            //DOble bala
         }
     }
 
@@ -138,51 +179,126 @@ public class Experience : MonoBehaviour
             Destroy(other.gameObject);
             if (experience <= maxExperience)
             {
-                ObjecExperience.SetActive(true);
-                imageExperience.enabled = true;
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
                 experience += robotin.experience;
                 
                 StartCoroutine(Experi());
             }
         }
+        
+            if (other.gameObject.CompareTag("ExperienceCartel"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += cartel.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        if (other.gameObject.CompareTag("ExperienceBoss"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += boss.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        if (other.gameObject.CompareTag("ExperiencePena"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += pena.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        if (other.gameObject.CompareTag("ExperienceLarry"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += larry.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        if (other.gameObject.CompareTag("ExperiecieBoss2"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += boss2.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+        if (other.gameObject.CompareTag("ExperiencePanico"))
+        {
+            Destroy(other.gameObject);
+            if (experience <= maxExperience)
+            {
+                //ObjecExperience.SetActive(true);
+                //imageExperience.enabled = true;
+                experience += panico.experience;
+
+                StartCoroutine(Experi());
+            }
+        }
+
+
     }
 
     public IEnumerator Experi()
     {
         yield return new WaitForSeconds(3);
-        imageExperience.enabled = false;
-        ObjecExperience.SetActive(false);
+        //imageExperience.enabled = false;
+        //ObjecExperience.SetActive(false);
     }
 
     public void TextExperience()
     {
         if (PlayerPrefs.GetFloat("OP1") == 1)
         {
-            text.text = "Nivel 1";
+            text.text = "1";
         }
         if (PlayerPrefs.GetFloat("OP1") == 2)
         {
-            text.text = "Nivel 2";
+            text.text = "2";
         }
         if (PlayerPrefs.GetFloat("OP1") == 3)
         {
-            text.text = "Nivel 3";
+            text.text = "3";
         }
         if (PlayerPrefs.GetFloat("OP1") == 4)
         {
-            text.text = "Nivel 4";
+            text.text = "4";
         }
         if (PlayerPrefs.GetFloat("OP1") == 5)
         {
-            text.text = "Nivel 5";
+            text.text = "5";
         }
         if (PlayerPrefs.GetFloat("OP1") == 6)
         {
-            text.text = "Nivel 6";
+            text.text = "6";
         }
         if (PlayerPrefs.GetFloat("OP1") == 7)
         {
-            text.text = "Nivel 7";
+            text.text = "7";
         }
     }
 
@@ -241,6 +357,44 @@ public class Experience : MonoBehaviour
                 PlayerPrefs.SetFloat("OP1", 4);
                 StopOculMose();
                 level4.SetActive(true);
+            }
+        }
+
+        if (experience >= 2200 && PlayerPrefs.GetFloat("OP1") == 4)
+        {
+            if (count5 < 3)
+                count5++;
+
+            if (count5 == 1)
+            {
+                PlayerPrefs.SetFloat("OP1", 5);
+                StopOculMose();
+                level5.SetActive(true);
+            }
+        }
+
+        if (experience >= 2650 && PlayerPrefs.GetFloat("OP1") == 5)
+        {
+            if (count6 < 3)
+                count6++;
+
+            if (count6 == 1)
+            {
+                PlayerPrefs.SetFloat("OP1", 6);
+                StopOculMose();
+                level6.SetActive(true);
+            }
+        }
+        if (experience >= 3100 && PlayerPrefs.GetFloat("OP1") == 6)
+        {
+            if (count7 < 3)
+                count7++;
+
+            if (count7 == 1)
+            {
+                PlayerPrefs.SetFloat("OP1", 7);
+                StopOculMose();
+                level7.SetActive(true);
             }
         }
     }
@@ -311,6 +465,7 @@ public class Experience : MonoBehaviour
 
     public void Shield()
     {
+        textExperience.TextShield();
         maxExperience = 1200;
         OculMouse();
         level2.SetActive(false);
@@ -322,8 +477,8 @@ public class Experience : MonoBehaviour
     #region Option3
     public void Alcance()
     {
-        bullet.destructtion = fBulletAlcance;
-        laser.destructtion = fLaserAlcance;
+        fBulletAlcance = bullet.destructtion + 0.8f;
+        fLaserAlcance= laser.destructtion + 0.8f;
         maxExperience = 1850;
         OculMouse();
         level3.SetActive(false);
@@ -352,6 +507,7 @@ public class Experience : MonoBehaviour
     #region Option4
     public void BulletThunder()
     {
+        textExperience.OtherBullet();
         maxExperience = 2200;
         OculMouse();
         level4.SetActive(false);
@@ -367,6 +523,7 @@ public class Experience : MonoBehaviour
     }
     public void RegenerationEXP()
     {
+        textExperience.Wave();
         maxExperience = 2200;
         OculMouse();
         level4.SetActive(false);
@@ -441,12 +598,14 @@ public class Experience : MonoBehaviour
     #region Option7
     public void DoubleBullet()
     {
+        experience = maxExperience;
         OculMouse();
         level7.SetActive(false);
         PlayerPrefs.SetFloat("OPTION7", 1);
     }
     public void ChoroLifeMore()
     {
+        experience = maxExperience;
         if (!choroLife)
         {
            fRoboLi = 25;
@@ -462,7 +621,8 @@ public class Experience : MonoBehaviour
     }
     public void LessDash()
     {
-        fLessDa= energy.lessDash - 50;
+        experience = maxExperience;
+        fLessDa = energy.lessDash - 50;
         OculMouse();
         level7.SetActive(false);
         PlayerPrefs.SetFloat("OPTION7", 3);
@@ -628,7 +788,7 @@ public class Experience : MonoBehaviour
         }
         if (PlayerPrefs.GetFloat("OPTION4") == 3)
         {
-            waveProta.canExplotion = true;
+            waveProta.expExplotion = true;
         }
 
 

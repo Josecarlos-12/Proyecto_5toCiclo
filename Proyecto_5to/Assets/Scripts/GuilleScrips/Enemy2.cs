@@ -44,7 +44,11 @@ public class Enemy2 : MonoBehaviour
     public Collider mesh;
     public Transform ex1, ex2, ex3, ex4;
     public GameObject experiencia;
-    public AudioSource audi;
+    public AudioSource audi, aShoot;
+    [Header("Audio")]
+    public AudioSource embestida;
+    public AudioSource boss;
+    public FadeMusic fade;
 
     void Start()
     {
@@ -64,6 +68,7 @@ public class Enemy2 : MonoBehaviour
     {
         if (Life <= 0)
         {
+            PlayerPrefs.SetInt("BossDeath", 1);
             if (decition!= null)
             {
                 decition.transform.position = transform.position;
@@ -79,7 +84,10 @@ public class Enemy2 : MonoBehaviour
             Instantiate(experiencia, ex4.position, Quaternion.identity);
         }
     }
-
+    public void EmbestidaAudio()
+    {
+        embestida.Play();
+    }
     public void Point()
     {
         Alert = Physics.CheckSphere(transform.position, AlertRange, playerMask);
@@ -100,6 +108,8 @@ public class Enemy2 : MonoBehaviour
     {
         if (Time.time > initialShoot)
         {
+            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+            aShoot.Play();
             Vector3 playerDirection = player.position - transform.position;
             initialShoot = Time.time + timeShoot;
             GameObject bulletTemporal = Instantiate(Bullet, shotSpawn.transform.position, shotSpawn.transform.rotation) as GameObject;
@@ -186,6 +196,9 @@ public class Enemy2 : MonoBehaviour
         }
         if (Life < 100)
         {
+            fade.touch = false;
+            boss.volume -= 0.01f;
+
             point = false;
             robotines.enabled = false;
             mini.tackle = false;

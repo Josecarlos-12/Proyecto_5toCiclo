@@ -31,9 +31,26 @@ public class RobotinIAMove : MonoBehaviour
 
     public int count;
     public Rigidbody rb;
+
+    [Header("Musica")]
+    public AudioSource audi;
+    public AudioSource deathAudi, idle;
+    public AudioClip death, detection, damage;
+    public int countMusic;
+    public bool bDeath, bIdle;
+    public Animator anim;
+    public float idleTime, idleTimeMax;
+
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player"); 
+        target = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();
+        /*GameObject[] tar = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject t in tar)
+        {
+            Destroy(t);
+        }*/
+
         startPos = transform.position;
         startRotation = transform.rotation;
     }
@@ -41,7 +58,10 @@ public class RobotinIAMove : MonoBehaviour
     private void Update()
     {
         Life();
-        if (robotin != null)
+
+        IdleSound();
+
+        if (robotin != null && !bDeath)
         {
             Destination();
         }
@@ -52,9 +72,22 @@ public class RobotinIAMove : MonoBehaviour
     {
         if (life <= 0)
         {
-            Instantiate(experience, transform.position, Quaternion.identity);
-            Instantiate(experience, new Vector3 (transform.position.x+2,transform.position.y,transform.position.z), Quaternion.identity);
-            Destroy(gameObject);
+            if (countMusic < 3)
+            {
+                countMusic++;
+            }
+
+            if (countMusic == 1)
+            {
+                render.material.color = Color.red;
+                anim.SetBool("Death", true);
+                deathAudi.Play();
+                bDeath = true;
+                Instantiate(experience, transform.position, Quaternion.identity);
+                Instantiate(experience, new Vector3(transform.position.x + 2, transform.position.y, transform.position.z), Quaternion.identity);
+                Destroy(gameObject, 1);
+            }
+           
         }
     }
 
@@ -64,10 +97,42 @@ public class RobotinIAMove : MonoBehaviour
         {
             if (life > 0)
             {
+                if (count < 3)
+                {
+                    count++;
+                }
+
+                if (count == 1)
+                {
+                    audi.volume = 0.2f;
+                    audi.clip = detection;
+                    audi.Play();
+                }
+                bIdle = false;
                 agent.destination = target.transform.position;
                 agent.stoppingDistance = 4;
             }
         }
+        else
+        {
+            bIdle = true;
+            count = 0;
+        }
+    }
+
+    public void IdleSound()
+    {
+        if (bIdle)
+        {
+            idleTime+=Time.deltaTime;
+
+            if (idleTime >= idleTimeMax)
+            {
+                idleTime = 0;
+                idle.Play();
+            }
+        }
+        
     }
    
     private void OnDrawGizmos()
@@ -78,39 +143,56 @@ public class RobotinIAMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
+        if (!bDeath)
         {
-            render.material.color = Color.red;
-            life-=bullet.damageB;
-            StartCoroutine(ChangeColor());
-        }
-        if (other.gameObject.CompareTag("LaserProta"))
-        {
-            render.material.color = Color.red;
-            life -= laser.damageB;
-            StartCoroutine(ChangeColor());
-        }
-        if (other.gameObject.CompareTag("Sword"))
-        {
-            render.material.color = Color.red;
-            life -=sword.damage;
-            Debug.Log("Macheteo");
-            StartCoroutine(ChangeColor());
-        }
-
-        if (other.gameObject.name == "WaveProta")
-        {         
-            if (count < 3)
+            if (other.gameObject.CompareTag("Bullet"))
             {
-                count++;
-            }
-            if (count == 1)
-            {
+                audi.volume = 0.5f;
+                audi.clip = damage;
+                audi.Play();
+                render.material.color = Color.red;
+                life -= bullet.damageB;
                 StartCoroutine(ChangeColor());
-                StartCoroutine(Empuje());
-                life -= 60;
             }
+            if (other.gameObject.CompareTag("LaserProta"))
+            {
+                audi.volume = 0.5f;
+                audi.clip = damage;
+                audi.Play();
+                render.material.color = Color.red;
+                life -= laser.damageB;
+                StartCoroutine(ChangeColor());
+            }
+            if (other.gameObject.CompareTag("Sword"))
+            {
+                audi.volume = 0.5f;
+                audi.clip = damage;
+                audi.Play();
+                render.material.color = Color.red;
+                life -= sword.damage;
+                Debug.Log("Macheteo");
+                StartCoroutine(ChangeColor());
+            }
+
+            if (other.gameObject.name == "WaveProta")
+            {
+                if (count < 3)
+                {
+                    count++;
+                }
+                if (count == 1)
+                {
+                    audi.volume = 0.5f;
+                    audi.clip = damage;
+                    audi.Play();
+                    StartCoroutine(ChangeColor());
+                    StartCoroutine(Empuje());
+                    life -= 60;
+                }
+            }
+
         }
+       
     }
 
     private void OnTriggerExit(Collider other)

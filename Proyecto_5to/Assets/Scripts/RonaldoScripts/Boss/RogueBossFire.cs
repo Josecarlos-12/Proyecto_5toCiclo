@@ -15,6 +15,8 @@ public class RogueBossFire : MonoBehaviour
 
     int count;
     float timer = 0;
+
+    public float y;
     void Start()
     {
         pp = GetComponent<RogueBossState>();
@@ -43,7 +45,7 @@ public class RogueBossFire : MonoBehaviour
             }
             else
             {
-                Instantiate(projectile, new Vector3(PlayerPosition.transform.position.x, 0.13f, PlayerPosition.transform.position.z), new Quaternion(0, 0, 0, 0));
+                Instantiate(projectile, new Vector3(PlayerPosition.transform.position.x, y, PlayerPosition.transform.position.z), new Quaternion(0, 0, 0, 0));
                 count++;
             }
             timer = 0;

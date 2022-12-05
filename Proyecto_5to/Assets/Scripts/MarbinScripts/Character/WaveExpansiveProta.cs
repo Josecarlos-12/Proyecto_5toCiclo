@@ -11,7 +11,7 @@ public class WaveExpansiveProta : MonoBehaviour
     public Rigidbody rb;
     public float jump;
 
-    public bool canExplotion;
+    public bool canExplotion, expExplotion;
 
     public GameObject waveExpansive;
 
@@ -25,30 +25,56 @@ public class WaveExpansiveProta : MonoBehaviour
 
     public void Explotion()
     {
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (expExplotion)
         {
-            if (canExplotion)
+            if (Input.GetKeyUp(KeyCode.E))
             {
-                explosionAudio.Play();
-                waveExpansive.SetActive(true);
-                canExplotion = false;
-                StartCoroutine(ExplotioTrue());
-                rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
-                Collider[] objects = Physics.OverlapSphere(transform.position, radius);
-
-                foreach (Collider obj in objects)
+                if (canExplotion)
                 {
-                    Rigidbody rb2d = obj.GetComponent<Rigidbody>();
-                    if (rb2d != null)
+                    explosionAudio.Play();
+                    waveExpansive.SetActive(true);
+                    canExplotion = false;
+                    StartCoroutine(ExplotioTrue());
+                    rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
+                    Collider[] objects = Physics.OverlapSphere(transform.position, radius);
+
+                    foreach (Collider obj in objects)
                     {
-                        Vector3 direction = obj.transform.position - transform.position;
-                        float distance = 0.3f + direction.magnitude;
-                        float forceInitial = forceExplotion / distance;
-                        rb2d.AddForce(direction * forceInitial);                        
+                        Rigidbody rb2d = obj.GetComponent<Rigidbody>();
+                        if (rb2d != null)
+                        {
+                            Vector3 direction = obj.transform.position - transform.position;
+                            float distance = 0.3f + direction.magnitude;
+                            float forceInitial = forceExplotion / distance;
+                            rb2d.AddForce(direction * forceInitial);
+                        }
                     }
                 }
-            }           
-        }       
+                
+                /*if (canExplotion)
+                {
+                    explosionAudio.Play();
+                    waveExpansive.SetActive(true);
+                    canExplotion = false;
+                    StartCoroutine(ExplotioTrue());
+                    rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
+                    Collider[] objects = Physics.OverlapSphere(transform.position, radius);
+
+                    foreach (Collider obj in objects)
+                    {
+                        Rigidbody rb2d = obj.GetComponent<Rigidbody>();
+                        if (rb2d != null)
+                        {
+                            Vector3 direction = obj.transform.position - transform.position;
+                            float distance = 0.3f + direction.magnitude;
+                            float forceInitial = forceExplotion / distance;
+                            rb2d.AddForce(direction * forceInitial);
+                        }
+                    }
+                }*/
+            }
+        }
+             
     }
 
     public IEnumerator ExplotioTrue()

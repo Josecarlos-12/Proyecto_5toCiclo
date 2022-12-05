@@ -10,9 +10,12 @@ public class RobotinShoot : MonoBehaviour
     public Transform shotSpawn;
     //public float bulletVelocity;
     public GameObject Bullet;
+    public AudioSource audi;
+    public EnemyGianLife enemy;
 
     private void Update()
     {
+        if(!enemy.bDeath)
         Shoot();
     }
 
@@ -20,6 +23,7 @@ public class RobotinShoot : MonoBehaviour
     {
         if (Time.time > initialShoot)
         {
+            audi.Play();
             //Vector3 playerDirection = player.position - transform.position;
             initialShoot = Time.time + timeShoot;
             Instantiate(Bullet, shotSpawn.transform.position, shotSpawn.transform.rotation);

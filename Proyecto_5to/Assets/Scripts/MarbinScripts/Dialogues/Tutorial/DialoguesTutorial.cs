@@ -14,6 +14,7 @@ public class DialoguesTutorial : MonoBehaviour
     public Collider[] coll;
     public Transform point;
     public float rayDistance;
+    public LayerMask layer, layer2;
     public MoveRGB move;
     public GameObject cartel;
 
@@ -53,12 +54,15 @@ public class DialoguesTutorial : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit hit;
+        Camera2();
+
+        /*RaycastHit hit;
 
         if (Physics.Raycast(point.position, point.forward, out hit, rayDistance))
         {
             if (hit.transform.name== "Left")
             {
+                Debug.Log("Left");
                 gText.SetActive(true);
                 audioclip[0].SetActive(false);
                 audioclip[1].SetActive(true);
@@ -76,6 +80,7 @@ public class DialoguesTutorial : MonoBehaviour
         {
             if (hit.transform.name == "Right")
             {
+                Debug.Log("Right");
                 r.Stop();
                 gText.SetActive(true);
                 text.text = dialogues[5];
@@ -89,8 +94,28 @@ public class DialoguesTutorial : MonoBehaviour
 
             }
 
+        }*/
+    }
+
+    public void Camera2()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(point.position, point.forward, out hit, rayDistance, layer))
+        {
+           
+               
+
+        }
+        else if (Physics.Raycast(point.position, point.forward, out hit, rayDistance, layer2))
+        {
+           
+                
+          
+
         }
     }
+
     private void OnDrawGizmos()
     {
         Debug.DrawRay(point.position, point.forward * rayDistance);
@@ -110,7 +135,7 @@ public class DialoguesTutorial : MonoBehaviour
         yield return null;
         text.text = dialogues[4];
         yield return new WaitForSeconds(fTimeDialogues[6]);
-        gText.SetActive(false);
+        //gText.SetActive(false);
         r.clip = pit;
         r.Play();
         r.loop = true;

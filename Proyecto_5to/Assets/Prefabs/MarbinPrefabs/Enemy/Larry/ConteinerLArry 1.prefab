@@ -124,8 +124,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2295107887312700891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.17, z: 0}
+  m_LocalScale: {x: 1.9670111, y: 1.22, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2295107887841188359}
@@ -141,8 +141,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.62
+  m_Height: 2.51
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2295107887312700901
@@ -182,8 +182,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2295107887515368833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.19, y: -4.81, z: -2.96}
-  m_LocalScale: {x: 0.69064, y: 0.69064, z: 0.69064}
+  m_LocalPosition: {x: -15.19, y: -4.8542, z: -3.0881}
+  m_LocalScale: {x: 0.97753185, y: 0.97753185, z: 0.97753185}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2295107887841188359}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 2295107887841188355}
   m_Layer: 0
   m_Name: Larry
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,8 +294,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 2
+  m_Radius: 0.64
+  m_Height: 2.84
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2295107887841188354
@@ -317,23 +317,23 @@ MonoBehaviour:
   distancePoint: 1
   agent: {fileID: 2295107887841188352}
   destPoint: 0
-  speedMin: 17
-  aceeleration: 20
+  speedMin: 15
+  aceeleration: 18
   player: {fileID: 0}
   detecte: 20
-  detectePunch: 1.2
+  detectePunch: 1.73
   view: 0
   rb: {fileID: 2295107887841188353}
   anim: {fileID: 2295107887841188355}
   punch: 0
   life: 60
-  sword: {fileID: 0}
+  sword: {fileID: 888039505135825219, guid: d6197c8b9a077c44b9a4494ad93b570a, type: 3}
   bullet: {fileID: 2493415344288551914, guid: 5f005c68d43fc5845a127101f5723945, type: 3}
   laser: {fileID: 691430955296938421, guid: dac547ee6697acd4ba756e28455b1f11, type: 3}
   render: {fileID: 810641881193071892}
   larryContainer: {fileID: 2295107887515368833}
   tEx: {fileID: 1752855780317465197}
-  experience: {fileID: 7051179569648928871, guid: 89b63dc096a186b4abd8ac05be6799b2,
+  experience: {fileID: 7051179569648928871, guid: f3db98e1dc5a76240a3a0df4e6e6b79e,
     type: 3}
   count: 0
 --- !u!54 &2295107887841188353

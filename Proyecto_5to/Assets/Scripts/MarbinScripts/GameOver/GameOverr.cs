@@ -9,6 +9,7 @@ public class GameOverr : MonoBehaviour
     public GameObject over;
     public bool retu;
     public int count;
+    public string Level="TestingSceneNivel1";
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,7 @@ public class GameOverr : MonoBehaviour
         Debug.Log("Return");
         //over.SetActive(false);
         Time.timeScale = 1; 
-        SceneManager.LoadScene("TestingSceneNivel1");
+        SceneManager.LoadScene(Level);
         Debug.Log(Time.timeScale);
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = true;
@@ -44,6 +45,6 @@ public class GameOverr : MonoBehaviour
     public IEnumerator ReturnFalse()
     {
         yield return null;
-        SceneManager.LoadScene("TestingSceneNivel1");
+        SceneManager.LoadScene(Level);
     }
 }

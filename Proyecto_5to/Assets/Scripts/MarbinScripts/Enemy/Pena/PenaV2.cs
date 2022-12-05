@@ -34,6 +34,9 @@ public class PenaV2 : MonoBehaviour
     public Renderer render;
     public GameObject allContainer;
 
+    [Header("Experience")]
+    public GameObject exp;
+
 
     //public LessLifeProta lessLife;
     private void Start()
@@ -66,6 +69,8 @@ public class PenaV2 : MonoBehaviour
         if (life <= 0)
         {
             Destroy(allContainer);
+            Instantiate(exp, new Vector3(transform.position.x+2, transform.position.y, transform.position.z), Quaternion.identity);
+            Instantiate(exp, new Vector3(transform.position.x-2, transform.position.y, transform.position.z), Quaternion.identity);
         }
     }
 
@@ -83,8 +88,8 @@ public class PenaV2 : MonoBehaviour
                 col2.SetActive(false);
             }
             
-            agent.speed = 16;
-            agent.acceleration = 200;
+            agent.speed = 10;
+            agent.acceleration = 14;
             //agent.angularSpeed = 500;
         }
         else
@@ -121,7 +126,7 @@ public class PenaV2 : MonoBehaviour
 
     public void GotoNextPoint()
     {
-        Debug.Log("Caminando");
+        //Debug.Log("Caminando");
         if (points.Length == 0)
         {
             return;

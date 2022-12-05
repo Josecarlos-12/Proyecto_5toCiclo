@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,6 +33,11 @@ public class RogueBossState : MonoBehaviour
 
     float Timer;
 
+    public Renderer render;
+    public Sword sword;
+    public Bullet bullet, laser;
+    public int count;
+
     public enum State
     {
         run, shoot, idle, recharge, invoke
@@ -47,15 +53,7 @@ public class RogueBossState : MonoBehaviour
     }
     void Update()
     {
-        HPbar.fillAmount = HP / MaxHP;
-
-        Detect = Physics.CheckSphere(transform.position, MoveRango, LayerPlayer);
-        if (MeleeDetect)
-        {
-            Melee.Active = true;
-        }
-        GenerateShield();
-
+        Death();
         switch (state)
         {
             case State.idle:
@@ -78,7 +76,14 @@ public class RogueBossState : MonoBehaviour
                 Recharge();
                 break;
         }
+        HPbar.fillAmount = HP / MaxHP;
 
+        Detect = Physics.CheckSphere(transform.position, MoveRango, LayerPlayer);
+        if (MeleeDetect)
+        {
+            Melee.Active = true;
+        }
+        GenerateShield();
     }
 
     void PlayerDetect()
@@ -143,12 +148,43 @@ public class RogueBossState : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet") && !ShieldActives)
         {
-            HP -= 1.5f;
+            render.material.color = Color.red;
+            HP -= bullet.damageB;
+            StartCoroutine(ChangeColor());
         }
         if (other.gameObject.CompareTag("Sword") && !ShieldActives)
         {
-            HP -= 5;
+            render.material.color = Color.red;
+            HP -= sword.damage;
+            Debug.Log("Macheteo");
+            StartCoroutine(ChangeColor());
         }
+        if (other.gameObject.CompareTag("LaserProta") && !ShieldActives)
+        {
+            render.material.color = Color.red;
+            HP -= laser.damageB;
+            StartCoroutine(ChangeColor());
+        }
+        if (other.gameObject.name == "WaveProta" && !ShieldActives)
+        {
+            if (count < 3)
+            {
+                count++;
+            }
+            if (count == 1)
+            {
+                StartCoroutine(ChangeColor());
+                HP -= 60;
+            }
+        }
+    }
+
+    public IEnumerator ChangeColor()
+    {
+        yield return new WaitForSeconds(0.5f);
+        render.material.color = Color.white; 
+        yield return new WaitForSeconds(0.5f);
+        count = 0;
     }
 
     void Death()

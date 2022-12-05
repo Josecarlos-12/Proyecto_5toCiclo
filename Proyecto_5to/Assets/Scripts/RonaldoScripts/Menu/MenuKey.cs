@@ -6,6 +6,13 @@ using TMPro;
 
 public class MenuKey : MonoBehaviour
 {
+    [Header("Habilidades")]
+    public Jump jump;
+    public Shield shield;
+    public DashController dash;
+    public Sword sword;
+
+
     [SerializeField] GameObject Button;
     public TMP_Text ButtonText;
     public Movement PlayerMov;
@@ -52,16 +59,21 @@ public class MenuKey : MonoBehaviour
             switch (state)
             {
                 case State.adelante:
-                    PlayerMov.adelante = NewKey;
+                    //Delante
+                    //PlayerMov.adelante = NewKey;
+                    jump.kJP = NewKey;
                     break;
                 case State.atras:
-                    PlayerMov.atras = NewKey;
+                    //Atras
+                    shield.kSh = NewKey;
                     break;
                 case State.izquierda:
-                    PlayerMov.izquierda = NewKey;
+                    //Izquierda
+                    dash.kDash = NewKey;
                     break;
                 case State.derecha:
-                    PlayerMov.derecha = NewKey;
+                    //Derecha
+                    sword.kSworrd = NewKey;
                     break;
             }
         }
@@ -70,16 +82,20 @@ public class MenuKey : MonoBehaviour
             switch (state)
             {
                 case State.adelante:
-                    NewKey = PlayerMov.adelante;
+                    //NewKey = PlayerMov.adelante;
+                    NewKey = jump.kJP;
                     break;
                 case State.atras:
-                    NewKey = PlayerMov.atras;
+                    //NewKey = PlayerMov.atras;
+                    NewKey = shield.kSh;
                     break;
                 case State.izquierda:
-                    NewKey = PlayerMov.izquierda;
+                    //NewKey = PlayerMov.izquierda;
+                    NewKey = dash.kDash;
                     break;
                 case State.derecha:
-                    NewKey = PlayerMov.derecha;
+                    //NewKey = PlayerMov.derecha;
+                    NewKey = sword.kSworrd;
                     break;
             }
         }
